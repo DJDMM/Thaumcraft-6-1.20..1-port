@@ -57,6 +57,8 @@ public final class CatalogModule {
 
     /** Kept in one place so armor and special render adapters can be added independently. */
     private static Item createItem(Spec spec) {
+        Item turret=thaumcraft.artifice.construct.TurretModule.createItem(spec);
+        if(turret!=null) return turret;
         if (spec.id().equals("causality_collapser")) return new thaumcraft.world.rift.collapser.CausalityCollapserItem();
         if (spec.id().equals("golem")) return new thaumcraft.golemancy.entity.GolemPlacerItem(spec);
         if (spec.id().equals("golem_bell")) return new thaumcraft.golemancy.entity.GolemBellItem(spec);

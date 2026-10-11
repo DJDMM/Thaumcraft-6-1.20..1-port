@@ -44,6 +44,8 @@ public final class VisualEntitiesModule {
             if (spec.living()) {
                 var type = TYPES.register(spec.id(), () -> EntityType.Builder.<VisualMobEntity>of(
                         switch (spec.id()) {
+                            case "turret_basic" -> thaumcraft.artifice.construct.TurretEntity::new;
+                            case "turret_advanced" -> thaumcraft.artifice.construct.AdvancedTurretEntity::new;
                             case "wisp" -> thaumcraft.world.rift.WispEntity::new;
                             case "taint_seed" -> thaumcraft.world.taint.TaintSeedEntity::new;
                             case "taint_seed_prime" -> thaumcraft.world.taint.TaintSeedPrimeEntity::new;
@@ -86,6 +88,8 @@ public final class VisualEntitiesModule {
         var attributes = VisualMobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 0).build();
         LIVING.forEach((id,type) -> event.put(type.get(), switch (id) {
+            case "turret_basic" -> thaumcraft.artifice.construct.TurretEntity.attributes().build();
+            case "turret_advanced" -> thaumcraft.artifice.construct.AdvancedTurretEntity.attributes().build();
             case "wisp" -> thaumcraft.world.rift.WispEntity.attributes().build();
             case "taint_seed" -> thaumcraft.world.taint.TaintSeedEntity.attributes().build();
             case "taint_seed_prime" -> thaumcraft.world.taint.TaintSeedPrimeEntity.attributes().build();

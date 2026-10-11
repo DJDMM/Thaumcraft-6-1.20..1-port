@@ -23,6 +23,8 @@ public final class VisualEntityRenderers {
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event) {
         VisualEntitiesModule.LIVING.forEach((id,type) -> event.registerEntityRenderer(type.get(),context -> {
             var spec=VisualEntitySpec.byId(id);
+            if(id.equals("turret_basic")) return new thaumcraft.artifice.construct.client.TurretRenderers.Basic(context);
+            if(id.equals("turret_advanced")) return new thaumcraft.artifice.construct.client.TurretRenderers.Advanced(context);
             if(spec.model().startsWith("obj_")) return new ObjRenderer(context);
             if(java.util.List.of("wisp","swarm","portal").contains(spec.model())) return new SpriteRenderer<VisualMobEntity>(context);
             if(spec.model().equals("humanoid") || spec.model().equals("zombie")) return new CultistRenderer(context,spec);

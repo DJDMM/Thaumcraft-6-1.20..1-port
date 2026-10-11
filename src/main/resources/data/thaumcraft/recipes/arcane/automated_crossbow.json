@@ -1,0 +1,17 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "equipment",
+  "research": "BASICTURRET",
+  "vis": 100,
+  "crystals": { "aer": 1 },
+  "pattern": ["BGI", "WMW", "S S"],
+  "key": {
+    "B": { "item": "minecraft:bow" },
+    "G": { "item": "thaumcraft:mechanism_simple" },
+    "I": { "tag": "forge:plates/iron" },
+    "W": { "item": "thaumcraft:plank_greatwood" },
+    "M": { "item": "thaumcraft:mind_clockwork" },
+    "S": { "tag": "forge:rods/wooden" }
+  },
+  "result": { "item": "thaumcraft:turret_basic", "count": 1 }
+}

@@ -2,6 +2,29 @@ package thaumcraft.catalog.entities.client;
 
 /** Cuboids/UV/pivots extracted from pinned BETA26 ModelCrossbow. */
 public final class LegacyCrossbowModel extends LegacyVisualModel {
+    private float loadProgress, fireProgress;
+
+    /** Native renderer supplies the released interpolated ten-tick loading cycle. */
+    public void setLoadProgress(float progress) { loadProgress = progress; }
+    public void setFireProgress(float progress) { fireProgress = progress; }
+
+    @Override public void setupAnim(thaumcraft.catalog.entities.VisualMobEntity entity,
+            float limbSwing, float limbAmount, float age, float yaw, float pitch) {
+        super.setupAnim(entity, limbSwing, limbAmount, age, yaw, pitch);
+        if (!(entity instanceof thaumcraft.artifice.construct.TurretEntity)) return;
+        float swing = net.minecraft.util.Mth.sin(net.minecraft.util.Mth.sqrt(fireProgress) * net.minecraft.util.Mth.TWO_PI);
+        crossl1.rotateAngleY = crossl2.rotateAngleY = crossl3.rotateAngleY = -.2F + swing * .2F;
+        crossr1.rotateAngleY = crossr2.rotateAngleY = crossr3.rotateAngleY = .2F - swing * .2F;
+        loadbarcross.rotateAngleX = loadbarl.rotateAngleX = loadbarr.rotateAngleX = -.5F
+                + net.minecraft.util.Mth.sin(net.minecraft.util.Mth.sqrt(loadProgress) * net.minecraft.util.Mth.TWO_PI) * .5F;
+        boolean cart = entity.getVehicle() instanceof net.minecraft.world.entity.vehicle.AbstractMinecart;
+        for (LegacyPart leg : new LegacyPart[]{leg1, leg2, leg3, leg4}) {
+            leg.rotateAngleX = cart ? .1F : .5F;
+            // Legacy offsetY is in world units, whereas the baked pivot is in pixels.
+            leg.rotationPointY = cart ? 4 : 12;
+        }
+        nodes.forEach(LegacyPart::update);
+    }
 
     LegacyPart crossl3;
     LegacyPart crossr3;

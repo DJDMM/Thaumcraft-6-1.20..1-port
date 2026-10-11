@@ -1,0 +1,473 @@
+{
+  "version": "0.30.0",
+  "date": "2026-10-11",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 89,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 24,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1066,
+  "newTestsBySuite": {
+    "constructs": 21,
+    "redstoneAndEar": 24,
+    "paidResearchAndRecipes": 11
+  },
+  "serverLog": {
+    "file": "turret-030-gametest6.log",
+    "bytes": 154919,
+    "sha256": "3e0255d3fe20c7db3c65bb426d662435582561272da22fe38c4b538da65ee996"
+  },
+  "serverResult": "1066/1066; BUILD SUCCESSFUL; native server completed",
+  "clientRunTag": "turret-030-client2",
+  "client": {
+    "runTag": "turret-030-client2",
+    "smokeTest": "Turret",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\turret-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\turret-client-turret-030-client2-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\turret-client-turret-030-client2-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\turret-client-turret-030-client2.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\turret-client-turret-030-client2-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\turret-client-turret-030-client2-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\turret-client-turret-030-client2-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_a6dc1184f8714e8f964a65738d9cbbfa",
+    "jvmPid": 31388,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 10
+  },
+  "clientLog": {
+    "file": "turret-client-turret-030-client2-client.log",
+    "bytes": 25715,
+    "sha256": "099b30ee153348d642798efacd78ebde27bd33a2a9226d9e790afeffffce95be"
+  },
+  "clientScenes": 10,
+  "nativeClientFacts": {
+    "paidStudies": [
+      "BASICTURRET",
+      "ADVANCEDTURRET"
+    ],
+    "paidArcaneCrafts": 3,
+    "visDebit": 350,
+    "aerDebit": 4,
+    "basicCrafted": 2,
+    "advancedCrafted": 1,
+    "advancedInputUsesSecondPaidBasic": true,
+    "realPlacers": 2,
+    "menuArrowInputEach": 64,
+    "actualAiOwnedArrowsAndHits": true,
+    "targetFlags": [
+      2,
+      3,
+      1,
+      5,
+      13,
+      5,
+      1
+    ],
+    "dispenserArrows": 64
+  },
+  "visualReview": {
+    "clientRunTag": "turret-030-client2",
+    "clientLogSha256": "099b30ee153348d642798efacd78ebde27bd33a2a9226d9e790afeffffce95be",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "progression_review_030"
+    ],
+    "method": "Both reviewers viewed all10 full1600x1000 PNG at original detail plus the actual contact sheet.",
+    "contactSheet": {
+      "file": "turret-0.30-review-sheet.png",
+      "sha256": "c72403ceb655a9a8d941d5f8f484716834d24f636fd33f480242809efab6d791",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-turret-basic-paid-research.png",
+        "sha256": "93493abdd5c705c877fb7e6a4deed08d224343c1f3fb84eefcdb87c1d31c1243",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-basic-paid-recipe.png",
+        "sha256": "61b9ce0a4f0c3784f3ac59a36d4d9a75b97eb2308f09eb9bed9277c453bc44de",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-basic-original-ammo-gui.png",
+        "sha256": "6b644c2e5d5a17102230ba320b991ab603fe2f371a8870790402aa9004e4fc88",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-basic-native-ai.png",
+        "sha256": "e4b3dff1df3c67adce2f70e85f9c2e33e9933fd43e62fe01c8c348404f3d8a34",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-advanced-paid-research.png",
+        "sha256": "5790dc75f15ddabbf71e6b29df32ca612f5f1d15ebc99cf33b496362a1b6dd17",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-advanced-paid-recipe.png",
+        "sha256": "1814c0cc4328cb20128f739bb39bac310e42f460cf58a4d3d169c730173455a2",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-advanced-original-ammo-gui.png",
+        "sha256": "5a724da25f9357d63a5cf7f636d894755d9b5cc9a5784fbacaf3f008aa9f19b8",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-advanced-target-settings.png",
+        "sha256": "a8ee2bc8531395d7d0205f83da9af9493c339bce326d8879b443d0f2ce1b18ba",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-advanced-native-ai.png",
+        "sha256": "0d2a52fdb2ee13fe94111a5a15bfa9b2b1511442b15f93dd12fdd9cd0da97c6c",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-turret-basic-native-dispenser-reload.png",
+        "sha256": "44f87fadcd0fb6de98f82fbe8654389bb5e9c1891f21b8cb4c2205f6c945782c",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Original basic/advanced ammo GUI is readable and aligned;64arrow counts and health/icons visible.",
+      "Advanced target settings show original Mobs-only then Animals-only states.",
+      "Actual book/bench/model scenes have no missing textures or developer labels; early highFlux message is original tc.fluxevent.3.",
+      "Native basic and eight-group advanced models are visible; no camera hides the tested construct."
+    ],
+    "limits": [
+      "Prepared test scenes, not complete survival progression or independent multiplayer.",
+      "Bench captures show live payable recipes before extraction; subsequent native C2S logs establish actual payment.",
+      "Floor-flush dispenser is not independently identifiable in the reload still; native source/mainhand conservation is logged.",
+      "Static images show selected animation moments; they do not prove every frame or all-angle geometric parity.",
+      "No paid Relay/Ear client progression or physical circuit capture is claimed."
+    ]
+  },
+  "localJsonCount": 2846,
+  "jarResourceByteParityChecks": 3664,
+  "originalMediaByteParity": {
+    ".ogg": 56,
+    ".png": 662,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.30.0.jar",
+      "bytes": 10855237,
+      "sha256": "70ef93ace82899b4a92b1275dcd103d533dc9f76a4c70d5d2b5ad89d4181a7f8"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.30.0-mods.zip",
+      "bytes": 9977313,
+      "sha256": "9b54ad90297915836d4b1e1ee8f7b5bb8c5252bb538c5e46c09ddaf991b8338b"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.30.0-screenshots.zip",
+      "bytes": 3159882,
+      "sha256": "88253d84904d520c76e8d55bfcc28d96b4023dbcb972c750fc76a77a16d126d0"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.30.0-preview.png",
+      "bytes": 1428178,
+      "sha256": "c72403ceb655a9a8d941d5f8f484716834d24f636fd33f480242809efab6d791"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.30-final.log",
+    "bytes": 1212,
+    "sha256": "abd11e750f123668b01ae57be094794fdacaa4f2466812976f33b4b07ec883f1"
+  },
+  "resourceLog": {
+    "file": "resources-0.30-final.log",
+    "bytes": 188,
+    "sha256": "ff28bbc0c85407267dd18842039a0082dc05b0f7a24bd97662b04db01211cb6e"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "f1c74056e5cf7fc7acb033252755d93fa49809e540584c8e2bec531a639a39d3"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "bd5bd83a2ae2782940dae2d1dc66b2451a1a47660e0619558b06e219b9caf8df"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "099b9191bce23032d91c8e3a80d768e66c31c316270eb0166ef0d3f1f347e0ed"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "e3bb4d249062bbf06240df404fb62d3770d7a2091efb8ff1641a8e4d250a5190"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/AdvancedTurretEntity.java",
+      "sha256": "596af8c420038e6dbcbc97fdd73a927d4211d10d61b6f8b095a6d5714ded98a5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/OwnedConstructEntity.java",
+      "sha256": "223385fb50558030239c341f2fd56682f4c528eaef1c3090157b3e581b36bcd3"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretEntity.java",
+      "sha256": "8f355071e78c6a229d94736759fef820020499b97100782d1f3f2076d2a1f68f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretGameTests.java",
+      "sha256": "78e8debabc4f5d9e9e1fb40c6ec7688e39f9e1c37941c14eb9dea571710230de"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretMenu.java",
+      "sha256": "fb57aedd0944e73bdccec9f501053d0fa60b75eba7ae749c294174b89042f84d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretModule.java",
+      "sha256": "89242245aad2ff574774abccb44fbd53695b1f4d68c3f4abadb01b9d5922642f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretPlacerItem.java",
+      "sha256": "e537f73c02b9cb5764d9c9d66d53e185dbba644a3bc58331b50af619d0c9aa4f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/TurretClientEvents.java",
+      "sha256": "bbcaf28e64a09ffbd39f875adf95929a8b8a91b47592f2389d298703d6c9eb23"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/TurretClientSmokeTest.java",
+      "sha256": "77df62b24e87d77768ee447a7162936b7db7c564f0c4a7d2acdff0fa54dbe88f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/TurretRenderers.java",
+      "sha256": "37f2e1c4e7fdd9cba28651702e572ff350fde41d94316077fd27604b43d25d2e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/TurretScreen.java",
+      "sha256": "9d2b21c0d474959726368e20372ba412c9dbc93626daed387feff83490bfcf75"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/ArcaneEarBlock.java",
+      "sha256": "97fd6d8b4fd0b6d8ef900d1be246f96d57217f7ad834115168130704f7275e34"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/ArcaneEarBlockEntity.java",
+      "sha256": "16cf33c89587637c2b42e41c5ebb4926f3b8329f4625c4b9df473421b263d25d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/ArcaneEarEvents.java",
+      "sha256": "f7b4c4685f8b729a3ad4df3afdd168bb1d7a5383186f638bb4abc94b2ef0cad9"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/ArtificeRedstoneModule.java",
+      "sha256": "2dc7d22d7842d4e2dff8c4b799505da395010f2054629bf56be636c75c1ee4aa"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/LegacyRedstoneDeviceMigration.java",
+      "sha256": "3247b25fdd9eecd0b412a04ee3550860bcc311c0ab07905746f69f62d89bf85d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/RedstoneDeviceGameTests.java",
+      "sha256": "efd773707ceac8cf7a0c68af9515d189e6b62a3733b7a75f2381245cf02a2283"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/RedstoneRelayBlock.java",
+      "sha256": "87b7939942b58f382d4905aa0105efa818741040ed414543a331ee92d00b85c8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/RedstoneRelayBlockEntity.java",
+      "sha256": "6b2314c3735ee721ca0bd47920f8cf8b09d37a24b8b19718a8790a6801fa4257"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/client/RedstoneDeviceClient.java",
+      "sha256": "b1ddb70d67c9c3cdf13949e64dc4391ab4fd91abed3b81636256300626d772f6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/CatalogModule.java",
+      "sha256": "3555ad357e5d36b82513fa7745aea2038f071f171423950b5b306d3a06e52355"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/blocks/CatalogBlocks.java",
+      "sha256": "e33672fd7f0aa8f49967827f96a2b703bd9288e871fb65cd101c6478916d2379"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/VisualEntitiesModule.java",
+      "sha256": "906707e1050a605e659369c1ffd0eec477b19a2ee81be720243e4d4f0479fe2a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/client/LegacyCrossbowModel.java",
+      "sha256": "abde80233b77f8190612e58f2da15a8fac479d81d6392ed66b2c08fdd4e979f6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/client/VisualEntityRenderers.java",
+      "sha256": "353f9b808f53ce3d6e67a65811e4406c15179bc50af12b2513a6155a561f2f83"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "dcc4294bdc7eab85b1bcba43f2f887f41500f8fa053aa232369b1fd6bcc16b63"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "a7a987cbd67bc66a6aabfd80893980e8a419272cc58799bd54f87f68bea3fd98"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "95c0cbc3d47fbfbff67d62df61399d35835944d46db0292955eee3f7068bc7d8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "7c74804575d4070916baec46bb3def34854d7dc0d7cc74ea2b14b76ccdec8671"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "758198eda53ef8ab57f6e596edc02b8cf9996e49713ec95c29eaa665325a193d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "38bef1febbcc45987c5976c14a1ec16e40687da526dfda7eee6c0d724ff1c99d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/LegacyResearchItems.java",
+      "sha256": "e3c17e229811a8d8f6f628fb9bb7fb86851b9fcea04da536e39548f859822cb2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "052d18392764f247eddcbbd2d0d93ee246f93c6718cb3fc2f8e78c39e2e88a87"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "da4a157b0c26da9fb72f759995bcd83fea44706d42e52e772061eb91fec067d8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "3d867202a643cd28948cbad5a45242934033584f634943661e4b0fc6378ae7b6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+      "sha256": "c6400f0190c4d0a1a08466607ea8057e1e5bdd8dd8b6618031ea0047bee69406"
+    },
+    {
+      "file": "src/main/java/thaumcraft/world/taint/FallingTaintGameTests.java",
+      "sha256": "9f1014106c4039c025b0844d8b5f1bb0e8513b9dc7d58b93d96827fa8baa9e4b"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "bd55d3fc0bc3f8ba41db79a3d96835590132bd4bf6e5d55be9f1a59d0793bd45"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/gui/gui_turret_advanced.png",
+      "sha256": "31554e6c6f1281c6e754771120dcfa1403c7ee630fd86634e32af6c482688af7"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/gui/gui_turret_basic.png",
+      "sha256": "fb28f6f97efceadb0df26ffb90667763abae87df5326c250bc71c5c03b655958"
+    },
+    {
+      "file": "src/main/resources/data/minecraft/tags/blocks/rails.json",
+      "sha256": "96af2e730725d9ad6967e8096b8cb86b716cf51a8e22b3195d52eb3acd226182"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/activatorrail.json",
+      "sha256": "0a83743795c75851f1f1f351567f5442a1e90988c9a5919257f38e86add510fa"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/advanced_crossbow.json",
+      "sha256": "37a347a38ece2476c8db124a38b5181f5c848356ca2b4d07d2f760341f9e5553"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/arcane_ear.json",
+      "sha256": "18b9438f09433c341e8a2820677c7e3800e500e1a2604f1bc7e32901afa0d5d7"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/automated_crossbow.json",
+      "sha256": "b4dd53c6283da8fe74e8ef1102b55d6cf2512bdbd5b7dd2c5327c543a0041488"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/redstone_relay.json",
+      "sha256": "9e6ab212e53682bbadbc85c658177789fc1a82bb90741551d97ce9404702b07e"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane_ear_toggle.json",
+      "sha256": "2163e730ea09cead15d68e441db801fbe786cb9a2a0004731a722af141e358e2"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "turret-030-server6-source-snapshot.json",
+      "bytes": 619494,
+      "sha256": "436244bf1d95acfe427787886fbf4f24867fb14be0874847626f93c343003af6"
+    },
+    {
+      "file": "turret-030-client2-source-snapshot.json",
+      "bytes": 619494,
+      "sha256": "d2a49094cfe1456445d45a004d144d5475ad87441ee880f593a02a24d4ca722d"
+    },
+    {
+      "file": "turret-030-build-final-source-snapshot.json",
+      "bytes": 619494,
+      "sha256": "d2a49094cfe1456445d45a004d144d5475ad87441ee880f593a02a24d4ca722d"
+    }
+  ],
+  "serverSourceFreshness": {
+    "unchangedSourceFiles": 4294,
+    "excludedOptInClientDriver": "src/main/java/thaumcraft/artifice/construct/client/TurretClientSmokeTest.java",
+    "reason": "Client1 fixture selected slot0 on server without a native carried-slot sync; only smoke driver adds ClientboundSetCarriedItemPacket0. Final client2 reruns full10 scenes; production/resources/server tests are byte-identical to server6.",
+    "serverDriverSha256": "6d9a0f15226fc691165038d8de45f90391f37bfc59dcf0e8bc736f8a4dbcbf2c",
+    "finalDriverSha256": "77df62b24e87d77768ee447a7162936b7db7c564f0c4a7d2acdff0fa54dbe88f"
+  },
+  "fixtures": [
+    "Owned fresh survival test world; predecessor studies and f_DISPENSER supplied explicitly",
+    "Raw observation/theory, original recipe ingredients/crystals,250vis and high1000flux neighbour isolation",
+    "Prepared platform/loadedchunks, survival invulnerability; native NoAI1000HP targets only",
+    "Raw64arrow ammo menu inputs; native UPdispenser/raw64arrows for actual reload"
+  ],
+  "limitations": [
+    "Relay/Ear behavior has native server circuit tests; this client run does not photograph their physical operation",
+    "No full manual survival or independent multiplayer validation",
+    "Arcane Bore,mirrors and remaining devices,late Warp/Crimson/Eldritch still unfinished",
+    "Static PNG do not alone establish every animation frame; client native event observations are logged"
+  ],
+  "earlierRuns": [
+    {
+      "file": "turret-030-gametest1.log",
+      "bytes": 8240,
+      "sha256": "0e24e647b834bcf8927f4c03aa0f459328fe2ffe7fc4ff9227262d85d212860d"
+    },
+    {
+      "file": "turret-030-gametest2.log",
+      "bytes": 157225,
+      "sha256": "19ba62bff319d18e5989a827d87670a2e7d2a233352866625ea076e5b19b6e01"
+    },
+    {
+      "file": "turret-030-gametest3.log",
+      "bytes": 160371,
+      "sha256": "38a2ca5fca199f7628b93ac5122f7ced7a94a84bb4e1fb7ac6418b60be14fa4d"
+    },
+    {
+      "file": "turret-030-gametest4.log",
+      "bytes": 156773,
+      "sha256": "0662240a427d1fcf85d2d343950ac0425966007f0278f3bc31f3ffb3559f454e"
+    },
+    {
+      "file": "turret-030-gametest5.log",
+      "bytes": 156378,
+      "sha256": "f7475fcfe7ee58f94d89f64460f8884b3a2fcae1fa208105ce7a301ef090c9c3"
+    }
+  ]
+}

@@ -30,7 +30,8 @@ public final class ResearchProgression {
             "MINDBIOTHAUMIC", "MATSTUDIRON", "MATSTUDCLAY", "MATSTUDBRASS", "MATSTUDTHAUMIUM",
             "GOLEMBREAKER", "GOLEMCOMBATADV", "GOLEMDIRECT", "GOLEMLOGISTICS", "GOLEMCLIMBER", "GOLEMVISION",
             "HUNGRYCHEST", "LEVITATOR", "JARBRAIN", "GOLEMFLYER", "ESSENTIATRANSPORT",
-            "ORE", "CRYSTALFARMER", "VISBATTERY", "FLUX", "FLUXRIFT", "RIFTCLOSER");
+            "ORE", "CRYSTALFARMER", "VISBATTERY", "FLUX", "FLUXRIFT", "RIFTCLOSER",
+            "REDSTONERELAY", "ARCANEEAR", "BASICTURRET", "ADVANCEDTURRET");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
@@ -207,8 +208,11 @@ public final class ResearchProgression {
             // Do not repair them into costs the released research never charged.
             if (ResourceLocation.tryParse(raw.split(";", 2)[0]) != null) obtain.add(Obtain.parse(raw));
         }
+        // ARCANEEAR's released JSON misspells required_knowledge as required_knowledgeauram.
+        // The original loader ignores that field; keep its item/fact costs without adding knowledge.
         for (String key : stage.keySet()) if (key.startsWith("required_") &&
-                !Set.of("required_knowledge", "required_craft", "required_item", "required_research").contains(key))
+                !Set.of("required_knowledge", "required_craft", "required_item", "required_research",
+                        "required_knowledgeauram").contains(key))
             throw new IllegalArgumentException("Unsupported requirement " + key);
         int warp = stage.has("warp") ? stage.get("warp").getAsInt() : 0;
         if (warp < 0) throw new IllegalArgumentException("Negative stage warp");

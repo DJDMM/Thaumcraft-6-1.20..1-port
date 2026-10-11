@@ -35,7 +35,7 @@ public final class CatalogBlocks {
                     ? new thaumcraft.golemancy.jar.BrainJarBlockItem(block.get())
                     : spec.id().equals("hungry_chest")
                     ? thaumcraft.artifice.hungrychest.HungryChestModule.createBlockItem(block.get())
-                    : spec.id().equals("levitator") || spec.id().equals("vis_battery") || spec.id().equals("crystal_vitium") ? new BlockItem(block.get(),new Item.Properties())
+                    : spec.id().equals("levitator") || spec.id().equals("vis_battery") || spec.id().equals("crystal_vitium") || thaumcraft.artifice.redstone.ArtificeRedstoneModule.handlesBlock(spec.id()) ? new BlockItem(block.get(),new Item.Properties())
                     : thaumcraft.essentia.transfuser.EssentiaTransfuserModule.handlesBlock(spec.id())
                     ? new BlockItem(block.get(),new Item.Properties())
                     : isEssentiaJar(spec.id())
@@ -63,6 +63,7 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (thaumcraft.artifice.redstone.ArtificeRedstoneModule.handlesBlock(id)) return thaumcraft.artifice.redstone.ArtificeRedstoneModule.createBlock(id);
         if (thaumcraft.world.taint.TaintModule.handlesBlock(id)) return thaumcraft.world.taint.TaintModule.createBlock(id);
         if (id.equals("crystal_vitium")) return new thaumcraft.world.crystal.PrimalCrystalClusterBlock(thaumcraft.api.aspects.Aspect.FLUX);
         if (id.equals("vis_battery")) return new thaumcraft.world.crystal.VisBatteryBlock();

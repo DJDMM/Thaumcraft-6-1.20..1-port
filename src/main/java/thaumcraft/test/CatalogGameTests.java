@@ -39,7 +39,9 @@ public final class CatalogGameTests {
         helper.getLevel().setBlock(pos.below(),net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(),3);
         for(var entry:CatalogBlocks.ENTRIES.entrySet()) {
             var block=entry.getValue().get();
-            helper.getLevel().setBlock(pos,block.defaultBlockState(),3);
+            var state=block.defaultBlockState();
+            if(block instanceof thaumcraft.artifice.redstone.ArcaneEarBlock) state=state.setValue(thaumcraft.artifice.redstone.ArcaneEarBlock.FACING,net.minecraft.core.Direction.UP);
+            helper.getLevel().setBlock(pos,state,3);
             helper.assertTrue(helper.getLevel().getBlockState(pos).is(block),"Placement failed "+entry.getKey());
             if(CatalogBlocks.special(entry.getKey())) helper.assertTrue(entry.getKey().equals("infusion_matrix")
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.infusion.InfusionMatrixBlockEntity
@@ -50,6 +52,8 @@ public final class CatalogGameTests {
                     : helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
             if(entry.getKey().equals("hungry_chest")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.hungrychest.HungryChestBlockEntity,"Hungry Chest lost operational inventory");
             if(entry.getKey().equals("levitator")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.golemancy.levitator.LevitatorBlockEntity,"Levitator lost operational aura ticker");
+            if(entry.getKey().equals("redstone_relay")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.redstone.RedstoneRelayBlockEntity,"Relay lost operational signal settings");
+            if(entry.getKey().equals("arcane_ear") || entry.getKey().equals("arcane_ear_toggle")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.redstone.ArcaneEarBlockEntity,"Ear lost native note receiver");
             if(thaumcraft.essentia.transfuser.EssentiaTransfuserModule.handlesBlock(entry.getKey())) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.transfuser.EssentiaTransfuserBlockEntity,"Airborne transfuser lost operational transport ticker");
             helper.getLevel().removeBlock(pos,false);
             helper.assertTrue(helper.getLevel().getBlockEntity(pos)==null,"Visual tile leaked after removal");
@@ -62,7 +66,10 @@ public final class CatalogGameTests {
             helper.assertTrue(ForgeRegistries.ENTITY_TYPES.containsKey(id(spec.id())),"Missing original entity "+spec.id());
             Entity entity=ForgeRegistries.ENTITY_TYPES.getValue(id(spec.id())).create(helper.getLevel());
             helper.assertTrue(entity!=null,"Cannot construct entity "+spec.id());
-            if(entity instanceof thaumcraft.world.rift.WispEntity wisp) helper.assertTrue(!wisp.isNoAi()
+            if(entity instanceof thaumcraft.artifice.construct.TurretEntity turret) helper.assertTrue(!turret.isNoAi()
+                    && turret.isPersistenceRequired() && turret.getMaxHealth()==(spec.id().equals("turret_advanced")?40:30)
+                    && turret.getArmorValue()==(spec.id().equals("turret_advanced")?8:2),"Native crossbow lost original AI/stats/persistence");
+            else if(entity instanceof thaumcraft.world.rift.WispEntity wisp) helper.assertTrue(!wisp.isNoAi()
                     && wisp.getMaxHealth()==22 && !wisp.isPersistenceRequired(),"Operational Wisp lost native AI/stats/despawn policy");
             else if(entity instanceof thaumcraft.world.taint.TaintSeedEntity seed) helper.assertTrue(!seed.isNoAi()
                     && !seed.removeWhenFarAway(1000000) && seed.getMaxHealth()==(spec.id().equals("taint_seed_prime")?150:75),"Operational seed lost native AI/stats/persistence policy");

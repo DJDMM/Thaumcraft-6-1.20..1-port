@@ -1,0 +1,9 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "FIRSTSTEPS",
+  "vis": 10,
+  "crystals": {},
+  "ingredients": [ { "item": "minecraft:activator_rail" } ],
+  "result": { "item": "thaumcraft:activator_rail", "count": 1 }
+}

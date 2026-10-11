@@ -28,12 +28,16 @@ public final class FallingTaintGameTests {
         for(int y=1;y<=3;y++)h.getLevel().setBlockAndUpdate(source.below(y),Blocks.AIR.defaultBlockState());
         h.getLevel().setBlockAndUpdate(landing.below(),Blocks.BEDROCK.defaultBlockState());
         var entity=create(h,source,source);h.getLevel().addFreshEntity(entity);
-        h.runAtTickTime(35,()->{
-            h.assertTrue(entity.isRemoved()&&h.getLevel().getBlockState(source).isAir()&&h.getLevel().getBlockState(landing).is(TaintModule.block("taint_crust")),
-                    "Native falling block did not transfer one source to its landing");
+        // Witness completion when the native entity lands. An orphan crust has its own
+        // random-tick decay, so its continued existence at tick35 is a different mechanic.
+        h.onEachTick(()->{
+            if(!entity.isRemoved()||!h.getLevel().getBlockState(landing).is(TaintModule.block("taint_crust")))return;
+            h.assertTrue(h.getLevel().getBlockState(source).isAir(),"Completed native landing retained its original source");
             h.assertTrue(h.getLevel().getEntitiesOfClass(ItemEntity.class,new AABB(landing).inflate(1)).isEmpty(),"Falling block invented item fallback");
             h.getLevel().setBlockAndUpdate(landing,Blocks.AIR.defaultBlockState());h.succeed();
         });
+        h.runAtTickTime(35,()->h.fail("Native falling block did not transfer one source to its landing: removed="+entity.isRemoved()
+                +", source="+h.getLevel().getBlockState(source)+", landing="+h.getLevel().getBlockState(landing)));
     }
     @GameTest(template="empty") public static void fallingTaintSaveRestoresStateOriginAndUnsignedByteTimer(GameTestHelper h) {
         var source=h.absolutePos(new BlockPos(2,70,2));h.getLevel().setBlockAndUpdate(source,TaintModule.block("taint_rock").defaultBlockState());

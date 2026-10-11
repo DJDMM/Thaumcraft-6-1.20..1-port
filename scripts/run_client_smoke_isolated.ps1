@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Turret = @{ property = 'turretSmokeTest'; directory = 'turret-smoke'; prefix = 'turret-client'; marker = 'THAUMCRAFT_TURRET_CLIENT_SMOKE'; audit = 'THAUMCRAFT_TURRET_RENDER_AUDIT_OK' }
     Taint = @{ property = 'taintSmokeTest'; directory = 'taint-smoke'; prefix = 'taint-client'; marker = 'THAUMCRAFT_TAINT_CLIENT_SMOKE'; audit = 'THAUMCRAFT_TAINT_RENDER_AUDIT_OK' }
     Rift = @{ property = 'riftSmokeTest'; directory = 'rift-smoke'; prefix = 'rift-client'; marker = 'THAUMCRAFT_RIFT_CLIENT_SMOKE'; audit = 'THAUMCRAFT_RIFT_RENDER_AUDIT_OK' }
     Thaumometer = @{ property = 'thaumometerSmokeTest'; directory = 'thaumometer-smoke'; prefix = 'thaumometer-client'; marker = 'THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE'; audit = 'THAUMCRAFT_THAUMOMETER_RENDER_AUDIT_OK' }
@@ -186,7 +187,7 @@ try {
         throw "The isolated client did not finish with verified desktop windows and exit0; inspect: $desktopStatus and $clientLog"
     }
     $smokeLog = [IO.File]::ReadAllText($clientLog)
-    $smokeMatch = [regex]::Match($smokeLog, ([regex]::Escape($profile.marker) + '_OK: (\d+) scenes'))
+    $smokeMatch = [regex]::Match($smokeLog, ([regex]::Escape($profile.marker) + '_OK: (\d+) (?:scenes|captures)'))
     if (-not $smokeMatch.Success -or $smokeLog.Contains($profile.marker + '_FAILED') -or
         -not $smokeLog.Contains($profile.audit)) {
         throw "The client exited but the selected smoke checks did not pass; inspect: $clientLog"

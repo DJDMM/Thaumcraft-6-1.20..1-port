@@ -21,6 +21,7 @@ public final class LegacyResearchItems {
         // Keep canonical craft proofs and book rows aligned with the physical modern output.
         if (metadata == 0 && id.toString().equals("minecraft:dye")) return ResourceLocation.fromNamespaceAndPath("minecraft", "ink_sac");
         if (metadata == 0 && id.toString().equals("minecraft:web")) return ResourceLocation.fromNamespaceAndPath("minecraft", "cobweb");
+        if (metadata == 0 && id.toString().equals("minecraft:noteblock")) return ResourceLocation.fromNamespaceAndPath("minecraft", "note_block");
         // 1.12 map is the filled map; its empty-map ID was empty_map.
         if (metadata == 0 && id.toString().equals("minecraft:map")) return ResourceLocation.fromNamespaceAndPath("minecraft", "filled_map");
         if (metadata == 0 && id.toString().equals("minecraft:empty_map")) return ResourceLocation.fromNamespaceAndPath("minecraft", "map");

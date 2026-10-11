@@ -88,6 +88,8 @@ public final class Thaumcraft {
         thaumcraft.golemancy.jar.BrainJarModule.register(bus);
         thaumcraft.golemancy.levitator.LevitatorModule.register(bus);
         thaumcraft.artifice.hungrychest.HungryChestModule.register(bus);
+        thaumcraft.artifice.construct.TurretModule.register(bus);
+        thaumcraft.artifice.redstone.ArtificeRedstoneModule.register(bus);
         thaumcraft.golemancy.entity.GolemEntitySounds.register(bus);
         thaumcraft.golemancy.seals.behavior.SealBehaviors.register();
         thaumcraft.golemancy.seals.core.SealRegistry.register(bus);
