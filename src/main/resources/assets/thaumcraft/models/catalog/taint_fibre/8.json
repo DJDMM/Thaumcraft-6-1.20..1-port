@@ -1,3 +1,4 @@
 {
+  "render_type": "minecraft:cutout",
   "parent": "thaumcraft:block/taint_growth_3"
 }

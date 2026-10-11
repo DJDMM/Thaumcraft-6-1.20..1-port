@@ -61,25 +61,53 @@ public final class RiftEventsGameTests {
     }
     private static void removePlayer(GameTestHelper h, ServerPlayer player) { player.discard(); h.getLevel().players().remove(player); }
 
-    @GameTest(template="empty") public static void originalFiveWeightsKeepBlockedEcologySlotAndCloudCostQuirk(GameTestHelper h) {
+    @GameTest(template="empty") public static void originalFiveWeightsKeepSeedSlotAndCloudCostQuirk(GameTestHelper h) {
         h.assertTrue(RiftEvents.EVENTS.equals(List.of(new RiftEvents.Entry(0,50,5,true),new RiftEvents.Entry(1,10,0,false),
                 new RiftEvents.Entry(2,20,10,true),new RiftEvents.Entry(3,20,10,true),new RiftEvents.Entry(4,1,0,true))),"Original event cost or near-taint flags changed");
         int[] counts = new int[5];
         for (int slot=0; slot<101; slot++) counts[RiftEvents.choose((slot+.5)/101)]++;
-        h.assertTrue(java.util.Arrays.equals(counts,new int[]{50,10,20,20,1}),"Unavailable ecology rerolled or original weight proportions changed");
+        h.assertTrue(java.util.Arrays.equals(counts,new int[]{50,10,20,20,1}),"Blocked events rerolled or original weight proportions changed");
         for (int sample : new int[]{0,3,4,31,60,120}) h.assertTrue(RiftEvents.cloudDurationSetting(sample)==30,"Original spinner exhaustion was changed to a lower clamp");
         for (int sample : new int[]{5,10,20,30}) h.assertTrue(RiftEvents.cloudDurationSetting(sample)==sample,"Valid original cloud duration was changed");
         h.succeed();
     }
-    @GameTest(template="empty") public static void primeSeedSlotDoesNotSpawnACatalogFakeDiscardRiftOrPolluteAura(GameTestHelper h) {
-        var rift=rift(h); int seedCount=h.getLevel().getEntitiesOfClass(thaumcraft.catalog.entities.VisualMobEntity.class,rift.getBoundingBox().inflate(32)).size();
+    @GameTest(template="empty") public static void primeSeedEventReplacesRiftAndPaysIntegerHalfPollution(GameTestHelper h) {
+        var rift=rift(h); rift.setRiftSize(21); rift.getRandom().setSeed(92173);
+        var random=net.minecraft.util.RandomSource.create(92173);
+        Vec3 expected=new Vec3((int)(rift.getX()+random.nextGaussian()*5)+.5,
+                (int)(rift.getY()+random.nextGaussian()*5),(int)(rift.getZ()+random.nextGaussian()*5)+.5);
+        float flux=AuraManager.getFlux(h.getLevel(),rift.blockPosition());
+        thaumcraft.world.taint.TaintSeedEntity seed=null;
+        try {
+            h.assertTrue(RiftEvents.execute(rift,1)==RiftEvents.Outcome.APPLIED && rift.isRemoved(),"Successful Prime event retained its rift");
+            var seeds=h.getLevel().getEntitiesOfClass(thaumcraft.world.taint.TaintSeedEntity.class,new AABB(expected,expected).inflate(2));
+            h.assertTrue(seeds.size()==1,"Prime event did not produce one native seed");seed=seeds.get(0);
+            h.assertTrue(seed.position().equals(expected) && !seed.isNoAi() && seed.getMaxHealth()==150 && seed.getBoost()==21,
+                    "Prime placement, boost, native AI or original health differs");
+            h.assertTrue(AuraManager.getFlux(h.getLevel(),rift.blockPosition())==flux+10 && rift.getRiftStability()==-20,
+                    "Prime event pollution must be integer(size/2), with zero stability cost");
+        } finally { if(seed!=null)seed.discard();rift.discard(); } h.succeed();
+    }
+    @GameTest(template="empty") public static void primeSeedEventNearExistingSeedHasNoSideEffects(GameTestHelper h) {
+        var rift=rift(h);
+        var seed=(thaumcraft.world.taint.TaintSeedEntity)VisualEntitiesModule.LIVING.get("taint_seed").get().create(h.getLevel());
+        seed.setPos(rift.position().add(4,0,0));h.getLevel().addFreshEntity(seed);
+        thaumcraft.world.taint.TaintHelper.addTaintSeed(h.getLevel(),seed.blockPosition());
         float flux=AuraManager.getFlux(h.getLevel(),rift.blockPosition());
         try {
-            h.assertTrue(RiftEvents.execute(rift,1)==RiftEvents.Outcome.UNSUPPORTED && !rift.isRemoved()
-                    && rift.getRiftStability()==-20 && rift.getRiftSize()==20 && !rift.getCollapse(),"Unavailable taint event applied original side effects without its ecology");
-            h.assertTrue(AuraManager.getFlux(h.getLevel(),rift.blockPosition())==flux
-                    && h.getLevel().getEntitiesOfClass(thaumcraft.catalog.entities.VisualMobEntity.class,rift.getBoundingBox().inflate(32)).size()==seedCount,"Unavailable event spawned a fake seed or polluted aura");
-        } finally { rift.discard(); } h.succeed();
+            h.assertTrue(RiftEvents.execute(rift,1)==RiftEvents.Outcome.BLOCKED && !rift.isRemoved()
+                    && rift.getRiftStability()==-20 && !rift.getCollapse(),"Near-seed rejection changed rift or rerolled");
+            h.assertTrue(AuraManager.getFlux(h.getLevel(),rift.blockPosition())==flux,"Rejected event polluted aura");
+        } finally { seed.discard();rift.discard(); } h.succeed();
+    }
+    @GameTest(template="empty") public static void primeSeedEventPeacefulHasNoPollutionOrRiftRemoval(GameTestHelper h) {
+        var rift=rift(h);var original=h.getLevel().getDifficulty();
+        float flux=AuraManager.getFlux(h.getLevel(),rift.blockPosition());
+        try {
+            h.getLevel().getServer().setDifficulty(net.minecraft.world.Difficulty.PEACEFUL,true);
+            h.assertTrue(RiftEvents.execute(rift,1)==RiftEvents.Outcome.BLOCKED && !rift.isRemoved()
+                    && AuraManager.getFlux(h.getLevel(),rift.blockPosition())==flux,"Peaceful event spawned or paid a rejected seed");
+        } finally { h.getLevel().getServer().setDifficulty(original,true);rift.discard(); } h.succeed();
     }
     @GameTest(template="empty") public static void collapseEventKeepsZeroStabilityCostAndHasNoTaintGate(GameTestHelper h) {
         var rift=rift(h);

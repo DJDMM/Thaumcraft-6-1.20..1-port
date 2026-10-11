@@ -63,6 +63,7 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (thaumcraft.world.taint.TaintModule.handlesBlock(id)) return thaumcraft.world.taint.TaintModule.createBlock(id);
         if (id.equals("crystal_vitium")) return new thaumcraft.world.crystal.PrimalCrystalClusterBlock(thaumcraft.api.aspects.Aspect.FLUX);
         if (id.equals("vis_battery")) return new thaumcraft.world.crystal.VisBatteryBlock();
         if (thaumcraft.essentia.transfuser.EssentiaTransfuserModule.handlesBlock(id)) return thaumcraft.essentia.transfuser.EssentiaTransfuserModule.createBlock(id);

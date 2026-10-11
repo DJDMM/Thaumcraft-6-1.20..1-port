@@ -1,0 +1,315 @@
+{
+  "version": "0.29.0",
+  "date": "2026-10-11",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 85,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 24,
+  "registeredInfusionRecipes": 56,
+  "mechanics": [
+    "Native Seed75/4, Prime150/7, Tiny5/2 with original AI, immunity, lifetime, combat and loot",
+    "Original rift event1 accepted spawn, integer size/2 pollution, boost, no reroll and rejected-attempt conservation",
+    "Seed-centred source lifecycle, flux/base, boost,20/1200 pulses, infection cubes and terrain sphere/edge",
+    "Native fibre/soil/rock/crust/log/feature/geyser conversions, Flux payments, support, contact, drops and orphan decay",
+    "Native source-owned falling crust, gravity, placement, NBT timer and void expiry",
+    "Original model hurt/attack/emergence,56 byte-identical OGG, CUTOUT alpha and correct original HUD sprites",
+    "Clean player interface remains; no new developer/player locale notices"
+  ],
+  "requiredGameTests": 1010,
+  "serverResult": "1010/1010; native exit0; BUILD SUCCESSFUL in 2m 42s",
+  "serverLog": {
+    "file": "taint-029-gametest3.log",
+    "bytes": 146948,
+    "sha256": "638ee9b666254e238fea465837a1cd736e1cd19d1eb150f11b0853d1b4500d1a"
+  },
+  "previousFailedRun": {
+    "file": "taint-029-gametest1.log",
+    "bytes": 149258,
+    "sha256": "54718c40d369867236a6ba66aaba30491c855ed9e4d76c28d0bd0d4f5a6715ea"
+  },
+  "intermediatePassedServer": {
+    "file": "taint-029-gametest2.log",
+    "bytes": 146079,
+    "sha256": "fb7aaac64e1eaafea57ca747d11b88064f858f76b4dd62874a0d278329b4dbad"
+  },
+  "previousClientLogs": [
+    {
+      "file": "taint-client-taint-029-client1-client.log",
+      "bytes": 24615,
+      "sha256": "822d1237d31cb030c63fac04e1639bcbb8c95d2fae1a4463f6854309d19c4d25"
+    },
+    {
+      "file": "taint-client-taint-029-client2-client.log",
+      "bytes": 21851,
+      "sha256": "41166d092d6b3f58388a992c0f9779b0168fdaf494450a7e08a76883db583ad6"
+    }
+  ],
+  "clientRunTag": "taint-029-client3",
+  "client": {
+    "runTag": "taint-029-client3",
+    "smokeTest": "Taint",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\taint-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\taint-client-taint-029-client3-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\taint-client-taint-029-client3-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\taint-client-taint-029-client3.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\taint-client-taint-029-client3-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\taint-client-taint-029-client3-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\taint-client-taint-029-client3-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_55665162df2347778e2812bad0e46ef7",
+    "jvmPid": 3444,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 6
+  },
+  "clientLog": {
+    "file": "taint-client-taint-029-client3-client.log",
+    "bytes": 21014,
+    "sha256": "b6008a651485a269993d514c86566d797702e8146d7349a3a602a6400bc5b358"
+  },
+  "clientScenes": 6,
+  "nativeClientFacts": {
+    "nativeGrownFibres": 28,
+    "smallTentacles": 1,
+    "physicalCrystalDrops": 1,
+    "orphanDecay": [
+      28,
+      1
+    ]
+  },
+  "visualReview": {
+    "runTag": "taint-029-client3",
+    "screenshots": [
+      {
+        "file": "tc6-taint-prime-seed.png",
+        "sha256": "a6286f756bf8d3813a26b0e9cda580f65bba79780e49711ca5512e28ad089f5b",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-taint-native-fibres.png",
+        "sha256": "02c88f9d4d012ac8c43bab4f06c5ff24329788207aa7bc43cef01d499ca8c9d6",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-taint-tainted-materials.png",
+        "sha256": "9203c86d5ed177dfe9caae6850629846e3fed0b9620d2a34a2188aa676444ea8",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-taint-tiny-tentacles.png",
+        "sha256": "1cc18d278818928f40f8a4420b69c6ef647c8686837ca6778509f7c1c1c75894",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-taint-seed-loot.png",
+        "sha256": "4a76bb05a09b14a6b5a9636c7c1cbd2e25a6aa7b64f6db1800144468599eedb1",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-taint-decayed-fibres.png",
+        "sha256": "49e5913130327fccdc373994b2f2999c8fecdb268b1d1296decbdf5ee161fa3a",
+        "size": [
+          1600,
+          1000
+        ]
+      }
+    ],
+    "reviewStatus": "pass",
+    "rootReviewed": true,
+    "independentReview": "pass",
+    "fixtures": [
+      "Selected original rift event1, source Flux30, size25, loaded platform",
+      "Additional boost400 for native tick spread",
+      "Physical material display is supplied; fibre growth is native",
+      "Selected survival target on tainted soil; invulnerable/flying player",
+      "randomTickSpeed100 for native orphan decay"
+    ],
+    "limitations": [
+      "No full survival progression or random rift probability claim",
+      "Falling crust renderer has code review and server tests, no falling client scene",
+      "Finite Flux Goo, Crawler/Swarm/Giant, BottleTaint and Champion13 remain incomplete"
+    ],
+    "contactSheets": [
+      "taint-0.29-review-sheet.png"
+    ],
+    "rootFullSizeReviewed": [
+      "tc6-taint-prime-seed.png",
+      "tc6-taint-native-fibres.png",
+      "tc6-taint-tainted-materials.png",
+      "tc6-taint-tiny-tentacles.png",
+      "tc6-taint-seed-loot.png",
+      "tc6-taint-decayed-fibres.png"
+    ],
+    "independentFullSizeReviewed": [
+      "tc6-taint-prime-seed.png",
+      "tc6-taint-native-fibres.png",
+      "tc6-taint-tainted-materials.png",
+      "tc6-taint-tiny-tentacles.png",
+      "tc6-taint-seed-loot.png",
+      "tc6-taint-decayed-fibres.png"
+    ],
+    "findings": [
+      "Actual client3 Seed/Prime model has the original real eight-segment sequence; empty roots no longer shrink it.",
+      "Visible fibres/growth preserve original CUTOUT alpha without opaque black rectangles; native FluxTaint icon is nonempty.",
+      "No visible missing textures, broken geometry or developer/player-status labels in these six actual captures.",
+      "Native log establishes28grown fibres,1Tiny,1physical crystal and orphan decay28->1; these are separate from screenshot detail.",
+      "Static frames do not prove every animation. Scanner glass, supplied blocks and death particles limit Tiny/drop detail.",
+      "Supplied material display is distinct from native tick-grown fibres; no full survival or exhaustive natural conversion claim."
+    ]
+  },
+  "localeAudit": {
+    "en_us": {
+      "changedKeys": 0,
+      "canonicalResearchTextsUnchanged": 453
+    },
+    "ru_ru": {
+      "changedKeys": 0,
+      "canonicalResearchTextsUnchanged": 452
+    }
+  },
+  "buildLog": {
+    "file": "build-0.29-final.log",
+    "bytes": 1212,
+    "sha256": "52446c715ddab185045bd5ba8563189a8cfbe3ed21442cb59880050bc44b20a4"
+  },
+  "resourcesLog": {
+    "file": "resources-0.29-final.log",
+    "bytes": 188,
+    "sha256": "3372b79f574a959e151316dee68a93236374afb03901f832f3244062a5099f1d"
+  },
+  "localJsonCount": 2839,
+  "jarResourceByteParityChecks": 3656,
+  "originalMediaByteParity": {
+    ".png": 660,
+    ".jpg": 7,
+    ".ogg": 56
+  },
+  "originalEffectSprites": {
+    "flux_taint": [
+      54,
+      216,
+      72,
+      234
+    ],
+    "vis_exhaust": [
+      90,
+      216,
+      108,
+      234
+    ]
+  },
+  "dependency": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.29.0.jar",
+      "bytes": 10693985,
+      "sha256": "d017b64569017d3e8fd8bc744fb2f71869ed959cb3e3011e6043b68e9d789051"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.29.0-mods.zip",
+      "bytes": 9822847,
+      "sha256": "debda2db5c93dd50a2e3ef5b70a83fdc388c89dc5c0677adf762461c61886839"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.29.0-screenshots.zip",
+      "bytes": 3582533,
+      "sha256": "034c3d69f231642f06e5d495375b2bd205e9e04d8245914e945b76178a446171"
+    }
+  ],
+  "sourceSha256": {
+    "build.gradle": "eb2f0ab0e8465caf6c7f4497f39c5c67de07e087abc034a85a1f24aff3ec3515",
+    "scripts/extract_infusion_assets.py": "093d6d0585f4bba9f29a126093d6b27f8453e36c5345d4b4b076257463ad4fac",
+    "scripts/run_client_smoke_isolated.ps1": "088f1f27b045ab8d8cd11691c965b329092f3b2c88316b6d84bea3cb58cb3501",
+    "scripts/validate_resources.py": "00d823e8aa5276dc021ef8d61558ab037f58e451b78a29d0b204204923298361",
+    "scripts/windows-desktop/capture-javaexec.init.gradle": "622ec84d83a5c6af4ef3c163c10662bb6dc23f596c4ef96a5477a7927af71185",
+    "src/main/java/thaumcraft/Thaumcraft.java": "f3e93b737db615988d64c94b64c5269c6fe4a196adb507f59994712dcce8774c",
+    "src/main/java/thaumcraft/catalog/blocks/CatalogBlocks.java": "689a2ad445fec23d42802929d010f048fb0eacff39cf4f15a4b35d7ade6c06c7",
+    "src/main/java/thaumcraft/catalog/entities/VisualEntitiesModule.java": "1a1a87c9276b110e55d06c44bec1ccc603bff1bf5c076bb06a085412bf3a056e",
+    "src/main/java/thaumcraft/catalog/entities/client/LegacyVisualModel.java": "77c1df09b909343d8613cfbb9a7df4a93201965f1951c271c79c10e2ca40eddd",
+    "src/main/java/thaumcraft/catalog/entities/client/VisualEntityRenderers.java": "e452421e4ed9c10f1987b32c8e5305cdebff39256ea49cc7a5f0be9706cbef37",
+    "src/main/java/thaumcraft/test/CatalogGameTests.java": "e210e66896add0cf4143ae617b46b039e577060bcd1458d06e877b31f3ddbcf8",
+    "src/main/java/thaumcraft/world/rift/FluxTaintGameTests.java": "fdb45a05ba8b235b663b867dbecdc35e06e18697ed7d20d9444043c35e96f788",
+    "src/main/java/thaumcraft/world/rift/RiftEvents.java": "cc06253e871b649ee3fc047361bae2b9e81e9ab82e81bbcd841442861d8348a7",
+    "src/main/java/thaumcraft/world/rift/RiftEventsGameTests.java": "d56e41129c1b4f403f54df7e7efb6f917331d8e33b2077745d42998a1afa8ce4",
+    "src/main/java/thaumcraft/world/rift/RiftModule.java": "534c827a1ef29e05627be71902e3e3784e784ea821fbc2070835edc2ee9f6d1c",
+    "src/main/java/thaumcraft/world/taint/FallingTaint.java": "7216d2fa52f874bd629ab72884a7655e75209b40577e6b2b8c9685fc33d55f8d",
+    "src/main/java/thaumcraft/world/taint/FallingTaintEntity.java": "7ec6273f0b3bd575ec85693985c0d814e33cd546802bc9c4ccbf35f75da518a9",
+    "src/main/java/thaumcraft/world/taint/FallingTaintGameTests.java": "0e662f32ddbd6a6954a7d98ab404e24122cd9ada3209f16ae46e8f787aa674fd",
+    "src/main/java/thaumcraft/world/taint/ITaintBlock.java": "119c0252da72074fe2219a6244761bb1c6d0d6001b7ee8bf58c9d88d31c5e463",
+    "src/main/java/thaumcraft/world/taint/TaintBlock.java": "deff067269367507fc3a45b94ff7aa8fd1d6a97a5844403e4aecb97d649ef736",
+    "src/main/java/thaumcraft/world/taint/TaintEntitySounds.java": "9662ce6ce0c4c0a0f4d61d99f860bb368378b38ccd2bee01271023ec79ac19f8",
+    "src/main/java/thaumcraft/world/taint/TaintFeatureBlock.java": "b8f35a97d935a99d491c8335bbcd1b45bbe275e474e5fb07c713430727b3aa57",
+    "src/main/java/thaumcraft/world/taint/TaintFibreBlock.java": "567a1ad83f75e70c9e35317c89910ddc1eaaeb5ea0a57abafe34d624e95557df",
+    "src/main/java/thaumcraft/world/taint/TaintHelper.java": "2400569f9d41ec222c87c156f8cf79131407905710254f641914a996c20756b3",
+    "src/main/java/thaumcraft/world/taint/TaintLogBlock.java": "c4d8b3ae716b38784252922de70cd43a4696a6217fb484b9a9ad06aadbf4c39f",
+    "src/main/java/thaumcraft/world/taint/TaintModule.java": "c1d3a7c952c7e1f8f55552c099399e08896b64344e252d4d2740ef1b1c0ef57c",
+    "src/main/java/thaumcraft/world/taint/TaintRestEvents.java": "b5995a3f18f91a44de9de68c23ea6d598ae06ac451bedfcdd7fc71891637a740",
+    "src/main/java/thaumcraft/world/taint/TaintSeedEntity.java": "ffb272f9421b094130776a2e014bef3c2597e7fd7530ebf8fedc8812284b2e14",
+    "src/main/java/thaumcraft/world/taint/TaintSeedGameTests.java": "7fa5b24ba6db1ba1bb922b6762abfa87dee2cc12e52f2d3987c701f45648dbfe",
+    "src/main/java/thaumcraft/world/taint/TaintSeedPrimeEntity.java": "2481e8b44794bcc062af4094a99c8c18d8af6b236ffb192bae183ba16ac6c0a5",
+    "src/main/java/thaumcraft/world/taint/TaintTerrainGameTests.java": "e13c331dd26ea5aef0246240370ed0de47711aae370e2c4646b62fb180a874e7",
+    "src/main/java/thaumcraft/world/taint/TaintacleSmallEntity.java": "6aa5776c7a9dbd6f524e9c7f46cb8ab15901f43e9644750db5b4ada727917fef",
+    "src/main/java/thaumcraft/world/taint/TaintedStationaryMob.java": "c3571003bb74e445dae24f6e575850706bff19da225251c73a83346ee9cd4d78",
+    "src/main/java/thaumcraft/world/taint/client/TaintClientSmokeTest.java": "bc4c314451fa83aa21fb2293b373dee140db376e26961d4fe38cd9c29c138faa",
+    "src/main/resources/META-INF/mods.toml": "05376ffc77f0bd91f7e89a550d4a22a49b86db58231190e4b536eff888cc136c",
+    "src/main/resources/assets/thaumcraft/models/block/taint_fibre.json": "5a093b93171d0f29a8c4d3825c617765b5b88fd78c6e22f885a7fc846c99ba85",
+    "src/main/resources/assets/thaumcraft/models/block/taint_growth_1.json": "b51fa1085a78af4f7abd941a15ac2cce0a918e63e93cc95ca8783f4ce09cd283",
+    "src/main/resources/assets/thaumcraft/models/block/taint_growth_2.json": "d314cd90132ce3768b09ab5ff78b22b78e95129162a30a3a28579ad0e4d0da99",
+    "src/main/resources/assets/thaumcraft/models/block/taint_growth_3.json": "56530d1f9dd6e323b7e3da3f92aa05721b5f918624f4f8b221c51ef2283b19c8",
+    "src/main/resources/assets/thaumcraft/models/block/taint_growth_4.json": "2afbfa85a63e36f4a9b5dc55e000e1768370a0f42f643be6e8aa278699a96f3a",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/0.json": "2fcbe71e3c63fc6e3da0ca6371a855d587986b84a05524d4970d215a4fe4b430",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/1.json": "2fcbe71e3c63fc6e3da0ca6371a855d587986b84a05524d4970d215a4fe4b430",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/10.json": "2fcbe71e3c63fc6e3da0ca6371a855d587986b84a05524d4970d215a4fe4b430",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/2.json": "2fcbe71e3c63fc6e3da0ca6371a855d587986b84a05524d4970d215a4fe4b430",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/3.json": "2fcbe71e3c63fc6e3da0ca6371a855d587986b84a05524d4970d215a4fe4b430",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/4.json": "2fcbe71e3c63fc6e3da0ca6371a855d587986b84a05524d4970d215a4fe4b430",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/5.json": "2fcbe71e3c63fc6e3da0ca6371a855d587986b84a05524d4970d215a4fe4b430",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/6.json": "e4a18f591c5d67f57e256f51df01a8090d929b8afed54313835d7af53d96e744",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/7.json": "02af109d086b08b0b8102bc55638b150c12d5e81ed48dfe8694a0f0bd0daa036",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/8.json": "18e7ce22c4ffa7eee108f881da8cd96b897f7de4429c542e8c584cc7b3fa1099",
+    "src/main/resources/assets/thaumcraft/models/catalog/taint_fibre/9.json": "7ddf98dc8e38c11fb97152dddf41f8ee60ee40b3b556840f35024d5d14635d89",
+    "src/main/resources/assets/thaumcraft/sounds.json": "6b04b9e081191a09e13a97e3802da0d452bb131a3eb1656e11e748bc43c3ce05",
+    "src/main/resources/assets/thaumcraft/sounds/gore1.ogg": "0c1f6a94bdd10b373740447fa153cfdcfdf4768bb052ea59e3fa707789145fc3",
+    "src/main/resources/assets/thaumcraft/sounds/gore2.ogg": "d2053692c388553b83e00a85fb9489319abe09fea761a627b35945e28b8685b3",
+    "src/main/resources/assets/thaumcraft/sounds/tentacle1.ogg": "99fac5b77c1fd44497304866d1becfb7f8a4991cf5a390c877c4f084bcfe27b7",
+    "src/main/resources/assets/thaumcraft/sounds/tentacle2.ogg": "c6b7e6b0f89660071abecc94495789fa5c8ef2191e6d53b0606ced7854850510",
+    "src/main/resources/assets/thaumcraft/sounds/tentacle3.ogg": "a7167984a13c57c31f1d1259619a93293bdfc0b7b7f50a540686b1e462422293",
+    "src/main/resources/assets/thaumcraft/textures/mob_effect/flux_taint.png": "c93ef42638054d6b9ea183603b2afeb2c65ff85887657e229d4c6b37745ac53f",
+    "src/main/resources/assets/thaumcraft/textures/mob_effect/vis_exhaust.png": "917a3f4a835e085d43b4bd85d97add5db91b3df82539bb552932c9e0504058f7"
+  },
+  "limitations": [
+    "Canonical85/148 and infusion24/56 unchanged; full Crawler/Swarm/large and Giant tentacles, BottleTaint, finite FluxGoo/ThaumicSlime and Champion13 still need native port.",
+    "Client supplies selected event1, size25/Flux30, loaded platform, boost400, survival target and material display; randomTickSpeed100 speeds native decay. No complete survival progression or random event probability claim.",
+    "Falling crust has source/gravity/landing/persistence/void server checks and renderer review; six client captures do not include a falling scene.",
+    "First server failed7 incorrect direct-tick fixtures and1 obsolete catalogue expectation. Native ServerLevel.tickNonPassenger and current native-entity policies restored the tests; original gameplay callbacks were not relaxed.",
+    "First client exposed missing CUTOUT and blank old HUD crops; source review after client2 also found empty placeholder model roots advancing the Seed pulse from q0 to q2. Final client3/server3 use repaired layers, exact sprite pixels and only the eight real q0..7 segments.",
+    "Only owned QA worlds and a hidden non-input desktop were used; no independent multiplayer client or full manual survival run."
+  ]
+}

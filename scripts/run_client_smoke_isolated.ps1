@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Taint = @{ property = 'taintSmokeTest'; directory = 'taint-smoke'; prefix = 'taint-client'; marker = 'THAUMCRAFT_TAINT_CLIENT_SMOKE'; audit = 'THAUMCRAFT_TAINT_RENDER_AUDIT_OK' }
     Rift = @{ property = 'riftSmokeTest'; directory = 'rift-smoke'; prefix = 'rift-client'; marker = 'THAUMCRAFT_RIFT_CLIENT_SMOKE'; audit = 'THAUMCRAFT_RIFT_RENDER_AUDIT_OK' }
     Thaumometer = @{ property = 'thaumometerSmokeTest'; directory = 'thaumometer-smoke'; prefix = 'thaumometer-client'; marker = 'THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE'; audit = 'THAUMCRAFT_THAUMOMETER_RENDER_AUDIT_OK' }
     CrystalFarming = @{ property = 'crystalFarmingSmokeTest'; directory = 'crystal-farming-smoke'; prefix = 'crystal-farming-client'; marker = 'THAUMCRAFT_CRYSTAL_FARMING_CLIENT_SMOKE'; audit = 'THAUMCRAFT_CRYSTAL_FARMING_RENDER_AUDIT_OK' }

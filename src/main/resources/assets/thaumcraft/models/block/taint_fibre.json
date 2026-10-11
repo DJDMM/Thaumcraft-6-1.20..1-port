@@ -1,4 +1,5 @@
 {
+  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "thaumcraft:blocks/taint_fibres",
     "crust": "thaumcraft:blocks/taint_fibres"

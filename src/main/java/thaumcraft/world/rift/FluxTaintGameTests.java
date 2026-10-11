@@ -88,10 +88,10 @@ public final class FluxTaintGameTests {
     }
     @GameTest(template="empty") public static void allEightCurrentNativeTaintedClassesHealOneAndClampAtMaximum(GameTestHelper h) {
         for(String id : List.of("thaumic_slime","taint_crawler","taint_swarm","taintacle","taintacle_tiny","taintacle_giant","taint_seed","taint_seed_prime")){
-            var mob=VisualEntitiesModule.LIVING.get(id).get().create(h.getLevel());mob.setHealth(10);
+            var mob=VisualEntitiesModule.LIVING.get(id).get().create(h.getLevel());mob.setHealth(mob.getMaxHealth()-2);
             try {
                 h.assertTrue(FluxTaintEffect.isNativeTainted(mob),"Original ITaintedMob identity missing for"+id);
-                effect().applyEffectTick(mob,0);h.assertTrue(mob.getHealth()==11,"Original tainted class did not heal exactly1: "+id);
+                effect().applyEffectTick(mob,0);h.assertTrue(mob.getHealth()==mob.getMaxHealth()-1,"Original tainted class did not heal exactly1: "+id);
                 mob.setHealth(mob.getMaxHealth());effect().applyEffectTick(mob,5);h.assertTrue(mob.getHealth()==mob.getMaxHealth(),"Taint healing exceeded native maximum: "+id);
             } finally { mob.discard(); }
         }

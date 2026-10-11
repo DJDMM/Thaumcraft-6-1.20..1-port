@@ -64,6 +64,10 @@ public final class CatalogGameTests {
             helper.assertTrue(entity!=null,"Cannot construct entity "+spec.id());
             if(entity instanceof thaumcraft.world.rift.WispEntity wisp) helper.assertTrue(!wisp.isNoAi()
                     && wisp.getMaxHealth()==22 && !wisp.isPersistenceRequired(),"Operational Wisp lost native AI/stats/despawn policy");
+            else if(entity instanceof thaumcraft.world.taint.TaintSeedEntity seed) helper.assertTrue(!seed.isNoAi()
+                    && !seed.removeWhenFarAway(1000000) && seed.getMaxHealth()==(spec.id().equals("taint_seed_prime")?150:75),"Operational seed lost native AI/stats/persistence policy");
+            else if(entity instanceof thaumcraft.world.taint.TaintacleSmallEntity tiny) helper.assertTrue(!tiny.isNoAi()
+                    && !tiny.isPersistenceRequired() && tiny.getMaxHealth()==5 && tiny.remainingLifetime()==200,"Operational small tentacle lost native AI/stats/lifetime policy");
             else if(entity instanceof VisualMobEntity mob) helper.assertTrue(mob.isNoAi() && mob.isPersistenceRequired(),"Catalogue NPC unexpectedly has AI or despawning");
             helper.assertTrue(Math.abs(entity.getBbWidth()-spec.width())<.0001 && Math.abs(entity.getBbHeight()-spec.height())<.0001,"Incorrect original neutral dimensions "+spec.id());
         }

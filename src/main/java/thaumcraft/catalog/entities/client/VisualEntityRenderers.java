@@ -28,7 +28,8 @@ public final class VisualEntityRenderers {
             if(spec.model().equals("humanoid") || spec.model().equals("zombie")) return new CultistRenderer(context,spec);
             return new Mob(context,spec);
         }));
-        VisualEntitiesModule.EFFECTS.forEach((id,type) -> event.registerEntityRenderer(type.get(),SpriteRenderer<VisualEffectEntity>::new));
+        VisualEntitiesModule.EFFECTS.forEach((id,type) -> event.registerEntityRenderer(type.get(),context ->
+                id.equals("falling_taint") ? new FallingTaintRenderer(context) : new SpriteRenderer<VisualEffectEntity>(context)));
         event.registerEntityRenderer(VisualEntitiesModule.FOCUS_PROJECTILE.get(),FocusProjectileRenderer::new);
         event.registerEntityRenderer(VisualEntitiesModule.GOLEM.get(),thaumcraft.golemancy.client.ThaumcraftGolemRenderer::new);
         event.registerEntityRenderer(VisualEntitiesModule.GOLEM_DART.get(),thaumcraft.golemancy.client.GolemProjectileRenderers.Dart::new);
@@ -36,6 +37,21 @@ public final class VisualEntityRenderers {
     }
     public static ResourceLocation texture(String path) {
         return path.contains(":")?ResourceLocation.parse(path):ResourceLocation.fromNamespaceAndPath("thaumcraft",path);
+    }
+    private static final class FallingTaintRenderer extends EntityRenderer<VisualEffectEntity> {
+        FallingTaintRenderer(EntityRendererProvider.Context context) {super(context);shadowRadius=.5F;}
+        @Override public ResourceLocation getTextureLocation(VisualEffectEntity entity) {
+            return net.minecraft.client.renderer.texture.TextureAtlas.LOCATION_BLOCKS;
+        }
+        @Override public void render(VisualEffectEntity entity,float yaw,float partial,PoseStack pose,MultiBufferSource buffers,int light) {
+            if(entity instanceof thaumcraft.world.taint.FallingTaintEntity falling && !falling.getFallingState().isAir()) {
+                pose.pushPose();pose.translate(-.5,0,-.5);
+                net.minecraft.client.Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
+                        falling.getFallingState(),pose,buffers,light,OverlayTexture.NO_OVERLAY);
+                pose.popPose();
+            }
+            super.render(entity,yaw,partial,pose,buffers,light);
+        }
     }
     private static EntityModel<VisualMobEntity> model(EntityRendererProvider.Context context,VisualEntitySpec spec) {
         return switch(spec.model()) {

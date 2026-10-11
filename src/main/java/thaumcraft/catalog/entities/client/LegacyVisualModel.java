@@ -84,19 +84,25 @@ public abstract class LegacyVisualModel extends EntityModel<VisualMobEntity> {
             rotation("ArmL", Mth.sin(age / 10) * .05f, 0, 0);
             rotation("ArmR", -Mth.sin(age / 10) * .05f, 0, 0);
         } else if (this instanceof LegacyTaintacleModel taintacle) {
+            float flail=entity instanceof thaumcraft.world.taint.TaintacleSmallEntity active ? active.flailIntensity : 1;
+            float fi=flail+(entity.hurtTime>0 ? .0125F : -.0125F);
+            float frequency=flail>1 ? 3 : 1-.0125F;
             for (int k = 0; k < taintacle.tents.length - 1; k++) {
                 var node = taintacle.tents[k];
                 node.scale = 1;
-                node.rotateAngleX = .15f * .1f * Mth.sin(age * .1f - k / 2f);
-                node.rotateAngleZ = Mth.sin(age * .15f - k / 2f);
+                node.rotateAngleX = .15f * fi * Mth.sin(age * .1f * frequency - k / 2f);
+                node.rotateAngleZ = .1f / fi * Mth.sin(age * .15f - k / 2f);
             }
             taintacle.orb.scale = 1;
         } else if (this instanceof LegacyTaintSeedModel seed) {
+            float hurt=entity.hurtTime/200F;
+            float attack=entity instanceof thaumcraft.world.taint.TaintSeedEntity active ? active.attackAnim : 0;
+            float fi=(.1F+(hurt>0 ? .0125F : -.0125F))*3;
             for (int k = 0; k < seed.tents.length - 1; k++) {
                 var node = seed.tents[k];
                 node.scale = 1;
-                node.rotateAngleX = .1f / .2625f * Mth.sin(age * .06f - k / 2f) / 5;
-                node.rotateAngleZ = .1f / .2625f * Mth.sin(age * .05f - k / 2f) / 5;
+                node.rotateAngleX = .1f / fi * Mth.sin(age * .06f - k / 2f) / 5 + hurt + attack;
+                node.rotateAngleZ = .1f / fi * Mth.sin(age * .05f - k / 2f) / 5;
             }
         }
         nodes.forEach(LegacyPart::update);
@@ -105,21 +111,29 @@ public abstract class LegacyVisualModel extends EntityModel<VisualMobEntity> {
     @Override public void renderToBuffer(PoseStack pose, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
         pose.pushPose();
         if (currentEntity != null && this instanceof LegacyTaintacleModel) {
-            pose.translate(0, currentEntity.getBbHeight() == 3 ? .6 : 1.2, 0);
+            pose.translate(0, (currentEntity.getBbHeight() == 3 ? .6 : 1.2)+emergenceHeight(), 0);
             float scale = currentEntity.getBbHeight() / 3;
             pose.scale(scale, scale, scale);
         } else if (currentEntity != null && this instanceof LegacyTaintSeedModel) {
-            pose.translate(0, currentEntity.getBbHeight() == 3 ? .6 : 1.2, 0);
+            pose.translate(0, (currentEntity.getBbHeight() == 3 ? .6 : 1.2)+emergenceHeight(), 0);
             float scale = currentEntity.getBbHeight() / 2;
             pose.scale(scale, scale, scale);
         }
         int[] segment={0};
         for (LegacyPart node : nodes) if (node.parent == null && node.part != null) {
-            if(this instanceof LegacyTaintSeedModel || this instanceof LegacyTaintacleModel)
+            if(this instanceof LegacyTaintSeedModel || this instanceof LegacyTaintacleModel) {
+                // Legacy constructors leave unused initial field placeholders. Original
+                // render() visits only the real tentacle; empty roots must not advance
+                // its eight-segment pulse sequence and shrink the actual Seed chain.
+                if(node.cubes.isEmpty() && node.children.isEmpty()) continue;
                 renderTentacle(node,pose,vertices,light,overlay,red,green,blue,alpha,segment);
-            else node.part.render(pose, vertices, light, overlay, red, green, blue, alpha);
+            } else node.part.render(pose, vertices, light, overlay, red, green, blue, alpha);
         }
         pose.popPose();
+    }
+    private float emergenceHeight() {
+        float height=currentEntity.getBbHeight(),duration=height*10;
+        return currentEntity.tickCount<duration ? (duration-currentEntity.tickCount)/duration*height : 0;
     }
     private void renderTentacle(LegacyPart node,PoseStack pose,VertexConsumer vertices,int light,int overlay,float r,float g,float b,float a,int[] segment) {
         if(!node.visible)return;

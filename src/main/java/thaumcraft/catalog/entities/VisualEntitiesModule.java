@@ -43,8 +43,15 @@ public final class VisualEntitiesModule {
             if (java.util.Set.of("alumentum","focus_projectile","golem","golem_dart","golem_orb","causality_collapser").contains(spec.id())) continue;
             if (spec.living()) {
                 var type = TYPES.register(spec.id(), () -> EntityType.Builder.<VisualMobEntity>of(
-                        spec.id().equals("wisp") ? thaumcraft.world.rift.WispEntity::new : VisualMobEntity::new,
-                        spec.id().equals("wisp") ? MobCategory.MONSTER : MobCategory.MISC).sized(spec.width(), spec.height())
+                        switch (spec.id()) {
+                            case "wisp" -> thaumcraft.world.rift.WispEntity::new;
+                            case "taint_seed" -> thaumcraft.world.taint.TaintSeedEntity::new;
+                            case "taint_seed_prime" -> thaumcraft.world.taint.TaintSeedPrimeEntity::new;
+                            case "taintacle_tiny" -> thaumcraft.world.taint.TaintacleSmallEntity::new;
+                            default -> VisualMobEntity::new;
+                        },
+                        java.util.Set.of("wisp", "taint_seed", "taint_seed_prime", "taintacle_tiny").contains(spec.id())
+                                ? MobCategory.MONSTER : MobCategory.MISC).sized(spec.width(), spec.height())
                         .clientTrackingRange(Math.max(1, spec.trackingBlocks() / 16))
                         .updateInterval(spec.updateInterval()).setShouldReceiveVelocityUpdates(spec.trackVelocity())
                         .build("thaumcraft:" + spec.id()));
@@ -54,7 +61,9 @@ public final class VisualEntitiesModule {
             } else {
                 var type = TYPES.register(spec.id(), () -> EntityType.Builder.<VisualEffectEntity>of(
                         (entityType, level) -> spec.id().equals("flux_rift")
-                                ? new thaumcraft.world.rift.FluxRiftEntity(entityType, level) : new VisualEffectEntity(entityType, level), MobCategory.MISC).sized(spec.width(), spec.height())
+                                ? new thaumcraft.world.rift.FluxRiftEntity(entityType, level)
+                                : spec.id().equals("falling_taint") ? new thaumcraft.world.taint.FallingTaintEntity(entityType, level)
+                                : new VisualEffectEntity(entityType, level), MobCategory.MISC).sized(spec.width(), spec.height())
                         .clientTrackingRange(Math.max(1, spec.trackingBlocks() / 16))
                         .updateInterval(spec.updateInterval()).setShouldReceiveVelocityUpdates(spec.trackVelocity())
                         .build("thaumcraft:" + spec.id()));
@@ -69,14 +78,20 @@ public final class VisualEntitiesModule {
         TYPES.register(bus);
         ITEMS.register(bus);
         thaumcraft.world.rift.WispSounds.register(bus);
+        thaumcraft.world.taint.TaintEntitySounds.register(bus);
         bus.addListener(VisualEntitiesModule::attributes);
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {
         var attributes = VisualMobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 0).build();
-        LIVING.forEach((id,type) -> event.put(type.get(), id.equals("wisp")
-                ? thaumcraft.world.rift.WispEntity.attributes().build() : attributes));
+        LIVING.forEach((id,type) -> event.put(type.get(), switch (id) {
+            case "wisp" -> thaumcraft.world.rift.WispEntity.attributes().build();
+            case "taint_seed" -> thaumcraft.world.taint.TaintSeedEntity.attributes().build();
+            case "taint_seed_prime" -> thaumcraft.world.taint.TaintSeedPrimeEntity.attributes().build();
+            case "taintacle_tiny" -> thaumcraft.world.taint.TaintacleSmallEntity.attributes().build();
+            default -> attributes;
+        }));
         event.put(GOLEM.get(),ThaumcraftGolemEntity.attributes().build());
     }
 }

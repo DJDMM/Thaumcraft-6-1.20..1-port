@@ -26,7 +26,8 @@ with ZipFile(JAR) as source:
     for name, column in (('flux_taint', 3), ('vis_exhaust', 5)):
         path = ASSETS / 'textures/mob_effect' / (name + '.png')
         path.parent.mkdir(parents=True, exist_ok=True)
-        sheet.crop((column*18,18,column*18+18,36)).save(path)
+        # Native 1.12 inventory HUD starts its status-icon rows at y=198.
+        sheet.crop((column*18,216,column*18+18,234)).save(path)
     (ASSETS / 'sounds.json').write_text(json.dumps(sounds, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     for lang in ('en_us', 'ru_ru'):
         path = ASSETS / 'lang' / (lang + '.json')

@@ -92,6 +92,7 @@ public final class Thaumcraft {
         thaumcraft.golemancy.seals.behavior.SealBehaviors.register();
         thaumcraft.golemancy.seals.core.SealRegistry.register(bus);
         thaumcraft.catalog.entities.VisualEntitiesModule.register(bus);
+        thaumcraft.world.taint.TaintModule.register(bus);
         thaumcraft.infusion.InfusionModule.register(bus);
         thaumcraft.auromancy.AuromancySounds.register(bus);
         thaumcraft.auromancy.media.FocusMediaModule.register(bus);

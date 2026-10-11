@@ -1,6 +1,7 @@
 """Validate local model/texture references and translations without Minecraft."""
 import json
 import re
+from PIL import Image
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1] / 'src/main/resources'
@@ -159,6 +160,19 @@ for block in ('jar_normal', 'jar_void', 'jar_brain', 'amber_block', 'amber_brick
             errors.append(f'{path}: state wrapper lost original TRANSLUCENT layer')
 if documents.get(assets / 'models/block/golem_builder_neutral.json', {}).get('flip_v') is not False:
     errors.append('Placed golem builder must combine the original loader and texture-matrix V flips')
+# Taint fibre alpha is meaningful only in the original CUTOUT layer.
+for name in ('taint_fibre', 'taint_growth_1', 'taint_growth_2', 'taint_growth_3', 'taint_growth_4'):
+    path = assets / 'models/block' / f'{name}.json'
+    if documents.get(path, {}).get('render_type') != 'minecraft:cutout':
+        errors.append(f'{path}: lost original CUTOUT layer')
+for path in (assets / 'models/catalog/taint_fibre').glob('*.json'):
+    if documents[path].get('render_type') != 'minecraft:cutout':
+        errors.append(f'{path}: state wrapper lost original CUTOUT layer')
+for name in ('flux_taint', 'vis_exhaust'):
+    path = assets / 'textures/mob_effect' / f'{name}.png'
+    with Image.open(path) as sprite:
+        if sprite.size != (18, 18) or sprite.convert('RGBA').getchannel('A').getbbox() is None:
+            errors.append(f'{path}: empty or incorrectly sized original effect sprite')
 if errors:
     raise SystemExit('\n'.join(errors))
 print(f'Validated {len(documents)} JSON files, local model/texture references and both translations.')

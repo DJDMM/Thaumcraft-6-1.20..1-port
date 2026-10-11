@@ -1,4 +1,5 @@
 {
+  "render_type": "minecraft:cutout",
   "textures": {
     "cross": "thaumcraft:blocks/taint_growth_4"
   },

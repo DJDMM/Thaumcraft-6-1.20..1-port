@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.54'
 }
-version = '0.28.0'
+version = '0.29.0'
 group = 'thaumcraft.port'
 base { archivesName = 'thaumcraft-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -87,6 +87,11 @@ minecraft {
             if (project.hasProperty('riftSmokeTest')) {
                 workingDirectory project.file('run/rift-smoke')
                 property 'thaumcraft.riftSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('taintSmokeTest')) {
+                workingDirectory project.file('run/taint-smoke')
+                property 'thaumcraft.taintSmokeTest', 'true'
                 args '--width', '1600', '--height', '1000'
             }
             if (project.hasProperty('essentiaSmokeTest')) {

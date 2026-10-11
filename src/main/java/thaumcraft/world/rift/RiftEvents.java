@@ -22,7 +22,7 @@ import thaumcraft.infusion.InfusionEffects;
 import java.util.List;
 import java.util.Map;
 
-/** Weighted BETA26 events. An unavailable taint ecology slot stays a no-op, never rerolls. */
+/** Weighted BETA26 world events; blocked attempts retain their slot without rerolling. */
 public final class RiftEvents {
     public enum Outcome { APPLIED, NO_TARGET, BLOCKED, UNSUPPORTED }
     public record Entry(int event, int weight, int stabilityCost, boolean nearTaintAllowed) {}
@@ -46,6 +46,8 @@ public final class RiftEvents {
     static Outcome execute(FluxRiftEntity rift, int event) {
         if (!valid(rift) || event < 0 || event >= EVENTS.size()) return Outcome.BLOCKED;
         ServerLevel server = (ServerLevel)rift.level();
+        if (!EVENTS.get(event).nearTaintAllowed()
+                && thaumcraft.world.taint.TaintHelper.isNearTaintSeed(server,rift.blockPosition())) return Outcome.BLOCKED;
         boolean didit = false;
         switch (event) {
             case 0 -> {
@@ -59,11 +61,17 @@ public final class RiftEvents {
                 else return Outcome.BLOCKED;
             }
             case 1 -> {
-                // Prime seed needs registered seed-area lifecycle, fibres/block conversion,
-                // flux saturation, tentacles and taint immunity. The old NoAI catalogue
-                // has none of these; retain its original weighted slot without spawning it,
-                // discarding the real rift or polluting aura as if ecology existed.
-                return Outcome.UNSUPPORTED;
+                var registered = VisualEntitiesModule.LIVING.get("taint_seed_prime").get().create(server);
+                if (!(registered instanceof thaumcraft.world.taint.TaintSeedEntity seed)) return Outcome.UNSUPPORTED;
+                // BETA26 casts towards zero before centering, including negative coordinates.
+                seed.moveTo((int)(rift.getX()+rift.getRandom().nextGaussian()*5)+.5,
+                        (int)(rift.getY()+rift.getRandom().nextGaussian()*5),
+                        (int)(rift.getZ()+rift.getRandom().nextGaussian()*5)+.5,server.random.nextInt(360),0);
+                if (!seed.canSpawnFromRift() || !server.addFreshEntity(seed)) return Outcome.BLOCKED;
+                seed.setBoost(rift.getRiftSize());
+                thaumcraft.world.aura.AuraManager.addFlux(server,rift.blockPosition(),rift.getRiftSize()/2);
+                rift.discard();
+                didit = true;
             }
             case 2 -> {
                 for (LivingEntity target : server.getEntitiesOfClass(LivingEntity.class,

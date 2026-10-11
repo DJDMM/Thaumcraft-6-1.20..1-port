@@ -213,6 +213,12 @@
       "thaumcraft:wisplive3"
     ]
   },
+  "gore": {
+    "sounds": ["thaumcraft:gore1", "thaumcraft:gore2"]
+  },
+  "tentacle": {
+    "sounds": ["thaumcraft:tentacle1", "thaumcraft:tentacle2", "thaumcraft:tentacle3"]
+  },
   "wispdead": {
     "category": "hostile",
     "sounds": [
