@@ -46,6 +46,7 @@ public final class VisualEntitiesModule {
                         switch (spec.id()) {
                             case "turret_basic" -> thaumcraft.artifice.construct.TurretEntity::new;
                             case "turret_advanced" -> thaumcraft.artifice.construct.AdvancedTurretEntity::new;
+                            case "arcane_bore" -> thaumcraft.artifice.construct.BoreEntity::new;
                             case "wisp" -> thaumcraft.world.rift.WispEntity::new;
                             case "taint_seed" -> thaumcraft.world.taint.TaintSeedEntity::new;
                             case "taint_seed_prime" -> thaumcraft.world.taint.TaintSeedPrimeEntity::new;
@@ -90,6 +91,7 @@ public final class VisualEntitiesModule {
         LIVING.forEach((id,type) -> event.put(type.get(), switch (id) {
             case "turret_basic" -> thaumcraft.artifice.construct.TurretEntity.attributes().build();
             case "turret_advanced" -> thaumcraft.artifice.construct.AdvancedTurretEntity.attributes().build();
+            case "arcane_bore" -> thaumcraft.artifice.construct.BoreEntity.attributes().build();
             case "wisp" -> thaumcraft.world.rift.WispEntity.attributes().build();
             case "taint_seed" -> thaumcraft.world.taint.TaintSeedEntity.attributes().build();
             case "taint_seed_prime" -> thaumcraft.world.taint.TaintSeedPrimeEntity.attributes().build();

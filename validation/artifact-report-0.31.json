@@ -1,0 +1,374 @@
+{
+  "version": "0.31.0",
+  "date": "2026-10-11",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 90,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 25,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1109,
+  "newTestsBySuite": {
+    "constructs": 35,
+    "paidResearchAndInfusion": 8
+  },
+  "serverLog": {
+    "file": "bore-031-gametest2.log",
+    "bytes": 300299,
+    "sha256": "097c2205cd19e032b2b8c730dce726b0de90a2f1d18350adfbf25bab2dfd643f"
+  },
+  "serverResult": "1109/1109; native complete; BUILD SUCCESSFUL",
+  "clientRunTag": "bore-031-client1",
+  "client": {
+    "runTag": "bore-031-client1",
+    "smokeTest": "Bore",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\bore-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\bore-client-bore-031-client1-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\bore-client-bore-031-client1-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\bore-client-bore-031-client1.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\bore-client-bore-031-client1-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\bore-client-bore-031-client1-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\bore-client-bore-031-client1-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_e3a3bc739cd14f64a6526ad86fb84932",
+    "jvmPid": 34588,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 10
+  },
+  "clientLog": {
+    "file": "bore-client-bore-031-client1-client.log",
+    "bytes": 31304,
+    "sha256": "68770af32611980280bc4dad5d2422246fa14b183736d7f7a408d6e982568173"
+  },
+  "clientScenes": 10,
+  "nativeClientFacts": [
+    "THAUMCRAFT_BORE_CLIENT_FACTS: scenes=10,researchStage=3,studyRawGolemancyTheoryPaid=32,studyRawArtificeObservationPaid=16,studyRawAuromancyObservationPaid=16,studyXP=10,infusionEssentiaPaid=200,infusionJarsRemaining=15,infusionComponentsPaid=8,infusionCentralBasicPaid=1,paidOutput=1,paidPlacer=1,ownedBores=1,nativeToolTransfers=2,entityId=235,entityType=thaumcraft:arcane_bore,HP=50.0,maxHP=50.0,facing=north,NoAI=false,wallInitial=252,wallAir=13,physicalCobble=7,physicalSilkStone=6,looseDuplicateDrops=0,originalPauseNativeTicks=40,finalPauseNativeTicks=20,finalInactive=true,charge=10.0,toolDamage=0,toolRadius=5,toolDepth=56,stoneSpeed=7,fortune=4,refining=4,silkTouch=true,actualBeamDraws=115,actualParticleEmissions=789"
+  ],
+  "visualReview": {
+    "clientRunTag": "bore-031-client1",
+    "clientLogSha256": "68770af32611980280bc4dad5d2422246fa14b183736d7f7a408d6e982568173",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "bore_audit_review_031"
+    ],
+    "method": "Both reviewers actually viewed all10 full1600x1000 native PNG with original detail and the actual contact sheet after the final10-scene pass.",
+    "contactSheet": {
+      "file": "bore-0.31-review-sheet.png",
+      "sha256": "af5a589047007f7e9b4e83955abfd56841c7345edb1bfcf8489a23049e08d2ad",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-bore-paid-research.png",
+        "sha256": "70fc4e2945db731a376ac59366e9df0fa972b780f4d3159cfbaa17ad1674919d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-original-infusion-recipe.png",
+        "sha256": "597b5f2e86624d8e134130c56c6e9610a53b35ddd2b114e5f4e1246928480c20",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-native-infusion-active.png",
+        "sha256": "ae6caa12186e1a26ca407ff2d06f01e7b67315b9aab7e94b697e9f096cfd16eb",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-paid-infusion-output.png",
+        "sha256": "50787b787cfcd8abdcd56b628171bc36487f7fe18da8e685c3c68d5614d243f2",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-original-pickaxe-gui.png",
+        "sha256": "8468198c8920862ef8e98adb5a5c758c597c1aa6125cdeff6fc6fbafa275711a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-redstone-paused.png",
+        "sha256": "4c6e39f74752a274b3e34b43f8416e61051213dcde87bf4ed766cbd4522e064a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-native-mining-beam.png",
+        "sha256": "353e4c342074f48fa76dcc8c688e558d7c15b848a79ac7973f945da4fbbb7988",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-physical-chest-output.png",
+        "sha256": "855b61e775a113a46c7e95eed3ebed67d34d2769ae30b201487b974619487700",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-enchanted-pickaxe-gui.png",
+        "sha256": "6c30b7830748f21a3021e901e1bf457708109080c0a6acbfef9166d02e5aa7fe",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-bore-enchanted-native-beam.png",
+        "sha256": "5d82bbed64bf7ee5398d42a30fa7edaf877f2cadc998a5c096cfb118dbda0353",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Original book and infusion recipe are readable, with no clipped content or developer captions.",
+      "Paid physical altar changes basic turret to gold Bore; native pickaxe GUI shows one tool slot and five hearts, without fuel.",
+      "Plain Width7/Depth24/Speed4 and enchanted11/56/7 with Refining4/Fortune4/SilkTouch match native observed tools.",
+      "Native tripod, glass and aiming head show normal textures; paused frame has no beam and both active frames show green beam, pulled particles and actual wall holes.",
+      "Chest still shows7cobble; final native log proves13wallAir=7cobble+6Silkstone,0duplicates,115beamdraws and789particle emissions.",
+      "All10 scene captions in the contact sheet are outside gameplay; no dev/server-check/F3/gallery labels appear."
+    ],
+    "limits": [
+      "Prepared survival arena with precursor/raw knowledge/materials/essentia/enchanted-tool fixtures, not a full survival or enchanting playthrough.",
+      "One actual viewpoint, native GUI scale and English locale; no independent multiplayer session.",
+      "Selected static PNG plus native observations do not prove all-angle transparency, every animation frame or audio playback.",
+      "The7cobble chest frame precedes enchanted mining; final7+6 conservation is established by the native log."
+    ]
+  },
+  "localJsonCount": 2846,
+  "jarResourceByteParityChecks": 3667,
+  "originalMediaByteParity": {
+    ".ogg": 57,
+    ".png": 664,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.31.0.jar",
+      "bytes": 10996786,
+      "sha256": "e45c402975b3293cd6120a931ab30677d4c5c677f5be230368ee19d31683dccb"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.31.0-mods.zip",
+      "bytes": 10116162,
+      "sha256": "4ef0e4276f55c9ee5223390e70b8138601b7be9d4b1b9f41629e3d8288235a4b"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.31.0-screenshots.zip",
+      "bytes": 4134788,
+      "sha256": "2f646da4500afff1a840ef51e8abf1179752f5476267e81e8b8f2b8a7a210081"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.31.0-preview.png",
+      "bytes": 2177919,
+      "sha256": "af5a589047007f7e9b4e83955abfd56841c7345edb1bfcf8489a23049e08d2ad"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.31-final.log",
+    "bytes": 1212,
+    "sha256": "2c508f4da43a7d2dffdd18c1595f749f9d605199eedb8d4255e085f1ef177bb1"
+  },
+  "resourceLog": {
+    "file": "resources-0.31-final.log",
+    "bytes": 188,
+    "sha256": "ff28bbc0c85407267dd18842039a0082dc05b0f7a24bd97662b04db01211cb6e"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "3fd213639a3ddce8bef8a439fd38f9bace178a333fcf363e511d15c8c75bf7b2"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "e23884ce4981aa2a20bed75bcef2eedd78fb8587ef76149c2501ded95097000d"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "8b1dac7c2bc87c7add0df3884b40bfef8303af2a72dd71f5e6245a1941401222"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "8787a2763ba504f2e6f77001386d9ebb3326ea7704e522fcc10ac7532ec62a73"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "fcd1a59f89a181c83eac01f2a5fd15a61861033764a06a8a43214673f541b481"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/BoreEntity.java",
+      "sha256": "a54b804b29aca0f1b66c0a5e9104307619f7fa0cf5d0fdc9559964a56acd7a00"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/BoreGameTests.java",
+      "sha256": "26e83ca6a920da0b0515ad12d558f6ccbb8f758ef69679399b01a854f29c60bd"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/BoreMenu.java",
+      "sha256": "b97784b5da42a2179b4acb82a4ceab3bf333230d71ff212254b29d4fc061c6f8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/BoreModule.java",
+      "sha256": "545783cf331c9d1d59ac568f05734422d22ce471feba921dee6b168dc06eedda"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretModule.java",
+      "sha256": "67ba4a5890c4213f2545c85f479840db297b58130c0365faab04c330da50c9c5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretPlacerItem.java",
+      "sha256": "7c480619a27149a953981a0daf70194cd9b23a943fae3e450c129087b2ab6143"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/BoreClientEvents.java",
+      "sha256": "7e206d4f99399fcd51668751125d9b11497917483b3a5f7f5bfbb288d983e255"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/BoreClientSmokeTest.java",
+      "sha256": "a465113591405795e8161fd407ff16bb983d12bf5b10bcd9104bd9fc6f1dabf4"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/BoreRenderers.java",
+      "sha256": "45102748ca46f3ad571a690bf3deac6e15a6bf2fa33db7f7f06a0f4a51013795"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/client/BoreScreen.java",
+      "sha256": "9ba43444e0b02531846fa8a644237b7a240cf96de6ab674e1dfc841f35a5ca22"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/redstone/RedstoneDeviceGameTests.java",
+      "sha256": "48247f9a4ec0797f4e6a28dc524e60ca782188195e1eff4e9e65ead1608758a3"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/VisualEntitiesModule.java",
+      "sha256": "d4e27dbd7589184e925624ac5ce9ec718abbe1f6b99872858c966beee04595e7"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/client/LegacyArcaneBoreModel.java",
+      "sha256": "1be23e8573f49d90770395b25a8d099a936a8298d691253a0eb20bb8af932a45"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/client/VisualEntityRenderers.java",
+      "sha256": "0858e82f30a97939ac4c9d09b5ea9f9c5f6823bf6b4314508291591e52b3f56c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "2b527aa10b2fddda8a89f7f2a7f981bf0927bf287dc12f6b718d9338b3a6ff91"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "2cefc695c90ab14807076e4581aaab4ffff3c3bd03ff2452ea8f8cf5925d5783"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/AuromancyProgressionGameTests.java",
+      "sha256": "2c97c3a8f9a92d381bdf8787cd502d09b3a5ff56adabc3f9fbb7130698a381a6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "32b6d6e6281e14a05a8336681381047e8ff76e73603bbd5205691ce52668f022"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "77e509815ed1d465c8964093b4221505e24517d6a97c97afe2407086e597ccf5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "85d614e7844554b8abbaac90a5cc0ab2bbf3ce3c272d80c4ad6b81c7d38d2148"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "5bb37bfcecf764af7cbdbd3cb25b1e89b977e921fe6a325c157a7748d75b841c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "cb54e03cc3c993081a74c65aa9f19360bfa216639197db0ab693e4c23baa0b6b"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "08ff6d966ff80269a9e03ddadbc7144123d7dfcab947f690b4ee25fe8b76ea36"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "5a97a4de21514ad434112a0041938cac1e9bec68f42d2bc460172e97831e805d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "98a01c14b15713624b35eafdcef53b6a586c6b0e1ce58b116983a409ef557f48"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/celestial/CelestialGameTests.java",
+      "sha256": "011214c8b7888b37b78c52332608f2d03067e512af03772880a7e7621a605a0d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+      "sha256": "08cfe6b8d2084b0f4cdbd639fe5f82a1be2c98c2cd0643eb231e6677f6b4bae8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/world/taint/TaintSeedGameTests.java",
+      "sha256": "9fb4ed22536f39956bbf8d3566b8aa51f7c506751d567298153c165c56d16b02"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "51a8c7988aff1861fa54304fdcdd28fafae1347712c3a5c0bf3b3caf108a0d5e"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/sounds.json",
+      "sha256": "75479da57bc9851529b50ed725a0d5f30168e83de8e458ea144f2ecc9b734950"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/sounds/rumble.ogg",
+      "sha256": "e7cf1830a5da153e60ebdf4208d3bf13ddfc2edd2f9f195f3dc8ee2bf256bb11"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/gui/gui_arcanebore.png",
+      "sha256": "0b2ea01e46629b2289a5fb305b687b4008078100310bc32b1994b80e401bb890"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/misc/beam1.png",
+      "sha256": "f56bfe8f53af35d06b1c5d6f0979ddcb6791af7c5becdb07aa156d073b909567"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "bore-031-server2-sources.json",
+      "bytes": 621164,
+      "sha256": "efbc5e97d618e87996017eede35e2d645a3a7a94374e4a6fb73be52da1b4914b"
+    },
+    {
+      "file": "bore-031-client1-sources.json",
+      "bytes": 621164,
+      "sha256": "efbc5e97d618e87996017eede35e2d645a3a7a94374e4a6fb73be52da1b4914b"
+    },
+    {
+      "file": "bore-031-build-final-sources.json",
+      "bytes": 621164,
+      "sha256": "efbc5e97d618e87996017eede35e2d645a3a7a94374e4a6fb73be52da1b4914b"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": true,
+    "fileCount": 4307
+  },
+  "fixtures": [
+    "Fresh native QA worlds only, precursor studies/raw knowledge/materials supplied explicitly",
+    "Prepared loaded mining arena and altar, raw aura/essentia sources and enchanted tools are test fixtures"
+  ],
+  "limitations": [
+    "No complete manual survival playthrough or independent multiplayer session",
+    "Original successful harvest charge/no-rumble quirks retained; modern cancellation/output guards are documented adaptations",
+    "Mirrors and remaining devices/late Warp/Crimson/Eldritch still unfinished",
+    "Selected native PNG and client observations do not alone prove every animation frame or all-angle media parity"
+  ],
+  "earlierRuns": [
+    {
+      "file": "bore-031-gametest1.log",
+      "bytes": 285738,
+      "sha256": "0809d633ce462870793f76c2d1035b221c5a6b9e05bda9d99dcfb6930c7e3644"
+    }
+  ]
+}

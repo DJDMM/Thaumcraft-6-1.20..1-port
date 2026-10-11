@@ -180,7 +180,7 @@ public final class CelestialGameTests {
         helper.succeed();
     }
 
-    @GameTest(template = "empty")
+    @GameTest(template = "empty", timeoutTicks = 240)
     public static void completedResearchOpenSkyAndUpwardLookAreRequiredButRainIsAllowed(GameTestHelper helper) {
         ServerPlayer player = player(helper);
         supplies(player, 4);
@@ -196,10 +196,15 @@ public final class CelestialGameTests {
         BlockPos roof = player.blockPosition().above(2);
         var previous = helper.getLevel().getBlockState(roof);
         helper.getLevel().setBlockAndUpdate(roof, Blocks.STONE.defaultBlockState());
-        // In 1.20.1 canSeeSky reads asynchronously propagated skylight. Let the real light engine update first.
-        helper.runAfterDelay(5, () -> {
+        // The native light engine is asynchronous; a busy full suite has no five-tick deadline.
+        // Restore even if actual propagation never reaches readiness before this test times out.
+        helper.runAtTickTime(238, () -> helper.getLevel().setBlockAndUpdate(roof, previous));
+        helper.startSequence().thenWaitUntil(() -> helper.assertTrue(
+                !helper.getLevel().canSeeSky(player.blockPosition().above()), "Roof fixture skylight has not propagated"))
+                .thenExecute(() -> {
             try (Clock clock = Clock.save(helper.getLevel())) {
                 sun(helper.getLevel(), player);
+                helper.assertTrue(helper.getLevel().getBlockState(roof).is(Blocks.STONE), "Roof fixture was removed before its scan");
                 helper.assertTrue(!helper.getLevel().canSeeSky(player.blockPosition().above()), "Roof fixture skylight has not propagated");
                 result(helper, CelestialScanner.scan(player), CelestialScanner.Result.NOT_APPLICABLE);
                 // A separate open column avoids relying on roof-removal light propagation for the next assertion.
@@ -216,8 +221,7 @@ public final class CelestialGameTests {
                 helper.assertTrue(noteCount(player, 0) == 1 && player.getInventory().getItem(35).getCount() == 3,
                         "BETA26 rain scan did not produce/pay one solar note");
             } finally { helper.getLevel().setBlockAndUpdate(roof, previous); }
-            helper.succeed();
-        });
+        }).thenSucceed();
     }
 
     @GameTest(template = "empty")

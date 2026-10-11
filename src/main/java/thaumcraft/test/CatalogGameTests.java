@@ -69,6 +69,9 @@ public final class CatalogGameTests {
             if(entity instanceof thaumcraft.artifice.construct.TurretEntity turret) helper.assertTrue(!turret.isNoAi()
                     && turret.isPersistenceRequired() && turret.getMaxHealth()==(spec.id().equals("turret_advanced")?40:30)
                     && turret.getArmorValue()==(spec.id().equals("turret_advanced")?8:2),"Native crossbow lost original AI/stats/persistence");
+            else if(entity instanceof thaumcraft.artifice.construct.BoreEntity bore) helper.assertTrue(!bore.isNoAi()
+                    && bore.isPersistenceRequired() && bore.getMaxHealth()==50
+                    && bore.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE)==32,"Native Bore lost original AI/stats/persistence");
             else if(entity instanceof thaumcraft.world.rift.WispEntity wisp) helper.assertTrue(!wisp.isNoAi()
                     && wisp.getMaxHealth()==22 && !wisp.isPersistenceRequired(),"Operational Wisp lost native AI/stats/despawn policy");
             else if(entity instanceof thaumcraft.world.taint.TaintSeedEntity seed) helper.assertTrue(!seed.isNoAi()

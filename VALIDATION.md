@@ -1,4 +1,97 @@
-# Проверка устройств 0.30.0
+# Проверка магического бура 0.31.0
+
+Дата: **2026-10-11**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Магический бур реализован по выпущенному TC6.1.BETA26: один слот кирки,
+без топлива, реальные Forge harvest/drop/XP, спираль, чары, владение,
+красный камень/особый рельс, исходные модель/GUI/луч/частицы/сохранение.
+ARCANEBORE сохраняет INFUSION+BASICTURRET+FOCUSBREAK, исходные32/16/16
+сырых знаний и наполнение basic turret с восьмью компонентами и200эссенции.
+Канонический охват **90/148**, наполнение **25/56**.
+Контракты и современные защитные адаптации — в [BORE.md](BORE.md) и
+трёх аудитах [поведения](docs/tc6/ARCANE-BORE-BETA26-AUDIT.md),
+[прогрессии](docs/tc6/ARCANE-BORE-PROGRESSION-BETA26-AUDIT.md),
+[клиента](docs/tc6/ARCANE-BORE-CLIENT-BETA26-AUDIT.md).
+
+Свежий полный сервер **bore-031-gametest2** прошёл **1109/1109**
+обязательных тестов, native exit **0**, BUILD SUCCESSFUL **3m50s**.
+Лог `validation/bore-031-gametest2.log`; прежний проверенный QA-мир
+сохранён в `run/gametest-server/archive-bore-031-server2`.
+Добавлены35проверок бура и8прогрессии/наполнения; прежние1066сохранены.
+Высокие подготовленные площадки находятся на абсолютной Y284/300.
+Синхронные тесты используют native entity callbacks, отдельные события
+и физические инвентари. Отдельный сценарий выполняет50добыч на настоящих
+world/server/entity ticks, проверяет равенство трёх счётчиков, ровно50
+булыжников в сундуке, один износ кирки и исходный неизрасходованный заряд10.
+Другие проверки охватывают реальный дроп/XP/содержимое блока, зачарования,
+замену кирки даже идентичной копией, размещение/снятие/NBT, отменённые
+и вложенные callbacks, смерть внутри выдачи предмета и повторные выдачи.
+
+Первый полный прогон сохранён:1108тестов/native exit6/6ошибок fixtures.
+В новых тестах исправлены native hurt cooldown, veto только окончательного
+выброса вместо перехвата добычи, срок чистого спирального50-block опыта.
+Добавлен35-й тест exact-copy BreakEvent. Старые fixtures исправлены через
+реальную доступность всех AABB-чанков Seed, настоящий skylight вместо5тиков
+и правильный earChunk/native END очередь миграции вместо200ручных callbacks;
+физический EAST redstone source сохраняет питание реле. Производственные
+границы64/200, Taint pulse и CelestialScanner не менялись ради этих сбоев.
+Перед первым прогоном независимое ревью выявило и исправило настоящие
+потенциальные дубли/потери через callback-подмену placer/tool, смерть внутри
+выброса и отменённую/исцелённую смерть. Финальный свежий сервер проверяет
+окончательные guards; неудачный тестовый опыт не повторялся до случайного успеха.
+
+Скрытый клиент **bore-031-client1**, профиль Bore: **10/10**, native JVM
+exit **0**, PID**34588**, максимум**16**собственных окон на non-input desktop.
+Input desktop **Default → Default**; переключения/активации, глобального
+ввода и изменений обычных сохранений не было.
+Логи `validation/bore-client-bore-031-client1-client.log`, `-run.json`,
+`-desktop.json`; каждый путь/десктоп/PID/маркер связан с одним запуском.
+
+Native C2S оплатил ARCANEBORE32GolemancyTheory+16ArtificeObservation+
+16AuromancyObservation и дал исходные10XP(start5+completion5).
+Физический алтарь потребил200typed essentia,8компонентов и1basic turret,
+оставил3единицы в каждой из5банок и создал один свежий Bore без inputNBT.
+Этот предмет извлечён, размещён настоящим survival placer и потреблён.
+Один owned Bore, ID235/HP50/NORTH/NoAI=false, получил plain/enchant кирки
+через реальные GUI transfers. Plain свойства7/24/+4; enchanted11/56/+7,
+Fortune4(maxSoundingIV)/Refining4/SilkTouch. Пауза без питания40native ticks;
+после настоящего redstone block работает обычная спираль/Forge harvest.
+В финале снятие питания и20native ticks подтвердили13air блоков из252=
+**7cobble+6Silkstone**,0loose duplicate drops,1Bore/charge10/toolDamage0.
+Наблюдались115отрисовок луча и789эмиссий настоящих втягиваемых частиц.
+Сундуковый PNG снят до зачарованной добычи и показывает7cobble; финальные
+7+6доказаны последующим native журналом, а не подменённым кадром.
+
+Root и независимый bore_audit_review_031 просмотрели все10полных1600×1000
+PNG и лист. Книга, рецепт, GUI/здоровье/свойства читаемы; модель/стекло,
+зелёный луч, частицы и реальные отверстия видны. Missing textures и
+dev/server-check/F3/gallery надписей в игровом кадре нет. Малый текст
+соответствует original0.5scale; captions листа находятся вне игры.
+SHA256 каждого кадра/листа привязан к финальному клиентскому журналу.
+
+Подготовленные условия: новый собственный survival мир, предшествующие
+исследования/сырые знания, загруженная bedrock-площадка/252stonewall/chest,
+физический алтарь/свечи, raw basic central/eight ingredients/215typedessentia,
+250vis и две raw кирки. Enchanted tool подан как fixture, не получен
+зачарованием в этом опыте. Готовый Bore/целевое исследование/добыча не
+выдавались. Нет полного survival/enchanting прохождения или независимого
+multiplayer; один ракурс/GUI scale/English locale. Статичные PNG не проверяют
+все углы прозрачности, каждый кадр непрерывной анимации или воспроизведение звука.
+
+Финальная сборка `validation/build-0.31-final.log`: exit0/BUILD SUCCESSFUL20s.
+`validation/resources-0.31-final.log`: **2846JSON**, модели/текстуры/локали.
+**4307** fingerprints всехsrc/scripts/build.gradle одинаковы в финальных
+server/client/build snapshots. JAR CRC/дубликаты/версия/classes прошли,
+**3667** упакованных resource byte checks; исходные **664PNG/7JPG/57OGG**
+побайтно совпадают с закреплённым BETA26. Mods ZIP содержит этот JAR и
+закреплённый TerraBlender3.0.1.10; screenshot ZIP ровно10финальных кадров,
+preview — реально просмотренный лист. SHA256 JAR: `e45c402975b3293cd6120a931ab30677d4c5c677f5be230368ee19d31683dccb`.
+Машинный отчёт — [artifact-report0.31](validation/artifact-report-0.31.json).
+
+Зеркала ещё не включены, охват ими не увеличен. Следующий этап подготовлен
+в [MIRRORS-BETA26-AUDIT.md](docs/tc6/MIRRORS-BETA26-AUDIT.md), включая
+обязательные lamp/glass/f_TELEPORT, empty-map correction и remote essentia API.
+
+## История: проверка устройств 0.30.0
 
 Дата: **2026-10-11**. Minecraft 1.20.1 / Forge 47.4.10 / Java 17.
 Добавлены исходные REDSTONERELAY, ARCANEEAR, BASICTURRET и ADVANCEDTURRET,

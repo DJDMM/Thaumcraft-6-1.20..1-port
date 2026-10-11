@@ -1,5 +1,8 @@
 package thaumcraft.catalog.entities.client;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+
 /** Cuboids/UV/pivots extracted from pinned BETA26 ModelArcaneBore. */
 public final class LegacyArcaneBoreModel extends LegacyVisualModel {
 
@@ -72,5 +75,14 @@ public final class LegacyArcaneBoreModel extends LegacyVisualModel {
         base.addChild(tip);
     
         bake();
+    }
+
+    /** Original render(): five opaque tripod parts, then a separate alpha-blended head. */
+    @Override public void renderToBuffer(PoseStack pose,VertexConsumer vertices,int light,int overlay,float r,float g,float b,float a) {
+        for(var part:new LegacyPart[]{leg2,tripod,leg3,leg4,leg1})part.part.render(pose,vertices,light,overlay,r,g,b,a);
+    }
+
+    public void renderHead(PoseStack pose,VertexConsumer vertices,int light,int overlay,float r,float g,float b,float a) {
+        base.part.render(pose,vertices,light,overlay,r,g,b,a);
     }
 }

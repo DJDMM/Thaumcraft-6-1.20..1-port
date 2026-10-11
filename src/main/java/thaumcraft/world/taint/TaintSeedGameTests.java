@@ -162,13 +162,25 @@ public final class TaintSeedGameTests {
         } finally { h.getLevel().getServer().setDifficulty(prior,true); }
         h.succeed();
     }
-    @GameTest(template="empty") public static void positiveBoostRunsEachTickThenStopsBetweenTwentyTickPulses(GameTestHelper h) {
-        var seed=seed(h,false);seed.setBoost(2);
-        try {
-            nativeTick(seed); h.assertTrue(seed.tickCount==1&&seed.getBoost()==1&&seed.getHealth()==75,"First boosted tick did not consume one boost without starvation");
-            nativeTick(seed); h.assertTrue(seed.tickCount==2&&seed.getBoost()==0&&seed.getHealth()==75,"Second boosted tick did not consume exactly one boost");
-            nativeTick(seed); h.assertTrue(seed.tickCount==3&&seed.getBoost()==0&&seed.getHealth()==75,"Unboosted nonpulse tick changed health/boost");
-        } finally { seed.discard(); }h.succeed();
+    @GameTest(template="empty",timeoutTicks=240) public static void positiveBoostRunsEachTickThenStopsBetweenTwentyTickPulses(GameTestHelper h) {
+        Vec3 origin=centre(h);
+        AABB bounds=new AABB(origin.x-.75,origin.y,origin.z-.75,origin.x+.75,origin.y+1.25,origin.z+.75);
+        // A changing full-suite grid can put this entity across a chunk edge.
+        // Request the fixture's chunks, then wait for real getChunkNow readiness;
+        // the production loaded-only pulse must not be bypassed by direct ticks.
+        for(int x=net.minecraft.util.Mth.floor(bounds.minX)>>4;x<=net.minecraft.util.Mth.floor(bounds.maxX)>>4;x++)
+            for(int z=net.minecraft.util.Mth.floor(bounds.minZ)>>4;z<=net.minecraft.util.Mth.floor(bounds.maxZ)>>4;z++)
+                h.getLevel().getChunk(x,z);
+        h.startSequence().thenWaitUntil(()->h.assertTrue(TaintedStationaryMob.loaded(h.getLevel(),bounds),"Boost fixture entity bounds are not natively loaded"))
+                .thenExecute(()->{
+                    var seed=seed(h,false);seed.setBoost(2);
+                    try {
+                        h.assertTrue(TaintedStationaryMob.loaded(h.getLevel(),seed.getBoundingBox()),"Actual seed fixture bounds differ from ready chunks");
+                        nativeTick(seed); h.assertTrue(seed.tickCount==1&&seed.getBoost()==1&&seed.getHealth()==75,"First boosted tick differs: tick="+seed.tickCount+", boost="+seed.getBoost()+", health="+seed.getHealth());
+                        nativeTick(seed); h.assertTrue(seed.tickCount==2&&seed.getBoost()==0&&seed.getHealth()==75,"Second boosted tick did not consume exactly one boost");
+                        nativeTick(seed); h.assertTrue(seed.tickCount==3&&seed.getBoost()==0&&seed.getHealth()==75,"Unboosted nonpulse tick changed health/boost");
+                    } finally { seed.discard(); }
+                }).thenSucceed();
     }
     @GameTest(template="empty") public static void boostTagRetainsOriginalNameAndValueWhileOldGalleryNoAiIsMigrated(GameTestHelper h) {
         var seed=seed(h,true);seed.setBoost(1234);var tag=seed.saveWithoutId(new CompoundTag());

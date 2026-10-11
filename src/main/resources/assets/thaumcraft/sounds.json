@@ -214,16 +214,32 @@
     ]
   },
   "gore": {
-    "sounds": ["thaumcraft:gore1", "thaumcraft:gore2"]
+    "sounds": [
+      "thaumcraft:gore1",
+      "thaumcraft:gore2"
+    ]
   },
   "tentacle": {
-    "sounds": ["thaumcraft:tentacle1", "thaumcraft:tentacle2", "thaumcraft:tentacle3"]
+    "sounds": [
+      "thaumcraft:tentacle1",
+      "thaumcraft:tentacle2",
+      "thaumcraft:tentacle3"
+    ]
   },
   "wispdead": {
     "category": "hostile",
     "sounds": [
       {
         "name": "thaumcraft:wispdead",
+        "stream": false
+      }
+    ]
+  },
+  "rumble": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "thaumcraft:rumble",
         "stream": false
       }
     ]

@@ -18,13 +18,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import thaumcraft.catalog.CatalogItem;
 import thaumcraft.catalog.CatalogModule;
 
-/** BETA26's two-clear-block placer, with transactional modern spawn checks. */
+/** BETA26's three construct variants and two-clear-block placement. */
 public final class TurretPlacerItem extends CatalogItem {
     private static final Set<UUID> PLACING = new HashSet<>();
     public TurretPlacerItem(CatalogModule.Spec spec) { super(spec); }
     @Override public InteractionResult onItemUseFirst(ItemStack held, UseOnContext context) {
         var player = context.getPlayer(); var level = context.getLevel(); var clicked = context.getClickedPos();
-        if (player == null || !player.isAlive() || player.isSpectator() || held.isEmpty() || held.getItem() != this || context.getClickedFace() == Direction.DOWN || !level.hasChunkAt(clicked)) return InteractionResult.PASS;
+        if (player == null || !player.isAlive() || player.isSpectator() || held.isEmpty() || held.getItem() != this
+                || held != player.getItemInHand(context.getHand()) || context.getClickedFace() == Direction.DOWN || !level.hasChunkAt(clicked)) return InteractionResult.PASS;
         BlockPos pos = level.getBlockState(clicked).canBeReplaced() ? clicked : clicked.relative(context.getClickedFace());
         if (!level.hasChunkAt(pos) || !level.hasChunkAt(pos.above()) || level.isOutsideBuildHeight(pos) || level.isOutsideBuildHeight(pos.above())
                 || !level.getWorldBorder().isWithinBounds(pos) || !level.getWorldBorder().isWithinBounds(pos.above())
@@ -35,16 +36,24 @@ public final class TurretPlacerItem extends CatalogItem {
         if (!(level instanceof ServerLevel server)) return InteractionResult.PASS;
         if (!server.getServer().isSameThread() || !PLACING.add(player.getUUID())) return InteractionResult.FAIL;
         try {
-            String entityId = spec().id().equals("turret_advanced") ? "turret_advanced" : "turret_basic";
+            String entityId = switch (spec().id()) {
+                case "turret_basic" -> "turret_basic";
+                case "turret_advanced" -> "turret_advanced";
+                case "turret_bore" -> "arcane_bore";
+                default -> null;
+            };
+            if (entityId == null) return InteractionResult.FAIL;
             var type = ForgeRegistries.ENTITY_TYPES.getValue(ResourceLocation.fromNamespaceAndPath("thaumcraft", entityId));
-            if (type == null || !(type.create(level) instanceof TurretEntity turret)) return InteractionResult.FAIL;
+            if (type == null || !(type.create(level) instanceof OwnedConstructEntity turret)) return InteractionResult.FAIL;
             ItemStack before = held.copy();
             turret.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, 0, 0);
             turret.setOwnerId(player.getUUID()); turret.setValidSpawn();
+            if (turret instanceof BoreEntity bore) bore.setFacing(player.getDirection());
             // Both replaceable blocks are intentionally overwritten, including
-            // snow layers; the checked 1 x 2 volume fully contains either turret.
+            // snow layers; the checked 1 x 2 volume fully contains all three variants.
             if (!level.addFreshEntity(turret)) return InteractionResult.FAIL;
-            if (!turret.isAlive() || turret.isRemoved() || !ItemStack.matches(before, player.getItemInHand(context.getHand()))
+            if (!turret.isAlive() || turret.isRemoved() || held != player.getItemInHand(context.getHand())
+                    || !ItemStack.matches(before, held)
                     || !level.getBlockState(pos).canBeReplaced() || !level.getBlockState(pos.above()).canBeReplaced()) { turret.discard(); return InteractionResult.FAIL; }
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3); level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), 3);
             // The original placer shrinks even a creative player's held stack.

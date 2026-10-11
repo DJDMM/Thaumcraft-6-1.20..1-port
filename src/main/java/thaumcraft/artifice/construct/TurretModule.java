@@ -17,7 +17,7 @@ public final class TurretModule {
     public static final RegistryObject<MenuType<TurretMenu>> MENU = MENUS.register("turret", () -> IForgeMenuType.create(TurretMenu::new));
     private TurretModule() {}
     public static void register(IEventBus bus) { MENUS.register(bus); }
-    public static Item createItem(String id, CatalogModule.Spec spec) { return id.equals("turret_basic") || id.equals("turret_advanced") ? new TurretPlacerItem(spec) : null; }
+    public static Item createItem(String id, CatalogModule.Spec spec) { return java.util.Set.of("turret_basic", "turret_advanced", "turret_bore").contains(id) ? new TurretPlacerItem(spec) : null; }
     public static Item createItem(CatalogModule.Spec spec) { return createItem(spec.id(), spec); }
     static ItemStack stack(String id) {
         Item item = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath("thaumcraft", id));

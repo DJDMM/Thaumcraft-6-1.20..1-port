@@ -5,6 +5,10 @@ or `-SmokeTest Infusion` / `-SmokeTest TheoryComplete` / `-SmokeTest Thaumonomic
 The `-SmokeTest Thaumometer` profile runs native scanning/container/aura checks in `run/thaumometer-smoke` with the same hidden-desktop guarantees.
 The `-SmokeTest Rift` profile runs natural rift generation, actual scans/research,
 paid infusion/throw/collapse and physical stabilizer checks in `run/rift-smoke`.
+The `-SmokeTest Bore` profile uses only `run/bore-smoke` for the Arcane Bore's
+paid research/infusion, actual placer, live tool menu and native mining scenes.
+Its preparation export is allowlisted separately; it retains the same hidden
+desktop, exact-JVM and unchanged-input-desktop requirements below.
 The old `run_theory_smoke_isolated.ps1` forwards to the TheoryComplete profile.
 The wrapper prepares the selected JavaExec task without executing its game launch
 action, writes a Java17 argument file, and launches the final JVM on a uniquely

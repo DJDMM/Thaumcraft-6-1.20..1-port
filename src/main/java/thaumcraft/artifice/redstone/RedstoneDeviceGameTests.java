@@ -409,22 +409,40 @@ public final class RedstoneDeviceGameTests {
                 "Ordinary circuit remained powered after original pulse/relay/native lamp delays"); h.succeed(); });
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(template = TEMPLATE, timeoutTicks = 240)
     public static void loadedLegacyStatesAcquireMissingTilesAndExistingTuningIsUntouched(GameTestHelper h) {
-        var pos = h.absolutePos(CENTER); var relay = relay(h, pos, Direction.EAST, true); relay.setIn(9); relay.setOut(4);
-        var earPos = h.absolutePos(new BlockPos(8, 2, 4)); var ear = ear(h, earPos, Direction.UP, true, Blocks.GOLD_BLOCK, 17); ear.updateTone();
-        var chunk = h.getLevel().getChunkAt(pos); h.getLevel().removeBlockEntity(earPos);
-        LegacyRedstoneDeviceMigration.load(new ChunkEvent.Load(chunk, false));
-        // A complete suite can queue more than64 already loaded chunks. Exercise the
-        // unchanged bounded callback until this fixture is reached, never enlarge its budget.
-        for (int attempt = 0; attempt < 200 && !(chunk.getBlockEntity(earPos, net.minecraft.world.level.chunk.LevelChunk.EntityCreationType.CHECK) instanceof ArcaneEarBlockEntity); attempt++)
-            LegacyRedstoneDeviceMigration.tick(new TickEvent.LevelTickEvent(net.minecraftforge.fml.LogicalSide.SERVER, TickEvent.Phase.END, h.getLevel(), () -> true));
-        var repaired = chunk.getBlockEntity(earPos, net.minecraft.world.level.chunk.LevelChunk.EntityCreationType.CHECK);
-        h.assertTrue(repaired instanceof ArcaneEarBlockEntity && h.getLevel().getBlockEntity(pos) == relay && relay.getIn() == 9 && relay.getOut() == 4
-                && h.getLevel().getBlockState(pos).getValue(RedstoneRelayBlock.FACING) == Direction.EAST && enabled(h, pos),
-                "Loaded missing ear failed upgrade or existing relay tuning/state was overwritten");
-        var nativeEar = (ArcaneEarBlockEntity) repaired; nativeEar.note = 17; nativeEar.updateTone();
-        LegacyRedstoneDeviceMigration.repair(h.getLevel(), chunk);
-        h.assertTrue(h.getLevel().getBlockEntity(earPos) == nativeEar && nativeEar.note == 17 && nativeEar.tone == 6, "Repeated loaded migration reset a real saved ear"); h.succeed();
+        var pos = h.absolutePos(CENTER); var earPos = h.absolutePos(new BlockPos(8, 2, 4));
+        var relayChunk = h.getLevel().getChunkAt(pos); var earChunk = h.getLevel().getChunkAt(earPos);
+        var fixtureRelay = new RedstoneRelayBlockEntity[1];
+        h.startSequence().thenWaitUntil(() -> {
+            h.assertTrue(h.getLevel().getChunkSource().getChunkNow(pos.getX() >> 4, pos.getZ() >> 4) == relayChunk,
+                    "Native relay fixture chunk has not become accessible");
+            h.assertTrue(h.getLevel().getChunkSource().getChunkNow(earPos.getX() >> 4, earPos.getZ() >> 4) == earChunk,
+                    "Native ear fixture chunk has not become accessible");
+        }).thenExecute(() -> {
+            var relay = relay(h, pos, Direction.EAST, true); relay.setIn(9); relay.setOut(4); fixtureRelay[0] = relay;
+            var ear = ear(h, earPos, Direction.UP, true, Blocks.GOLD_BLOCK, 17); ear.updateTone();
+            // Keep the saved enabled relay legitimately powered during real server ticks.
+            h.getLevel().setBlock(pos.east(), Blocks.REDSTONE_BLOCK.defaultBlockState(), Block.UPDATE_ALL);
+            h.getLevel().removeBlockEntity(earPos);
+            // The ear and relay can straddle a chunk boundary in the full test layout.
+            LegacyRedstoneDeviceMigration.load(new ChunkEvent.Load(earChunk, false));
+        }).thenWaitUntil(() -> h.assertTrue(earChunk.getBlockEntity(earPos,
+                net.minecraft.world.level.chunk.LevelChunk.EntityCreationType.CHECK) instanceof ArcaneEarBlockEntity,
+                "Native bounded END migration has not repaired the missing ear"))
+                .thenExecute(() -> {
+                    var relay = fixtureRelay[0];
+                    h.assertTrue(h.getLevel().getBlockEntity(pos) == relay, "Migration replaced an existing native relay");
+                    h.assertTrue(relay.getIn() == 9 && relay.getOut() == 4, "Migration overwrote existing relay tuning");
+                    h.assertTrue(h.getLevel().getBlockState(pos).getValue(RedstoneRelayBlock.FACING) == Direction.EAST,
+                            "Migration changed saved relay input facing");
+                    h.assertTrue(enabled(h, pos), "Migration changed the physically powered relay state");
+                    var nativeEar = (ArcaneEarBlockEntity) earChunk.getBlockEntity(earPos,
+                            net.minecraft.world.level.chunk.LevelChunk.EntityCreationType.CHECK);
+                    nativeEar.note = 17; nativeEar.updateTone();
+                    LegacyRedstoneDeviceMigration.repair(h.getLevel(), earChunk);
+                    h.assertTrue(h.getLevel().getBlockEntity(earPos) == nativeEar && nativeEar.note == 17 && nativeEar.tone == 6,
+                            "Repeated loaded migration reset a real saved ear");
+                }).thenSucceed();
     }
 }
