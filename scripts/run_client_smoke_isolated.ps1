@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Mirror = @{ property = 'mirrorSmokeTest'; directory = 'mirror-smoke'; prefix = 'mirror-client'; marker = 'THAUMCRAFT_MIRROR_CLIENT_SMOKE'; audit = 'THAUMCRAFT_MIRROR_RENDER_AUDIT_OK' }
     Bore = @{ property = 'boreSmokeTest'; directory = 'bore-smoke'; prefix = 'bore-client'; marker = 'THAUMCRAFT_BORE_CLIENT_SMOKE'; audit = 'THAUMCRAFT_BORE_RENDER_AUDIT_OK' }
     Turret = @{ property = 'turretSmokeTest'; directory = 'turret-smoke'; prefix = 'turret-client'; marker = 'THAUMCRAFT_TURRET_CLIENT_SMOKE'; audit = 'THAUMCRAFT_TURRET_RENDER_AUDIT_OK' }
     Taint = @{ property = 'taintSmokeTest'; directory = 'taint-smoke'; prefix = 'taint-client'; marker = 'THAUMCRAFT_TAINT_CLIENT_SMOKE'; audit = 'THAUMCRAFT_TAINT_RENDER_AUDIT_OK' }

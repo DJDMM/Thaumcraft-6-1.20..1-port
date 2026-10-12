@@ -1,4 +1,137 @@
-# Проверка магического бура 0.31.0
+# Проверка зеркал и магической лампы 0.32.0
+
+Дата: **2026-10-12**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Исходный TC6.1.BETA26, pinned JAR/source и современные адаптации описаны
+в [MIRRORS.md](MIRRORS.md) и отдельных аудитах поведения, прогрессии,
+клиента и лампы. Канонический охват **94/148**, наполнение **28/56**.
+Зеркало эссенции реализует IAspectSource, не трубу и не накопитель:
+одна операция оплачивает одну единицу в физической удалённой банке.
+
+Свежий полный сервер `mirror-032-gametest5.log` прошёл **1211/1211** обязательных проверок,
+native exit0/BUILD SUCCESSFUL **3m 52s**. Сохранены прежние1109;
+добавлены51 item/hand,22 remote airborne,20 progression и8 lamp/migration, плюс одна отдельная native initialization проверка Flyer.
+Проверяются связи, сохранение, тип/направление, исходная random-entry очередь,
+один предмет после count>20, instability/Flux, loaded-only межпространственные
+endpoints, отмена/вложенные Forge callbacks и возвраты. Native EntityPlaceEvent
+проверяет итоговую отмену, включая позднюю отмену/снятие отмены, физическую
+руку/списание, survival/creative, раннее удаление и последующее движение слота.
+Удалённые операции сохраняют один hop, shared cache/cooldown, оригинальный
+cold acceptance quirk, реальные leaf jars и две dimension-qualified FX legs.
+Настоящие matrix/transfuser routes и отсутствие force chunk tickets проверены.
+
+Исследования сохраняют исходных строгих родителей, !lux, f_TELEPORT,
+физические ender pearl/mirrored glass, знания32/16 и общие5+5XP.
+Glass/lamp bench проверяет50vis и точные Aqua/Ordo либо Aer/Ignis кристаллы.
+Три настоящих world-ticked алтаря проверяют75/100/75 эссенции, central,
+все reagents, fresh output/craft proof и100последующих native ticks без replay.
+HandMirror требует empty map и plain unbound metadata0 mirror; filled map
+и bound typed link отвергаются, включая сетевое восстановление рецепта.
+Лампа проверяет native support/редстоун/границы очистки, LOS, Y/clamp,
+invisible persistent light15 и миграцию, сохраняющую оплаченные native очереди.
+
+Первый запуск завершился до тестов из-за дублированного jar sound registry;
+зеркала теперь используют существующий BrainJarModule.JAR. Server2
+завершился native exit6 с шестью ошибками; исходные журналы сохранены.
+Ошибочные primal indices заменены символическими именами и exact assertions.
+Отрицательный zero-aspect hover не обязан иметь HUD, но геометрия и read-only
+знания проверены. Старое ожидание empty Enderman scan заменено exact f_TELEPORT,
+с сохранением запрета f_golem для этого существа. Межпространственный тест
+проверяет принятый физический ItemEntity через native Forge join, а не
+visibility query без игрока; queue2+output1=3 и remote level/cooldown проверены.
+Сбой lamp signal выявил настоящую ошибку: .air() glimmer терялся в пустой
+секции native LevelChunk. Теперь он хранится как non-air невидимый заменяемый
+блок света (как vanilla LightBlock), остаётся без коллизии/loot/clone и явно
+не служит опорой лампы. Новый восьмой lamp test проверяет реальное размещение
+в пустой секции, чтение, native chunk palette serialization и удаление.
+Это документированная modern storage adaptation; прежние неудачные прогоны
+не являются passed QA.
+
+Финальный скрытый клиент `mirror-032-client4`, профиль Mirror: **20/20**,
+native JVM exit0, PID**38828**, максимум
+**16** собственных окон.
+Input desktop **Default → Default**.
+Каждый PID/desktop/path/маркер связан с одним финальным запуском.
+Desktop не активировался, глобальный ввод и обычные сохранения не менялись.
+
+Native C2S оплатил четыре исследования:96raw Artifice Theory,
+32raw Artifice Observation; за стадии получены исходные40XP. Lux/teleport получены настоящим
+Thaumometer scan. Семь bench crafts оплатили350vis/14кристаллов;
+шесть наполнений оплатили475typed essence, оставив15 из490raw.
+Созданы3item mirrors (один потреблён hand recipe),1hand и2essentia mirrors.
+Четыре paid mirror instances реально размещены и связаны в две пары.
+Проверены8physical emerald output,8hand C2S diamonds и24Ignis remote jar→
+receiver, свет15 оплаченной лампы, восемь survival harvest/pickup/replacements
+тех же четырёх зеркал для всех шести направлений крепления.
+Точные фактические counters сохранены в nativeClientFacts машинного отчёта.
+Клиент не выполнял прямые runtime tick/queue/setLink/transport вызовы.
+
+root и mirror_essentia_finish_032 просмотрели все20полных1600×1000 PNG
+и фактический лист. Имена/хэши, выводы и ограничения каждого просмотра
+связаны с окончательным client log SHA256 в visualReview отчёта.
+Книга, реальные bench/altar, исходное окно176×166 с одним входом,
+разные native frame textures, pane/tunnel и крепления проверены.
+Нет dev/server-check/F3/gallery overlay. Captions листа находятся вне игры.
+
+Дополнительное ревью выявило nested addFreshEntity: внутреннее добавление
+может принять предмет, а внешнее вернуть false. Monotonic native onAddedToWorld
+proof предотвращает повторное владение, включая accepted-then-consumed callbacks.
+Отдельные проверки сохраняют/reload очередь и ledger внутри такого callback:
+уже принятая физическая выдача не попадает в сохранённый оплаченный остаток.
+Не принятые reservation snapshots продолжают сохранять оплату.
+
+Старый Flyer test в server3 сообщил скачок без координат/причины. В server4
+неизменённый строгий порог прошёл с диагностикой; это не доказательство причины3.
+Проверка теперь разделяет native firstRun initialization и последующий flight:
+actual world tick завершает firstRun до установки высокого потолка/печати,
+порог<1 сохраняется на всей задаче. Отдельный deterministic native test
+проверяет исходную firstRun/recoverHome ветку при пересечении home boundary.
+Production Flyer AI не менялся; исходный сбой3 не приписывается этой причине
+как установленному факту.
+
+Client1 сохранил18кадров, но финальная проверка сохранности не прошла:
+QA stow удалял изумруды, случайно подобранные в выбранную руку.
+Сохранение содержало Emerald0/Diamond8, пустые очереди и source0/receiver24.
+Исправлен только opt-in driver: физическое сохранение каждой занятой руки,
+при прежних строгих8+8. Client2 прошёл18/18/nativeexit0.
+Client3 добавлял широкие планы и две closeups, но после19кадров остановился
+на потолочном ракурсе: KeyboardInput сбрасывал shift, выставленный в END tick.
+Завершён только проверенный собственный QA JVM45876; это не passed QA.
+Client4 использует opt-in MovementInputUpdateEvent после чтения клавиатуры
+и проверяет настоящую CROUCHING pose/eye1.27; все20сцен прошли/nativeexit0.
+Исходные журналы и ранние кадры сохранены отдельно и не выдаются
+как окончательное доказательство0.32.
+
+Подготовленные условия: собственный survival QA-мир, предшествующие studies,
+raw balances/materials/crystals/aura, bedrock arena, физические bench/altar,
+симметричные candle pairs/490typedessentia, raw scanner/caster и прежний
+output transfuser. Ночь18000 — явная fixture для настоящего света лампы;
+две closeups используют обычные crouch/F1 и затем восстанавливают HUD.
+Целевые исследования, факты, лампа/стекло/зеркала и
+телепортированные предметы не выдавались как fixtures.
+Это не полное survival-прохождение или независимый multiplayer; клиентские
+сцены не доказывают все dimensions/audio/animation frames. Cross-dimension
+серверные испытания и реальные client PNG имеют отдельные границы.
+Native tunnel использует исходную проекцию камеры, не remote-world camera.
+
+Финальная сборка **22s**, **2852 JSON**.
+**4343** src/resources/scripts/build.gradle
+fingerprints совпадают полностью между окончательными client/build snapshots.
+Все4342server-relevant файла совпадают с server5. Единственная последующая
+правка — opt-in Dist.CLIENT MirrorClientSmokeTest: сохранение подобранных
+предметов, ракурсы двух closeups и собственный QA crouch input event.
+Core/resources/helpers/tests не менялись;
+старый и финальный SHA драйвера, полный список snapshots сохранены в отчёте.
+Server5 не объявляется испытанием последующего клиентского драйвера.
+JAR CRC/duplicates/version/nativeclasses и **3677**
+resource byte checks прошли; **668PNG/7JPG/57OGG** совпадают с released JAR.
+Mods ZIP содержит этот JAR и pinned TerraBlender3.0.1.10;
+screenshots ZIP содержит ровно20финальных кадров, preview — просмотренный лист.
+SHA256 JAR: `e9f69ed7f2de38ed6b28331ea55631cc625d07d6c6d4308bd288709cfceae69a`. [Машинный отчёт0.32](validation/artifact-report-0.32.json).
+
+Остаются другие устройства, Warp/Crimson/Eldritch и незавершённая экология.
+Эта сборка не объявляет все148исследований и весь мод завершёнными.
+
+## История: проверка магического бура 0.31.0
 
 Дата: **2026-10-11**. Minecraft1.20.1 / Forge47.4.10 / Java17.
 Магический бур реализован по выпущенному TC6.1.BETA26: один слот кирки,

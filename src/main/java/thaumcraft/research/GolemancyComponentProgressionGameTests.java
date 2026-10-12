@@ -26,7 +26,7 @@ public final class GolemancyComponentProgressionGameTests {
 
     @GameTest(template="essentia_network")
     public static void exactGolemScanFamiliesIncludeShulkerAndOwnedConstructsButNotItems(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==90
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==94
                 && ResearchProgression.isImplemented("MINDCLOCKWORK") && ResearchProgression.stageSupported("MINDCLOCKWORK",2),
                 "Clockwork mind's complete original progression was omitted from the canonical inventory");
         for (var type : List.of(EntityType.IRON_GOLEM, EntityType.SNOW_GOLEM, EntityType.SHULKER)) {
@@ -38,7 +38,7 @@ public final class GolemancyComponentProgressionGameTests {
             h.assertTrue(type!=null && AuromancyProgressionEvents.scanFacts(type.create(h.getLevel())).equals(List.of("f_golem")),
                     "Original owned construct omitted: "+id);
         }
-        h.assertTrue(AuromancyProgressionEvents.scanFacts(EntityType.ENDERMAN.create(h.getLevel())).isEmpty()
+        h.assertTrue(AuromancyProgressionEvents.scanFacts(EntityType.ENDERMAN.create(h.getLevel())).equals(List.of("f_TELEPORT"))
                 && AuromancyProgressionEvents.scanFacts(new ItemStack(Items.IRON_GOLEM_SPAWN_EGG)).isEmpty()
                 && ResearchProgression.supportsProgression("CONTROLSEALS") && ResearchProgression.supportsProgression("SEALCOLLECT"),
                 "Unrelated entity/item granted a scan or implemented seals were omitted");

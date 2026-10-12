@@ -3,7 +3,22 @@
 Дата первоначального изучения справочников: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
 
-Текущий срез **0.31.0** содержит **90/148** канонических исследований
+Текущий срез **0.32.0** содержит **94/148** канонических исследований
+и **28/56** путей наполнения. Четыре исходные записи ARCANELAMP/MIRROR/
+MIRRORHAND/MIRRORESSENTIA оплачиваются через настоящие scan/bench/altar
+callbacks. Работают item/hand/essentia mirrors и prerequisite лампа.
+Контракты — [зеркала](../../MIRRORS.md), [core](MIRRORS-CORE-PORT.md),
+[airborne](MIRROR-ESSENTIA-INTEGRATION.md),
+[progression](MIRROR-PROGRESSION-BETA26-AUDIT.md),
+[client](MIRROR-CLIENT-BETA26-AUDIT.md) и [lamp](ARCANE-LAMP-BETA26-AUDIT.md).
+Финальный QA **1211/1211**, **20/20**, оба native exit0; все20полных PNG
+и лист просмотрены двумя проверяющими. Сборка 22s, 2852 JSON,
+668PNG/7JPG/57OGG original byte parity прошли.
+[Отчёт0.32](../../validation/artifact-report-0.32.json) и
+[VALIDATION.md](../../VALIDATION.md) фиксируют условия и границы.
+Остальные устройства и поздние ветви требуют дальнейшего переноса.
+
+Исторический срез **0.31.0** содержит **90/148** канонических исследований
 и **25/56** путей наполнения. Магический бур работает через исходное
 ARCANEBORE, реальный оплаченный алтарь, кирку/чары, спиральную добычу
 и соседние инвентари. Правила — в [BORE.md](../../BORE.md), контракты —

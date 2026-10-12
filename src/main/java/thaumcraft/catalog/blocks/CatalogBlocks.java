@@ -31,7 +31,10 @@ public final class CatalogBlocks {
         for (Spec spec : SPECS) if (!existing.contains(ResourceLocation.fromNamespaceAndPath("thaumcraft",spec.id()))) {
             RegistryObject<Block> block = BLOCKS.register(spec.id(), () -> create(spec));
             ENTRIES.put(spec.id(),block);
-            if (spec.item()) ITEMS.register(spec.id(), () -> spec.id().equals("jar_brain")
+            if (spec.item()) ITEMS.register(spec.id(), () -> thaumcraft.artifice.mirror.MirrorModule.handlesBlock(spec.id())
+                    ? thaumcraft.artifice.mirror.MirrorModule.createBlockItem(block.get())
+                    : spec.id().equals("lamp_arcane") ? new BlockItem(block.get(),new Item.Properties())
+                    : spec.id().equals("jar_brain")
                     ? new thaumcraft.golemancy.jar.BrainJarBlockItem(block.get())
                     : spec.id().equals("hungry_chest")
                     ? thaumcraft.artifice.hungrychest.HungryChestModule.createBlockItem(block.get())
@@ -63,6 +66,8 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (thaumcraft.artifice.mirror.MirrorModule.handlesBlock(id)) return thaumcraft.artifice.mirror.MirrorModule.createBlock(id);
+        if (thaumcraft.artifice.lamp.LampModule.handlesBlock(id)) return thaumcraft.artifice.lamp.LampModule.createBlock(id);
         if (thaumcraft.artifice.redstone.ArtificeRedstoneModule.handlesBlock(id)) return thaumcraft.artifice.redstone.ArtificeRedstoneModule.createBlock(id);
         if (thaumcraft.world.taint.TaintModule.handlesBlock(id)) return thaumcraft.world.taint.TaintModule.createBlock(id);
         if (id.equals("crystal_vitium")) return new thaumcraft.world.crystal.PrimalCrystalClusterBlock(thaumcraft.api.aspects.Aspect.FLUX);

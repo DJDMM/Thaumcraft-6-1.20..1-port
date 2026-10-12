@@ -59,6 +59,7 @@ public final class AuromancyProgressionEvents {
         var facts = new java.util.LinkedHashSet<>(auromancyScanFacts(scanned));
         facts.addAll(GolemancyProgressionEvents.scanFacts(scanned));
         facts.addAll(OreProgressionScans.scanFacts(scanned));
+        facts.addAll(MirrorProgressionScans.scanFacts(scanned));
         // Both original ScanEntity registrations are tied to the working rift class,
         // never to a held catalogue item or a client-supplied entity identifier.
         if (scanned instanceof thaumcraft.world.rift.FluxRiftEntity)

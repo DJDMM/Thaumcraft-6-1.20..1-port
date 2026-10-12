@@ -1,6 +1,6 @@
 # Mirrors: released TC6.1.BETA26 contract and implementation preparation
 
-This is a preparation audit for the work after the native Arcane Bore tranche.
+This historical preparation audit was written at0.31. Native0.32 implementation and final evidence are linked in MIRRORS-CORE-PORT.md, MIRROR-ESSENTIA-INTEGRATION.md, MIRROR-PROGRESSION-BETA26-AUDIT.md, MIRROR-CLIENT-BETA26-AUDIT.md and ../../VALIDATION.md. The following paragraphs describe the original preparation state.
 It does not enable a research key, register a native mirror, change a recipe,
 increase the canonical census, or establish passed server/client QA. The current
 mirror catalogue models and reconstructed infusion JSON are not working mirrors.

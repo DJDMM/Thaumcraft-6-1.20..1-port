@@ -57,6 +57,8 @@ public final class CatalogModule {
 
     /** Kept in one place so armor and special render adapters can be added independently. */
     private static Item createItem(Spec spec) {
+        Item mirror=thaumcraft.artifice.mirror.MirrorModule.createItem(spec.id());
+        if(mirror!=null)return mirror;
         Item turret=thaumcraft.artifice.construct.TurretModule.createItem(spec);
         if(turret!=null) return turret;
         if (spec.id().equals("causality_collapser")) return new thaumcraft.world.rift.collapser.CausalityCollapserItem();

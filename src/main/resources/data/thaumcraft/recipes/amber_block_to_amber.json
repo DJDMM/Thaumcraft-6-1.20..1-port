@@ -1,0 +1,6 @@
+{
+  "type":"minecraft:crafting_shapeless",
+  "category":"misc",
+  "ingredients":[{"item":"thaumcraft:amber_block"}],
+  "result":{"item":"thaumcraft:amber","count":4}
+}

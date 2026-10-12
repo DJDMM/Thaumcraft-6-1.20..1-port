@@ -1,0 +1,603 @@
+{
+  "version": "0.32.0",
+  "date": "2026-10-12",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 94,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 28,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1211,
+  "newTestsBySuite": {
+    "itemHandMirror": 51,
+    "remoteEssentia": 22,
+    "paidResearchAndCrafting": 20,
+    "lampAndMigration": 8,
+    "legacyFlyerInitialization": 1
+  },
+  "serverLog": {
+    "file": "mirror-032-gametest5.log",
+    "bytes": 508098,
+    "sha256": "b9e8a479584cfe8ba0544c0023d3c407fedae00a4a7cf3ac65101960d05f49f8"
+  },
+  "serverResult": "1211/1211; native complete; BUILD SUCCESSFUL",
+  "clientRunTag": "mirror-032-client4",
+  "client": {
+    "runTag": "mirror-032-client4",
+    "smokeTest": "Mirror",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\mirror-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mirror-client-mirror-032-client4-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mirror-client-mirror-032-client4-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mirror-client-mirror-032-client4.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mirror-client-mirror-032-client4-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mirror-client-mirror-032-client4-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mirror-client-mirror-032-client4-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_ba6d40d352ef48e5abf9d5b9912d5d8c",
+    "jvmPid": 38828,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 20
+  },
+  "clientLog": {
+    "file": "mirror-client-mirror-032-client4-client.log",
+    "bytes": 43182,
+    "sha256": "0598fe606c6c2b878d74a5f9430cbf9269dfb4cdabe2fabb22f2490f5540368e"
+  },
+  "clientScenes": 20,
+  "nativeClientFacts": [
+    "THAUMCRAFT_MIRROR_REMOTE_GEOMETRY: source=BlockPos{x=24, y=112, z=-2} belowUPpumpBlockPos{x=18, y=113, z=0} and excluded by actual native range16 enumeration; included by remote facingnorth range8; local mirror included by pump range16; native packets observed without changing route/publication",
+    "THAUMCRAFT_MIRROR_REMOTE_COMMIT_OBSERVED: before physical relocation,remote source0/receiver24 Ignis; ordinary direct source impossible; actual native accepted remoteJar->remoteMirror packets=312,localMirror->pump packets=312,four endpoints=24/24/24/24; one essence owner,no observer publication",
+    "THAUMCRAFT_MIRROR_REMOTE_COMMIT_OBSERVED: before physical relocation,remote source0/receiver24 Ignis; ordinary direct source impossible; actual native accepted remoteJar->remoteMirror packets=312,localMirror->pump packets=312,four endpoints=24/24/24/24; one essence owner,no observer publication",
+    "THAUMCRAFT_MIRROR_CLIENT_FINAL_OBSERVED: scenes=20,theoryRawPaid=96,observationRawPaid=32,studyXP=40,arcaneCrafts=7,infusionCrafts=6,jarsRemaining=15,mirroredGlassInventory=0,itemMirrorInventory=0,essentiaMirrorInventory=0,handMirrorInventory=1,lampInventory=0,itemCollisionObserved=true,emeraldObserverTotal=8,emeraldLoose=0,emeraldInventory=8,handTransferObserved=true,diamondObserverTotal=8,diamondLoose=0,diamondInventory=8,remoteSourceIgnis=0,receiverIgnis=24,glimmers=11,maxNativeBlockLight=15,physicalRelocations=8,remoteLegPackets=312,localLegPackets=312,fxEndpoints=24/24/24/24,selectedSlot=0,selectedPhysicalItem=0 air",
+    "THAUMCRAFT_MIRROR_CLIENT_FACTS: scenes=20,studies=4,theoryRawPaid=96,observationRawPaid=32,studyXP=40,arcaneCrafts=7,arcaneVisPaid=350,arcaneCrystalsPaid=14,infusionCrafts=6,infusionEssentiaPaid=475,jarsRemaining=15,survivalMirrors=4,reciprocalPairs=2,physicalEmeraldOutput=8,physicalHandDiamonds=8,remoteSourceIgnis=0,receiverIgnis=24,glimmers=11,maxNativeBlockLight=15,physicalRelocations=8,nativeTunnelLayerDraws=33664,nativePaneDraws=2129,actualMirrorMotes=18,actualMoteDraws=630"
+  ],
+  "visualReview": {
+    "clientRunTag": "mirror-032-client4",
+    "clientLogSha256": "0598fe606c6c2b878d74a5f9430cbf9269dfb4cdabe2fabb22f2490f5540368e",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "mirror_essentia_finish_032"
+    ],
+    "method": "Both reviewers actually viewed all20 full1600x1000 native PNG and the actual sheet from the final20-scene native pass.",
+    "contactSheet": {
+      "file": "mirror-0.32-review-sheet.png",
+      "sha256": "ba082f162a2a57656ace1954119043ad521d05a3c680396e7e0ae79c7223bd18",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "mirror-0.32-preview.png",
+      "sha256": "c2f8641c73eefb116e6a7ffea06de654e95b9b035fdaa3a26dac3dd4670f8282",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-mirror-teleport-and-lux-scan.png",
+        "sha256": "5f4714d0a23f6c7c50b7852296770cf2a6abfb80d0912d050b9db7fd998048a8",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-lamp-research.png",
+        "sha256": "3a64e50d11f4aed473645695b853498b713b73988d8cfea0069abfb39908a5ad",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-lamp-bench.png",
+        "sha256": "8de72b9c74e61a8e41ae9eb147fb58560f3cc59b9588c227602064f466754730",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-mirror-glass-bench.png",
+        "sha256": "f0a4190a52f635f084fbf2b384dff076fbfcc410839dba41d7ba7a369353f6f2",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-mirror-research.png",
+        "sha256": "d10d687bdaa0fd6d49c704d07c59843a8fcbb6669185c6a6e335a7091cbd2aed",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-hand-research.png",
+        "sha256": "04a8eab6946d2d59ecdee2abd9df4ead2eddb0fe0de9c1f5241129208e607581",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-essentia-research.png",
+        "sha256": "d4376741f54520438fab1fb9f642444af51f88c0511a12b18d19e86ef17709d9",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-original-mirror-recipe.png",
+        "sha256": "7ba41967d1b8c30a6f7696a72f63712d296a753687819d94a6d8ae66a799941b",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-item-mirror-altar.png",
+        "sha256": "a9425447088c97d8b78f55c4f6012dee75c4f22d642008d1f8b65fa73039961e",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-hand-mirror-altar.png",
+        "sha256": "a69288dc866666810f083ba3d6165d1ad185bed6c6e2a1b061b568a44ab3121c",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-paid-essentia-mirror-altar.png",
+        "sha256": "4a04a78e88a04d08ea1fc188f503a444793223bffc682c011ddc4d5938e733fa",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-native-bound-north-south.png",
+        "sha256": "6f7b2409498723ca8a80c5c2d3f42fbbd39d0da7db5da91b76d7a8f2cdb9430a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-physical-item-teleport-output.png",
+        "sha256": "9d5cf722b55ebd90a15f64c7bd19b6ff6ac7d64dd1d6929f1f37c559213b0b3a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-original-one-input-hand-gui.png",
+        "sha256": "ddd34234524efc27434438527d3a63e0b5266e48b34a22b2499e2e5e84c72653",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-physical-hand-mirror-output.png",
+        "sha256": "2d533e79d1127294177a4318e2686e26ab93567b3acc097d32aece1e5d33169d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-native-remote-essentia-and-lamp.png",
+        "sha256": "4e96a3696c05645b115a1e214058bf515ece1b71d5c897a03db51b50d5624feb",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-native-east-west-mounts.png",
+        "sha256": "c68dc289e5596d84680fc532bcdac9fde292a23f3e83919703995475925a8c90",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-native-floor-ceiling-mounts.png",
+        "sha256": "92a21516dc728170a25124e80d6546d8b6a043c2381ae991b67e062ef77953f1",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-native-floor-mirror-closeup.png",
+        "sha256": "7cce6a9ca7784c1ed01531be71bba6a934ecd6b93fbc3f184ba4fe7cb2dd201a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-mirror-native-ceiling-mirror-closeup.png",
+        "sha256": "edeeecf32fc5513d76c7c6918f4e278a1725d1b167e84a285f7bce4d72ed29a7",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Original book stages and native recipe pages are readable; no clipped text or developer overlays.",
+      "Physical paid bench outputs and three altar output kinds use ordinary world/menu rendering.",
+      "Hand mirror uses the original176x166 one-input GUI/media; actual paid transfers are linked to final native observations.",
+      "World views show both original frame kinds, native tunnel panes, physical drops/remote trails and paid lamp lighting.",
+      "Floor and ceiling closeups use actual mounted paid mirrors and ordinary player/F1/crouch; no bitmap edits or staged output replacements.",
+      "Captions are outside gameplay; missing media/developer/F3/gallery labels were not observed."
+    ],
+    "limits": [
+      "Prepared survival arena with supplied precursors/rawknowledge/materials/vis/crystals/490essentia, not a full survival walkthrough.",
+      "Night18000 and fixed native camera/FOV are explicit lighting/capture fixtures; F1 is used only in the two closeups.",
+      "English native GUI/one client/one dimension; cross-dimension semantics are separately exercised by server GameTests.",
+      "Selected images and native observations do not prove every animation frame, all-angle optical identity or audio playback."
+    ],
+    "independentFindings": [
+      "The full research pages and original mirror recipe are readable; stage/page transitions are intentional and text does not clip into the margins.",
+      "Arcane bench captures show native menus and received lamp/glass in physical inventory. Altar captures show normal matrix/pedestal geometry, native particles and resulting mirror silhouettes without missing textures.",
+      "The hand mirror window uses the one-input mirror texture and protected selected hotbar slot. Its input, inventory and ordinary gameplay notifications are readable; no developer or server-check overlay is present.",
+      "World captures visibly contain gold item frames, pale essentia frames, linked purple tunnel panes, physical emerald/diamond drops, two orange airborne trail segments and the lamp-lit region.",
+      "The floor and ceiling closeups clearly show the mounted mirror front/frame/tunnel surfaces; neither front disappears when looking at a horizontal mounting.",
+      "All 20 contact-sheet captions match the viewed scenes, and the six-panel preview reproduces the selected final frames. Captions and release title remain outside gameplay.",
+      "No checkerboard missing media, F3 overlay, development gallery labels, clipped book text or visible rendering crash was observed."
+    ]
+  },
+  "localJsonCount": 2852,
+  "jarResourceByteParityChecks": 3677,
+  "originalMediaByteParity": {
+    ".ogg": 57,
+    ".png": 668,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.32.0.jar",
+      "bytes": 11242893,
+      "sha256": "e9f69ed7f2de38ed6b28331ea55631cc625d07d6c6d4308bd288709cfceae69a"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.32.0-mods.zip",
+      "bytes": 10352198,
+      "sha256": "6ac1ac0459adf3c503f303d5c7367d4f7d1aca511d4d58634dcc87512a5ea49e"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.32.0-screenshots.zip",
+      "bytes": 7105188,
+      "sha256": "8904d426938296b9fd5e7b1232c5e6f6ec778f3b5e71609ebd7e8707b96143c9"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.32.0-preview.png",
+      "bytes": 988275,
+      "sha256": "c2f8641c73eefb116e6a7ffea06de654e95b9b035fdaa3a26dac3dd4670f8282"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.32-final.log",
+    "bytes": 1212,
+    "sha256": "216b58e5262b4bdc835ae552b6228b0e128768a4dd0504a0478b211fd34763da"
+  },
+  "resourceLog": {
+    "file": "resources-0.32-final.log",
+    "bytes": 188,
+    "sha256": "6b6f4028f9e66e167244e50d68fa453e3738806b9a2419a2b072b9ae9fabee6f"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "fb11658a5fc62d124b8179ac1bd2845de40d470a1acde47ce3c2295cd7f34db7"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "ee59f009c68255e0035d53a5b8f32bacce3162b360dc386341988cf2506eaf7e"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "7cec2768bdb8539f39d0f1f48a485b0e70acdbd67977955dd69e183288b8792b"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "db6274b23eed1b18c06150c037540a55e928acacdc0d017bf699e6445fdfd80f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "9fc801732b0cc7715e5d442968899f9e96f3e6124578ffd62b6c413fe5cf6bb1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/lamp/ArcaneLampBlock.java",
+      "sha256": "ccee8ea123e4b41eb7af090f68c0f012bfbf39c115261d0c4f2079225e240bee"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/lamp/ArcaneLampBlockEntity.java",
+      "sha256": "662ae82264caebafc2f4518d422d4a249dce957867d9c68240bdfc7a91993887"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/lamp/GlimmerBlock.java",
+      "sha256": "6a07044db6dbcb215dd3b4d2f77c2dcf5b7d88ff1b715728bf8ff1c0592ab20e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/lamp/LampGameTests.java",
+      "sha256": "8ab61811ac8aa27576dd1a475f7fe438be83017278283b6b8d3740fc0fd07d7f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/lamp/LampModule.java",
+      "sha256": "89c3b3ac18f64947fdd6aff011eb480d6d02e507912d05806f8dae5422758204"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/AbstractMirrorBlockEntity.java",
+      "sha256": "b1394cd221db10afd6f83d0c030d178e2bec303c8e46d65e09c625ef6565fb9d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/EssentiaMirrorBlockEntity.java",
+      "sha256": "bc62b92e8469091fdc24ac0cbd2725258df5c06d1d2f0aae71f6f0d449662bc1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/HandMirrorItem.java",
+      "sha256": "bb184e090c2db9fbb6246825ba48f3881e62e7a3c71a5c6c9876eb1cf644e693"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/HandMirrorMenu.java",
+      "sha256": "cca900f4112e8c36e072ebadadf6d2c64e892e4f455a4cf9d01fdb514b278fa3"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/ItemMirrorBlockEntity.java",
+      "sha256": "bfcea634ff26a71ac90be42f52b4576f2143eb2ab680abf573882d62b362a668"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/LegacyMirrorDeviceMigration.java",
+      "sha256": "4634be62a8cee89404353a4466334094e12a2be4d0a12c3c18a6ca092111f02e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/MirrorBlock.java",
+      "sha256": "59d23950cc0f01a1923159a3a5a2272eebea6a9d775ca6f53ed9ca21b245f8da"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/MirrorBlockItem.java",
+      "sha256": "92157c4b6ddfc677bc90044c1a366b630cbcc45b724e9bdf576c24d97d241c88"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/MirrorGameTests.java",
+      "sha256": "27b93a2303efbb0ef954b21a8da7a5ff19fad955c910aeffde9de2eff7157476"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/MirrorLink.java",
+      "sha256": "c859c37ea8b70fc09cacfe58dd9650dfabcc3f1b5cff9b1b781d2c3527a7ec57"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/MirrorModule.java",
+      "sha256": "b631a6eeec098bd58b86a5e07edbcdbd1829ee3cb421e68658284a48cdda10eb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/MirrorPlacementReceipt.java",
+      "sha256": "f7cd11a9e73e4042175cc819664dd980520e7646d4bc7bc2880c6187ed4495e8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/MirrorRefundSavedData.java",
+      "sha256": "eec653009fea1dd656292e2221561a121bdf9a35d43755a580471257b38582b1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/client/HandMirrorScreen.java",
+      "sha256": "4a47782a2b10d36683821a1d096569e234b7015e81934c8242a9d51dc257fa65"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/client/MirrorClient.java",
+      "sha256": "3346fb7a2ea6c58e6bb33fc9043ffc467bd5d7aa36acb11a72c1bdf373471cf5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/client/MirrorClientSmokeTest.java",
+      "sha256": "0ce67c571016162dd7111517524dd2a537d2aef26faeafa7fcdfc7481e722c7d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/client/MirrorEffects.java",
+      "sha256": "d13187229a1118407f9d9b6dbc041e7954c6acc86d3467e3368d37f7e2e06926"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/mirror/client/MirrorRenderer.java",
+      "sha256": "4b1abfe58dc7ebbb886f7f8eeba16644bb60a2406f96e3c7e9f1bf67fe7ef365"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/CatalogModule.java",
+      "sha256": "ce5e4d2db0e2037c7340ce18874f3ce6738abb09ac22561333baebc2b790664e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/blocks/CatalogBlocks.java",
+      "sha256": "5b308d564398f8cd32f62a6d274fb5fd0faa3c8617cdaf1636454e5d2ff2c2e8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/airborne/AirborneEssentiaGameTests.java",
+      "sha256": "b8c20a1f8d851777e925c5e07f75f3d354b34ed8e365e8f0a2c3ae772503f16f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/airborne/AirborneEssentiaManager.java",
+      "sha256": "84129633e55dcd4d1e1aef31ccf7b1d379be498455021810fad7610266e07471"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/airborne/MirrorAirborneGameTests.java",
+      "sha256": "fd41ac9e81a3c424a7c42f93ba9b9ba522089caaff405689ac570b5725d50290"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/transfuser/EssentiaTransfuserBlockEntity.java",
+      "sha256": "12b19df176590e9f0bcc1c265367df543d82b0fe4c0f5697116665c621a66bac"
+    },
+    {
+      "file": "src/main/java/thaumcraft/golemancy/entity/GolemFlyerGameTests.java",
+      "sha256": "4a6b5355641193dbdd935531fa00bae136bbe679d1924973108f4458220b4b95"
+    },
+    {
+      "file": "src/main/java/thaumcraft/infusion/InfusionIngredient.java",
+      "sha256": "c217c3c9eb8570f48430169245825f4be64542e886d4a081212786ddbdde7f9c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/infusion/InfusionMatrixBlockEntity.java",
+      "sha256": "1eb7d957dce89bbde0d4ff83adc08b789d83f42d65a66aaeba4b57ddaa1d40cb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "d4d7100fbdf6ef314e885501acc9104de40a3be18cff77905cea1f9a706960f2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "fd762aa3b1756ca92826b4184f2d4d90470c970b44a252823ce606fd25202d32"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/AuromancyProgressionEvents.java",
+      "sha256": "3844de136b286a41c4f494b0ef058083d9b30643b014ec5388c157eac111e914"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/AuromancyProgressionGameTests.java",
+      "sha256": "26a627d7b3cf65b41cd2b66c2c4f4253bb2ee67b9dc75c2d9ec60fa3c084c692"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "c70c5c7d44dd17b1f6bb400bba5f510d4a150fe82c4fc75b402d261a1883fbc5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "bcda27707de0e2bcea926a43d0d719293de5aa5ec89b3ca73e35cfdbade44adc"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "f7ff2ad20bb431833d521b8c56069619ac24dd84da42e668f40623f25d17b03f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "7996ff3356e8fd5636bb8a058d11aba26f81007cf6707c04f51183629d311df4"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "86f4bf7cca7af29df28e73f26286535e6a182a055c02a291aa377bec3319731c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "09fac79d77dde4d123b510062d95dc655a92f5b7c2ff8a9f6b71da2824faa2e9"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionScans.java",
+      "sha256": "c4da99657c60349fedaf53f5304a840814ec6d473168a8b867ad5d4cd8361e17"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "6b5073e74ba48f585c2943373f0e716687235c8e604c1cbaeb5cb75a095fec9c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "a7fd08236b34e97d271b394dc8828a1ca371e56a03183bfe18c720f144083594"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "87213f02a4d132efedcc72dba5246c8854362041a583b380b504e1afb5da6b75"
+    },
+    {
+      "file": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+      "sha256": "d382443c30e4da15bbb3b1030f4200480924bc0cea1388c5228b79513eadad86"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "db420154074f5262a536194c55ca8a24b115aed3b12e5352fde9c19c4a5e3371"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/lang/en_us.json",
+      "sha256": "5b6b812f6a75c6e8659b54769423aef1b5f5cb62f301aa8fa1b3e08931323759"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/lang/ru_ru.json",
+      "sha256": "9a31c91a09a23dd0686efe7fb9516f9c8e941aad569c416cdebfcc8a6a89bf53"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/models/block/mirror_essentia_frame_native.json",
+      "sha256": "c85540f197f81a05c9e143cb064f2c4b408c63f804b7fdc7fbac99cdf18c3ce1"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/models/block/mirror_frame_native.json",
+      "sha256": "944770a3c8dec810c8d4505bc1d8e3a46612fe1e55442ecc23a6802d02ba4046"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/blocks/mirrorpanetrans.png",
+      "sha256": "b27c20b4fec3ffd1b9950d36a2137a9bc56b64b023f380511be3a313ac91079a"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/gui/gui_handmirror.png",
+      "sha256": "3c521f4aeb9bb260c1a090c56cc810f22fa3c9eccfcb5f6aebf78f2e827c04d1"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/misc/particlefield.png",
+      "sha256": "25f7450853dd771eeafc5765f8c42ab9b5321d1e5cb88d9fa3d5bfee1c0d115a"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/misc/tunnel.png",
+      "sha256": "e003b525a039e51d19dc8542994ad102363637363a7d1ab9f899ce42235b3182"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/amber_block_to_amber.json",
+      "sha256": "72a542751597ba8b91180fe9a072e8e9db6b88830052e4b7f667a7c8f505e2be"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/amber_to_block.json",
+      "sha256": "56c83a97dbab6b7efe0fea3f9e17aedc0fd89a7ae48adb6f44838e8e9398d9f7"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/lamp_arcane.json",
+      "sha256": "21c2a5372aa4200527667bbce8b83e98d7d39afa08db723918c17be50383560b"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/mirror_glass.json",
+      "sha256": "75a32ed9e56a9ea0b78624d6b3fd6d5acd79fdafc1f183c6ace4ab28440c992b"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/infusion/mirrorhand.json",
+      "sha256": "6a7e773f99e9596cfdfe99e321561d83161b9e00c8fdd1141069079a59b5ae32"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "mirror-032-server5-sources.json",
+      "bytes": 626212,
+      "sha256": "b24abc2add554484800677910dd280a61617c9c12cfeeba531471faeb85c56ab"
+    },
+    {
+      "file": "mirror-032-client4-sources.json",
+      "bytes": 626212,
+      "sha256": "7a0065b30a58395cca94590b53c5275fd78889f0233a186daa98e054848f75a5"
+    },
+    {
+      "file": "mirror-032-build-sources.json",
+      "bytes": 626212,
+      "sha256": "7a0065b30a58395cca94590b53c5275fd78889f0233a186daa98e054848f75a5"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": false,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4343,
+    "matchingServerRelevantFileCount": 4342,
+    "clientOnlyExceptions": [
+      {
+        "file": "src/main/java/thaumcraft/artifice/mirror/client/MirrorClientSmokeTest.java",
+        "serverExecutedSha256": "b9269cab4e9ae267dc162d0fa87ea2be966a82e1fe7a04dd9c183f418c565219",
+        "finalClientBuildSha256": "0ce67c571016162dd7111517524dd2a537d2aef26faeafa7fcdfc7481e722c7d",
+        "reason": "Only opt-in Dist.CLIENT QA driver changed after server proof; core/resources/helpers/tests identical"
+      }
+    ],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "fixtures": [
+    "Fresh native QA worlds only, precursor studies/raw knowledge/materials supplied explicitly",
+    "Owned arena night DayTime18000/FOV80; overview20.5,112,-9.5; F1 only in two closeups; native CROUCHING eye1.27 retained by opt-in MovementInputUpdateEvent, no global input",
+    "Remote source jar atY112 below UP pumpY113; native candidate enumeration excludes direct16 range and includes remote8 source; existing output transfuser is a precursor fixture",
+    "Loaded bedrock arena, actual bench/altar/candle pairs, raw490typedessentia, rawknowledge/materials/crystals/vis are explicit fixtures; target facts/studies/outputs are earned"
+  ],
+  "limitations": [
+    "No complete manual survival playthrough or independent multiplayer session",
+    "Original source cadence/random-entry one-item queues and remote cold-cache quirk retained; loaded-only resolution/callback payment conservation/removal refunds are explicit modern adaptations",
+    "Remaining devices/late Warp/Crimson/Eldritch and unfinished taint ecology still require further porting",
+    "Selected native PNG and client observations do not alone prove every animation frame or all-angle media parity",
+    "Native tunnel is the original camera projection, not a remote-world camera; client evidence covers one dimension and does not establish audio playback"
+  ],
+  "earlierClientRuns": [
+    {
+      "file": "mirror-client-mirror-032-client1-client.log",
+      "bytes": 49472,
+      "sha256": "cabf7c5e6ca8afcb1798260bedd082b2f753e2a0f8ed0016d9cb5312ad66f5ed"
+    },
+    {
+      "file": "mirror-client-mirror-032-client2-client.log",
+      "bytes": 41538,
+      "sha256": "f32ef9ebacc180774212b4a47a6552eecf5d77d0b96fd4cf85a9e1b51745d4c7"
+    },
+    {
+      "file": "mirror-client-mirror-032-client3-client.log",
+      "bytes": 46970,
+      "sha256": "4009f1bb7a887cc9d6c037e749f5d30183f869c410952222d5dcccbd34627835"
+    }
+  ],
+  "earlierRuns": [
+    {
+      "file": "mirror-032-gametest1.log",
+      "bytes": 8240,
+      "sha256": "99de2546eb211421e3a7512b91c4a8280afb3901206b1235342eea7a621462d8"
+    },
+    {
+      "file": "mirror-032-gametest2.log",
+      "bytes": 510420,
+      "sha256": "e45296f5a216b03f06ff8b20af87ff18fcf38d1300318963c720de3e132a7e5a"
+    },
+    {
+      "file": "mirror-032-gametest3.log",
+      "bytes": 506516,
+      "sha256": "c5bd976f3f60898ad1e240cd697aeceafd2ec282b45d4181d3b1895c0aed1034"
+    },
+    {
+      "file": "mirror-032-gametest4.log",
+      "bytes": 507567,
+      "sha256": "8d69b820e320fac2fe9b8f48862e2bf9f1039b44866376148c77d7ea2c7f6f44"
+    }
+  ]
+}

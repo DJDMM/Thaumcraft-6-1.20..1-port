@@ -1,0 +1,7 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "category":"building",
+  "pattern":["##","##"],
+  "key":{"#":{"tag":"forge:gems/amber"}},
+  "result":{"item":"thaumcraft:amber_block","count":1}
+}

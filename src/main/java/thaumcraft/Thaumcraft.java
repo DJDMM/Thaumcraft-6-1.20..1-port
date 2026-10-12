@@ -89,6 +89,8 @@ public final class Thaumcraft {
         thaumcraft.golemancy.levitator.LevitatorModule.register(bus);
         thaumcraft.artifice.hungrychest.HungryChestModule.register(bus);
         thaumcraft.artifice.construct.TurretModule.register(bus);
+        thaumcraft.artifice.mirror.MirrorModule.register(bus);
+        thaumcraft.artifice.lamp.LampModule.register(bus);
         thaumcraft.artifice.construct.BoreModule.register(bus);
         thaumcraft.artifice.redstone.ArtificeRedstoneModule.register(bus);
         thaumcraft.golemancy.entity.GolemEntitySounds.register(bus);

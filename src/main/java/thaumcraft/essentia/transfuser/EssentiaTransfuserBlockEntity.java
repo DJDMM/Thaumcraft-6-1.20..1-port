@@ -61,12 +61,12 @@ public final class EssentiaTransfuserBlockEntity extends BlockEntity implements 
                 Aspect held = transport.getEssentiaType(front);
                 if (held == null) return;
                 AirborneEssentiaManager.transferToSources(tile, peer, held, front, front, RANGE, 5)
-                        .ifPresent(transfer -> InfusionMatrixBlockEntity.trail(server, transfer.source(), transfer.target(), transfer.aspect().getColor()));
+                        .ifPresent(transfer -> AirborneEssentiaManager.publish(server, transfer));
             } else {
                 if (!transport.canInputFrom(front) || transport.getSuctionAmount(front) <= 0
                         || transport.getSuctionType(front) == null) return;
                 AirborneEssentiaManager.transferFromSources(tile, peer, transport.getSuctionType(front), front, front, RANGE, 5)
-                        .ifPresent(transfer -> InfusionMatrixBlockEntity.trail(server, transfer.source(), transfer.target(), transfer.aspect().getColor()));
+                        .ifPresent(transfer -> AirborneEssentiaManager.publish(server, transfer));
             }
         } finally {
             tile.transferring = false;

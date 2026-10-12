@@ -9,6 +9,10 @@ The `-SmokeTest Bore` profile uses only `run/bore-smoke` for the Arcane Bore's
 paid research/infusion, actual placer, live tool menu and native mining scenes.
 Its preparation export is allowlisted separately; it retains the same hidden
 desktop, exact-JVM and unchanged-input-desktop requirements below.
+The `-SmokeTest Mirror` profile uses only `run/mirror-smoke` for the paid
+lamp/mirror chain, native bindings and item/hand/essentia transfer, actual light
+and six mounted orientations. It uses the same separately allowlisted exact
+Java17 JVM and never activates or switches the input desktop.
 The old `run_theory_smoke_isolated.ps1` forwards to the TheoryComplete profile.
 The wrapper prepares the selected JavaExec task without executing its game launch
 action, writes a Java17 argument file, and launches the final JVM on a uniquely

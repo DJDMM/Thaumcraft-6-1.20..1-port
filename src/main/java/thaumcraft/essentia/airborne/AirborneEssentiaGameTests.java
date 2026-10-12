@@ -127,7 +127,7 @@ public final class AirborneEssentiaGameTests {
     }
 
     @GameTest(template = TEMPLATE)
-    public static void alembicsPipesAndCatalogueMirrorsAreNotAirborneSources(GameTestHelper helper) {
+    public static void alembicsPipesAndUnlinkedMirrorsCannotSupplyAirbornePayment(GameTestHelper helper) {
         var consumer = consumer(helper);
         helper.assertTrue(consumer.addExact(Aspect.AIR, 8), "Consumer fixture failed");
         var alembic = consumerAt(helper, consumer.getBlockPos().west());
@@ -141,8 +141,8 @@ public final class AirborneEssentiaGameTests {
         helper.assertTrue(!((BlockEntity) consumer instanceof IAspectSource)
                         && !((BlockEntity) alembic instanceof IAspectSource)
                         && !((BlockEntity) pipe instanceof IAspectSource)
-                        && !(helper.getLevel().getBlockEntity(mirrorPos) instanceof IAspectSource),
-                "An unimplemented device was advertised as an airborne source");
+                        && helper.getLevel().getBlockEntity(mirrorPos) instanceof thaumcraft.artifice.mirror.EssentiaMirrorBlockEntity,
+                "Essentia mirror is not a native source or a pipe/alembic gained source access");
         var cache = cache(new AtomicLong());
         helper.assertTrue(!cache.find(consumer, Aspect.AIR, null, 3)
                         && cache.drain(consumer, Aspect.AIR, null, 3, 0).isEmpty()

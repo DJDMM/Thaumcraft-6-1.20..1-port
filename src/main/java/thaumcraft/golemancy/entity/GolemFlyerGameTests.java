@@ -17,6 +17,7 @@ import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.*;
 import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.gametest.*;
 import net.minecraftforge.registries.ForgeRegistries;
 import thaumcraft.catalog.CatalogModule;
@@ -165,38 +166,82 @@ public final class GolemFlyerGameTests {
         // Higher physical face isolates this seal from historical suites that reused y1/y7.
         // Never remove another suite's existing owned seal to make this fixture fit.
         for (int x = 0; x < 9; x++) for (int z = 0; z < 9; z++) for (int y = 11; y <= 18; y++) h.setBlock(new BlockPos(x, y, z), Blocks.AIR);
-        BlockPos support = new BlockPos(4, 15, 4); h.setBlock(support, Blocks.STONE);
+        BlockPos support = new BlockPos(4, 15, 4);
         var golem = flyer(h, new Vec3(4.5, 2, 4.5)); UUID owner = UUID.randomUUID(); golem.setOwnerId(owner);
         SealService service = SealService.get(h.getLevel()); SealData seal = new SealData(new SealPos(h.absolutePos(support), Direction.UP), "thaumcraft:pickup", owner);
         seal.locked(true); seal.blacklist(false); seal.filter(0, new ItemStack(Items.DIAMOND));
-        SealData existing = service.seal(seal.position());
-        h.assertTrue(service.add(seal), "Elevated physical pickup seal missing: pos=" + seal.position() + ",existingType=" + (existing == null ? "none" : existing.type()));
-        Vec3 target = h.absoluteVec(new Vec3(4.5, 16.1, 4.5)); var dropped = new ItemEntity(h.getLevel(), target.x, target.y, target.z, new ItemStack(Items.DIAMOND, 3));
-        // ItemEntity's convenience constructor throws upward with random horizontal velocity.
-        // On this single elevated support that can eject the fixture before Collect sees an
-        // on-ground item. Start a resting drop; native gravity/collision still settles it.
-        dropped.setDeltaMovement(Vec3.ZERO); dropped.setNoPickUpDelay();
-        Runnable cleanup = () -> { service.remove(seal.position(), true); golem.discard(); dropped.discard(); };
-        h.assertTrue(h.getLevel().addFreshEntity(golem) && h.getLevel().addFreshEntity(dropped), "Flight task fixtures missing");
-        h.runAfterDelay(10, () -> { try {
-            h.assertTrue(dropped.isAlive() && dropped.onGround() && seal.bounds().intersects(dropped.getBoundingBox())
-                    && h.getBlockState(support).is(Blocks.STONE),
-                    "Elevated drop failed native landing inside Collect bounds: pos=" + dropped.position() + ",ground=" + dropped.onGround()
-                            + ",bounds=" + seal.bounds() + ",support=" + h.getBlockState(support));
-        } catch (Throwable failure) { cleanup.run(); throw failure; } });
+        ItemEntity[] dropped = {null}; boolean[] initialized = {false};
+        Runnable cleanup = () -> { if(service.seal(seal.position())==seal)service.remove(seal.position(), true); golem.discard(); if(dropped[0]!=null)dropped[0].discard(); };
+        h.assertTrue(h.getLevel().addFreshEntity(golem), "Flight task worker fixture missing");
         boolean[] claimed = {false}, path = {false}; double[] high = {golem.getY()}; Vec3[] previous = {golem.position()};
+        int[] previousNativeTick = {golem.tickCount}; long[] previousWorldTick = {h.getLevel().getGameTime()};
+        boolean[] previousFirstRun = {ObfuscationReflectionHelper.getPrivateValue(ThaumcraftGolemEntity.class,golem,"firstRun")};
+        boolean[] initialObserved = {false};
         h.onEachTick(() -> { if (golem.isRemoved()) return; try {
             claimed[0] |= golem.hasTask(); path[0] |= !golem.getNavigation().isDone(); high[0] = Math.max(high[0], golem.getY());
-            h.assertTrue(golem.position().distanceToSqr(previous[0]) < 1, "Elevated seal flight teleported"); previous[0] = golem.position();
+            Vec3 current = golem.position(), nativePrevious = new Vec3(golem.xo,golem.yo,golem.zo);
+            boolean firstRun = ObfuscationReflectionHelper.getPrivateValue(ThaumcraftGolemEntity.class,golem,"firstRun");
+            String observation = "previous="+previous[0]+",current="+current+",nativePrevious="+nativePrevious
+                    +",stepSq="+current.distanceToSqr(previous[0])+",nativeStepSq="+current.distanceToSqr(nativePrevious)
+                    +",entityTick="+golem.tickCount+",entityElapsed="+(golem.tickCount-previousNativeTick[0])
+                    +",worldTick="+h.getLevel().getGameTime()+",worldElapsed="+(h.getLevel().getGameTime()-previousWorldTick[0])
+                    +",firstRun="+previousFirstRun[0]+"->"+firstRun+",home="+golem.homePosition()
+                    +",velocity="+golem.getDeltaMovement()+",noGravity="+golem.isNoGravity()+",task="+golem.hasTask();
+            if(!initialObserved[0]&&golem.tickCount>0){initialObserved[0]=true;System.out.println("THAUMCRAFT_FLYER_INITIAL_NATIVE_OBSERVATION "+observation);}
+            h.assertTrue(current.distanceToSqr(previous[0]) < 1, "Elevated seal flight teleported: "+observation);
+            previous[0] = current; previousNativeTick[0] = golem.tickCount; previousWorldTick[0] = h.getLevel().getGameTime(); previousFirstRun[0] = firstRun;
+            if(!initialized[0]&&golem.tickCount>=1&&!firstRun){
+                // Recovery of the saved home is an original initialization behavior. Enable
+                // this task's ceiling only after observing that real native phase complete.
+                // The whole pickup route retains the same strict per-observation movement bound.
+                h.assertTrue(!golem.hasTask()&&golem.blockPosition().equals(golem.homePosition()),"Idle native initialization did not remain at its physical home: "+observation);
+                h.setBlock(support,Blocks.STONE);SealData existing=service.seal(seal.position());
+                h.assertTrue(service.add(seal),"Elevated physical pickup seal missing: pos="+seal.position()+",existingType="+(existing==null?"none":existing.type()));
+                Vec3 target=h.absoluteVec(new Vec3(4.5,16.1,4.5));dropped[0]=new ItemEntity(h.getLevel(),target.x,target.y,target.z,new ItemStack(Items.DIAMOND,3));
+                // A resting physical drop settles by native gravity/collision on this support.
+                dropped[0].setDeltaMovement(Vec3.ZERO);dropped[0].setNoPickUpDelay();
+                h.assertTrue(h.getLevel().addFreshEntity(dropped[0]),"Flight task drop fixture missing");initialized[0]=true;
+                h.runAfterDelay(10,()->{try{
+                    h.assertTrue(dropped[0].isAlive()&&dropped[0].onGround()&&seal.bounds().intersects(dropped[0].getBoundingBox())&&h.getBlockState(support).is(Blocks.STONE),
+                            "Elevated drop failed native landing inside Collect bounds: pos="+dropped[0].position()+",ground="+dropped[0].onGround()+",bounds="+seal.bounds()+",support="+h.getBlockState(support));
+                }catch(Throwable failure){cleanup.run();throw failure;}});
+            }
             if (golem.getMainHandItem().is(Items.DIAMOND) && golem.getMainHandItem().getCount() == 3) {
-                h.assertTrue(dropped.isRemoved() && claimed[0] && path[0] && high[0] > h.absolutePos(new BlockPos(4, 14, 4)).getY(), "Pickup used remote inventory mutation instead of actual flight claim");
+                h.assertTrue(initialized[0]&&dropped[0]!=null&&dropped[0].isRemoved() && claimed[0] && path[0] && high[0] > h.absolutePos(new BlockPos(4, 14, 4)).getY(), "Pickup used remote inventory mutation instead of actual flight claim");
                 CompoundTag saved = new CompoundTag(); golem.addAdditionalSaveData(saved); var restored = flyer(h, new Vec3(4.5, 2, 4.5)); restored.readAdditionalSaveData(saved);
                 h.assertTrue(!restored.hasTask() && restored.props() == FLYER && restored.getMainHandItem().getCount() == 3 && restored.isNoGravity(), "Reload persisted claimed task or lost actual elevated pickup cargo");
                 restored.discard(); cleanup.run(); h.succeed();
             }
         } catch (Throwable failure) { cleanup.run(); throw failure; } });
         h.runAfterDelay(300, () -> { if (!golem.isRemoved()) { try { h.fail("Elevated pickup never completed by actual Flyer: pos=" + golem.position() + ",task=" + claimed[0] + ",path=" + path[0] + ",cargo=" + golem.getMainHandItem()
-                + ",dropPos=" + dropped.position() + ",dropGround=" + dropped.onGround() + ",sealPresent=" + (service.seal(seal.position()) == seal)
+                + ",initialized="+initialized[0]+",dropPos=" + (dropped[0]==null?"none":dropped[0].position()) + ",dropGround=" + (dropped[0]!=null&&dropped[0].onGround()) + ",sealPresent=" + (service.seal(seal.position()) == seal)
                 + ",queued=" + service.tasks().stream().filter(task -> seal.position().equals(task.sealPosition())).count()); } finally { cleanup.run(); } } });
+    }
+
+    @GameTest(template = TEMPLATE, timeoutTicks = 60)
+    public static void firstNativeFlyerTickCrossingHomeBoundaryUsesOriginalUpwardRecovery(GameTestHelper h) {
+        arena(h);
+        for(int x=0;x<9;x++)for(int z=0;z<9;z++)for(int y=11;y<=18;y++)h.setBlock(new BlockPos(x,y,z),Blocks.AIR);
+        BlockPos support=new BlockPos(4,15,4);h.setBlock(support,Blocks.STONE);
+        var golem=flyer(h,new Vec3(4.5,2,4.5));isolateHome(golem);
+        Vec3 initial=golem.position();BlockPos home=golem.homePosition();long worldStart=h.getLevel().getGameTime();
+        // Native horizontal travel of .6 starts from the center and crosses the integer
+        // home's east face while remaining below the task's original one-block limit.
+        golem.setDeltaMovement(new Vec3(.6,0,0));
+        h.assertTrue(initial.y==Math.floor(initial.y)&&golem.blockPosition().equals(home)&&golem.getDeltaMovement().lengthSqr()<1
+                &&!golem.isNoAi()&&golem.isNoGravity(),"Adversarial integer-home motion fixture changed");
+        h.assertTrue(h.getLevel().addFreshEntity(golem),"Native initialization worker not accepted");
+        h.onEachTick(()->{if(golem.isRemoved()||golem.tickCount==0)return;try{
+            boolean firstRun=ObfuscationReflectionHelper.getPrivateValue(ThaumcraftGolemEntity.class,golem,"firstRun");
+            Vec3 expected=h.absoluteVec(new Vec3(4.5,14,4.5));Vec3 nativePrevious=new Vec3(golem.xo,golem.yo,golem.zo);
+            String observation="initial="+initial+",nativePrevious="+nativePrevious+",current="+golem.position()+",entityTick="+golem.tickCount
+                    +",worldElapsed="+(h.getLevel().getGameTime()-worldStart)+",velocity="+golem.getDeltaMovement()+",firstRun="+firstRun+",home="+home;
+            System.out.println("THAUMCRAFT_FLYER_INITIAL_NATIVE_RECOVERY "+observation);
+            h.assertTrue(golem.tickCount==1&&h.getLevel().getGameTime()-worldStart==1&&!firstRun&&nativePrevious.distanceToSqr(initial)<1e-10
+                    &&golem.position().distanceToSqr(expected)<1e-10&&golem.position().distanceToSqr(initial)>100&&golem.homePosition().equals(home)
+                    &&!golem.hasTask()&&golem.getMainHandItem().isEmpty()&&golem.isNoGravity(),
+                    "Actual first native tick did not retain original upward home recovery: "+observation);
+            h.succeed();
+        }finally{golem.discard();}});
     }
 }

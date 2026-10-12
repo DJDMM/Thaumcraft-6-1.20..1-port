@@ -2008,5 +2008,13 @@
   "potion.infvisexhaust": "Flux Phage",
   "effect.thaumcraft.infectious_vis_exhaust": "Flux Phage",
   "death.attack.taint": "%1$s was corrupted by Taint",
-  "death.attack.taint.player": "%1$s was corrupted by Taint whilst fighting %2$s"
+  "death.attack.taint.player": "%1$s was corrupted by Taint whilst fighting %2$s",
+  "tc.handmirrorlinkedto": "Linked to",
+  "tc.handmirrorlinked": "Link established.",
+  "tc.handmirrorerror": "Destination mirror is missing or misplaced. Link broken.",
+  "tc.mirrorlinked": "That mirror is already linked to a valid destination.",
+  "tc.mirrorlinkdetail": "%s,%s,%s in %s",
+  "tc.dimension.overworld": "Overworld",
+  "tc.dimension.nether": "Nether",
+  "tc.dimension.end": "The End"
 }

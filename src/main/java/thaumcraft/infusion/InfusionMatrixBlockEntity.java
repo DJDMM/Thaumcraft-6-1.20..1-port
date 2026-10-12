@@ -104,7 +104,7 @@ public final class InfusionMatrixBlockEntity extends BlockEntity implements IAsp
                 int amount = needed.getAmount(aspect); if (amount <= 0) continue;
                 var transfer = AirborneEssentiaManager.drain(this, aspect, null, 12, amount > 1 ? delay : 0);
                 if (transfer.isPresent()) {
-                    needed.reduce(aspect, 1); trail(server, transfer.get().source(), transfer.get().target(), aspect.getColor()); changed(); return;
+                    needed.reduce(aspect, 1); AirborneEssentiaManager.publish(server, transfer.get()); changed(); return;
                 }
                 stability -= .25F;
             }

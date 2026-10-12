@@ -2002,5 +2002,13 @@
   "potion.infvisexhaust": "Бактериальный вирус Выбросов",
   "effect.thaumcraft.infectious_vis_exhaust": "Бактериальный вирус Выбросов",
   "death.attack.taint": "%1$s был повреждён заражением",
-  "death.attack.taint.player": "%1$s был повреждён заражением во время битвы с %2$s"
+  "death.attack.taint.player": "%1$s был повреждён заражением во время битвы с %2$s",
+  "tc.handmirrorlinkedto": "Привязан к",
+  "tc.handmirrorlinked": "Связь установлена.",
+  "tc.handmirrorerror": "Целевое зеркало отсутствует или было перемещено. Связь разорвана.",
+  "tc.mirrorlinked": "Это зеркало уже связано с действующей точкой назначения.",
+  "tc.mirrorlinkdetail": "%s,%s,%s (%s)",
+  "tc.dimension.overworld": "Обычный мир",
+  "tc.dimension.nether": "Нижний мир",
+  "tc.dimension.end": "Край"
 }

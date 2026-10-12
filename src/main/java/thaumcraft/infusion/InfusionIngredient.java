@@ -68,7 +68,9 @@ public final class InfusionIngredient {
         if (actual == null || actual.isEmpty()) return false;
         if (!alternatives.isEmpty()) return alternatives.stream().anyMatch(choice -> choice.test(actual));
         if (item != null ? !actual.is(item) : !actual.is(tag)) return false;
-        if (damage >= 0 && actual.getDamageValue() != damage) return false;
+        int legacyDamage=actual.getItem() instanceof thaumcraft.artifice.mirror.MirrorBlockItem
+                && thaumcraft.artifice.mirror.MirrorLink.isBound(actual)?1:actual.getDamageValue();
+        if (damage >= 0 && legacyDamage != damage) return false;
         if (required == null || required.isEmpty()) return true;
         CompoundTag found = actual.getTag();
         if (found == null) return false;
