@@ -3,7 +3,19 @@
 Дата первоначального изучения справочников: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
 
-Текущий срез **0.32.0** содержит **94/148** канонических исследований
+Текущий срез **0.33.0**: **96/148** исследований, **28/56** наполнений.
+INFERNALFURNACE/BELLOWS связаны с исходными фактами/оплатами и native устройствами.
+Правила — [FURNACE.md](../../FURNACE.md); контракты —
+[печь](INFERNAL-FURNACE-BETA26-AUDIT.md),
+[прогрессия](INFERNAL-PROGRESSION-BETA26-AUDIT.md),
+[клиент/мехи](INFERNAL-CLIENT-BELLOWS-BETA26-AUDIT.md).
+Финальный Server4 **1283/1283**, infernal-033-client4 **15/15**, оба native exit0;
+все15полныхPNG/оба листа просмотрены двумя проверяющими.
+2853JSON/3679resource-byte/668PNG7JPG57OGG original parity прошли.
+[Отчёт0.33](../../validation/artifact-report-0.33.json) и
+[VALIDATION.md](../../VALIDATION.md) сохраняют fixtures/ранние failures/границы.
+
+Исторический срез **0.32.0** содержит **94/148** канонических исследований
 и **28/56** путей наполнения. Четыре исходные записи ARCANELAMP/MIRROR/
 MIRRORHAND/MIRRORESSENTIA оплачиваются через настоящие scan/bench/altar
 callbacks. Работают item/hand/essentia mirrors и prerequisite лампа.

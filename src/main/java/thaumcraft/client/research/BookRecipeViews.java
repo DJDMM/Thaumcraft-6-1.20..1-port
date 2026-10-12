@@ -135,6 +135,17 @@ final class BookRecipeViews {
                         new ItemStack(AlchemyModule.SALIS_MUNDUS.get()), "", 0, new int[6], new AspectList(), false, 0, 0, "different_crystals", true));
                 continue;
             }
+            if ((path.equals("triplemeattreatfake") || path.equals("triplemeattreat"))
+                    && recipe instanceof thaumcraft.alchemy.TripleMeatTreatRecipe) {
+                // The original fake entry is only a book display. Its live custom
+                // recipe requires three different chunk types; show one such set.
+                List<Ingredient> inputs = List.of(Ingredient.of(thaumcraft.catalog.CatalogModule.stack("chunk_beef")),
+                        Ingredient.of(thaumcraft.catalog.CatalogModule.stack("chunk_chicken")),
+                        Ingredient.of(thaumcraft.catalog.CatalogModule.stack("chunk_pork")), Ingredient.of(Items.SUGAR));
+                result.put(recipe.getId(), new View(recipe.getId(), "crafting", inputs, 3, 2,
+                        recipe.getResultItem(mc.level.registryAccess()), "", 0, new int[6], new AspectList(), false, 0, 0, "", true));
+                continue;
+            }
             ItemStack output = recipe.getResultItem(mc.level.registryAccess());
             if (output.isEmpty()) continue;
             String outputId = itemId(output);

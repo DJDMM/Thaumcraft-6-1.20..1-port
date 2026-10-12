@@ -22,6 +22,9 @@ public final class LegacyResearchItems {
         if (metadata == 0 && id.toString().equals("minecraft:dye")) return ResourceLocation.fromNamespaceAndPath("minecraft", "ink_sac");
         if (metadata == 0 && id.toString().equals("minecraft:web")) return ResourceLocation.fromNamespaceAndPath("minecraft", "cobweb");
         if (metadata == 0 && id.toString().equals("minecraft:noteblock")) return ResourceLocation.fromNamespaceAndPath("minecraft", "note_block");
+        // The 1.12 nether_brick registry entry is the block. Its single brick was
+        // netherbrick; keeping the modern spelling would charge the wrong specimen.
+        if (metadata == 0 && id.toString().equals("minecraft:nether_brick")) return ResourceLocation.fromNamespaceAndPath("minecraft", "nether_bricks");
         // 1.12 map is the filled map; its empty-map ID was empty_map.
         if (metadata == 0 && id.toString().equals("minecraft:map")) return ResourceLocation.fromNamespaceAndPath("minecraft", "filled_map");
         if (metadata == 0 && id.toString().equals("minecraft:empty_map")) return ResourceLocation.fromNamespaceAndPath("minecraft", "map");

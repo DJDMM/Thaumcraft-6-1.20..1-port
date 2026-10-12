@@ -1,0 +1,538 @@
+{
+  "version": "0.33.0",
+  "date": "2026-10-12",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 96,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 28,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1283,
+  "newTestsBySuite": {
+    "furnaceAndStructure": 42,
+    "physicalOwnership": 5,
+    "paidResearchAndCrafting": 16,
+    "bellows": 7,
+    "pollutionNetwork": 2
+  },
+  "serverLog": {
+    "file": "infernal-033-gametest4.log",
+    "bytes": 493545,
+    "sha256": "0123558d3b45d67b0feba4165d8ecdd69c2c9e59a955dba6c39856e76af7cd78"
+  },
+  "serverRun": {
+    "run": "infernal-033-server4",
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-infernal-033-server4",
+    "gradleExitCode": 0,
+    "requiredTestCount": 1283
+  },
+  "serverRunEvidence": {
+    "file": "infernal-033-server4-run.json",
+    "bytes": 411,
+    "sha256": "5858154fafd69276cd1d1fdca4866d6106a177c553e3b2e23d229dc097dd5f5a"
+  },
+  "serverResult": "1283/1283; native complete; BUILD SUCCESSFUL",
+  "clientRunTag": "infernal-033-client4",
+  "client": {
+    "runTag": "infernal-033-client4",
+    "smokeTest": "Infernal",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infernal-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infernal-client-infernal-033-client4-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infernal-client-infernal-033-client4-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infernal-client-infernal-033-client4.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infernal-client-infernal-033-client4-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infernal-client-infernal-033-client4-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infernal-client-infernal-033-client4-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_36d82b1df6da406c966460b16ef125ba",
+    "jvmPid": 49864,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 15
+  },
+  "clientLog": {
+    "file": "infernal-client-infernal-033-client4-client.log",
+    "bytes": 32117,
+    "sha256": "df1c7f77b5e2653bf1112dbde78589fb37e9de06867b9163e64cbf4cf3ade19e"
+  },
+  "clientScenes": 15,
+  "nativeClientFacts": [
+    "THAUMCRAFT_INFERNAL_NETHER_FIXTURE: actual ownedNetherbiome/7x7safeplatform/nativechangeDimension transport,no fact setter; awaitoriginal200Livingticks",
+    "THAUMCRAFT_INFERNAL_VANILLA_NATIVE: actualelapsed=35 cookingProgress=52 originalpaidfuel/outputunfinished",
+    "THAUMCRAFT_INFERNAL_LIVE_POLLUTION_OBSERVED: actual32radiusS2C/sourceBlockPos{x=1, y=113, z=2}/received=1 emitted=1 live=1 drawn=2 goldSoFar=2 queued=30 pending=0; captureordinaryworld DURINGnativeproduction,sourceframe56/RGB1,.3,.9/no syntheticpollution",
+    "THAUMCRAFT_INFERNAL_SMELTED: realworldticks=873 raw32RawGold->32gold +43bonusnuggets +2rareearth/32XP;3bellows/cook26/speedy8/visPaid40/Fluxdelta=1.0/originalevent3=31/actualPurplePackets=1 puffs=1 draws=210,preproductionSeed=1413690931",
+    "THAUMCRAFT_INFERNAL_PHYSICAL_PICKUP_PAID: nativeplayerinventory32gold/43nuggets/2rare +32XP,actualplayer=(3.2379243301282887, 112.0, 5.16677451278989),elapsedWorldTicks=3",
+    "THAUMCRAFT_INFERNAL_CLIENT_FACTS: scenes=15,studies2,observationsRawPaid32/ARTIFICE16+GOLEMANCY16,studyXPEarned20,paidBenchCrafts4/vis100/Aer4,paidSalis1/redstone1+3crystals/bowlFlintReturned,survivalBellows4,formedFurnace1/dust1,physicalGold32,nativeGoldBonus=43,nativeRareEarthBonus=2,nativeXP32,visPaid=40.0,FluxDelta=1.0,nativeLavaEvents=32,nativeLavaParticles=160,bellowsRender=faces=[0, 0, 0, 1740, 1666, 3394],bufferExtensions=0,inflation=0.30607173..1.0216956,actualSurvivalTeardown1; explicitrawfixtures,no fullsurvival/portalbuilding/multiplayer/audio/allanglesclaim",
+    "THAUMCRAFT_INFERNAL_POLLUTION_FINAL_OBSERVED: source=BlockPos{x=1, y=113, z=2} nativeReceivedPackets=1 emittedOriginalPuffs=1 actualPuffDraws=210 preproductionSeed=1413690931 no postproductionFlux/RNG/send/FX/queue/output replacement"
+  ],
+  "visualReview": {
+    "clientRunTag": "infernal-033-client4",
+    "clientLogSha256": "df1c7f77b5e2653bf1112dbde78589fb37e9de06867b9163e64cbf4cf3ade19e",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "infernal_client_bellows_033"
+    ],
+    "method": "Both reviewers actually viewed all15 full1600x1000 native PNG, the full contact sheet and six-frame delivery preview from this final native pass.",
+    "contactSheet": {
+      "file": "infernal-0.33-review-sheet.png",
+      "sha256": "40a214bc767110ef484d3292efd9be888e5f5e35bb5b403b0d6aba4acaddd00a",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "infernal-0.33-preview.png",
+      "sha256": "6565d84f3f6019a517d08fc042964001a51a195bf491129405b127f1d4717e48",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-infernal-native-nether-biome-visit.png",
+        "sha256": "fff11ad663adfc172c65915b7335a2802446b90f5b970dbe4af9b3e60e0cbaa5",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-native-ignis-scan.png",
+        "sha256": "fc77e3a6ce5e60c02793742ccf188802ff36ebf1cc0f9007418887aab2b0062d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-paid-infernal-research.png",
+        "sha256": "2d0f9a66cc2c8040c5cbb26a1068a957d78f284512e4df8bf08f95539dda837b",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-paid-bellows-research.png",
+        "sha256": "8b985558f5e7f4ffc953759aefd0a01423a37abf0ce4ac335ce7ecbe6953358e",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-original-infernal-blueprint.png",
+        "sha256": "c76ea1380ca354b145604298a7628741ba487aee7147f67d3594f80070f6e90a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-paid-four-bellows-bench.png",
+        "sha256": "70d5b444c4a4f52b65be1715512a3157eac7ba54037e322fb0541d126cc35b7e",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-paid-salis-craft.png",
+        "sha256": "d65d55957d3a805bb3d6b2d44a2fbf6034b587d31916fb3715b240639b68d0a0",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-raw-furnace-assembly.png",
+        "sha256": "bfe4e283ba4ede6efb68dd34a0409b0c6056173bf59eb13164098bec4c5d3603",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-native-salis-formation.png",
+        "sha256": "b3d3d37cfa676ba22e642d8482b8b74d742832308e77f485d5e87175229d2ca5",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-native-paid-bellows.png",
+        "sha256": "13dd11c81c68fcb37b45a9a3d9c2202e3d992481f191a932950d3385534bd944",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-native-vanilla-furnace-boost.png",
+        "sha256": "9eaacc46a8b8707d02d39e96efa1e8da1879dea3d40f3be5fd32fedd193db292",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-native-infernal-smelting.png",
+        "sha256": "5b17bf574f3de0d3afef1edfc526ff3c17b95f37d6f07f68ba633beb82e0ca40",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-physical-gold-bonus-and-xp.png",
+        "sha256": "d42dc0aa3de38f10da387b8d985bf81d6f5c8322a4a1d9437f4846f6f1b476ba",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-native-powered-bellows-pause.png",
+        "sha256": "0d1433895a3607baf68845fabdc0d0572503c5da455ddf79db29df023a18d6d2",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infernal-native-furnace-dismantling.png",
+        "sha256": "d361e60eed2724eb345e26482875f652761c09c247da50d72839fbad8fa088bc",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Ordinary research/recipe/blueprint pages and the paid native bench/crafting results are readable without missing media or developer overlays.",
+      "The original furnace block model, native hidden shell formation and actual paid Bellows world animation are visible.",
+      "Native vanilla furnace GUI, actual smelting output/bonus/XP and survival reverse structure scenes are linked to final native observations.",
+      "Original lava and purple pollution effects use real native events/packets; counters and limits are recorded separately.",
+      "Captions are outside gameplay; captures are actual native frames without composited gameplay or generated artwork."
+    ],
+    "limits": [
+      "Prepared owned Survival/Nether QA worlds, supplied precursors/raw balances/materials/aura/arena and pre-input RNG seed, not a full manual walkthrough.",
+      "Native dimension transport is a fixture; portal construction and independent multiplayer were not exercised.",
+      "Selected frames do not prove every optical angle/animation frame or audible sound playback."
+    ],
+    "independentFindings": [
+      "No missing textures, broken furnace/Bellows world models, clipped book prose or technical service/debug overlays were found in the selected actual frames.",
+      "Original Infernal Furnace and Bellows research prose and the construction blueprint are readable. Actual paid craft scenes show four Bellows and Salis Mundus; the workbench is the existing native port GUI.",
+      "The formed furnace, paid world Bellows, ordinary vanilla Furnace GUI, native ejected items/XP, physical chest output, powered Bellows and dismantled shell are visible and consistent with the final native log.",
+      "Final native observations record 32 Raw Gold producing 32 Gold, 43 bonus nuggets, two rare earths and 32 collected XP; ordinary chest pixels show these physical item stacks. Native vanilla progress was 52 after 35 elapsed world ticks.",
+      "Native lava events and one real 32-radius purple pollution packet were observed, with one emitted puff and 210 actual draw calls. The selected birth-time puff is faint in the screenshot; this is not a claim that the image demonstrates a conspicuous full plume.",
+      "Both composed sheets use actual final screenshots; Russian captions sit outside the game images and are readable. No generated art or composited gameplay is included.",
+      "The vanilla advancement chat displays the prepared launch account name Dev. This is an ordinary player nickname, not a development instruction inserted into the mod UI."
+    ],
+    "independentLimits": [
+      "Prepared owned Survival/Nether fixtures supplied precursor studies, raw balances, materials, aura, arena and the explicit one-time pre-input RNG seed 1413690931. These frames do not prove a full manual survival walkthrough.",
+      "The Nether visit uses native dimension transport as a fixture; portal construction and independent multiplayer were not exercised.",
+      "One English-locale client and selected optical views were reviewed; this does not prove all viewing angles, every animation frame or audible sound playback.",
+      "The ordinary workbench screenshot uses the existing native port GUI; an exact original TC6 workbench skin is not claimed.",
+      "The source-original Bellows book claim about speeding crucibles remains visible, while the released BETA26 crucible field has no actual consumer. Its runtime no-op was explicitly audited rather than inventing a heat boost."
+    ]
+  },
+  "localJsonCount": 2853,
+  "jarResourceByteParityChecks": 3679,
+  "originalMediaByteParity": {
+    ".ogg": 57,
+    ".png": 668,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.33.0.jar",
+      "bytes": 11415843,
+      "sha256": "2b296cdcac639dcce433475a57cb9eac09761ad609493915ea7fb54be4ea500d"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.33.0-mods.zip",
+      "bytes": 10516239,
+      "sha256": "8d6f413ff62bcd07410b26181cdd198cb63d39e00e504572c15f4daf4751ff30"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.33.0-screenshots.zip",
+      "bytes": 5779580,
+      "sha256": "f8805b6c328e98c6a9f91863ccd7bae4f50f7cebdae92eefadb7d28fcadda318"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.33.0-preview.png",
+      "bytes": 1386558,
+      "sha256": "6565d84f3f6019a517d08fc042964001a51a195bf491129405b127f1d4717e48"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.33-final.log",
+    "bytes": 1212,
+    "sha256": "216b58e5262b4bdc835ae552b6228b0e128768a4dd0504a0478b211fd34763da"
+  },
+  "resourceLog": {
+    "file": "resources-0.33-final.log",
+    "bytes": 188,
+    "sha256": "18586e901cf179df8e81e6e84222158dbebcae8c9a0598db3a654915b6114137"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "0d1f28afae83c8cd502fa03a1878af0e270fc19fe0237e4ef2f90392a3606a59"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "b4358f8b722bcd3d45a13148b4d7fc02d9b0a70b1a7e90d5f46fd5ee9194091d"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "1e1fd42db02b1073c38284fa9d9cc54040458faecad56d4f0adf0df0eb5fd7dc"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "4fc6bee4ea94076d2622eca3b92a081a8cfe5bafa0d93713381fc467c6e9b161"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "b67f68201052d928e7e0ba029bab03bef17521e36dd7019aad0ce59ac51da07c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/alchemy/AlchemyModule.java",
+      "sha256": "b7b6e81a4458f796c21bd3051678e630edc1a6b0b4857b462b33b92e5936bf68"
+    },
+    {
+      "file": "src/main/java/thaumcraft/alchemy/SalisMundusItem.java",
+      "sha256": "8aa52dce5736b91ca91a1a5e621f8151cc601954548b24c059d1ba9224db79ce"
+    },
+    {
+      "file": "src/main/java/thaumcraft/alchemy/TripleMeatTreatRecipe.java",
+      "sha256": "f556d8f7737807646a85f3d9ee4755f2f9130f6daef54f86b9c2b3dc6d9b58c1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnaceBlock.java",
+      "sha256": "29b48d8af714f38aecd5642f0c83bb0ed254fdcb51684aa8a3fea9b15aab0a7a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnaceBlockEntity.java",
+      "sha256": "fbe830324c9761b250bf5ee462f97b500a2cbcf39ad354f24edcfb6ecdb53813"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnaceFormation.java",
+      "sha256": "feec70139c9693f0e97780094f81e047ec7e5523c4dea65beda991425dc10309"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnaceGameTests.java",
+      "sha256": "f8107fc9e35f852f949af18dea5dd76f959386b7a276b55f67c1f59f5a9671f0"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnaceModule.java",
+      "sha256": "0106101db4293fcdb1729b2142f03986bfd90c2b1fa9de12636ea2029e0aa1eb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnaceOutputData.java",
+      "sha256": "2f6e85f981705f62bfe7dc89fa68af49548d58c3a410daa10d6bf025d642a8ae"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnacePlaceholderBlock.java",
+      "sha256": "29d77c06ee72749cbdbadfd068023e42002c62f77158a832048cb088984f1803"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalFurnaceRules.java",
+      "sha256": "4aa484f1defd8aec43ba071af31577169e7781e0de0fe4fa023628cd22ab9eea"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalOwnershipGameTests.java",
+      "sha256": "d6e13fed5b145fee2e633a97e8276ec670db307b3ca06ea6a6ee9157ae7751b7"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalPollutionGameTests.java",
+      "sha256": "c0bcc2f8449975d474dbb292c81b27dc989cc50622d8ab758800fd55cb12fc17"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/InfernalPollutionPacket.java",
+      "sha256": "92f98267bb76e789e4bf2edf54854d8bd86e894b4081598f171b2519ba2fd391"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/LegacyInfernalDeviceMigration.java",
+      "sha256": "17e8133d827ccc5ff36a51ddcd2828053b195ef1bc743affbf8b9937cb0c17af"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/client/BellowsRenderer.java",
+      "sha256": "c3d2564b1aa87f00faf2fb1674a89cca3c2871851d4caccd27c127ceb2534218"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/client/InfernalClientSmokeTest.java",
+      "sha256": "8fd894af466e9d6020bc11b1c20b252fb7ce318a2030854439baa22990242680"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/client/InfernalFurnaceClientEffects.java",
+      "sha256": "fd94889d012930db64f920ae1c5b9a08c176abe14f5e9fcefe25254789870850"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/furnace/client/InfernalPollutionEffects.java",
+      "sha256": "9e75cc46f203020a52c4d3ff2b31eb3bc1372973b4e7440ea6b66c86649fe735"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/blocks/CatalogBlocks.java",
+      "sha256": "abe40a86b77d040185466454104fce5645fc07a0fe1f6cc851d5ec7c0c16d15c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/client/research/BookRecipeViews.java",
+      "sha256": "6c610ee96f735bd1eb820b3308056b84286385440c48115a66386ca5abb3000a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/production/BellowsBlockEntity.java",
+      "sha256": "787be2f8c2ec86755e1683a859033edc9ecae26f33c868f0c93b3e7d08332de5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/production/BellowsGameTests.java",
+      "sha256": "3a1061159e43a2e405a18070d7d5bbabd9b9e878d7ef5cf8b5141711a77122a7"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/production/EssentiaProductionModule.java",
+      "sha256": "194642d8452234bef7c75c4c0723b7d670a9bebe3b36c9bdc2625f3331cc3fbb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/production/SmelterBellowsBlock.java",
+      "sha256": "9ab63d5151c25919d6abb03e80fb3297c23e0d65a185e2911849c141b43ad04f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/production/client/ProductionClientEvents.java",
+      "sha256": "b156ca9aa461545a807ef917545ac89645d77ccccaccdede6ff1dd6dbfed6df9"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "3323f069403436fd307c752dfd9e5127c251de4e0b6549e74567562edd481769"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "b7f7a85180db306993b3b3687ed1110cd7eecbfbb399c951ad479c0de2b00f72"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "2b37f3b0d2458a3781572bc783a1b9a76b4d0ef16d090f1c0fec678e9810c5fc"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "64759ec9a65f5d198eb91ca11df39de193bd4f5d2dd9f22fa91ed91bd31a0c96"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaProgressionGameTests.java",
+      "sha256": "dd4bd281c24930729fe439e04b24f771709d2823072f8b682db2ddf15c8b898f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "97297899bb28f4597c6f24b4275318b3464b10d763cafef11f92a4c0895347f5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "1ff4d819b50aeb9d5b97e312c26d397c9f958c2b6160e4d78bbc4e8bd46202b0"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "19147783e4be51ccdde25f1cbdb5cfa5a2a8ff5200445d6e0da415476dba1d2f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionEvents.java",
+      "sha256": "cbd6a0ad4927d74aa1ae28cecb8ed2d12ac92519c68d5eb237a99b9cc22ca0ad"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionGameTests.java",
+      "sha256": "0b386883de65a973e4f516245611f81f3d80606cc49e162eed1edf6e25ed5271"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/LegacyResearchItems.java",
+      "sha256": "04219ebcdd2c1ec11b84d8b7c7009915d77c53c2b36a48000c6f0861cb387236"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "e903f970a19abedbd3e27c3a977a79c68c75e70eb4c7eebb4f3a4028336d04b2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "02cf6cc2e1c3c1aaa11b25f60260cda1da7131c76b402b67576ed49a76bc7765"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "b88c576e165d9f26a5a1fdf56b37f20d97c5d4ab7f948227a56becbb842f0d6c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "54b00c7c46135ef0a74d1767d17201900ec9965a5d6195862e95f600c812da85"
+    },
+    {
+      "file": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+      "sha256": "60c7ba1549cd70d7f1226fece61b11fa473dbcc7fb3cbfff63c00fdf3cc16127"
+    },
+    {
+      "file": "src/main/java/thaumcraft/world/taint/TaintSeedGameTests.java",
+      "sha256": "9a1c017da26f07073703152d71599c642bc26c1c6dc6d851107eec52d4658fba"
+    },
+    {
+      "file": "src/main/resources/META-INF/accesstransformer.cfg",
+      "sha256": "2b64bc7c04c381cab7a6d4105c299e22006bba17c61379de45ab88bc4af1db5e"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "3a8381b3435add1ac6e866017b066feed4830fd3b22710592a7e674d05a403a3"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/lang/en_us.json",
+      "sha256": "7c927126d6a38587caf10dcb4497f8e6ae1ae43f950d43c43e826fc2a842c89a"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/lang/ru_ru.json",
+      "sha256": "def3f5bd57d6eef522e1b25612c71a98b7e93aa4081d292d15d045761aca0eb8"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/models/block/infernal_furnace.json",
+      "sha256": "a6b1fa5ee9f854035fac24607a8aa669851ca88c08892168bb4efa326ff1d98e"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/triplemeattreat.json",
+      "sha256": "9373f8bb38a5ff7a2f9af817c93d35f40e177c9290f10a51b792cc90c83bad55"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "infernal-033-server4-sources.json",
+      "bytes": 629538,
+      "sha256": "06143f387843d5b5fd850fb1d62a0399be82841a9cc6f670aa0991ec61619289"
+    },
+    {
+      "file": "infernal-033-client4-sources.json",
+      "bytes": 629538,
+      "sha256": "06143f387843d5b5fd850fb1d62a0399be82841a9cc6f670aa0991ec61619289"
+    },
+    {
+      "file": "infernal-033-build-sources.json",
+      "bytes": 629538,
+      "sha256": "06143f387843d5b5fd850fb1d62a0399be82841a9cc6f670aa0991ec61619289"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": true,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4366,
+    "matchingServerRelevantFileCount": 4366,
+    "clientOnlyExceptions": [],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "fixtures": [
+    "Fresh owned native QA worlds only; precursor studies/raw knowledge/materials supplied explicitly",
+    "Actual native Nether transport to an owned7x7 safe platform is a fixture; original fact waits200 actual Living ticks, portal building is not exercised",
+    "Raw observation balances, ingredients/crystals, bedrock arena, native bench/crafting/vanilla furnace/chest and26 original source blocks are fixtures; target facts/studies/Bellows/Salis/native furnace/results are earned",
+    "Aura80/highFlux9chunks are installed BEFORE formation; native idle20vis and later20vis refill give original40 budget for32 rawGold",
+    "Pre-input owned RNG seed is an explicit visual coverage fixture; no runtime ticks/queue/output/Flux or effects setter supplies final results"
+  ],
+  "limitations": [
+    "No complete manual survival playthrough, portal construction or independent multiplayer session",
+    "Source countdown/idlevis/bonus/XP>=1quirks and literal vanilla Bellows199 bound are retained; modern raw-metal tags and typed loaded-only transactions are documented adaptations",
+    "An opaque third-party IItemHandler that accepts and consumes before exposing ownership cannot provide the same native reentrant save proof; this is an explicit interoperability limit",
+    "Selected native PNG and measurements do not prove every angle/animation frame or audible sound playback",
+    "Other devices, later Warp/Crimson/Eldritch and incomplete taint ecology still require further porting"
+  ],
+  "earlierClientRuns": [
+    {
+      "file": "infernal-client-infernal-033-client1-client.log",
+      "bytes": 33948,
+      "sha256": "456a70cd8d2452ff617fda5ec8925addb1aefc936faa4a3f27daff66247d995f"
+    },
+    {
+      "file": "infernal-client-infernal-033-client2-client.log",
+      "bytes": 29572,
+      "sha256": "d31c7e507b8a5539c9cd68ced8ea002f3fba4467b780a5f6acc0720e8f54cf3f"
+    },
+    {
+      "file": "infernal-client-infernal-033-client3-client.log",
+      "bytes": 32430,
+      "sha256": "5436d0d8d344aed59cbeec7bce90934287cbb73dc8bf3feeefc3586f619bc3a6"
+    }
+  ],
+  "earlierRuns": [
+    {
+      "file": "infernal-033-gametest1.log",
+      "bytes": 494905,
+      "sha256": "f78b1aaf26ac60d578a7d684a3b8f2a4ae273f3762aa93340aeba73f28215a01"
+    },
+    {
+      "file": "infernal-033-gametest2.log",
+      "bytes": 496224,
+      "sha256": "35b036bd85dd0c51768ad0cbdf4d475e08b2014b35bc0a3ef7c1176a89e033be"
+    },
+    {
+      "file": "infernal-033-gametest3.log",
+      "bytes": 495670,
+      "sha256": "b40365c9b8406f70242363f76c597b99237c63326531f0a98323631ccb342ac8"
+    }
+  ]
+}

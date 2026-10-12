@@ -44,7 +44,10 @@ public final class Thaumcraft {
                     thaumcraft.world.trees.TreeModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.world.plants.PlantModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.catalog.CatalogModule.acceptItems(output);
-                    thaumcraft.catalog.blocks.CatalogBlocks.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
+                    thaumcraft.catalog.blocks.CatalogBlocks.ITEMS.getEntries().forEach(entry -> {
+                        // BETA26 obtains the furnace and its hidden structural parts through dust.
+                        if (!thaumcraft.artifice.furnace.InfernalFurnaceModule.handlesBlock(entry.getId().getPath())) output.accept(entry.get());
+                    });
                     thaumcraft.catalog.entities.VisualEntitiesModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.equipment.cleansing.CleansingModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                 })
@@ -91,6 +94,9 @@ public final class Thaumcraft {
         thaumcraft.artifice.construct.TurretModule.register(bus);
         thaumcraft.artifice.mirror.MirrorModule.register(bus);
         thaumcraft.artifice.lamp.LampModule.register(bus);
+        thaumcraft.artifice.furnace.InfernalFurnaceModule.register(bus);
+        bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) ->
+                event.enqueueWork(thaumcraft.artifice.furnace.InfernalPollutionPacket::register));
         thaumcraft.artifice.construct.BoreModule.register(bus);
         thaumcraft.artifice.redstone.ArtificeRedstoneModule.register(bus);
         thaumcraft.golemancy.entity.GolemEntitySounds.register(bus);

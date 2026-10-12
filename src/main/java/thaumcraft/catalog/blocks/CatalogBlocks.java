@@ -33,7 +33,7 @@ public final class CatalogBlocks {
             ENTRIES.put(spec.id(),block);
             if (spec.item()) ITEMS.register(spec.id(), () -> thaumcraft.artifice.mirror.MirrorModule.handlesBlock(spec.id())
                     ? thaumcraft.artifice.mirror.MirrorModule.createBlockItem(block.get())
-                    : spec.id().equals("lamp_arcane") ? new BlockItem(block.get(),new Item.Properties())
+                    : spec.id().equals("lamp_arcane") || thaumcraft.artifice.furnace.InfernalFurnaceModule.handlesBlock(spec.id()) ? new BlockItem(block.get(),new Item.Properties())
                     : spec.id().equals("jar_brain")
                     ? new thaumcraft.golemancy.jar.BrainJarBlockItem(block.get())
                     : spec.id().equals("hungry_chest")
@@ -66,6 +66,7 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (thaumcraft.artifice.furnace.InfernalFurnaceModule.handlesBlock(id)) return thaumcraft.artifice.furnace.InfernalFurnaceModule.createBlock(id);
         if (thaumcraft.artifice.mirror.MirrorModule.handlesBlock(id)) return thaumcraft.artifice.mirror.MirrorModule.createBlock(id);
         if (thaumcraft.artifice.lamp.LampModule.handlesBlock(id)) return thaumcraft.artifice.lamp.LampModule.createBlock(id);
         if (thaumcraft.artifice.redstone.ArtificeRedstoneModule.handlesBlock(id)) return thaumcraft.artifice.redstone.ArtificeRedstoneModule.createBlock(id);

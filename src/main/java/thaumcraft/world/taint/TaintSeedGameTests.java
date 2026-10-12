@@ -192,16 +192,41 @@ public final class TaintSeedGameTests {
             restored.setBoost(-3);h.assertTrue(restored.saveWithoutId(new CompoundTag()).getInt("boost")==-3,"Signed original boost value was silently clamped");
         } finally { seed.discard();restored.discard(); }h.succeed();
     }
-    @GameTest(template="empty") public static void zeroFluxTwentyTickPulseStarvesHalfAHeartPointAndPollutesPointOne(GameTestHelper h) {
-        var seed=seed(h,false);var pos=seed.blockPosition();float previous=AuraManager.getFlux(h.getLevel(),pos);
-        AuraManager.drainFlux(h.getLevel(),pos,previous,false);
-        try {
-            h.assertTrue(AuraManager.getAuraBase(h.getLevel(),pos)>0&&AuraManager.getFlux(h.getLevel(),pos)==0,"Zero-Flux starvation fixture requires a loaded positive-base aura chunk");
-            pulse(seed);
-            h.assertTrue(seed.tickCount==20&&seed.getHealth()==74.5F&&Math.abs(AuraManager.getFlux(h.getLevel(),pos)-.1F)<.00001F,"Released starvation/0.1Flux payment differs");
-        } finally {
-            seed.discard();AuraManager.drainFlux(h.getLevel(),pos,AuraManager.getFlux(h.getLevel(),pos),false);AuraManager.addFlux(h.getLevel(),pos,previous);
-        }h.succeed();
+    @GameTest(template="empty",timeoutTicks=240) public static void zeroFluxTwentyTickPulseStarvesHalfAHeartPointAndPollutesPointOne(GameTestHelper h) {
+        Vec3 origin=centre(h);
+        AABB bounds=new AABB(origin.x-.75,origin.y,origin.z-.75,origin.x+.75,origin.y+1.25,origin.z+.75);
+        // A saved positive-base aura record does not prove native chunk readiness.
+        // Prepare only this fixture's actual entity bounds, before creating its fresh seed.
+        for(int x=net.minecraft.util.Mth.floor(bounds.minX)>>4;x<=net.minecraft.util.Mth.floor(bounds.maxX)>>4;x++)
+            for(int z=net.minecraft.util.Mth.floor(bounds.minZ)>>4;z<=net.minecraft.util.Mth.floor(bounds.maxZ)>>4;z++)
+                h.getLevel().getChunk(x,z);
+        h.startSequence().thenWaitUntil(()->h.assertTrue(TaintedStationaryMob.loaded(h.getLevel(),bounds),
+                "Starvation fixture entity bounds are not natively loaded: "+bounds)).thenExecute(()->{
+            var seed=seed(h,false);var pos=seed.blockPosition();float previous=AuraManager.getFlux(h.getLevel(),pos);
+            AuraManager.drainFlux(h.getLevel(),pos,previous,false);
+            try {
+                String pre=starvationState(h,seed);
+                h.assertTrue(seed.isAddedToWorld()&&seed.isAlive()&&!seed.isRemoved()
+                        &&TaintedStationaryMob.loaded(h.getLevel(),seed.getBoundingBox())&&seed.getHealth()==75
+                        &&seed.invulnerableTime==0&&seed.getActiveEffects().isEmpty()&&seed.getBoost()==0
+                        &&AuraManager.getAuraBase(h.getLevel(),pos)>0&&AuraManager.getFlux(h.getLevel(),pos)==0,
+                        "Zero-Flux starvation fixture requires a fresh, loaded positive-base aura seed: "+pre);
+                pulse(seed);
+                String post=starvationState(h,seed);
+                com.mojang.logging.LogUtils.getLogger().info("THAUMCRAFT_TAINT_STARVATION_FIXTURE: before={} after={}",pre,post);
+                h.assertTrue(seed.tickCount==20&&seed.getHealth()==74.5F&&Math.abs(AuraManager.getFlux(h.getLevel(),pos)-.1F)<.00001F,
+                        "Released starvation/0.1Flux payment differs: before="+pre+", after="+post);
+            } finally {
+                seed.discard();AuraManager.drainFlux(h.getLevel(),pos,AuraManager.getFlux(h.getLevel(),pos),false);AuraManager.addFlux(h.getLevel(),pos,previous);
+            }
+        }).thenSucceed();
+    }
+    private static String starvationState(GameTestHelper h,TaintSeedEntity seed) {
+        return "tick="+seed.tickCount+", health="+seed.getHealth()+", loaded="+TaintedStationaryMob.loaded(h.getLevel(),seed.getBoundingBox())
+                +", added="+seed.isAddedToWorld()+", alive="+seed.isAlive()+", removed="+seed.isRemoved()
+                +", base="+AuraManager.getAuraBase(h.getLevel(),seed.blockPosition())+", Flux="+AuraManager.getFlux(h.getLevel(),seed.blockPosition())
+                +", hurtFrames="+seed.invulnerableTime+", hurtTime="+seed.hurtTime+", boost="+seed.getBoost()
+                +", effects="+seed.getActiveEffects()+", bounds="+seed.getBoundingBox();
     }
     @GameTest(template="empty") public static void positiveFluxTwentyTickPulseDoesNotStarveTheSeed(GameTestHelper h) {
         var seed=seed(h,false);var pos=seed.blockPosition();float previous=AuraManager.getFlux(h.getLevel(),pos);

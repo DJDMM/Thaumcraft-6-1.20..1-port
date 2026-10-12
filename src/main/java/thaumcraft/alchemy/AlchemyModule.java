@@ -25,6 +25,7 @@ public final class AlchemyModule {
     public static final RegistryObject<Item> SALIS_MUNDUS = ITEMS.register("salis_mundus", () -> new SalisMundusItem(new Item.Properties()));
     public static final RegistryObject<BlockEntityType<CrucibleBlockEntity>> CRUCIBLE_TILE = TILES.register("crucible", () -> BlockEntityType.Builder.of(CrucibleBlockEntity::new, CRUCIBLE.get()).build(null));
     public static final RegistryObject<RecipeSerializer<SalisMundusRecipe>> SALIS_RECIPE = RECIPES.register("salis_mundus", () -> new SimpleCraftingRecipeSerializer<>(SalisMundusRecipe::new));
+    public static final RegistryObject<RecipeSerializer<TripleMeatTreatRecipe>> TRIPLE_MEAT_RECIPE = RECIPES.register("triplemeattreat", () -> new SimpleCraftingRecipeSerializer<>(TripleMeatTreatRecipe::new));
     public static void register(IEventBus bus) {
         BLOCKS.register(bus); ITEMS.register(bus); TILES.register(bus); RECIPES.register(bus); ENTITIES.register(bus);
         MinecraftForge.EVENT_BUS.addListener((AddReloadListenerEvent event) -> event.addListener(new CrucibleRecipes()));

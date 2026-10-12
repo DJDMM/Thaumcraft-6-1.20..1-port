@@ -30,6 +30,8 @@ public final class SalisMundusItem extends Item {
         var pos = context.getClickedPos();
         if (context.getPlayer() == null || !context.getPlayer().mayBuild()) return InteractionResult.FAIL;
         if (context.getPlayer().isShiftKeyDown()) return InteractionResult.PASS;
+        InteractionResult infernal = thaumcraft.artifice.furnace.InfernalFurnaceFormation.use(context);
+        if (infernal != InteractionResult.PASS) return infernal;
         InteractionResult golemPress = thaumcraft.golemancy.press.GolemPressFormation.use(context);
         if (golemPress != InteractionResult.PASS) return golemPress;
         InteractionResult thaumatorium = thaumcraft.essentia.thaumatorium.ThaumatoriumFormation.use(context);

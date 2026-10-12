@@ -23,6 +23,8 @@ public final class EssentiaProductionModule {
             () -> BlockEntityType.Builder.of(SmelterBlockEntity::new, block("smelter_basic"), block("smelter_thaumium"), block("smelter_void")).build(null));
     public static final RegistryObject<BlockEntityType<AlembicBlockEntity>> ALEMBIC = TILES.register("essentia_alembic",
             () -> BlockEntityType.Builder.of(AlembicBlockEntity::new, block("alembic")).build(null));
+    public static final RegistryObject<BlockEntityType<BellowsBlockEntity>> BELLOWS = TILES.register("bellows",
+            () -> BlockEntityType.Builder.of(BellowsBlockEntity::new, block("bellows")).build(null));
     public static final RegistryObject<MenuType<SmelterMenu>> SMELTER_MENU = MENUS.register("essentia_smelter", () -> IForgeMenuType.create(SmelterMenu::new));
     private EssentiaProductionModule() {}
     private static Block block(String id) { return CatalogBlocks.ENTRIES.get(id).get(); }

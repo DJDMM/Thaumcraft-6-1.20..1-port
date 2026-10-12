@@ -1,6 +1,7 @@
 {
   "__createdwith": "opl's Model Creator",
   "ambientocclusion": false,
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "side": "thaumcraft:blocks/infernal_furnace",
     "core": "minecraft:block/lava_still",

@@ -1,4 +1,93 @@
-# Проверка зеркал и магической лампы 0.32.0
+# Проверка адской печи и мехов0.33.0
+
+Дата: **2026-10-12**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26; JAR/source SHA закреплены в аудитах.
+Канонический охват **96/148**, наполнение **28/56**.
+Правила — [FURNACE.md](FURNACE.md), точные доказательства и SHA —
+[artifact-report0.33](validation/artifact-report-0.33.json).
+
+Полный свежий Server4 `infernal-033-gametest4.log` прошёл **1283/1283**,
+native exit0/Gradle exit0/BUILD SUCCESSFUL **4m 3s**.
+К прежним1211 добавлены42 проверки печи/конструкции,5 владения оплатой,
+16 прогрессии/рецептов,7 мехов и2 pollution-пакета. Проверены исходная
+ориентация isOpp, все вращения/уровни лавы/top wildcard, отменённые/вложенные
+callbacks, физическая рука/оплата,32 UP-only/no-extraction слота,
+cookedflag/idle20vis/countdown/bonus/XP quirks, реальные handlers/ItemEntity/XP,
+сохранение принятой выдачи, разбор/возврат, loaded-only миграция,
+ванильное ускорение и typed dimension-qualified FX в строгом радиусе32.
+
+Финальный скрытый клиент `infernal-033-client4` прошёл **15/15**, JVM exit0,
+PID49864, максимум16 принадлежащих
+ему окон на `WinSta0\ThaumcraftQA_*`; входной рабочий стол
+`Default→Default`. Никакого переключения
+рабочего стола или global input. Root и независимый проверяющий просмотрели
+все15 полных1600×1000PNG, полный лист и шестикадровое превью.
+
+Нативные измерения из финального лога:
+
+- `THAUMCRAFT_INFERNAL_NETHER_FIXTURE: actual ownedNetherbiome/7x7safeplatform/nativechangeDimension transport,no fact setter; awaitoriginal200Livingticks`
+- `THAUMCRAFT_INFERNAL_VANILLA_NATIVE: actualelapsed=35 cookingProgress=52 originalpaidfuel/outputunfinished`
+- `THAUMCRAFT_INFERNAL_LIVE_POLLUTION_OBSERVED: actual32radiusS2C/sourceBlockPos{x=1, y=113, z=2}/received=1 emitted=1 live=1 drawn=2 goldSoFar=2 queued=30 pending=0; captureordinaryworld DURINGnativeproduction,sourceframe56/RGB1,.3,.9/no syntheticpollution`
+- `THAUMCRAFT_INFERNAL_SMELTED: realworldticks=873 raw32RawGold->32gold +43bonusnuggets +2rareearth/32XP;3bellows/cook26/speedy8/visPaid40/Fluxdelta=1.0/originalevent3=31/actualPurplePackets=1 puffs=1 draws=210,preproductionSeed=1413690931`
+- `THAUMCRAFT_INFERNAL_PHYSICAL_PICKUP_PAID: nativeplayerinventory32gold/43nuggets/2rare +32XP,actualplayer=(3.2379243301282887, 112.0, 5.16677451278989),elapsedWorldTicks=3`
+- `THAUMCRAFT_INFERNAL_CLIENT_FACTS: scenes=15,studies2,observationsRawPaid32/ARTIFICE16+GOLEMANCY16,studyXPEarned20,paidBenchCrafts4/vis100/Aer4,paidSalis1/redstone1+3crystals/bowlFlintReturned,survivalBellows4,formedFurnace1/dust1,physicalGold32,nativeGoldBonus=43,nativeRareEarthBonus=2,nativeXP32,visPaid=40.0,FluxDelta=1.0,nativeLavaEvents=32,nativeLavaParticles=160,bellowsRender=faces=[0, 0, 0, 1740, 1666, 3394],bufferExtensions=0,inflation=0.30607173..1.0216956,actualSurvivalTeardown1; explicitrawfixtures,no fullsurvival/portalbuilding/multiplayer/audio/allanglesclaim`
+- `THAUMCRAFT_INFERNAL_POLLUTION_FINAL_OBSERVED: source=BlockPos{x=1, y=113, z=2} nativeReceivedPackets=1 emittedOriginalPuffs=1 actualPuffDraws=210 preproductionSeed=1413690931 no postproductionFlux/RNG/send/FX/queue/output replacement`
+
+Факты получены реальными200 Living ticks в адском биоме и Thaumometer C2S.
+Два исследования расходуют32 raw Observation и дают20XP; четыре меха
+изготовлены за100vis/Aer4 и настоящие материалы. Salis Mundus изготовлен
+в vanilla CraftingMenu из redstone/трёх различных кристаллов с возвратом
+кремня/миски; один оплаченный порошок формирует26 частей печи.
+32RawGold вставлены реальной ItemEntity-коллизией и обработаны настоящими
+мировыми тиками; бонусы/XP подобраны и золото передано в обычный сундук.
+Показаны работа vanilla Furnace, реальные лавовые и purple pollution FX,
+40 тиков остановки мехов redstone и survival harvest с обратной структурой.
+
+Подготовленные условия: родительские исследования/raw observations,
+материалы/кристаллы, bedrock-арена, исходные26 блоков, bench/vanilla furnace/
+chest. Транспорт в настоящий Nether и безопасная площадка7×7 — fixture;
+строительство портала не проверялось. Аура80/highFlux9chunks задана **до**
+формирования ядра:20vis заряжается в простое, второй20vis после20 выплавок;
+итоговый40vis/8speedy измерен без промежуточного сброса. Однократный
+pre-input RNG seed для покрытия визуального pollution-события указан в логе.
+Финальные факты/исследования/мехи/порошок/печь/выходы/XP не выданы fixtures.
+Driver не подменяет ticks, очереди, выдачу, Flux или частицы.
+
+Ранние прогоны сохранены отдельно и не считаются финальным доказательством.
+Server1 завершил1281 тест с тремя ошибками fixtures: canceled entity observer,
+BlockItem сравнение через неподходящий catalogue helper, миграция второго
+чанка. Исправлены только наблюдения/fixtures. Server2 завершил1281 тест
+с одной старой Taint fixture ошибкой; её историческая причина **не установлена**.
+Добавлена bounded readiness actual AABB-chunks и строгая диагностика исходного
+75HP/0Flux перед одним20tick pulse: Server3 получил74.5HP/.1Flux.
+Taint production/границы/ожидания не ослаблены и pulse не повторяется после отказа.
+Client1 подтвердил Nether/Ignis, но завис на phase3, проверявшей уже убранный
+в инвентарь стержень; остановлен только проверенный QA PID47552.
+Client2 проверил выплавку/выдачу, но его pickup-сцена ждала предметы вне
+достижимого расстояния; остановлен только проверенный QA PID21564.
+После Server3 изменён только opt-in Dist.CLIENT driver: phase3 earlyreturn
+и маршрут физического игрока к реально выброшенным предметам/XP с ограниченным
+ожиданием и строгими исходными подсчётами; выдача/производство не изменены.
+Client3 прошёл15 native сцен, но кадры были854×480 из-за отсутствующих
+width/height аргументов в Infernal launch profile. После исправления выполнены
+свежие полный Server4 и Client4. Все**4366** source/resource/helper fingerprints
+финального сервера/клиента/сборки совпадают, исключений больше нет.
+
+Сборка успешна; **2853 JSON**, **3679** JAR resource-byte проверок,
+оригинальные**668PNG/7JPG/57OGG** без изменений прошли. CRC/версии/классы,
+единственный AT cookingProgress и архивы проверены.
+SHA256 JAR: `2b296cdcac639dcce433475a57cb9eac09761ad609493915ea7fb54be4ea500d`.
+
+Границы: не полное manual survival, не независимый multiplayer и не аудиопроверка
+всех звуков/углов. Произвольный opaque сторонний IItemHandler, принимающий и
+уничтожающий предмет до наблюдения/return, не покрывается native ownership-proof.
+Сохранены исходные quirks countdown/idlevis/XP>=1 и vanilla literal199;
+modern raw-metal tags/typed dimensions/loaded-only защита документированы.
+Остальные устройства, Warp/Crimson/Eldritch и незавершённая экология остаются.
+
+---
+
+## История: проверка зеркал и магической лампы0.32.0
 
 Дата: **2026-10-12**. Minecraft1.20.1 / Forge47.4.10 / Java17.
 Исходный TC6.1.BETA26, pinned JAR/source и современные адаптации описаны

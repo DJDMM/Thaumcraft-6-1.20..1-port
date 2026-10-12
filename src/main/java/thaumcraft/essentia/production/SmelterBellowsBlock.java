@@ -8,13 +8,18 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 
-/** Working orientation/redstone support for smelter bellows; other Artifice consumers remain separate. */
-public final class SmelterBellowsBlock extends Block {
+/** Original six-direction bellows with native tile animation and furnace boost. */
+public final class SmelterBellowsBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final BooleanProperty ENABLED = SmelterBlock.ENABLED;
     public SmelterBellowsBlock(Properties properties) {
-        super(properties.strength(1).sound(SoundType.WOOD));
+        super(properties.strength(1,12).sound(SoundType.WOOD));
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(ENABLED, true));
+    }
+    @Override public RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
+    @Override public net.minecraft.world.level.block.entity.BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new BellowsBlockEntity(pos,state); }
+    @Override public <T extends net.minecraft.world.level.block.entity.BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(Level level, BlockState state, net.minecraft.world.level.block.entity.BlockEntityType<T> type) {
+        return createTickerHelper(type,EssentiaProductionModule.BELLOWS.get(),BellowsBlockEntity::tick);
     }
     @Override public java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) { return java.util.List.of(new net.minecraft.world.item.ItemStack(this)); }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(FACING, ENABLED); }

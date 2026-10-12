@@ -12,5 +12,8 @@ import thaumcraft.essentia.production.EssentiaProductionModule;
 public final class ProductionClientEvents {
     private ProductionClientEvents() {}
     @SubscribeEvent public static void setup(FMLClientSetupEvent event) { event.enqueueWork(() -> MenuScreens.register(EssentiaProductionModule.SMELTER_MENU.get(), SmelterScreen::new)); }
-    @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event) { event.registerBlockEntityRenderer(EssentiaProductionModule.ALEMBIC.get(), AlembicRenderer::new); }
+    @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(EssentiaProductionModule.ALEMBIC.get(), AlembicRenderer::new);
+        event.registerBlockEntityRenderer(EssentiaProductionModule.BELLOWS.get(), thaumcraft.artifice.furnace.client.BellowsRenderer::new);
+    }
 }

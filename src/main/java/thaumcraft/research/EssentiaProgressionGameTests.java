@@ -160,7 +160,9 @@ public final class EssentiaProgressionGameTests {
         ItemStack last = player.getInventory().removeItemNoUpdate(5); player.getInventory().setItem(40, last);
         helper.assertTrue(!ResearchProgression.canAdvance(state, ResearchCatalog.get("ESSENTIASMELTER"), player.getInventory()), "Preview counted an offhand sample");
         result(helper, ResearchProgression.advance(player, "ESSENTIASMELTERTHAUMIUM", 0), ResearchProgression.Result.LOCKED);
-        for (String key : new String[]{"ESSENTIASMELTERVOID", "IMPROVEDSMELTING", "IMPROVEDSMELTING2", "BELLOWS", "INFUSIONANCIENT", "BASEELDRITCH"}) {
+        result(helper, ResearchProgression.advance(player, "BELLOWS", 0), ResearchProgression.Result.LOCKED);
+        helper.assertTrue(!state.isResearchCompleteStrict("BELLOWS"), "Unpaid furnace parent granted bellows");
+        for (String key : new String[]{"ESSENTIASMELTERVOID", "IMPROVEDSMELTING", "IMPROVEDSMELTING2", "INFUSIONANCIENT", "BASEELDRITCH"}) {
             result(helper, ResearchProgression.advance(player, key, 0), ResearchProgression.Result.UNSUPPORTED);
             helper.assertTrue(!state.isResearchCompleteStrict(key), "Unported parent was marked complete: " + key);
         }

@@ -62,6 +62,11 @@ hooks supply automated interaction and screenshot capture instead.
 
 The three helpers are intentionally separated:
 
+The Infernal profile uses only `run/infernal-smoke`, property
+`thaumcraft.infernalSmokeTest` and fresh `infernal-client-<RunTag>` evidence.
+Its native interactions and captures run on the same verified non-input desktop;
+ordinary gameplay saves and global keyboard/mouse input remain untouched.
+
 - `capture-javaexec.init.gradle`: ForgeGradle preparation and final command dump.
 - `New-JavaArgumentFile.ps1`: safe Java argument-file and environment delta export.
 - `Start-IsolatedJava.ps1`: native named-desktop launch and exact-JVM lifetime.
