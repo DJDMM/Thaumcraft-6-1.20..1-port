@@ -1,0 +1,16 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "FLUXCLEANUP",
+  "vis": 500,
+  "crystals": { "aer": 5, "aqua": 5, "perditio": 5 },
+  "pattern": ["BCB", "WMW", "BTB"],
+  "key": {
+    "B": { "tag": "forge:plates/brass" },
+    "C": { "item": "thaumcraft:morphic_resonator" },
+    "W": { "tag": "minecraft:planks" },
+    "M": { "item": "thaumcraft:mechanism_complex" },
+    "T": { "item": "thaumcraft:tube" }
+  },
+  "result": { "item": "thaumcraft:condenser", "count": 1 }
+}

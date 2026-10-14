@@ -6,6 +6,9 @@
     "thaumcraft:stone_arcane",
     "thaumcraft:stone_arcane_brick",
     "thaumcraft:crucible",
+    "thaumcraft:condenser",
+    "thaumcraft:condenser_lattice",
+    "thaumcraft:condenser_lattice_dirty",
     "#thaumcraft:world_ores"
   ],
   "replace": false

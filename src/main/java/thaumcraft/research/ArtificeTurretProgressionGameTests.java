@@ -39,7 +39,7 @@ public final class ArtificeTurretProgressionGameTests {
         var p=player(h);var k=KnowledgeStore.get(p);
         String[][] parents={{"REDSTONERELAY","BASEARTIFICE"},{"ARCANEEAR","REDSTONERELAY"},
                 {"BASICTURRET","MINDCLOCKWORK","ARCANEEAR"},{"ADVANCEDTURRET","MINDBIOTHAUMIC","BASICTURRET"}};
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==96,"Expected preserved94 plus furnace and bellows");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==97,"Expected preserved96 plus FLUXCLEANUP");
         for(String[] pair:parents) {
             h.assertTrue(ResearchCatalog.get(pair[0]).parents().equals(List.of(pair).subList(1,pair.length)),"Original turret-chain parents changed");
             result(h,p,pair[0],0,ResearchProgression.Result.LOCKED);

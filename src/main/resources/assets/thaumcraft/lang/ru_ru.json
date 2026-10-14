@@ -2011,5 +2011,7 @@
   "tc.mirrorlinkdetail": "%s,%s,%s (%s)",
   "tc.dimension.overworld": "Обычный мир",
   "tc.dimension.nether": "Нижний мир",
-  "tc.dimension.end": "Край"
+  "tc.dimension.end": "Край",
+  "tc.condenser1": "§dСтоимость: %1$s эссенции§0",
+  "tc.condenser2": "§dВремя: %1$s тиков (%2$s секунд)§0"
 }

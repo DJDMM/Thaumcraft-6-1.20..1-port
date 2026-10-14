@@ -1,5 +1,10 @@
 # Isolated Windows client QA
 
+The `-SmokeTest Condenser` profile uses only `run/condenser-smoke` for the
+paid TC6 cleanup research and recipes, connected lattices, physical transport,
+native Flux/Vitium production, filter cleanup and redstone scenes. It requests
+1600x1000 captures and retains the exact hidden non-input JVM guarantees below.
+
 From the project, run `scripts/run_client_smoke_isolated.ps1 -SmokeTest EssentiaProduction`
 or `-SmokeTest Infusion` / `-SmokeTest TheoryComplete` / `-SmokeTest ThaumonomiconComplete`.
 The `-SmokeTest Thaumometer` profile runs native scanning/container/aura checks in `run/thaumometer-smoke` with the same hidden-desktop guarantees.

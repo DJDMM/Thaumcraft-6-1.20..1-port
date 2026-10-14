@@ -31,6 +31,7 @@ gradle.taskGraph.whenReady { graph ->
     }
     Map<String, String> clientProfiles = [theoryCompleteSmokeTest: 'run/theory-complete-smoke',
             infernalSmokeTest: 'run/infernal-smoke',
+            condenserSmokeTest: 'run/condenser-smoke',
             mirrorSmokeTest: 'run/mirror-smoke',
             boreSmokeTest: 'run/bore-smoke',
             turretSmokeTest: 'run/turret-smoke',

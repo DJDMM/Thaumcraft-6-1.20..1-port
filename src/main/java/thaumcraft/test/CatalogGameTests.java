@@ -42,6 +42,7 @@ public final class CatalogGameTests {
             var state=block.defaultBlockState();
             if(block instanceof thaumcraft.artifice.mirror.MirrorBlock) state=state.setValue(thaumcraft.artifice.mirror.MirrorBlock.FACING,net.minecraft.core.Direction.UP);
             if(block instanceof thaumcraft.artifice.redstone.ArcaneEarBlock) state=state.setValue(thaumcraft.artifice.redstone.ArcaneEarBlock.FACING,net.minecraft.core.Direction.UP);
+            if(entry.getKey().startsWith("condenser_lattice")) helper.getLevel().setBlock(pos.below(),CatalogBlocks.block("condenser").defaultBlockState(),3);
             helper.getLevel().setBlock(pos,state,3);
             helper.assertTrue(helper.getLevel().getBlockState(pos).is(block),"Placement failed "+entry.getKey());
             if(CatalogBlocks.special(entry.getKey())) helper.assertTrue(entry.getKey().equals("infusion_matrix")
@@ -57,12 +58,14 @@ public final class CatalogGameTests {
             if(entry.getKey().equals("lamp_arcane")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.lamp.ArcaneLampBlockEntity,"Lamp lost native light ticker");
             if(entry.getKey().equals("infernal_furnace")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.furnace.InfernalFurnaceBlockEntity,"Infernal Furnace lost native physical inventory and smelting ticker");
             if(entry.getKey().equals("bellows")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.production.BellowsBlockEntity,"Bellows lost native animation and furnace ticker");
+            if(entry.getKey().equals("condenser")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.condenser.CondenserBlockEntity,"Condenser lost native lattice and physical essentia ticker");
             if(entry.getKey().equals("mirror")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.mirror.ItemMirrorBlockEntity,"Item mirror lost native physical queue");
             if(entry.getKey().equals("mirror_essentia")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.mirror.EssentiaMirrorBlockEntity,"Essentia mirror lost native remote source");
             if(entry.getKey().equals("arcane_ear") || entry.getKey().equals("arcane_ear_toggle")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.redstone.ArcaneEarBlockEntity,"Ear lost native note receiver");
             if(thaumcraft.essentia.transfuser.EssentiaTransfuserModule.handlesBlock(entry.getKey())) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.transfuser.EssentiaTransfuserBlockEntity,"Airborne transfuser lost operational transport ticker");
             helper.getLevel().removeBlock(pos,false);
             helper.assertTrue(helper.getLevel().getBlockEntity(pos)==null,"Visual tile leaked after removal");
+            if(entry.getKey().startsWith("condenser_lattice")) helper.getLevel().setBlock(pos.below(),net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(),3);
         }
         helper.succeed();
     }

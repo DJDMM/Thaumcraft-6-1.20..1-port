@@ -754,13 +754,15 @@ public final class AirborneEssentiaManager {
                 || type == TubeBlockEntity.class || type == TubeBufferBlockEntity.class
                 || type == TubeFilterBlockEntity.class || type == CentrifugeBlockEntity.class
                 || type == ThaumatoriumBlockEntity.class || type == ThaumatoriumTopBlockEntity.class
-                || type == GolemPressBlockEntity.class;
+                || type == GolemPressBlockEntity.class
+                || type == thaumcraft.essentia.condenser.CondenserBlockEntity.class;
     }
 
     /** Rollback never recreates/replaces a removed endpoint or an unloaded chunk. */
     private static void restore(ServerLevel level, BlockEntity endpoint, CompoundTag snapshot) {
         if (!validEndpoint(level, endpoint)) return;
-        endpoint.load(snapshot);
+        if (endpoint instanceof thaumcraft.essentia.condenser.CondenserBlockEntity condenser) condenser.restoreTransportSnapshot(snapshot);
+        else endpoint.load(snapshot);
         endpoint.setChanged();
         level.sendBlockUpdated(endpoint.getBlockPos(), endpoint.getBlockState(), endpoint.getBlockState(), 3);
     }

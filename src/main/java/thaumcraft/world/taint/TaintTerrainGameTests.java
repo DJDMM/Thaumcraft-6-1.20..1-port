@@ -1,6 +1,10 @@
 package thaumcraft.world.taint;
 
 import java.lang.reflect.Field;
+import com.electronwill.nightconfig.core.CommentedConfig;
+import com.electronwill.nightconfig.core.UnmodifiableConfig;
+import com.electronwill.nightconfig.core.UnmodifiableCommentedConfig;
+import net.minecraftforge.common.ForgeConfigSpec;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -46,19 +50,25 @@ public final class TaintTerrainGameTests {
         final Map<Long,AuraChunk> chunks;
         final Map<Long,AuraChunk> previousChunks=new HashMap<>();
         final List<Entity> entities=new ArrayList<>();
-        final boolean wuss=RiftModule.WUSS_MODE.get();final double rate=RiftModule.TAINT_SPREAD_RATE.get();
+        final CommentedConfig originalConfig;
         Fixture(GameTestHelper h,boolean seed) {
             this.h=h;level=h.getLevel();pos=h.absolutePos(CENTER);
             try {
                 Field sf=TaintHelper.class.getDeclaredField("SEEDS");sf.setAccessible(true);sources=(Map<ServerLevel,LinkedHashSet<BlockPos>>)sf.get(null);
                 Field af=AuraSavedData.class.getDeclaredField("chunks");af.setAccessible(true);chunks=(Map<Long,AuraChunk>)af.get(AuraSavedData.get(level));
+                Field cf=ForgeConfigSpec.class.getDeclaredField("childConfig");cf.setAccessible(true);originalConfig=(CommentedConfig)cf.get(RiftModule.CONFIG);
             } catch(ReflectiveOperationException e) { throw new IllegalStateException(e); }
             previousSources=sources.put(level,new LinkedHashSet<>());
-            RiftModule.WUSS_MODE.set(false);RiftModule.TAINT_SPREAD_RATE.set(100.0);
-            for(BlockPos p:BlockPos.betweenClosed(pos.offset(-2,-1,-2),pos.offset(2,2,2))) level.setBlock(p,Blocks.AIR.defaultBlockState(),2);
-            for(int x=-2;x<=2;x++) for(int z=-2;z<=2;z++) level.setBlock(pos.offset(x,-1,z),Blocks.STONE.defaultBlockState(),2);
-            aura(pos,500,100,100);aura(pos.east(),500,100,100);
-            if(seed) addSeed(pos);
+            try {
+                // Native ConfigValue.set on Forge's autosaving file triggers an asynchronous watcher.
+                // Keep the real SPEC/ConfigValues, but scope this immediate callback to detached memory.
+                RiftModule.CONFIG.setConfig(detachedConfig(originalConfig));
+                RiftModule.WUSS_MODE.set(false);RiftModule.TAINT_SPREAD_RATE.set(100.0);
+                for(BlockPos p:BlockPos.betweenClosed(pos.offset(-2,-1,-2),pos.offset(2,2,2))) level.setBlock(p,Blocks.AIR.defaultBlockState(),2);
+                for(int x=-2;x<=2;x++) for(int z=-2;z<=2;z++) level.setBlock(pos.offset(x,-1,z),Blocks.STONE.defaultBlockState(),2);
+                aura(pos,500,100,100);aura(pos.east(),500,100,100);
+                if(seed) addSeed(pos);
+            } catch(RuntimeException|Error failure) { close();throw failure; }
         }
         void aura(BlockPos p,int base,float vis,float flux) {
             long key=new ChunkPos(p).toLong();if(!previousChunks.containsKey(key)) previousChunks.put(key,chunks.get(key));
@@ -73,11 +83,27 @@ public final class TaintTerrainGameTests {
         void surround(BlockPos target) { for(Direction d:Direction.values()) level.setBlock(target.relative(d),TaintModule.block("taint_rock").defaultBlockState(),2); }
         void spread(boolean ignore) { level.random.setSeed(spreadRoll(ignore,false));TaintHelper.spreadFibres(level,pos,ignore); }
         @Override public void close() {
-            for(Entity entity:entities) entity.discard();
-            if(previousSources==null) sources.remove(level);else sources.put(level,previousSources);
-            previousChunks.forEach((key,old)->{if(old==null) chunks.remove(key);else chunks.put(key,old);});
-            RiftModule.WUSS_MODE.set(wuss);RiftModule.TAINT_SPREAD_RATE.set(rate);
+            try {
+                for(Entity entity:entities) entity.discard();
+                if(previousSources==null) sources.remove(level);else sources.put(level,previousSources);
+                previousChunks.forEach((key,old)->{if(old==null) chunks.remove(key);else chunks.put(key,old);});
+            } finally { RiftModule.CONFIG.setConfig(originalConfig); }
         }
+    }
+    private static CommentedConfig detachedConfig(UnmodifiableConfig source) {
+        CommentedConfig copy=CommentedConfig.inMemory();
+        source.valueMap().forEach((key,value)->copy.set(List.of(key),detachedValue(value)));
+        if(source instanceof UnmodifiableCommentedConfig comments)comments.commentMap().forEach((key,value)->copy.setComment(List.of(key),value));
+        return copy;
+    }
+    private static Object detachedValue(Object value) {
+        if(value instanceof UnmodifiableConfig config)return detachedConfig(config);
+        if(value instanceof List<?> list)return list.stream().map(TaintTerrainGameTests::detachedValue).toList();
+        return value; // Native TOML scalar values are immutable.
+    }
+    private static String spreadState(Fixture f) {
+        return "rate="+TaintModule.spreadRate()+", base="+AuraManager.getAuraBase(f.level,f.pos)+", Flux="+AuraManager.getFlux(f.level,f.pos)
+                +", target="+f.level.getBlockState(f.pos.east())+", nativeSeed="+TaintHelper.isNearTaintSeed(f.level,f.pos);
     }
     private static long spreadRoll(boolean ignore,boolean leaves) {
         for(long seed=0;seed<100000;seed++) {
@@ -120,8 +146,19 @@ public final class TaintTerrainGameTests {
         }h.succeed();
     }
     @GameTest(template=TEMPLATE) public static void zeroRateBlocksOrdinarySpreadButDoesNotBlockForcedSeedPulse(GameTestHelper h) {
-        try(var f=new Fixture(h,true)) { RiftModule.TAINT_SPREAD_RATE.set(0.0);f.spread(false);h.assertTrue(f.level.isEmptyBlock(f.pos.east()),"Rate0 ordinary gate failed");
-            f.spread(true);h.assertTrue(f.level.getBlockState(f.pos.east()).is(TaintModule.block("taint_fibre")),"Rate0 incorrectly blocked original seed pulse");
+        try(var f=new Fixture(h,true)) {
+            h.assertTrue(f.level.isEmptyBlock(f.pos.east())&&AuraManager.getAuraBase(f.level,f.pos)==500&&AuraManager.getFlux(f.level,f.pos)==100,"Rate0 fixture began outside its owned air/aura state: "+spreadState(f));
+            RiftModule.TAINT_SPREAD_RATE.set(0.0);
+            RiftModule.CONFIG.afterReload(); // The actual watcher invalidates these same caches.
+            String before=spreadState(f);
+            h.assertTrue(TaintModule.spreadRate()==0&&f.level.isEmptyBlock(f.pos.east())&&AuraManager.getAuraBase(f.level,f.pos)==500,"Native reload invalidation lost the zero-rate fixture before spread: "+before);
+            f.spread(false);String after=spreadState(f);
+            h.assertTrue(TaintModule.spreadRate()==0&&f.level.isEmptyBlock(f.pos.east()),"Rate0 ordinary gate failed: before="+before+", after="+after);
+            amount(h,AuraManager.getFlux(f.level,f.pos.east()),100,"Rate0 rejected ordinary trial consumed Flux: "+after);
+            f.spread(true);String forced=spreadState(f);
+            h.assertTrue(TaintModule.spreadRate()==0&&f.level.getBlockState(f.pos.east()).is(TaintModule.block("taint_fibre")),"Rate0 incorrectly blocked original seed pulse: before="+after+", forced="+forced);
+            amount(h,AuraManager.getFlux(f.level,f.pos.east()),99.99F,"Forced seed pulse did not retain original .01 Flux payment: "+forced);
+            org.slf4j.LoggerFactory.getLogger(TaintTerrainGameTests.class).info("THAUMCRAFT_TAINT_ZERO_RATE_FIXTURE before={} ordinary={} forced={}",before,after,forced);
         }h.succeed();
     }
     @GameTest(template=TEMPLATE) public static void forcedSpreadStillRequiresLivingNativeSeed(GameTestHelper h) {

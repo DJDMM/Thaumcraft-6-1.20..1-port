@@ -2017,5 +2017,7 @@
   "tc.mirrorlinkdetail": "%s,%s,%s in %s",
   "tc.dimension.overworld": "Overworld",
   "tc.dimension.nether": "Nether",
-  "tc.dimension.end": "The End"
+  "tc.dimension.end": "The End",
+  "tc.condenser1": "§dCost: %1$s essentia§0",
+  "tc.condenser2": "§dTime: %1$s ticks (%2$s seconds)§0"
 }

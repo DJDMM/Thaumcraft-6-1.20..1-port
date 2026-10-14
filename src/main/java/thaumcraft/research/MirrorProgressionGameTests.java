@@ -58,8 +58,8 @@ public final class MirrorProgressionGameTests {
 
     @GameTest(template = "empty")
     public static void mirrorChainKeepsEveryOriginalStrictParentAndNinetySixCanonicalEntries(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 96,
-                "Preserved94 plus furnace and bellows canonical entries changed");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 97,
+                "Preserved96 plus FLUXCLEANUP canonical entries changed");
         Map<String,List<String>> parents = Map.of("ARCANELAMP", List.of("BASEARTIFICE"), "MIRROR", List.of("ARCANELAMP","INFUSION"),
                 "MIRRORHAND", List.of("MIRROR"), "MIRRORESSENTIA", List.of("MIRROR"));
         for (String key : KEYS) {

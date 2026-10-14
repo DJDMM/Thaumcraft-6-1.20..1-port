@@ -1,0 +1,623 @@
+{
+  "version": "0.34.0",
+  "date": "2026-10-14",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 97,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 28,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1369,
+  "newTestsBySuite": {
+    "condenserCore": 56,
+    "placementOwnership": 8,
+    "paidResearchAndCrafting": 17,
+    "resonatorReadout": 5
+  },
+  "serverLog": {
+    "file": "condenser-034-gametest7.log",
+    "bytes": 513601,
+    "sha256": "723d6cc1923f5980ded1e1babf5f34bdc87715a189641dd27fdde38df5e051c9"
+  },
+  "serverRun": {
+    "run": "condenser-034-server7",
+    "gradleExitCode": 0,
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-condenser-034-server7",
+    "nativeExitCode": 0,
+    "requiredTestCount": 1369,
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "failedRequiredTests": 0
+  },
+  "serverRunEvidence": {
+    "file": "condenser-034-server7-run.json",
+    "bytes": 466,
+    "sha256": "a4276fc38e62daf604da61c49999f5b4ce66fbbb6b0172e563a6f898b0300665"
+  },
+  "serverResult": "1369/1369; native complete; BUILD SUCCESSFUL",
+  "clientRunTag": "condenser-034-client5",
+  "client": {
+    "runTag": "condenser-034-client5",
+    "smokeTest": "Condenser",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\condenser-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\condenser-client-condenser-034-client5-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\condenser-client-condenser-034-client5-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\condenser-client-condenser-034-client5.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\condenser-client-condenser-034-client5-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\condenser-client-condenser-034-client5-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\condenser-client-condenser-034-client5-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_a8d704f2f33b475e8375e32a1ea07c5b",
+    "jvmPid": 25544,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 14
+  },
+  "clientLog": {
+    "file": "condenser-client-condenser-034-client5-client.log",
+    "bytes": 44965,
+    "sha256": "f149642a04134ebdf234e3d962d5bca41adb1b612a290e483c4f8b8e3ee3113e"
+  },
+  "clientScenes": 14,
+  "nativeServerFacts": [
+    "THAUMCRAFT_TAINT_ZERO_RATE_FIXTURE before=rate=0.0, base=500, Flux=100.0, target=Block{minecraft:air}, nativeSeed=true ordinary=rate=0.0, base=500, Flux=100.0, target=Block{minecraft:air}, nativeSeed=true forced=rate=0.0, base=500, Flux=99.99, target=Block{thaumcraft:taint_fibre}[down=true,east=false,growth1=false,growth2=false,growth3=false,growth4=false,north=false,south=false,up=false,west=false], nativeSeed=true",
+    "THAUMCRAFT_COLLAPSER_NATIVE_ALTAR_READY: position=BlockPos{x=149, y=250, z=2839}, matrixLive=true, matrix={Aspects:[],active:0b,cost:1.0f,count:0,crafting:0b,delay:5,gain:0.0f,ingredients:[],input:{Count:0b,id:\"minecraft:air\"},itemCount:0,output:{Count:0b,id:\"minecraft:air\"},recipeinst:0,stability:0.0f}, central=1 tnt, jars=[BlockPos{x=148, y=249, z=2845}/live=true/block=Block{thaumcraft:jar_normal}/aspect=thaumcraft.api.aspects.Aspect@18ea3ef2/amount=53, BlockPos{x=150, y=249, z=2845}/live=true/block=Block{thaumcraft:jar_normal}/aspect=thaumcraft.api.aspects.Aspect@6566583b/amount=53], reagents=[BlockPos{x=152, y=248, z=2839}/1 morphic_resonator, BlockPos{x=149, y=248, z=2842}/1 redstone_block, BlockPos{x=146, y=248, z=2839}/1 alumentum, BlockPos{x=149, y=248, z=2836}/1 nitor, BlockPos{x=153, y=248, z=2841}/1 vis_resonator, BlockPos{x=145, y=248, z=2837}/1 redstone_block, BlockPos{x=151, y=248, z=2843}/1 alumentum, BlockPos{x=147, y=248, z=2835}/1 nitor], fluidCells=0",
+    "THAUMCRAFT_COLLAPSER_NATIVE_ALTAR_STARTED: position=BlockPos{x=149, y=250, z=2839}, matrixLive=true, matrix={Aspects:[{amount:50,key:\"alienis\"},{amount:50,key:\"vitium\"}],active:1b,cost:1.0f,count:90,crafting:1b,delay:5,gain:1.6000003f,ingredients:[{Count:1b,id:\"minecraft:redstone_block\"},{Count:1b,id:\"thaumcraft:alumentum\"},{Count:1b,id:\"thaumcraft:nitor\"},{Count:1b,id:\"thaumcraft:nitor\"},{Count:1b,id:\"minecraft:redstone_block\"},{Count:1b,id:\"thaumcraft:alumentum\"},{Count:1b,id:\"thaumcraft:morphic_resonator\"},{Count:1b,id:\"thaumcraft:vis_resonator\"}],input:{Count:1b,id:\"minecraft:tnt\"},itemCount:0,output:{Count:1b,id:\"thaumcraft:causality_collapser\"},owner:[I;558502537,-1060025083,-2049229914,-1290025612],recipeinst:8,stability:25.0f}, central=1 tnt, jars=[BlockPos{x=148, y=249, z=2845}/live=true/block=Block{thaumcraft:jar_normal}/aspect=thaumcraft.api.aspects.Aspect@18ea3ef2/amount=53, BlockPos{x=150, y=249, z=2845}/live=true/block=Block{thaumcraft:jar_normal}/aspect=thaumcraft.api.aspects.Aspect@6566583b/amount=53], reagents=[BlockPos{x=152, y=248, z=2839}/1 morphic_resonator, BlockPos{x=149, y=248, z=2842}/1 redstone_block, BlockPos{x=146, y=248, z=2839}/1 alumentum, BlockPos{x=149, y=248, z=2836}/1 nitor, BlockPos{x=153, y=248, z=2841}/1 vis_resonator, BlockPos{x=145, y=248, z=2837}/1 redstone_block, BlockPos{x=151, y=248, z=2843}/1 alumentum, BlockPos{x=147, y=248, z=2835}/1 nitor], fluidCells=0",
+    "THAUMCRAFT_COLLAPSER_NATIVE_ALTAR_FINAL_OBSERVED: position=BlockPos{x=149, y=250, z=2839}, matrixLive=true, matrix={Aspects:[],active:1b,cost:1.0f,count:1100,crafting:0b,delay:5,gain:1.6000003f,ingredients:[],input:{Count:0b,id:\"minecraft:air\"},itemCount:0,output:{Count:0b,id:\"minecraft:air\"},recipeinst:0,stability:25.0f}, central=1 causality_collapser, jars=[BlockPos{x=148, y=249, z=2845}/live=true/block=Block{thaumcraft:jar_normal}/aspect=thaumcraft.api.aspects.Aspect@18ea3ef2/amount=3, BlockPos{x=150, y=249, z=2845}/live=true/block=Block{thaumcraft:jar_normal}/aspect=thaumcraft.api.aspects.Aspect@6566583b/amount=3], reagents=[BlockPos{x=152, y=248, z=2839}/0 air, BlockPos{x=149, y=248, z=2842}/0 air, BlockPos{x=146, y=248, z=2839}/0 air, BlockPos{x=149, y=248, z=2836}/0 air, BlockPos{x=153, y=248, z=2841}/0 air, BlockPos{x=145, y=248, z=2837}/0 air, BlockPos{x=151, y=248, z=2843}/0 air, BlockPos{x=147, y=248, z=2835}/0 air], fluidCells=0"
+  ],
+  "earlierWatcherDebugProof": {
+    "file": "condenser-034-server3-debug.log",
+    "bytes": 611822,
+    "sha256": "050c2b9050248ced2000b8fd82364aacb5b0ce79087233925cf70bd2faa6423a"
+  },
+  "clientTopologyDiagnostic": {
+    "log": {
+      "file": "condenser-client-condenser-034-client2-client.log",
+      "bytes": 29394,
+      "sha256": "852f96e97bfab7ae548539d742e96845d90a5a740b27940b55bc2d17f14ad800"
+    },
+    "ownedStop": {
+      "file": "condenser-034-client2-owned-stop.json",
+      "bytes": 586,
+      "sha256": "f5c14a8ba9efe4a4c9aa0c3e3523cfe578914fdff06b3ecfd1d5022aa6d9b15a"
+    },
+    "observed": "Actual client162ticks/essentia19/all4physicalconnectedlattices, but cachedweight0/interval0/cost0/cleanempty/emitted0/drawn0; released direct invalidation is skipped by modern client LevelChunk onPlace route",
+    "resolution": "Dist.CLIENT existing20tick loaded discovery refreshes original topology DFS on live observed tiles; preserves count/reservoirs and original particle eligibility/cadence; cache bounded to current3chunk radius"
+  },
+  "earlierClientFootingFixture": {
+    "log": {
+      "file": "condenser-client-condenser-034-client3-client.log",
+      "bytes": 51485,
+      "sha256": "36b0e66f4c351a3c681370dd01e5a14f0d97f8e5521cee3fbeedc2d0b6aa54f4"
+    },
+    "ownedStop": {
+      "file": "condenser-034-client3-owned-stop.json",
+      "bytes": 657,
+      "sha256": "76d0bb97655be455afc8012f8d628b797ad2c2b0b94b62ed08a5773d8f12d034"
+    },
+    "observed": "Actual native client4/3.10/554/6, spark emission/draw, paid1Vitium and matching dirty topology passed, but root fullPNG inspection found owned raw standing column occludes images7/8 and its priorheight obstructs native filter stand position",
+    "resolution": "Only opt-in Dist.CLIENT QA driver clears still-owned BEDROCK at exact3,112..115,3 before rebuilding its requested footing or returning to captureview; no targetblocks/serverpayments/aura/counter/RNG reset"
+  },
+  "earlierClientOriginalJarReturn": {
+    "log": {
+      "file": "condenser-client-condenser-034-client4-client.log",
+      "bytes": 35745,
+      "sha256": "ad1c383fa1bc5d8f56457a72e0c56989a69b256d80cd34f6b22022a0fe5460f1"
+    },
+    "savedStateProof": {
+      "file": "condenser-034-client4-clog-state.json",
+      "bytes": 7024,
+      "sha256": "fdcc86a9b537ea32d25bc84ec9b57552a04c3bd91cbf435cf3e9d9bad816575a"
+    },
+    "observed": "Actual native clog occurred with VitiumTube1; closing EAST reduced tube suction127to31, unfiltered originalJar32 returned that unit, savedJar10/Tube0/disabledcore/dirtylattice. Original9+1-only QA assertion was too narrow, no unit lost",
+    "resolution": "Only opt-in Driver observes pre-close Vitium1/dirty and exact conserved10 jar+tube before/afterclose, accepts original9+1or10+0, reports actual quantities. Photo observes naturally alive nontransparent original sprite without emission/RNG mutation"
+  },
+  "originalSparkShader": {
+    "previousDifference": "Native text_see_through cutoff0.1 and shader JSON standardalpha blend differ from originalParticleEngine layer0 cutoff1/255 andSRC_ALPHA,ONE",
+    "resolution": "Dedicated registered native particle shader preserves originalalpha cutoff/additive blending/lightmap; frames/texture/cadence/colors/lifetime unchanged; freshfullnative server/client afterproductionfix"
+  },
+  "earlierAltarFloodProof": [
+    {
+      "file": "condenser-034-collapser-state3.json",
+      "bytes": 3410,
+      "sha256": "8566b0f8e1e4cbc4d477932cb93a6086411cce8d3e00095062ed987731a3fe89"
+    },
+    {
+      "file": "condenser-034-collapser-state4.json",
+      "bytes": 41817,
+      "sha256": "2361f4f9e4d75c2aa5b911c8c7efa506291c187ba76191114074ebdb5449348e"
+    },
+    {
+      "file": "condenser-034-collapser-world3-audit.jsonl",
+      "bytes": 2551,
+      "sha256": "d6f36bafa27dbd0c671c4c3690443bce84dfc547c7c7642ba35e64af2603d4c4"
+    },
+    {
+      "file": "condenser-034-collapser-world4-audit.jsonl",
+      "bytes": 3736,
+      "sha256": "6138ae982df317f2306a57e45a1302963cdd40c403328495165e9f8d437d5848"
+    }
+  ],
+  "nativeClientFacts": [
+    "[16:51:58] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_FACT_PAID: actualThaumometerC2S/nativeFluxRift target -> f_toomuchflux+!FluxRift; sourceEntity/seed0x54433634/size10/stability100 explicitfixture,no naturalgenerationclaim/no factsetter",
+    "[16:51:59] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_RESEARCH_PAID: nativeC2S FLUXCLEANUP ObservationAURO32/ART16/BASICS16 TheoryAURO64 onephysical10Vitiumphial/noemptyreturned +10XP",
+    "[16:52:01] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S filter price=15 yield=2 repetition=1/4 totalCrafts=1 totalVis=15 totalCrystals=1",
+    "[16:52:01] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S filter price=15 yield=2 repetition=2/4 totalCrafts=2 totalVis=30 totalCrystals=2",
+    "[16:52:01] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S filter price=15 yield=2 repetition=3/4 totalCrafts=3 totalVis=45 totalCrystals=3",
+    "[16:52:01] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S filter price=15 yield=2 repetition=4/4 totalCrafts=4 totalVis=60 totalCrystals=4",
+    "[16:52:03] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S condenser_lattice price=100 yield=1 repetition=1/4 totalCrafts=5 totalVis=160 totalCrystals=10",
+    "[16:52:03] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S condenser_lattice price=100 yield=1 repetition=2/4 totalCrafts=6 totalVis=260 totalCrystals=16",
+    "[16:52:03] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S condenser_lattice price=100 yield=1 repetition=3/4 totalCrafts=7 totalVis=360 totalCrystals=22",
+    "[16:52:03] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S condenser_lattice price=100 yield=1 repetition=4/4 totalCrafts=8 totalVis=460 totalCrystals=28",
+    "[16:52:05] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_BENCH_PAID: nativeC2S condenser price=500 yield=1 repetition=1/1 totalCrafts=9 totalVis=960 totalCrystals=43",
+    "[16:52:06] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_PRODUCTION_AURA_FIXTURE: initialnativeRift scancomplete/ownedRiftremoved; uniform25loadedchunksFlux10 restored BEFOREpaidCondenserplacement/consumerexistence,benchvis2500minus960 retained; no postconsumer aura reset",
+    "[16:52:06] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_PLACED: actualsurvivalBlockItemC2S/paidcondenser1/zeroreservoirs/nobypass",
+    "[16:52:08] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_LATTICE: actualsurvivalpaid4/verticalconnectedgeometry/weighted3.10/interval554/cost6",
+    "[16:52:10] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLIENT_TOPOLOGY: fourclean-input actualticks=78 weighted=3.1 interval=554 cost=6 clean=[BlockPos{x=0, y=115, z=0}, BlockPos{x=0, y=116, z=0}, BlockPos{x=0, y=117, z=0}, BlockPos{x=0, y=118, z=0}] matchesphysicalnative4lattices; readonlyobservation/no check-or-invalidation-call",
+    "[16:52:10] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_LIVE_SPARKS: actualclienttileessentia=1 emitted=1 drawn=2 live=1 source=BlockPos{x=0, y=117, z=0},originalgrid16frames8/24/40/layer0,no syntheticemit",
+    "[16:52:11] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CAPTURE_SPARK: actualnaturallyspawned frame=25,start=24,age=2,lifetime=9,source=0.5/115.5/0.5 alpha-bearingprimarymiddleframe/no emitter/RNG/particle mutation",
+    "[16:52:34] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_OUTPUT_PAID: realticks=497 consumedAer=6 drainedAuraFlux=1.0 actualoutputVitium=1 coreEssentia=74 bottomJar=1,no queue/ticker/direct output call; explicitRAWGoggles equipped ONLYafter9paidcrafts960vis/no visdiscount,noGogglescraftclaim,reusedphysicalScanner read-onlyhover",
+    "[16:52:34] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CONTAINER_HOVER: actualnativeGoggles containerpopup Vitium1; read-onlyThaumometer S2CAuraFlux=9.0 nativeoutputjar=BlockPos{x=0, y=112, z=0},no overlaypaint/no objectscan/factgift",
+    "[16:52:36] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLOG_PRE_CLOSE: actualsourceJarVitium9+nativeTubeVitium1/dirty1 beforephysicalcasterarmclose, no condensertake",
+    "[16:52:36] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLOGGED: actualsourceJarVitium9+nativeTubeVitium1=10/no intake debit; dirty=1 actualcasterC2SclosedEASTarm permits originalJar32/Tube31backflow; actualoneRedstoneBlockC2S freezesproductionbeforefiltercleaning,no RNG/dirty/counter reset",
+    "[16:52:36] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLIENT_TOPOLOGY: physical-clogged actualticks=603 weighted=1.7 interval=575 cost=6 clean=[BlockPos{x=0, y=115, z=0}, BlockPos{x=0, y=117, z=0}, BlockPos{x=0, y=118, z=0}] matchesphysicalnative4lattices; readonlyobservation/no check-or-invalidation-call",
+    "[16:52:38] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_FILTER_PAID: nativeC2Sfilter1 consumed/cleanlattice2 native50percentcrystalbranch unforced",
+    "[16:52:38] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLIENT_TOPOLOGY: physical-cleaned actualticks=636 weighted=3.1 interval=554 cost=6 clean=[BlockPos{x=0, y=115, z=0}, BlockPos{x=0, y=116, z=0}, BlockPos{x=0, y=117, z=0}, BlockPos{x=0, y=118, z=0}] matchesphysicalnative4lattices; readonlyobservation/no check-or-invalidation-call",
+    "[16:53:10] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_PAUSED: actualoneprecleaningRedstoneBlockC2S/620worldticks noessentiapay/noAuraFluxdebit/noVitiumproduction, existingoutputextraction maycomplete",
+    "[16:53:29] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_RESUMED: nativeC2Sredstoneharvest/realworldticks/output2->3 freshpaidpulse6ess/1Flux->1Vitium, nocounter/reservoir/aura reset",
+    "[16:53:31] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_DISMANTLED: actualsurvivalC2Sharvest/onecore+fourpaidlattice physicallyowned/no orphan topology; nonstoredfuel sourcequirk retained",
+    "[16:53:32] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLIENT_DETACHED: actualquietTicks=9 emissions=82 unchanged/new0/nativeoldsparksExpired; no invalidation-or-emission-call",
+    "[16:53:33] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLIENT_FACTS: scenes=14 nativeRiftScan/paidFLUXCLEANUP Observation64Theory64phialVitium10/+10XP/9benchcrafts960vis43crystals/1core4lattice8filters/filtersUsedInRecipes4 cleanupFilters=1 unforced50percentCrystals=0 observedNativeVitium=3 rawAerConsumed=18 nativeAuraFluxDrained=3.0 actualSourceVitiumJar=10+Tube=0 conserved10/casterarmclose/nativebackflow/redstone620ticks/resume/survivalteardown; explicitfixtures/no fullsurvival/multiplayer/reload/audio/allanglesclaim",
+    "[16:53:33] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_RENDER_AUDIT_OK: 14 actualRiftscan/book/paidbench/nativeconnectedclean-dirtylattice/sparks/output/power/teardown PNG,originalstaticmodels/byteidenticalmedia/spark8framesgrid16layer0 emissions=82 draws=977; no gallery/no TESRinvented"
+  ],
+  "visualReview": {
+    "clientRunTag": "condenser-034-client5",
+    "clientLogSha256": "f149642a04134ebdf234e3d962d5bca41adb1b612a290e483c4f8b8e3ee3113e",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "/root/condenser_final_client"
+    ],
+    "method": "Both reviewers actually viewed all14 full1600x1000 native PNG, full contact sheet and six-frame delivery preview from the final native pass.",
+    "contactSheet": {
+      "file": "condenser-0.34-review-sheet.png",
+      "sha256": "25392846f6f6906798df81dfb5f11de0ae3487ac97a906f27c87059259636c12",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "condenser-0.34-preview.png",
+      "sha256": "e9ac8b1ab13cdb3c874517c502a9af474bc4f1bbe0d0108102bc0066de212a80",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-condenser-native-rift-scan.png",
+        "sha256": "38b366d85671d60af27dfe47682cf4c2f173befe878c82243a12d1553fceca93",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-paid-flux-cleanup-study.png",
+        "sha256": "5f4674a13969d3932c38bb31394e5a74caf648c83128cb906f4a894637788068",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-paid-filter-bench.png",
+        "sha256": "d72def42126f988cde9ec30ab36d24d7e2db77a7af8a83e2ea904fd1b5556ca4",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-paid-lattice-bench.png",
+        "sha256": "60fe186dcba382dd948154e9151aafd273f2c59f7b74d12724a593a282a4cdc4",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-paid-condenser-bench.png",
+        "sha256": "796a00156651509ba2d042f59e4a19af5b3682beaa8bbb5d112e360e447ecce2",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-survival-condenser.png",
+        "sha256": "faefc3b5341ae48641bdfdd1b8c0b31e7e3be4e045f6f965df108868cb265cd9",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-connected-paid-lattice.png",
+        "sha256": "dba3532c0ac88494e9a15d7d6635effb59f16803287fe06735fab3177747df61",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-native-essentia-input-sparks.png",
+        "sha256": "d5647701d2bb775a37de2e2dbf708cdbad1c04e2d17da674f211b027589135bc",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-aura-flux-to-vitium.png",
+        "sha256": "02110baa0eeeb163ff0e8e258fab8e3023d1525c5f4dbdd47d4d735ab9b949b3",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-native-vitium-clog.png",
+        "sha256": "e95c367f83ddab73c766a4aec55b37251577d3b6c7dbb6c6015df76fe5f3f506",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-paid-filter-cleaning.png",
+        "sha256": "9025c327fa7d1696f87f234212ced55ac281faeed52c8dcd32d41f1d075030a6",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-native-redstone-pause.png",
+        "sha256": "4f222044da2f81feb41d6096f1c1582654fd33e6156df512a202e24cf3cb4362",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-native-resumed-cleanup.png",
+        "sha256": "35fc2e13f63f9addb79adec2d1ebfe24aeab5afaf11e712629ccba638526f862",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-condenser-survival-dismantling.png",
+        "sha256": "f2a75f85a3404064a8dcfb7dd2e7755eecabbd5f9db3c98534057604eed1d84f",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Actual original research and paid native bench pages are readable without developer overlays or missing assets.",
+      "Original condenser and connected clean/dirty lattice models are visible in actual native Survival placement scenes.",
+      "Original live input sparks and native jar popup accompany measured paid essence/aura conversion.",
+      "Real filter cleaning, redstone pause/resume and physical survival dismantling are tied to the final native observations.",
+      "Captions remain outside original gameplay pixels; no generated artwork or composited game state."
+    ],
+    "limits": [
+      "Prepared owned Survival world with supplied precursors/raw balances/materials/arena/jars/tubes/aura, not full manual progression.",
+      "Actual native Rift scan uses a fixture entity; no natural generation client claim. Raw Goggles fixture equipped only after paid crafts.",
+      "Random filter reward remains unforced; selected frames do not prove all angles/animation frames/multiplayer/client reload/audio."
+    ],
+    "independentFindings": [
+      "All14 current native captures and both current sheets were actually inspected. Research text and ordinary gameplay interfaces contain no developer labels or missing textures.",
+      "The original condenser, clean/dirty lattice cores and connected rods, physical jars/tubes and actual drops are visible; owned high-standing bedrock fixture no longer obscures the network.",
+      "The live input photograph includes an actual naturally spawned visible white spark. Final log binds its original frame25/start24/age2/lifetime9/source0.5/115.5/0.5; no synthetic emission or RNG mutation.",
+      "Native jar popup, original dirty-to-clean appearance, remaining filter count and actual redstone removal/dismantling agree with the measured native run.",
+      "Sheet captions remain outside original game pixels, all14 scenes appear in the contact sheet, and the compact preview presents six final frames without layout overflow."
+    ],
+    "independentLimits": [
+      "Prepared owned Survival world supplies predecessor studies/raw balances/materials/arena/jars/tubes/aura. This is not a full manual survival playthrough, multiplayer, all-angle, client-reload or audio proof.",
+      "Actual Rift scan uses a fixture entity. Raw Goggles are equipped after all nine paid crafts; no natural Rift generation or Goggles craft is claimed.",
+      "Workbench screenshots show the native post-payment empty grids and physical outputs, not the complete ingredient layouts. Payment and960vis43crystals are proved by native callbacks/log assertions.",
+      "Selected images alone do not prove620 elapsed ticks, exact aura debits or all physical output counts. Final native observations show3Vitium/18Aer/3Flux, one filter consumed, zero unforced reward, sourceJar10+Tube0 conserved10 and quiet9ticks after teardown.",
+      "Actual original spark is small and short-lived. A single frame does not prove every particle frame or all animation angles."
+    ]
+  },
+  "localJsonCount": 2856,
+  "jarResourceByteParityChecks": 3684,
+  "originalMediaByteParity": {
+    ".ogg": 57,
+    ".png": 668,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.34.0.jar",
+      "bytes": 11577303,
+      "sha256": "50088444b811360a5232cec60f7f25d3bd6b26e615a0a4f526a4c43f0d373ef9"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.34.0-mods.zip",
+      "bytes": 10673316,
+      "sha256": "f81b68b31753fdac991e7531f5f15f0ee7e613a4747a3dd81b6323b458a7d83d"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.34.0-screenshots.zip",
+      "bytes": 4516929,
+      "sha256": "eadff20fca1eed9ec67f3610cf81e79b3a155f8ff58b673a31fa7e4efde03b14"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.34.0-preview.png",
+      "bytes": 872004,
+      "sha256": "e9ac8b1ab13cdb3c874517c502a9af474bc4f1bbe0d0108102bc0066de212a80"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.34-final.log",
+    "bytes": 1212,
+    "sha256": "6b6b5b9ac9102a6356ef488efa1863e089ba8dedf3a03c3c22b8390d0be93962"
+  },
+  "resourceLog": {
+    "file": "resources-0.34-final.log",
+    "bytes": 27,
+    "sha256": "94876d08cf88d42b1ddf7c759882111ecd0ccc1933022247d10fa3877329937e"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "fc2abda4e8ae682d7c28637090ffa85f5a48cde86f51e149bcf1dd42664c52a0"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "a13fda49fda920ddd5556af286f5de6312934c4408787d76d17220b1a677aec2"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "7718a0f1f1ce70137a512f6249293904358b6155806968b636bb7c93b1ac347e"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "5f31f5c1daa2f6bd11ab4f064763a5f0ff9ada868b3ce1fce0f656b873422aea"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "2f734d8f614e0619f8cb3324a5e778b55ca4193466c08589efabca4f389ae49f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/blocks/CatalogBlocks.java",
+      "sha256": "f0da13a93d7aa4ade3f13733e017366ae42bb8328c5141c010c7f8d1991db574"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/airborne/AirborneEssentiaManager.java",
+      "sha256": "327424a93fc8234f03985818e79ae246ee899f58566982cb0267522917a7b671"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserBlock.java",
+      "sha256": "aa59067c699141cff9d128e6ae28ba4ed214632aabcc1d0fcb3be004f1ee475e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserBlockEntity.java",
+      "sha256": "53806a24e2a3d7c47f5a33b434035e3712c7fabafebd9b0f868d3c5a0563501e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserBlockItem.java",
+      "sha256": "f311d72e4962d78b613ff5ea877cf61284b931ad85a6d60d06b474fbf561f357"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserDropData.java",
+      "sha256": "11ddeee4e2b11e508a2f483e35578fb6d9f78ab06b95cf1e5dd135eecd076e7d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserGameTests.java",
+      "sha256": "e000e806516f646656a864bccb7e9e1c53f1f69bc257b40f7c67cdd406c88e99"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserLatticeBlock.java",
+      "sha256": "0b89188312b61e2f2c8b513e8c712e715c313bef153c39207fe3c791a9f06f08"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserModule.java",
+      "sha256": "642d0fe7ddc9a5412590441f08bb7700749bfd790aa42f491759d43b03421287"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/CondenserPlacementOwnershipGameTests.java",
+      "sha256": "dee72ee404820c7e49d0e4fe139795bc9746fb70fa9744664a2713b7e3bf2f00"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/LegacyCondenserMigration.java",
+      "sha256": "34f448a2792d1bb08742d46dd608b20ab313ec48e2673209d2107b2b1a7caf8e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/client/CondenserClientEffects.java",
+      "sha256": "b6948e4d5bc128a3dac851796fd8f338815466bc6b5ecd667b23ae51126a37a0"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/client/CondenserClientSmokeTest.java",
+      "sha256": "a33a95d93a285ad65e0c807683168fa2c589f11579cae9adf4293237eb8c52c6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/condenser/client/CondenserSparkShader.java",
+      "sha256": "0556c3375198f850e1946a9d5fe94211240ca7f58aaca5d48dcb3387fae6fccf"
+    },
+    {
+      "file": "src/main/java/thaumcraft/essentia/transport/EssentiaResonatorItem.java",
+      "sha256": "428b7c07369315fc3c5d63f69ef7f0fec2f90f6577ea2f03dd047cb707f96564"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "91a66c33cb13636bb5f351b1504f8473eb741e38233395abed79817bed28bfa8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "ce64f610426ad21d26827cef2735ef48926a15b60165cf2ff06114a9bb9f626d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CausalityCollapserInfusionGameTests.java",
+      "sha256": "f380f0e91e33545f901abdf6f44599bbedae2b72ff1fed28fad49fb80d471fdb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CondenserProgressionGameTests.java",
+      "sha256": "31308311cb01b9f32889212a15626d8d45594c00a5586775b3a17b671e0b9aa9"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CondenserResonatorGameTests.java",
+      "sha256": "a43e5bb148fb41d6893e81dd3c51bf4bf042701575def4c83a42a115328f9254"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "31cf91006c0b1bb28dca484169661ed5746f368581a59a6d182313930259a90d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "f00a606fe267248cdfc6da887f8f5ae50a40bbe6831de00ad78f6d476bec4879"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "6aa39ed8db42ce29620fc4f1910ea69d906c89c47a139b4b6712a065daa07f0c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "55473a756e601cc3955a7b5f816128ff249789e84668824b02681303c474daa5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "4787da107dd56671214a091aab8220deafd265e1114a76fa151507aae107debc"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionGameTests.java",
+      "sha256": "594be8a09fd3751f59d02f960bd68754203ddd40dbd637a3cd2edb71d4a30a9b"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "7ee0f5fe6d663809812e57103c1d475c0f230e3d9a49b282e69301319ab9486c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "e2556b7f0917e075bad0a5530b935613533bd7fa353fdd8e4f952dfb72dc41a8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "728298afa79a286bfede39fc986c7a6c282dfab3ff6b24733d2a3f78a902ff3a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "721bed8ab82227eea203cb9968dc6649388730e0755ecfb798ae5bfb365e717d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+      "sha256": "4c64cd86b1c48d87f056827d834542a8bd13cec8a6d4035128f4c506348cdae5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/world/taint/TaintTerrainGameTests.java",
+      "sha256": "8670eaf69aca3d43bd57a30562b4950003617bbd3f5565499e5f455ecda6522a"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "aaf81f80d3dd9b303bba32e1923ce584e5d4a25b4ed3fa68ab9e56843b0c230d"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/lang/en_us.json",
+      "sha256": "8a7777f1087a0a04dcb2d73d34017717b0247c1439cbf7e49ef2da096562deff"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/lang/ru_ru.json",
+      "sha256": "5e1b27d7b665ced6d69a69c810973b260ad8fcdf444b0ee01f67ffaa29d1588d"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/shaders/core/condenser_spark.fsh",
+      "sha256": "d7e762a028304fcad88516e8056a7de30ae279ac8f51cc6f20e07d4866223129"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/shaders/core/condenser_spark.json",
+      "sha256": "7a30208cf531bf311e6ff8a437dd43b68f1527bfea640ba24286e12565f7e575"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/shaders/core/condenser_spark.vsh",
+      "sha256": "962b851542bc1222f610153acfe33f2ab5f1cde2891d2d4ab11a65c4f983dc1d"
+    },
+    {
+      "file": "src/main/resources/data/minecraft/tags/blocks/mineable/pickaxe.json",
+      "sha256": "2059b444595c61188bee22bddde120d14d2338fdeb666c5c6180301e6e0a633a"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/condenser.json",
+      "sha256": "a3759f5ffa9ead9c41a6096dcb5ccfdba8163359af5a66b32da36f9b48a1e9e1"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/condenserlattice.json",
+      "sha256": "8224f6b53d6528da07589a533ee80282c069947bf0a4b11c08f6cffb505f59ee"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "condenser-034-server7-sources.json",
+      "bytes": 632298,
+      "sha256": "e04cbd0d80d93a69996756c31fb33f7eb37ec6ecdb498791da216d7c07a22206"
+    },
+    {
+      "file": "condenser-034-client5-sources.json",
+      "bytes": 632298,
+      "sha256": "e04cbd0d80d93a69996756c31fb33f7eb37ec6ecdb498791da216d7c07a22206"
+    },
+    {
+      "file": "condenser-034-build-final-sources.json",
+      "bytes": 632298,
+      "sha256": "e04cbd0d80d93a69996756c31fb33f7eb37ec6ecdb498791da216d7c07a22206"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": true,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4385,
+    "matchingServerRelevantFileCount": 4385,
+    "clientOnlyExceptions": [],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "fixtures": [
+    "Fresh owned native Survival QA world; predecessor studies/raw knowledge/materials and original phial supplied explicitly",
+    "Actual native FluxRift target seed0x54433634/size10/stability100 is an explicit fixture; real Thaumometer C2S earns both facts, not a natural-generation client proof",
+    "Bedrock arena/loaded25chunks/raw bench/sourceAer80+Vitium10jars/tubes/emptyoutputjar are explicit fixtures",
+    "Vis2500 is supplied before nine crafts; paid960vis is retained. Uniform25chunkFlux10 restored after target Rift removal and all crafts but BEFORE target condenser placement; no production-time aura/buffer/counter reset",
+    "Raw Goggles equipped only after nine paid crafts to preserve full960vis price; real native jar popup/read-only scanner, not a crafted-equipment proof"
+  ],
+  "limitations": [
+    "No full manual survival walkthrough, independent multiplayer session or client reload proof",
+    "Original pull-only/strict suction/source early-return/weighted DFS/count/redstone/random clog/filter/flux spill quirks remain; rawpush return0, loaded-only and physical transaction guards are documented modern adaptations",
+    "Unknown third-party paid handlers without observable ownership cannot provide the native snapshot/callback rollback contract",
+    "Modern loaded client observer may take up to20clientticks to refresh lattice topology; particle count/cadence and server balances remain original",
+    "Actual unforced50percent filter reward may be zero; selected screenshots do not prove every camera angle/animation frame or audible sound",
+    "Remaining devices, later Warp/Crimson/Eldritch and incomplete taint ecology require further porting"
+  ],
+  "earlierClientRuns": [
+    {
+      "file": "condenser-client-condenser-034-client1-client.log",
+      "bytes": 45512,
+      "sha256": "f7e3c9c7c7b137051247c79a3767754187fee7f438afd4efd1969a82157b884c"
+    },
+    {
+      "file": "condenser-client-condenser-034-client2-client.log",
+      "bytes": 29394,
+      "sha256": "852f96e97bfab7ae548539d742e96845d90a5a740b27940b55bc2d17f14ad800"
+    },
+    {
+      "file": "condenser-client-condenser-034-client3-client.log",
+      "bytes": 51485,
+      "sha256": "36b0e66f4c351a3c681370dd01e5a14f0d97f8e5521cee3fbeedc2d0b6aa54f4"
+    },
+    {
+      "file": "condenser-client-condenser-034-client4-client.log",
+      "bytes": 35745,
+      "sha256": "ad1c383fa1bc5d8f56457a72e0c56989a69b256d80cd34f6b22022a0fe5460f1"
+    }
+  ],
+  "earlierRuns": [
+    {
+      "file": "condenser-034-gametest1.log",
+      "bytes": 7532,
+      "sha256": "5168c941b7ab0bbc99079643232aeeafb8cbaa28c6a498852758a3c1a6a396fa"
+    },
+    {
+      "file": "condenser-034-gametest2.log",
+      "bytes": 516234,
+      "sha256": "689b5718f16251a965e31ae7b7bf9d1ad18cea2ceb602d174d3038b0e39c401c"
+    },
+    {
+      "file": "condenser-034-gametest3.log",
+      "bytes": 511646,
+      "sha256": "8701ed8f884e281cc91f38fdd4984709f250f2da51513ee45ddc0a268a576f78"
+    },
+    {
+      "file": "condenser-034-gametest4.log",
+      "bytes": 512589,
+      "sha256": "d64d11105c160982afc3ad038c0ce0d7637f6ad5a67c85be372f91dd1c340605"
+    },
+    {
+      "file": "condenser-034-gametest5.log",
+      "bytes": 526441,
+      "sha256": "50695d4398e6c3caf95b88fc5484bf386cdb6991fe5f52d048acdfd3719c974e"
+    },
+    {
+      "file": "condenser-034-gametest6.log",
+      "bytes": 513805,
+      "sha256": "c490f216a588caa3c37cdfdd5d1f08e05f16f7379cc1f6f5555e25a93daee0fc"
+    }
+  ]
+}

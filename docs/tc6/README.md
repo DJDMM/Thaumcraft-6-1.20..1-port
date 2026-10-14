@@ -3,7 +3,20 @@
 Дата первоначального изучения справочников: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
 
-Текущий срез **0.33.0**: **96/148** исследований, **28/56** наполнений.
+Текущий срез **0.34.0**: **97/148** исследований, **28/56** наполнений.
+FLUXCLEANUP связан с исходным исследованием, двумя arcane-рецептами и native
+конденсатором/clean-dirty решётками/фильтрами/резонатором.
+Правила — [CONDENSER.md](../../CONDENSER.md); аудиты:
+[устройство](FLUX-CONDENSER-BETA26-AUDIT.md),
+[прогрессия](FLUX-CLEANUP-PROGRESSION-BETA26-AUDIT.md),
+[клиент](FLUX-CONDENSER-CLIENT-BETA26-AUDIT.md).
+Финальный `condenser-034-server7` 1369/1369, `condenser-034-client5`14/14, оба native exit0;
+все14полныхPNG и оба листа просмотрены двумя проверяющими.
+2856JSON/3684resource-byte/original668PNG7JPG57OGG прошли.
+[Отчёт0.34](../../validation/artifact-report-0.34.json) и
+[VALIDATION.md](../../VALIDATION.md) фиксируют fixtures и границы.
+
+Исторический срез **0.33.0**: **96/148** исследований, **28/56** наполнений.
 INFERNALFURNACE/BELLOWS связаны с исходными фактами/оплатами и native устройствами.
 Правила — [FURNACE.md](../../FURNACE.md); контракты —
 [печь](INFERNAL-FURNACE-BETA26-AUDIT.md),

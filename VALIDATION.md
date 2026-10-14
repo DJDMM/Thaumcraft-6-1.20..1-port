@@ -1,4 +1,125 @@
-# Проверка адской печи и мехов0.33.0
+# Проверка конденсатора загрязнения0.34.0
+
+Дата: **2026-10-14**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26. Охват97/148, наполнение28/56.
+Правила — [CONDENSER.md](CONDENSER.md), SHA/полные измерения/подготовленные
+условия — [artifact-report0.34](validation/artifact-report-0.34.json).
+
+Свежий полный `condenser-034-server7` прошёл **1369/1369**, native exit0 и BUILD SUCCESSFUL.
+Сохранены1283 прежних проверки; добавлены {'condenserCore': 56, 'placementOwnership': 8, 'paidResearchAndCrafting': 17, 'resonatorReadout': 5}.
+Проверены оригинальные источники/соседние стороны/сuction/ранний return,
+100-единичные резервуары, пятый тик, взвешенный обход/грязь/радиус74/двойнаябаза,
+расход эссенции и Flux/выход снизу, nativeTube/Buffer/Transfuser,
+redstone/счётчик, реальная оплата рецептов/исследования/резонатор,
+отменённые/reentrant/foreign callbacks, физические выпадения/сохранения
+и миграция старых отсутствующих catalogue tiles без принудительной загрузки.
+
+Клиент `condenser-034-client5` прошёл **14/14**, JVM exit0, PID25544,
+максимум16 собственных окон скрытого
+`WinSta0\ThaumcraftQA_*`; входной рабочий стол
+`Default→Default`. Нет переключения/global input.
+Root и независимый проверяющий просмотрели все14полных1600×1000PNG,
+полный лист и шестикадровое превью.
+
+Нативные наблюдения финального лога:
+
+- `[16:52:10] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_LIVE_SPARKS: actualclienttileessentia=1 emitted=1 drawn=2 live=1 source=BlockPos{x=0, y=117, z=0},originalgrid16frames8/24/40/layer0,no syntheticemit`
+- `[16:52:34] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_OUTPUT_PAID: realticks=497 consumedAer=6 drainedAuraFlux=1.0 actualoutputVitium=1 coreEssentia=74 bottomJar=1,no queue/ticker/direct output call; explicitRAWGoggles equipped ONLYafter9paidcrafts960vis/no visdiscount,noGogglescraftclaim,reusedphysicalScanner read-onlyhover`
+- `[16:53:33] [Server thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_CLIENT_FACTS: scenes=14 nativeRiftScan/paidFLUXCLEANUP Observation64Theory64phialVitium10/+10XP/9benchcrafts960vis43crystals/1core4lattice8filters/filtersUsedInRecipes4 cleanupFilters=1 unforced50percentCrystals=0 observedNativeVitium=3 rawAerConsumed=18 nativeAuraFluxDrained=3.0 actualSourceVitiumJar=10+Tube=0 conserved10/casterarmclose/nativebackflow/redstone620ticks/resume/survivalteardown; explicitfixtures/no fullsurvival/multiplayer/reload/audio/allanglesclaim`
+- `[16:53:33] [Render thread/INFO] [th.es.co.cl.CondenserClientSmokeTest/]: THAUMCRAFT_CONDENSER_RENDER_AUDIT_OK: 14 actualRiftscan/book/paidbench/nativeconnectedclean-dirtylattice/sparks/output/power/teardown PNG,originalstaticmodels/byteidenticalmedia/spark8framesgrid16layer0 emissions=82 draws=977; no gallery/no TESRinvented`
+
+Подготовленные условия — предшественники/rawknowledge/10Vitiumфиал,
+материалы/кристаллы, bedrock-арена/bench, Aer80/Vitium10банки/трубы/пустая
+выходная банка. Настоящий Rift seed0x54433634/size10/stability100 — цель-фикстура;
+реальный ThaumometerC2S даёт факты, естественная генерация в клиенте не заявляется.
+Vis2500 задан до9крафтов; оплаченные960vis сохраняются. Flux10 в25чанках
+восстановлен после удаления Rift и всех крафтов **до размещения конденсатора**;
+после начала производства аура/резервуары/счётчик не сбрасываются.
+RawGoggles надеты после9крафтов для настоящего popup банки и не дают скидку.
+Фильтры изготавливаются оплаченно; случайные50%награды не форсируются.
+
+Ранние попытки сохранены в отчёте и validation: Server1 не запустил native
+тесты из-за отсутствующего импорта GameRules; compile1 имел две Java syntax
+ошибки, compile2 прошёл. Server2 завершился с13ошибками/nativeexit13:
+неверные ожидания вертикальных решёток, отсутствующие primaryпластины,
+лишний NBT фиала и отсутствие native ticking ticket у дальнего теста.
+Нативная comparator-проверка также выявила реальное отличие основания:
+modern fullcollision делал его redstone-conductor; теперь явный false
+соответствует released nonopaque/nonfull блоку. Изменён только этот
+productionфлаг и подготовленные условия; исходный DFS не переписывался.
+Эти попытки не заменяют финальный native прогон.
+Server3 прошёл все86новых проверок, но упал в старом rate0 Taint тесте.
+Rawdebug фиксирует Forge ConfigWatcher reload непосредственно перед отказом;
+старое фактическое значение rate не было захвачено. Подготовленный
+TaintTerrain fixture теперь использует scoped native SPEC/in-memory config,
+сохраняет исходный fileConfig и восстанавливает его в finally. Проверка
+принудительного native afterReload и явные rate/base/Flux/target checkpoints
+исключают гонку disk-autosave/reload без изменения production распространения.
+Server4 прошёл конденсатор и исправленный Taint тест, но старый async
+алтарь причинного коллапсера не завершился. Сохранённые MCA/NBT показывают
+затопленную площадку Y−35, заменённую водой банку Vitium, выпавшую банку
+с полными53Vitium и потерянные свечи; точный исходный приток воды не наблюдался.
+В прежнем Server3 сохранились обе банки, и ритуал завершился.
+Только этот QA алтарь перенесён наY250 с ограниченной готовностью чанков,
+проверкой сухой площадки/физических источников и подробными наблюдениями.
+Сроки90/1100/1200тиков,100эссенции/8реагентов/TNT/реальный выход сохранены;
+production ритуал, RNG и баланс после начала не менялись.
+Каждый новый server-world находится только в проверенном QA каталоге;
+предыдущий мир архивируется лишь если он действительно существовал.
+
+Client1 завершился bounded-отказом на искрах. DiagnosticClient2 подтвердил:
+реальные четыре решётки и запас19 уже пришли клиенту, счётчик162 продвинулся,
+но cachedweight/interval/cost оставались0 и cleanlist пустым. Остановлен только
+точно проверенный принадлежащий QA hidden JVM; logs/partialPNG сохранены.
+Modern LevelChunk пропускает прежний onPlace-путь инвалидизации на клиенте.
+Production Dist.CLIENT observer теперь обновляет исходный loaded-only DFS
+на существующем20tick discovery; кэш ограничен текущими3чанками вокруг игрока.
+Это явная современная визуальная адаптация с задержкой до20clientticks;
+счётчик, эссенция, Flux, серверная оплата и исходный sparkcadence не меняются.
+Финальный server/client прогон выполнен заново после production исправления.
+Client3 подтвердил actualclient4/3.10/554/6, настоящие искры, первый Vitium
+и совпадение грязной решётки. Root просмотр полногоPNG выявил заслонённую
+временной bedrock-площадкой машину; прежняя высота этой площадки также мешала
+нативной позиции для фильтра. Остановлен только проверенный QA PID13884,
+сохранены10частичныхPNG и logs. Исправлен исключительно opt-in Dist.CLIENT
+driver: очищает ещё принадлежащие fixture BEDROCK ячейки3,112..115,3 до
+новой высоты/возврата камеры. Целевые блоки, оплата и счётчик не менялись.
+После исправления клиент прошёл заново; server6 production sources остались
+точно прежними, единственное разрешённое Driver-исключение связано SHA.
+Client4 остановился сам на слишком узком QA ожидании9Vitium в банке+1в трубе.
+Сохранённые MCA/NBT и released bytecode подтверждают native возврат:
+после закрытия EAST suction трубы31 меньше32банки, поэтому реальное
+состояние стало10+0 при отключённом основании и грязной решётке. Потери нет.
+Driver теперь проверяет сумму10, точные допустимые9+1/10+0 и реальную
+единицу Vitium до закрытия. Финальные логи сообщают фактические количества.
+Для снимка искры выбирается наблюдением естественный непрозрачный кадр
+исходного спрайта; исходные кадры30/31 полностью прозрачны. QA не создаёт
+частиц и не изменяет RNG/частоту/срок их жизни. Ранние9PNG/logs сохранены.
+Независимый released/render-аудит также выявил production отличие прежнего
+стандартного шейдера: cutoff0.1 и обычное alpha-смешивание вместо1/255 и
+SRC_ALPHA,ONE исходного ParticleEngine. Добавлен отдельный зарегистрированный
+нативный шейдер с исходным порогом, additive смешиванием и lightmap.
+PNG/спрайты/эмиссия/цвет/срок жизни/частота не менялись. Полный финальный
+сервер и клиент заново проверяют именно эту production версию.
+
+Все 4385 финальных client/build source/resource/helper fingerprint совпадают;
+server-релевантные совпадают. Разрешённые исключительно opt-in клиентские
+исключения, если они понадобились, указаны с обоими SHA в artifact report.
+Сборка успешна, **2856JSON**, **3684**resource-byte и оригинальные
+**668PNG/7JPG/57OGG** прошли. JAR/ZIP CRC, классы и версии проверены.
+JAR SHA256: `50088444b811360a5232cec60f7f25d3bd6b26e615a0a4f526a4c43f0d373ef9`.
+
+Ограничения: подготовленный survival QA, не полное ручное прохождение,
+не отдельная multiplayer-сессия/clientreload/allangles/audio. Прямой push
+конденсатора отклонён вместо исходного ложного приёма без хранения;
+горизонтальный pull и исходные quirks сохранены. Loaded-only/физические
+transactions — явные современные адаптации. Произвольные сторонние paid
+handlers без наблюдаемого владения не имеют native-контракта отката.
+Остальные устройства и поздние ветви требуют дальнейшего переноса.
+
+---
+
+## История: проверка адской печи и мехов0.33.0
 
 Дата: **2026-10-12**. Minecraft1.20.1 / Forge47.4.10 / Java17.
 Оригинал — выпущенный TC6.1.BETA26; JAR/source SHA закреплены в аудитах.

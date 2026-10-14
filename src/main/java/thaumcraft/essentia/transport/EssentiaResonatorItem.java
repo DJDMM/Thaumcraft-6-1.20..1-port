@@ -32,6 +32,13 @@ public final class EssentiaResonatorItem extends Item {
         Aspect type = transport.getSuctionType(face);
         player.sendSystemMessage(Component.translatable("tc.resonator2", transport.getSuctionAmount(face), type == null ? Component.translatable("tc.resonator3") : type.getName()));
         context.getLevel().playSound(null, context.getClickedPos(), SoundEvents.SHIELD_BLOCK, SoundSource.BLOCKS, .5F, 1.9F + context.getLevel().random.nextFloat() * .1F);
+        if (transport instanceof thaumcraft.essentia.condenser.CondenserBlockEntity condenser) {
+            // Released ItemResonator reads current fields without recalculating topology;
+            // its displayed seconds use integer division and string arguments.
+            player.sendSystemMessage(Component.translatable("tc.condenser1", Integer.toString(condenser.cost())));
+            player.sendSystemMessage(Component.translatable("tc.condenser2", Integer.toString(condenser.interval()),
+                    Integer.toString(condenser.interval() / 20)));
+        }
         return InteractionResult.SUCCESS;
     }
 }

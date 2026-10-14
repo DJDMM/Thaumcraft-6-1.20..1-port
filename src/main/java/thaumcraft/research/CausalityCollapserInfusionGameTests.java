@@ -78,24 +78,30 @@ public final class CausalityCollapserInfusionGameTests {
         KnowledgeStore.addKnowledge(p,KnowledgeType.THEORY,"ALCHEMY",64);
         KnowledgeStore.addKnowledge(p,KnowledgeType.THEORY,"AUROMANCY",32);
         result(h,ResearchNetwork.processAdvance(p,"RIFTCLOSER",1),ResearchProgression.Result.COMPLETE);
-        var f=altar(h,p); Map<UUID,ServerPlayer> owners=ObfuscationReflectionHelper.getPrivateValue(PlayerList.class,h.getLevel().getServer().getPlayerList(),"f_11197_");
+        var f=altar(h,p); assertReady(h,f);
+        com.mojang.logging.LogUtils.getLogger().info("THAUMCRAFT_COLLAPSER_NATIVE_ALTAR_READY: {}",observation(h,f));
+        Map<UUID,ServerPlayer> owners=ObfuscationReflectionHelper.getPrivateValue(PlayerList.class,h.getLevel().getServer().getPlayerList(),"f_11197_");
         owners.put(p.getUUID(),p); p.setItemInHand(InteractionHand.MAIN_HAND,item("caster_basic"));
         useMatrix(h,p,f.pos()); h.assertTrue(f.matrix().active() && !f.matrix().crafting(),"Native caster block callback failed activation");
         // The ordinary ticker charges stability from sixteen physical original candle pairs.
         // No saved working plan, supplied collapser or manual matrix tick substitutes for production.
         h.runAfterDelay(90,()->{
-            h.assertTrue(f.matrix().stability()==25F,"Native idle altar did not charge its real candle stability");
+            assertReady(h,f);
+            h.assertTrue(f.matrix().stability()==25F,"Native idle altar did not charge its real candle stability: "+observation(h,f));
             useMatrix(h,p,f.pos());
             h.assertTrue(f.matrix().crafting() && f.matrix().instability()==8 && f.matrix().remainingItems()==8
                     && f.matrix().getAspects().getAmount(Aspect.ELDRITCH)==50 && f.matrix().getAspects().getAmount(Aspect.FLUX)==50,
-                    "Paid native craft start changed recipe costs/reagent plan");
+                    "Paid native craft start changed recipe costs/reagent plan: "+observation(h,f));
+            com.mojang.logging.LogUtils.getLogger().info("THAUMCRAFT_COLLAPSER_NATIVE_ALTAR_STARTED: {}",observation(h,f));
         });
         h.runAfterDelay(1100,()->{
             try {
+                String observed=observation(h,f);
+                com.mojang.logging.LogUtils.getLogger().info("THAUMCRAFT_COLLAPSER_NATIVE_ALTAR_FINAL_OBSERVED: {}",observed);
                 h.assertTrue(!f.matrix().crafting() && f.central().getItem(0).getItem() instanceof CausalityCollapserItem
                         && f.central().getItem(0).getCount()==1 && f.jars().stream().allMatch(jar->jar.amount()==3)
                         && f.components().stream().allMatch(at->((InfusionPedestalBlockEntity)h.getLevel().getBlockEntity(at)).isEmpty()),
-                        "Native altar did not pay exactly100 essentia/eight reagents/TNT for one operational output");
+                        "Native altar did not pay exactly100 essentia/eight reagents/TNT for one operational output: "+observed);
                 h.assertTrue(k.hasCraft("thaumcraft:causality_collapser") && p.totalExperience==10
                         && k.rawKnowledge(KnowledgeType.OBSERVATION,"AUROMANCY")==0 && k.rawKnowledge(KnowledgeType.THEORY,"ALCHEMY")==0
                         && k.rawKnowledge(KnowledgeType.THEORY,"AUROMANCY")==0,"Actual output callback missed proof or repaid closer knowledge/XP");
@@ -112,7 +118,15 @@ public final class CausalityCollapserInfusionGameTests {
     private record Fixture(BlockPos pos,InfusionMatrixBlockEntity matrix,InfusionPedestalBlockEntity central,
                            List<BlockPos> components,List<EssentiaJarBlockEntity> jars) {}
     private static Fixture altar(GameTestHelper h,ServerPlayer p) {
-        var level=h.getLevel(); var pos=h.absolutePos(new BlockPos(6,25,6));
+        var level=h.getLevel();var horizontal=h.absolutePos(new BlockPos(6,25,6));
+        // This exact payment fixture needs a dry, isolated altar. The prior relative Y=-35
+        // could carve an aquifer; actual Server4 water washed away the untouched53Vitium jar/candles.
+        // Keep the ordinary native ticker, original instability/RNG and90/1100 deadlines unchanged.
+        var pos=new BlockPos(horizontal.getX(),250,horizontal.getZ());
+        h.assertTrue(pos.getY()-12>=level.getMinBuildHeight()&&pos.getY()+12<level.getMaxBuildHeight(),"High native altar fixture exceeds world bounds");
+        for(int x=(pos.getX()-12)>>4;x<=(pos.getX()+12)>>4;x++)for(int z=(pos.getZ()-12)>>4;z<=(pos.getZ()+12)>>4;z++) {
+            var loaded=level.getChunk(x,z);h.assertTrue(level.getChunkSource().getChunkNow(x,z)==loaded,"Bounded native altar source footprint is not actually loaded: "+x+","+z);
+        }
         for(var at:BlockPos.betweenClosed(pos.offset(-8,-7,-8),pos.offset(8,3,8))) level.setBlockAndUpdate(at,Blocks.AIR.defaultBlockState());
         level.setBlockAndUpdate(pos,CatalogBlocks.block("infusion_matrix").defaultBlockState());
         level.setBlockAndUpdate(pos.below(2),CatalogBlocks.block("pedestal_arcane").defaultBlockState());
@@ -138,6 +152,28 @@ public final class CausalityCollapserInfusionGameTests {
         var central=(InfusionPedestalBlockEntity)level.getBlockEntity(pos.below(2)); central.setItem(0,new ItemStack(Items.TNT));
         p.setPos(pos.getX()+.5,pos.getY(),pos.getZ()+3.5);
         return new Fixture(pos,(InfusionMatrixBlockEntity)level.getBlockEntity(pos),central,List.copyOf(components),List.copyOf(jars));
+    }
+    private static void assertReady(GameTestHelper h,Fixture f) {
+        var level=h.getLevel();
+        h.assertTrue(level.getBlockEntity(f.pos())==f.matrix()&&level.getBlockEntity(f.pos().below(2))==f.central()
+                &&f.central().getItem(0).is(Items.TNT)&&f.central().getItem(0).getCount()==1
+                &&Math.abs(InfusionStability.scan(level,f.pos()).gain()-1.6F)<.00001F,
+                "Physical native altar/candles/TNT readiness failed: "+observation(h,f));
+        for(var jar:f.jars())h.assertTrue(level.getBlockEntity(jar.getBlockPos())==jar&&!jar.isRemoved()&&jar.amount()==53
+                &&level.getFluidState(jar.getBlockPos()).isEmpty(),"Exact physical53-unit source disappeared before native craft: "+observation(h,f));
+        for(var at:f.components())h.assertTrue(level.getBlockEntity(at) instanceof InfusionPedestalBlockEntity pedestal
+                &&pedestal.getItem(0).getCount()==1,"A prepared physical reagent disappeared before native craft: "+at);
+        for(var at:BlockPos.betweenClosed(f.pos().offset(-8,-7,-8),f.pos().offset(8,3,8)))
+            h.assertTrue(level.getFluidState(at).isEmpty(),"Prepared native altar is flooded before payment at "+at+": "+level.getBlockState(at));
+    }
+    private static String observation(GameTestHelper h,Fixture f) {
+        var level=h.getLevel();var jarStates=new ArrayList<String>();var reagentStates=new ArrayList<String>();int fluidCells=0;
+        for(var jar:f.jars())jarStates.add(jar.getBlockPos()+"/live="+(level.getBlockEntity(jar.getBlockPos())==jar)
+                +"/block="+level.getBlockState(jar.getBlockPos())+"/aspect="+jar.aspect()+"/amount="+jar.amount());
+        for(var at:f.components())reagentStates.add(at+"/"+(level.getBlockEntity(at) instanceof InfusionPedestalBlockEntity tile?tile.getItem(0):"missing_native_pedestal"));
+        for(var at:BlockPos.betweenClosed(f.pos().offset(-8,-7,-8),f.pos().offset(8,3,8)))if(!level.getFluidState(at).isEmpty())fluidCells++;
+        return "position="+f.pos()+", matrixLive="+(level.getBlockEntity(f.pos())==f.matrix())+", matrix="+f.matrix().saveWithoutMetadata()
+                +", central="+f.central().getItem(0)+", jars="+jarStates+", reagents="+reagentStates+", fluidCells="+fluidCells;
     }
     private static void useMatrix(GameTestHelper h,ServerPlayer p,BlockPos pos) {
         var state=h.getLevel().getBlockState(pos);
