@@ -6,6 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.Comparator;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,6 +17,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.TicketType;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -36,6 +39,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.PoweredRailBlock;
@@ -55,6 +59,11 @@ import thaumcraft.catalog.blocks.CatalogBlocks;
 /** Native entity/menu/placement callbacks. High fixtures are cleaned before returning. */
 @GameTestHolder("thaumcraft") @PrefixGameTestTemplate(false)
 public final class TurretGameTests {
+    private static final AtomicInteger ARENAS=new AtomicInteger();
+    private static final TicketType<BlockPos> NATIVE_TICKS=TicketType.create("thaumcraft_turret_qa",Comparator.comparingLong(BlockPos::asLong));
+    private record ArenaReadiness(int requiredChunks,int loadedChunks,int entityLoadedChunks,int tickingChunks,List<String> missingChunks){
+        boolean ready(){return loadedChunks==requiredChunks&&entityLoadedChunks==requiredChunks&&tickingChunks==requiredChunks;}
+    }
     private TurretGameTests() {}
     private static void nativeTick(Entity entity) { ((ServerLevel)entity.level()).tickNonPassenger(entity); }
     private static ItemStack poisonArrows(int count) { return PotionUtils.setPotion(new ItemStack(Items.TIPPED_ARROW, count), Potions.POISON); }
@@ -67,21 +76,36 @@ public final class TurretGameTests {
         final FakePlayer owner;
         final List<Entity> entities = new ArrayList<>();
         final Map<BlockPos, net.minecraft.world.level.block.state.BlockState> blocks = new LinkedHashMap<>();
+        final BlockPos ticketPos;
+        final List<Entity> joinedOutputs=new ArrayList<>();
+        Consumer<EntityJoinLevelEvent> outputObserver;
+        boolean ticketOwned,closed;
+        ArenaReadiness lastReadiness;
         Fixture(GameTestHelper h) { this(h,250); }
         Fixture(GameTestHelper h, int height) {
             this.h = h;
-            BlockPos origin = h.absolutePos(new BlockPos(4, 0, 4));
+            // Every synchronous or asynchronous fixture owns a separate 128-block-spaced
+            // region. Its broad sight/motion arena must never erase another live test's altar.
+            BlockPos origin = new BlockPos(2_000_008+ARENAS.getAndIncrement()*128,height,2_000_008);
             centre = new Vec3(origin.getX() + .5, height, origin.getZ() + .5);
-            // Templates start below zero in the modern flat world: a relative
-            // Y128 is only absolute Y68. Use a detached high, explicitly loaded
-            // arena so another template's terrain cannot change motion or LOS.
-            for (int x=(origin.getX()-32)>>4; x<=(origin.getX()+32)>>4; x++)
-                for (int z=(origin.getZ()-32)>>4; z<=(origin.getZ()+32)>>4; z++) h.getLevel().getChunk(x,z);
-            for (BlockPos pos : BlockPos.betweenClosed(origin.getX()-32, height-3, origin.getZ()-32, origin.getX()+32, height+12, origin.getZ()+32))
-                if (!h.getLevel().getBlockState(pos).isAir()) block(pos.immutable(), Blocks.AIR.defaultBlockState());
-            h.assertTrue(h.getLevel().getEntities(null, new AABB(centre,centre).inflate(32,8,32)).isEmpty(), "Detached high construct fixture was occupied before setup");
-            owner = player(centre.add(2, 0, 0));
+            ticketPos=origin.immutable();
+            h.getLevel().getChunkSource().addRegionTicket(NATIVE_TICKS,new ChunkPos(ticketPos),4,ticketPos);ticketOwned=true;
+            try {
+                // Level29 at the centre retains the entire five-by-five query region
+                // at native entity-ticking level31. Actual scheduler readiness is awaited below.
+                for (int x=(origin.getX()-32)>>4; x<=(origin.getX()+32)>>4; x++)
+                    for (int z=(origin.getZ()-32)>>4; z<=(origin.getZ()+32)>>4; z++) h.getLevel().getChunk(x,z);
+                for (BlockPos pos : BlockPos.betweenClosed(origin.getX()-32, height-3, origin.getZ()-32, origin.getX()+32, height+12, origin.getZ()+32))
+                    if (!h.getLevel().getBlockState(pos).isAir()) block(pos.immutable(), Blocks.AIR.defaultBlockState());
+                h.assertTrue(h.getLevel().getEntities(null, new AABB(centre,centre).inflate(32,8,32)).isEmpty(), "Detached high construct fixture was occupied before setup");
+                owner = player(centre.add(2, 0, 0));
+                outputObserver=event->{if(event.getLevel()!=h.getLevel())return;Entity joined=event.getEntity();if(joined instanceof TurretEntity placed&&placed.isOwner(owner)||joined instanceof Arrow arrow&&entities.contains(arrow.getOwner())||joined instanceof ItemEntity&&new AABB(centre,centre).inflate(32,12,32).contains(joined.position()))joinedOutputs.add(joined);};
+                MinecraftForge.EVENT_BUS.addListener(outputObserver);
+            } catch(RuntimeException|Error failure){close();throw failure;}
         }
+        ArenaReadiness sampleReadiness(){int required=0,loaded=0,entityLoaded=0,ticking=0;var missing=new ArrayList<String>();for(int x=(ticketPos.getX()-32)>>4;x<=(ticketPos.getX()+32)>>4;x++)for(int z=(ticketPos.getZ()-32)>>4;z<=(ticketPos.getZ()+32)>>4;z++){required++;long chunk=ChunkPos.asLong(x,z);boolean hasChunk=h.getLevel().getChunkSource().getChunkNow(x,z)!=null,hasEntities=h.getLevel().areEntitiesLoaded(chunk),hasTicks=h.getLevel().getChunkSource().isPositionTicking(chunk);if(hasChunk)loaded++;if(hasEntities)entityLoaded++;if(hasTicks)ticking++;if(!hasChunk||!hasEntities||!hasTicks)missing.add("["+x+","+z+":loaded="+hasChunk+",entityLoaded="+hasEntities+",ticking="+hasTicks+"]");}return new ArenaReadiness(required,loaded,entityLoaded,ticking,List.copyOf(missing));}
+        boolean worldReady(){lastReadiness=sampleReadiness();return lastReadiness.ready();}
+        String readinessDiagnostic(){return "arena="+ticketPos+",closed="+closed+",lastNativeSample="+lastReadiness;}
         FakePlayer player(Vec3 pos) {
             FakePlayer player = new FakePlayer(h.getLevel(), new GameProfile(UUID.randomUUID(), "turret_qa"));
             player.setGameMode(GameType.SURVIVAL); player.setPos(pos); return player;
@@ -107,17 +131,33 @@ public final class TurretGameTests {
         List<ItemEntity> drops() { return h.getLevel().getEntitiesOfClass(ItemEntity.class, new AABB(centre, centre).inflate(2)); }
         int count(String id) { return drops().stream().filter(drop -> drop.getItem().is(TurretModule.stack(id).getItem())).mapToInt(drop -> drop.getItem().getCount()).sum(); }
         @Override public void close() {
-            for (Entity entity : entities) if (entity instanceof TurretEntity turret) arrows(turret).forEach(Entity::discard);
-            entities.forEach(Entity::discard);
-            blocks.forEach((pos,state) -> h.getLevel().setBlock(pos, state, 3));
-            // Removing rail support can spawn its item through a native neighbor
-            // callback, so drop cleanup must follow block restoration.
-            drops().forEach(Entity::discard);
+            if(closed)return;closed=true;
+            try {
+                entities.forEach(Entity::discard);
+                var rows=new ArrayList<>(blocks.entrySet());java.util.Collections.reverse(rows);
+                for(var row:rows)h.getLevel().setBlock(row.getKey(),row.getValue(),3);
+            } finally {
+                // The scoped native join observer remains active during terrain restoration:
+                // removing owned rail support can emit an item after the main entity cleanup.
+                joinedOutputs.forEach(Entity::discard);
+                if(outputObserver!=null)MinecraftForge.EVENT_BUS.unregister(outputObserver);
+                if(ticketOwned){h.getLevel().getChunkSource().removeRegionTicket(NATIVE_TICKS,new ChunkPos(ticketPos),4,ticketPos);ticketOwned=false;}
+            }
         }
     }
 
-    @GameTest(template="empty") public static void nativeStatsDimensionsOwnerBreathingAndMotionMatchOriginal(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    /** One actual world-readiness wait, then one unchanged synchronous assertion body. */
+    private static void runReady(GameTestHelper h,Consumer<Fixture> action){
+        Fixture f=new Fixture(h);
+        // Cold far-region preparation has its own bounded300-tick budget. The assertion
+        // body still executes exactly once; timeout diagnostics sample before ticket removal.
+        h.runAtTickTime(298,()->{if(f.closed)return;f.lastReadiness=f.sampleReadiness();try{h.assertTrue(false,"Native isolated construct preparation deadline298 of300: "+f.readinessDiagnostic());}finally{f.close();}});
+        h.startSequence().thenWaitUntil(()->{h.assertTrue(!f.closed,"Native isolated construct preparation already retired: "+f.readinessDiagnostic());h.assertTrue(f.worldReady(),"Native isolated construct region is not ready: "+f.readinessDiagnostic());})
+                .thenExecute(()->{try{action.accept(f);}finally{f.close();}}).thenSucceed();
+    }
+
+    @GameTest(template="empty",timeoutTicks=300) public static void nativeStatsDimensionsOwnerBreathingAndMotionMatchOriginal(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity basic = f.turret(false), advanced = f.turret(true);
             advanced.setPos(f.centre.add(0,4,0));
             h.assertTrue(basic.getMaxHealth()==30 && basic.getArmorValue()==2 && advanced.getMaxHealth()==40 && advanced.getArmorValue()==8, "Original turret health/armor changed");
@@ -128,10 +168,10 @@ public final class TurretGameTests {
             h.assertTrue(basic.getX()==start.x+1 && basic.getY()==start.y-.5, "Basic horizontal /20 changed: before="+start+", after="+basic.position());
             start=advanced.position(); advanced.move(MoverType.SELF,new Vec3(300,-.5,0));
             h.assertTrue(advanced.getX()==start.x+1 && advanced.getY()==start.y-.5, "Inherited advanced /15 then /20 changed");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void twoClearBlocksPlaceOneOwnedTurretIncludingCreativeDebit(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void twoClearBlocksPlaceOneOwnedTurretIncludingCreativeDebit(GameTestHelper h) {
+        runReady(h,f -> {
             BlockPos floor=BlockPos.containing(f.centre).below(); f.block(floor,Blocks.STONE.defaultBlockState());
             for (String id : List.of("turret_basic","turret_advanced")) {
                 ItemStack held=TurretModule.stack(id); held.setCount(2); f.owner.setItemInHand(InteractionHand.MAIN_HAND,held);
@@ -142,10 +182,10 @@ public final class TurretGameTests {
                 h.assertTrue(found.get(0).isAdvanced()==id.equals("turret_advanced"), "Wrong turret variant placed");
                 found.forEach(Entity::discard);
             }
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void blockedDownwardAndForgeCanceledPlacementKeepItemsAndTerrain(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void blockedDownwardAndForgeCanceledPlacementKeepItemsAndTerrain(GameTestHelper h) {
+        runReady(h,f -> {
             BlockPos floor=BlockPos.containing(f.centre).below(); f.block(floor,Blocks.STONE.defaultBlockState());
             ItemStack held=TurretModule.stack("turret_basic"); held.setCount(2); f.owner.setItemInHand(InteractionHand.MAIN_HAND,held);
             h.assertTrue(!held.onItemUseFirst(context(f.owner,floor,Direction.DOWN)).consumesAction() && held.getCount()==2,"Downward deployment paid");
@@ -159,10 +199,10 @@ public final class TurretGameTests {
             MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST,false,EntityJoinLevelEvent.class,cancel);
             try { h.assertTrue(!held.onItemUseFirst(context(f.owner,floor,Direction.UP)).consumesAction() && held.getCount()==2 && h.getLevel().getBlockState(floor.above()).is(Blocks.GRASS),"Canceled deployment paid or destroyed plant"); }
             finally { MinecraftForge.EVENT_BUS.unregister(cancel); }
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void replaceableSnowAndSpawnCallbackReplayAreTransactional(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void replaceableSnowAndSpawnCallbackReplayAreTransactional(GameTestHelper h) {
+        runReady(h,f -> {
             BlockPos floor=BlockPos.containing(f.centre).below(); f.block(floor,Blocks.STONE.defaultBlockState()); f.block(floor.above(),Blocks.SNOW.defaultBlockState());
             ItemStack held=TurretModule.stack("turret_basic"); held.setCount(2); f.owner.setItemInHand(InteractionHand.MAIN_HAND,held);
             boolean[] replay={false};
@@ -172,10 +212,10 @@ public final class TurretGameTests {
             finally { MinecraftForge.EVENT_BUS.unregister(recurse); }
             var found=h.getLevel().getEntitiesOfClass(TurretEntity.class,new AABB(floor.above()).inflate(1));
             h.assertTrue(found.size()==1 && h.getLevel().getBlockState(floor.above()).isAir(),"Snow placement did not leave one construct and clear block"); found.forEach(Entity::discard);
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void upwardDispenserTransfersEntireFirstArrowStackEvenWithNoAi(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void upwardDispenserTransfersEntireFirstArrowStackEvenWithNoAi(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity turret=f.turret(false); turret.setNoAi(true);
             BlockPos below=turret.blockPosition().below(); f.block(below,Blocks.DISPENSER.defaultBlockState().setValue(DispenserBlock.FACING,Direction.UP));
             DispenserBlockEntity dispenser=(DispenserBlockEntity)h.getLevel().getBlockEntity(below);
@@ -185,10 +225,10 @@ public final class TurretGameTests {
             turret.reloadFromBelow(); h.assertTrue(dispenser.getItem(2).getCount()==17 && turret.ammo().getCount()==31,"Existing ammo overwritten");
             turret.setAmmo(ItemStack.EMPTY); f.block(below,h.getLevel().getBlockState(below).setValue(DispenserBlock.FACING,Direction.NORTH)); turret.reloadFromBelow();
             h.assertTrue(turret.ammo().isEmpty() && dispenser.getItem(2).getCount()==17,"Sideways dispenser refilled");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void nativeShotUsesTippedArrowEffectsFormulaSpeedPickupAndSingleDebit(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void nativeShotUsesTippedArrowEffectsFormulaSpeedPickupAndSingleDebit(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity turret=f.turret(false); Zombie target=f.zombie(f.centre.add(0,0,6)); turret.setAmmo(poisonArrows(3)); turret.setYRot(0); turret.setYHeadRot(0); turret.setXRot(0);
             turret.getRandom().setSeed(81273); var reference=net.minecraft.util.RandomSource.create(81273); double expected=2.25+.25F*2F+reference.nextGaussian()*.25;
             turret.performRangedAttack(target,.25F); List<Arrow> arrows=f.arrows(turret);
@@ -200,19 +240,19 @@ public final class TurretGameTests {
             h.assertTrue(f.arrows(turret).size()==2 && turret.ammo().getCount()==1,"Spectral ArrowItem must still produce the original ordinary tipped-arrow class");
             turret.setAmmo(new ItemStack(Items.APPLE,3)); turret.performRangedAttack(target,.25F);
             h.assertTrue(f.arrows(turret).size()==2 && turret.ammo().getCount()==3,"Non-arrow ammo fired");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void mountedTurretUsesOriginalForwardMuzzleAndCanShoot(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void mountedTurretUsesOriginalForwardMuzzleAndCanShoot(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity turret=f.turret(false); Zombie target=f.zombie(f.centre.add(0,0,6));
             AbstractMinecart cart=AbstractMinecart.createMinecart(h.getLevel(),f.centre.x,f.centre.y,f.centre.z,AbstractMinecart.Type.RIDEABLE);
             h.getLevel().addFreshEntity(cart); f.entities.add(cart); h.assertTrue(turret.startRiding(cart,true),"Construct could not mount minecart");
             turret.setYRot(0); turret.setYHeadRot(0); turret.setXRot(0); turret.setAmmo(new ItemStack(Items.ARROW,3)); turret.performRangedAttack(target,.25F);
             h.assertTrue(f.arrows(turret).size()==1 && Math.abs(f.arrows(turret).get(0).getZ()-(turret.getZ()+1.75))<.00001 && turret.ammo().getCount()==2,"Mounted forward muzzle or ammo payment differs");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void canceledAndReentrantProjectileCallbacksCannotLoseOrDuplicateAmmo(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void canceledAndReentrantProjectileCallbacksCannotLoseOrDuplicateAmmo(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity turret=f.turret(false); Zombie target=f.zombie(f.centre.add(0,0,6)); turret.setAmmo(new ItemStack(Items.ARROW,3));
             Consumer<EntityJoinLevelEvent> cancel=event->{if(event.getEntity() instanceof Arrow arrow && arrow.getOwner()==turret)event.setCanceled(true);};
             MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST,false,EntityJoinLevelEvent.class,cancel);
@@ -226,7 +266,7 @@ public final class TurretGameTests {
             MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST,false,EntityJoinLevelEvent.class,swap);
             try { turret.performRangedAttack(target,.25F); h.assertTrue(f.arrows(turret).size()==1 && turret.ammo().is(Items.APPLE) && turret.ammo().getCount()==5,"Callback-changed ammo was debited or unpaid arrow remained"); }
             finally { MinecraftForge.EVENT_BUS.unregister(swap); }
-        } h.succeed();
+        });
     }
     @GameTest(template="empty",timeoutTicks=240) public static void actualNativeAiFindsEnemyIgnoresNearerAnimalAndFires(GameTestHelper h) {
         Fixture f = new Fixture(h,280);
@@ -241,7 +281,7 @@ public final class TurretGameTests {
         // Every tick in this trial is performed by the actual world scheduler,
         // allowing acquisition instead of freezing that parity in a tight loop.
         h.runAtTickTime(238,f::close);
-        h.startSequence().thenWaitUntil(()->h.assertTrue(h.getLevel().getEntitiesOfClass(LivingEntity.class,turret.getBoundingBox().inflate(24,4,24)).contains(target),"Native enemy section has not become accessible to the actual AI query"))
+        h.startSequence().thenWaitUntil(()->h.assertTrue(f.worldReady()&&h.getLevel().getEntitiesOfClass(LivingEntity.class,turret.getBoundingBox().inflate(24,4,24)).contains(target),"Native enemy/query region has not reached actual entity/block ticking readiness"))
                 .thenExecute(()->{
                     h.assertTrue(turret.canAcquireTarget(target),"Accessible hostile failed initial native sight/eligibility predicate");
                     turret.setNoAi(false); turret.setTarget(null); turret.tickCount=0; turret.setAmmo(new ItemStack(Items.ARROW,32)); turret.getRandom().setSeed(541);
@@ -253,17 +293,17 @@ public final class TurretGameTests {
                     } finally { f.close(); }
                 }).thenSucceed();
     }
-    @GameTest(template="empty") public static void advancedNativeRateIsFasterAtSameRange(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void advancedNativeRateIsFasterAtSameRange(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity basic=f.turret(false),advanced=f.turret(true); advanced.setPos(f.centre.add(0,4,0));
             Zombie lower=f.zombie(f.centre.add(0,0,12)),upper=f.zombie(f.centre.add(0,4,12));
             basic.setAmmo(new ItemStack(Items.ARROW,64)); advanced.setAmmo(new ItemStack(Items.ARROW,64)); basic.setTarget(lower); advanced.setTarget(upper);
             for(int i=0;i<180;i++) { nativeTick(basic); nativeTick(advanced); }
             h.assertTrue(basic.ammo().getCount()<64 && advanced.ammo().getCount()<basic.ammo().getCount(),"Original advanced20..40 must fire faster than basic20..60 at equal range");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void sightAndUnloadedRoutesDoNotAcquireOrGenerateChunks(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void sightAndUnloadedRoutesDoNotAcquireOrGenerateChunks(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity basic=f.turret(false), advanced=f.turret(true); Zombie target=f.zombie(f.centre.add(0,0,6));
             h.assertTrue(basic.canAcquireTarget(target) && advanced.canAcquireTarget(target),"Visible hostile rejected");
             BlockPos mid=BlockPos.containing(f.centre.add(0,0,3)); for(int y=0;y<4;y++) f.block(mid.above(y),Blocks.STONE.defaultBlockState());
@@ -273,10 +313,10 @@ public final class TurretGameTests {
             h.assertTrue(h.getLevel().getChunkSource().getChunkNow(x,z)==null,"Unloaded route fixture was already loaded");
             Zombie far=EntityType.ZOMBIE.create(h.getLevel()); far.setPos(Vec3.atBottomCenterOf(unloaded));
             h.assertTrue(!basic.canAcquireTarget(far) && !advanced.canAcquireTarget(far) && h.getLevel().getChunkSource().getChunkNow(x,z)==null,"Target query generated a remote chunk"); far.discard();
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void advancedFlagsOwnedAnimalsAndFriendlyOwnerClearFollowOriginalQuirk(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void advancedFlagsOwnedAnimalsAndFriendlyOwnerClearFollowOriginalQuirk(GameTestHelper h) {
+        runReady(h,f -> {
             AdvancedTurretEntity turret=(AdvancedTurretEntity)f.turret(true); Cow cow=f.cow(f.centre.add(0,0,3)); Zombie hostile=f.zombie(f.centre.add(0,0,6));
             Wolf same=EntityType.WOLF.create(h.getLevel()); same.setNoAi(true); same.setNoGravity(true); same.setPos(f.centre.add(0,0,4)); same.setOwnerUUID(f.owner.getUUID()); h.getLevel().addFreshEntity(same); f.entities.add(same);
             Wolf other=EntityType.WOLF.create(h.getLevel()); other.setNoAi(true); other.setNoGravity(true); other.setPos(f.centre.add(2,0,4)); other.setOwnerUUID(UUID.randomUUID()); h.getLevel().addFreshEntity(other); f.entities.add(other);
@@ -286,10 +326,10 @@ public final class TurretGameTests {
             turret.setTargetPlayer(true); h.assertTrue(turret.canAcquireTarget(f.owner),"Original friendly predicate must accept owner before inherited update");
             turret.setNoAi(true); turret.setTarget(f.owner); nativeTick(turret);
             h.assertTrue(turret.getTarget()==null,"Original inherited allied-owner target clear was relaxed");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void advancedPlayerSneakInvisibilityAndPvpRulesAreOriginal(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void advancedPlayerSneakInvisibilityAndPvpRulesAreOriginal(GameTestHelper h) {
+        runReady(h,f -> {
             AdvancedTurretEntity turret=(AdvancedTurretEntity)f.turret(true); FakePlayer target=f.player(f.centre.add(0,0,20)); boolean original=h.getLevel().getServer().isPvpAllowed();
             try {
                 h.getLevel().getServer().setPvpAllowed(true); turret.setTargetPlayer(true);
@@ -302,10 +342,10 @@ public final class TurretGameTests {
                 turret.setTargetPlayer(true); turret.setTargetFriendly(true); h.assertTrue(turret.canAcquireTarget(target),"Friendly selection must keep original PvP exception");
                 turret.setNoAi(true); turret.setTarget(target); nativeTick(turret); h.assertTrue(turret.getTarget()==null,"Disabled PvP must clear nonowner player even in friendly mode");
             } finally { h.getLevel().getServer().setPvpAllowed(original); }
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void ownerTeamIsExcludedNormallyAndClearedAfterFriendlySelection(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void ownerTeamIsExcludedNormallyAndClearedAfterFriendlySelection(GameTestHelper h) {
+        runReady(h,f -> {
             h.getLevel().addNewPlayer(f.owner); var scoreboard=h.getLevel().getScoreboard(); var team=scoreboard.addPlayerTeam("t"+UUID.randomUUID().toString().substring(0,12));
             // FakePlayer profile names need to differ for scoreboard membership.
             FakePlayer teammate=new FakePlayer(h.getLevel(),new GameProfile(UUID.randomUUID(),"a"+team.getName())); teammate.setGameMode(GameType.SURVIVAL); teammate.setPos(f.centre.add(0,0,3));
@@ -318,10 +358,10 @@ public final class TurretGameTests {
                 turret.setTargetFriendly(true); h.assertTrue(turret.canAcquireTarget(teammate),"Original Friendly team selection rejected");
                 turret.setNoAi(true); turret.setTarget(teammate); nativeTick(turret); h.assertTrue(turret.getTarget()==null,"Inherited allied-team update must still clear Friendly target");
             } finally { h.getLevel().getServer().setPvpAllowed(previousPvp); scoreboard.removePlayerTeam(team); h.getLevel().removePlayerImmediately(f.owner,Entity.RemovalReason.DISCARDED); }
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void activatorRailDisablesAiRetainsOffRailAndHealsAtNative80(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void activatorRailDisablesAiRetainsOffRailAndHealsAtNative80(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity turret=f.turret(false); BlockPos rail=turret.blockPosition().below(); f.block(rail.below(),Blocks.STONE.defaultBlockState());
             f.block(rail.east(),Blocks.REDSTONE_BLOCK.defaultBlockState());
             f.block(rail,CatalogBlocks.block("activator_rail").defaultBlockState());
@@ -333,10 +373,10 @@ public final class TurretGameTests {
             f.block(rail.east(),Blocks.REDSTONE_BLOCK.defaultBlockState()); turret.updateActivatorRail(); f.block(rail,Blocks.AIR.defaultBlockState()); turret.updateActivatorRail();
             h.assertTrue(turret.isNoAi(),"Leaving activator rail reset original saved NoAI"); turret.setHealth(20); turret.tickCount=79; nativeTick(turret);
             h.assertTrue(turret.tickCount==80 && turret.getHealth()==21,"Disabled construct failed native80tick one-point regeneration: ticks="+turret.tickCount+", health="+turret.getHealth()+", removed="+turret.isRemoved());
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void ownedAmmoAndDisabledFlagSurviveNbtButDecorativePromotionDoesNot(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void ownedAmmoAndDisabledFlagSurviveNbtButDecorativePromotionDoesNot(GameTestHelper h) {
+        runReady(h,f -> {
             AdvancedTurretEntity turret=(AdvancedTurretEntity)f.turret(true); turret.setTargetAnimal(true); turret.setTargetPlayer(true); turret.setTargetFriendly(true); turret.setAmmo(poisonArrows(23)); turret.setNoAi(true);
             CompoundTag tag=new CompoundTag(); turret.saveWithoutId(tag);
             h.assertTrue(tag.getBoolean("v") && !tag.contains("VisualOnly") && tag.getString("OwnerUUID").equals(f.owner.getUUID().toString()),"Native persistence still claims decorative state");
@@ -344,28 +384,28 @@ public final class TurretGameTests {
             h.assertTrue(restored.hasValidSpawn() && restored.isOwner(f.owner) && restored.isNoAi() && restored.getTargetFlags()==15 && restored.ammo().getCount()==23 && PotionUtils.getPotion(restored.ammo())==Potions.POISON,"Owner/NoAI/flags/ammo did not round trip");
             tag.putBoolean("VisualOnly",true); tag.putString("OwnerUUID","malformed"); restored.load(tag);
             h.assertTrue(!restored.hasValidSpawn() && !restored.isOwned(),"Decorative or malformed ownership was promoted into functional construct"); nativeTick(restored); h.assertTrue(restored.isRemoved(),"Unplaced decorative entity remained active");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void ownerCollectionAndLethalDeathReturnAmmoExactlyOnce(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void ownerCollectionAndLethalDeathReturnAmmoExactlyOnce(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity turret=f.turret(false); turret.setAmmo(poisonArrows(19)); FakePlayer stranger=f.player(f.centre.add(2,0,1));
             h.assertTrue(!turret.collect(stranger) && !turret.isRemoved(),"Stranger collected construct");
             h.assertTrue(turret.collect(f.owner) && !turret.collect(f.owner) && f.count("turret_basic")==1,"Owner collection duplicated/missed placer");
             h.assertTrue(f.drops().stream().filter(drop->drop.getItem().is(Items.TIPPED_ARROW)&&PotionUtils.getPotion(drop.getItem())==Potions.POISON).mapToInt(drop->drop.getItem().getCount()).sum()==19,"Owner collection lost tagged ammo"); f.drops().forEach(Entity::discard);
             TurretEntity doomed=f.turret(false); doomed.setAmmo(poisonArrows(11)); doomed.setHealth(1); doomed.hurt(doomed.damageSources().fellOutOfWorld(),1000); doomed.die(doomed.damageSources().fellOutOfWorld());
             h.assertTrue(doomed.ammo().isEmpty() && f.drops().stream().filter(drop->drop.getItem().is(Items.TIPPED_ARROW)).mapToInt(drop->drop.getItem().getCount()).sum()==11 && f.count("turret_basic")==0,"Lethal death lost/duplicated arrows or returned a whole placer");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void originalGuaranteedLootingSevenReturnsEveryBasicAndAdvancedComponent(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void originalGuaranteedLootingSevenReturnsEveryBasicAndAdvancedComponent(GameTestHelper h) {
+        runReady(h,f -> {
             TurretEntity basic=f.turret(false); basic.dropCustomDeathLoot(basic.damageSources().generic(),7,true);
             h.assertTrue(f.count("mind_clockwork")==1 && f.count("mechanism_simple")==1 && f.count("plank_greatwood")==2 && f.drops().stream().mapToInt(drop->drop.getItem().getCount()).sum()==4,"Guaranteed basic source components differ"); f.drops().forEach(Entity::discard);
             AdvancedTurretEntity advanced=(AdvancedTurretEntity)f.turret(true); advanced.dropCustomDeathLoot(advanced.damageSources().generic(),7,true);
             h.assertTrue(f.count("mind_biothaumic")==1 && f.count("mechanism_simple")==1 && f.count("plank_greatwood")==2 && f.count("plate_brass")==1 && f.count("plate_iron")==2 && f.drops().stream().mapToInt(drop->drop.getItem().getCount()).sum()==7,"Guaranteed advanced original mind/mechanism/planks/brass1/iron2 differ");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void namedConstructDeathNotifiesOnlyOnlineOwnerWhenRuleAllows(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void namedConstructDeathNotifiesOnlyOnlineOwnerWhenRuleAllows(GameTestHelper h) {
+        runReady(h,f -> {
             List<Component> messages = new ArrayList<>();
             FakePlayer owner = new FakePlayer(h.getLevel(), new GameProfile(UUID.randomUUID(), "d" + UUID.randomUUID().toString().substring(0, 12))) {
                 @Override public void sendSystemMessage(Component message) { messages.add(message.copy()); }
@@ -390,10 +430,10 @@ public final class TurretGameTests {
             } finally {
                 rule.set(previous, h.getLevel().getServer()); h.getLevel().removePlayerImmediately(owner, Entity.RemovalReason.DISCARDED);
             }
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void originalMenuSlotShiftTransferAndFourButtonsUseLiveAmmo(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void originalMenuSlotShiftTransferAndFourButtonsUseLiveAmmo(GameTestHelper h) {
+        runReady(h,f -> {
             AdvancedTurretEntity turret=(AdvancedTurretEntity)f.turret(true); TurretMenu menu=new TurretMenu(17,f.owner.getInventory(),turret); f.owner.containerMenu=menu;
             h.assertTrue(menu.slots.size()==37 && menu.slots.get(0).x==42 && menu.slots.get(0).y==29 && !menu.slots.get(0).mayPlace(new ItemStack(Items.APPLE)),"Original ammo slot/arrow predicate differs");
             f.owner.getInventory().setItem(9,poisonArrows(27)); f.owner.getInventory().setItem(10,new ItemStack(Items.APPLE,4));
@@ -403,10 +443,10 @@ public final class TurretGameTests {
             h.assertTrue(turret.getTargetFlags()==13 && !menu.clickMenuButton(f.owner,0) && !menu.clickMenuButton(f.owner,5),"Target flag bit mapping/action bounds differ");
             h.assertTrue(!menu.quickMoveStack(f.owner,0).isEmpty() && turret.ammo().isEmpty() && f.owner.getInventory().items.stream().filter(stack->stack.is(Items.TIPPED_ARROW)).mapToInt(ItemStack::getCount).sum()==27,"Arrow extraction lost/duplicated live ammo");
             TurretEntity basic=f.turret(false); TurretMenu basicMenu=new TurretMenu(18,f.owner.getInventory(),basic); h.assertTrue(basicMenu.slots.get(0).x==80 && !basicMenu.clickMenuButton(f.owner,1),"Basic slot offset/advanced button exclusion differs");
-        } h.succeed();
+        });
     }
-    @GameTest(template="empty") public static void menuRejectsStrangerFarDeadAndStaleContainerWithoutMutatingFlagsOrAmmo(GameTestHelper h) {
-        try (Fixture f = new Fixture(h)) {
+    @GameTest(template="empty",timeoutTicks=300) public static void menuRejectsStrangerFarDeadAndStaleContainerWithoutMutatingFlagsOrAmmo(GameTestHelper h) {
+        runReady(h,f -> {
             AdvancedTurretEntity turret=(AdvancedTurretEntity)f.turret(true); turret.setAmmo(new ItemStack(Items.ARROW,6)); TurretMenu menu=new TurretMenu(17,f.owner.getInventory(),turret); f.owner.containerMenu=menu;
             FakePlayer stranger=f.player(f.centre.add(2,0,1)); stranger.containerMenu=menu;
             h.assertTrue(!menu.stillValid(stranger) && !menu.clickMenuButton(stranger,1) && menu.quickMoveStack(stranger,0).isEmpty(),"Stranger menu attack mutated entity");
@@ -416,6 +456,6 @@ public final class TurretGameTests {
             h.assertTrue(!menu.clickMenuButton(f.owner,1) && menu.quickMoveStack(f.owner,0).isEmpty(),"Stale container accepted mutation");
             f.owner.containerMenu=menu; turret.discard();
             h.assertTrue(!menu.stillValid(f.owner) && !menu.clickMenuButton(f.owner,1) && turret.getTargetFlags()==2 && turret.ammo().getCount()==6,"Removed target menu mutated entity");
-        } h.succeed();
+        });
     }
 }

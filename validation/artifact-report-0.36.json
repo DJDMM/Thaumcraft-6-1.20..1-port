@@ -1,0 +1,637 @@
+{
+  "version": "0.36.0",
+  "date": "2026-10-16",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 101,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 30,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1488,
+  "preservedRequiredGameTests": 1422,
+  "newTestsBySuite": {
+    "artifice/pattern/PatternCrafterGameTests.java": 30,
+    "artifice/pattern/PatternOwnershipGameTests.java": 6,
+    "artifice/dioptra/DioptraGameTests.java": 14,
+    "research/PatternCrafterProgressionGameTests.java": 16
+  },
+  "serverLog": {
+    "file": "pattern-036-gametest4.log",
+    "bytes": 665050,
+    "sha256": "a0d21ff2e98e66ef683b0a544c75a5cfe2c21cdce3324c9d811e686e06a45195"
+  },
+  "serverRun": {
+    "nativeExitCode": 0,
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-pattern-036-server4",
+    "run": "pattern-036-server4",
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "gradleExitCode": 0,
+    "failedRequiredTests": 0,
+    "requiredTestCount": 1488
+  },
+  "serverRunEvidence": {
+    "file": "pattern-036-server4-run.json",
+    "bytes": 462,
+    "sha256": "74eac9ea8d1575f8d8101763f0400b8ccdb0a39c99e824c684a3be87a45eacbe"
+  },
+  "serverResult": "1488/1488; native complete; BUILD SUCCESSFUL",
+  "nativeServerFacts": [],
+  "clientRunTag": "pattern-036-client1",
+  "client": {
+    "runTag": "pattern-036-client1",
+    "smokeTest": "Pattern",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\pattern-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\pattern-client-pattern-036-client1-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\pattern-client-pattern-036-client1-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\pattern-client-pattern-036-client1.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\pattern-client-pattern-036-client1-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\pattern-client-pattern-036-client1-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\pattern-client-pattern-036-client1-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_01dd5712de2a449d8c951253f0de5651",
+    "jvmPid": 26160,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 23
+  },
+  "clientLog": {
+    "file": "pattern-client-pattern-036-client1-client.log",
+    "bytes": 34244,
+    "sha256": "eb7ded7b868eaa70d36c3736cc50c33f13910a746ec4c746deaa77ded830974b"
+  },
+  "clientScenes": 23,
+  "nativeClientFacts": [
+    "[03:17:56] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_FIXTURES: ownedSurvivalarena/rawbench/30loadedchunks variedinitialVisFlux/BASEARTIFICEprecursor/rawknowledgeandtypedcrystals/materialsdeferred/rawchestsandvanillarecipeinputs; targetstudies/paiddevices/aspects absent; no directactiveconsumer tick/count/power/type/grid/RNG/aura reset; notfullsurvival/multiplayer/reload/audio/allangles",
+    "[03:17:57] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/sensus/no targetaspectsetter",
+    "[03:17:59] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/auram/no targetaspectsetter",
+    "[03:18:01] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/fabrico/no targetaspectsetter",
+    "[03:18:02] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_STUDY_PAID: DIOPTRA actualnativeC2S/16rawknowledge/+10earnedXP/actualdiscoveredaspects/noitemcost",
+    "[03:18:04] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_BENCH_PAID: dioptra actualnativeC2S/50vis/2crystals/physicaloriginalingredients->oneactualoutput,total=1",
+    "[03:18:05] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_PLACED: dioptra nativeC2S/paidBlockItem/no forcedtargetstate",
+    "[03:18:08] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_DIOPTRA_FLUX: actualnativeC2Stoggle/169nativecachedaurasamples/centerbyte2/no directgridsetter",
+    "[03:18:09] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_STUDY_PAID: ARCANEPATTERNCRAFTER actualnativeC2S/96rawknowledge/+10earnedXP/actualdiscoveredaspects/noitemcost",
+    "[03:18:11] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_BENCH_PAID: pattern_crafter actualnativeC2S/50vis/3crystals/physicaloriginalingredients->oneactualoutput,total=2",
+    "[03:18:12] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_PLACED: pattern_crafter nativeC2S/paidBlockItem/no forcedtargetstate",
+    "[03:18:15] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode0/actualnativeworldticks/physical9wheat->1hay_block /onepower/total1",
+    "[03:18:17] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode1/actualnativeworldticks/physical1oak_log->4oak_planks /onepower/total2",
+    "[03:18:19] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode2/actualnativeworldticks/physical2oak_planks->1oak_pressure_plate /onepower/total3",
+    "[03:18:21] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode3/actualnativeworldticks/physical2oak_planks->4stick /onepower/total4",
+    "[03:18:23] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode4/actualnativeworldticks/physical4oak_planks->1crafting_table /onepower/total5",
+    "[03:18:25] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode5/actualnativeworldticks/physical3oak_planks->6oak_slab /onepower/total6",
+    "[03:18:30] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_UNMATCHED: mode6/threeverticalplanks/no vanilla recipe/80actualworldticks/physicalinput3conserved/power4.0 unchanged",
+    "[03:18:33] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode7/actualnativeworldticks/physical6oak_planks->2oak_trapdoor /onepower/total7",
+    "[03:18:35] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode8/actualnativeworldticks/physical6oak_planks->3oak_door /onepower/total8",
+    "[03:18:37] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode9/actualnativeworldticks/physical8oak_planks->1chest /onepower/total9",
+    "[03:18:42] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_PAUSE: actualC2Sredstone/80worldticks/input8/output23 /power1.0 unchanged",
+    "[03:18:46] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_RESUME: actualSurvivalRedstoneharvest/native20tickworldcraft/8physicalplanks->secondchest/onepower,total10",
+    "[03:18:48] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_HARVESTED: pattern_crafter actualnativeC2S/onephysicalpaiditem/no syntheticrefund",
+    "[03:18:48] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_HARVESTED: dioptra actualnativeC2S/onephysicalpaiditem/no syntheticrefund",
+    "[03:18:50] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_CLIENT_FACTS: scenes23 nativeAspects3/studies2/paidTheoryGOLEMANCY32ARTIFICE32AUROMANCY32/paidObservationAUROMANCY16/earnedXP20/paidBench2/vis100/Aer1Aqua2Terra1Ordo1/SurvivalPlacement2/nativeDioptraVisFlux169samples/knobCycles9/dies10/nativeVanillaCrafts10/oneUnmatchedDieConserved/physicalOutputs24/chest2/redstonePause80ticks/SurvivalTeardown2/renderFrames1053/movingFrames989/renderModes1023/dioptraVisFrames73/FluxFrames110; explicitBASEARTIFICE/rawknowledge/crystals/materials/chests/arena/initialaura,notfullsurvival/multiplayer/reload/audio/allangles",
+    "[03:18:50] [Render thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_RENDER_AUDIT_OK: 23 scenes; originaltenframeDie/nativeopposedextrudedgears/actualnativeblockevent/Dioptra144cells48edges4sides/nativeVisFluxcolors/lightmapfogadditive/noinventedGUI"
+  ],
+  "observedPauseWorldTicks": 80,
+  "nativeVisualCounts": {
+    "renderFrames": 1053,
+    "movingFrames": 989,
+    "renderModes": 1023,
+    "dioptraVisFrames": 73,
+    "FluxFrames": 110
+  },
+  "paidClientTotals": {
+    "rawTheoryGolemancy": 32,
+    "rawTheoryArtifice": 32,
+    "rawTheoryAuromancy": 32,
+    "rawObservationAuromancy": 16,
+    "earnedExperience": 20,
+    "arcaneCrafts": 2,
+    "vis": 100,
+    "aerCrystals": 1,
+    "aquaCrystals": 2,
+    "terraCrystals": 1,
+    "ordoCrystals": 1,
+    "survivalPlacements": 2,
+    "survivalHarvests": 2,
+    "nativeVanillaCrafts": 10,
+    "nativeOutputItems": 24,
+    "nativeOutputChests": 2
+  },
+  "visualReview": {
+    "clientRunTag": "pattern-036-client1",
+    "clientLogSha256": "eb7ded7b868eaa70d36c3736cc50c33f13910a746ec4c746deaa77ded830974b",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "pattern_progression_036"
+    ],
+    "method": "Both reviewers actually viewed all23 full1600x1000 native PNG, full contact sheet and six-frame delivery preview from the same final native pass.",
+    "contactSheet": {
+      "file": "pattern-0.36-review-sheet.png",
+      "sha256": "a7a99b39c52c6af12b770e0c9208eedf362ed474dfbe44c748c8ffb48924ce20",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "pattern-0.36-preview.png",
+      "sha256": "9b2151afd3e9f96ddce9c769a2e69f7d1bc460e7af92b8921315d78e8fc40e09",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-pattern-native-sensus-scan.png",
+        "sha256": "7f7a45568574add2241a8dfd2b009691197b1862313cc04c66af8a742490a73e",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-native-auram-scan.png",
+        "sha256": "b842111c7d1eb7896b0ae6f2ffb37854e64d7593f60a01b997e02f8fe9dc7485",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-native-fabrico-scan.png",
+        "sha256": "0571232ac97f66c1a4998d9a5eae52f97ac9a4250e7767b001bb7fa3e7c47631",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-paid-dioptra-study.png",
+        "sha256": "6948f0a00fa3ab3d82c3dbdda2e718ceb1536989b1f9e0a525609de7c0eb571d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-paid-dioptra-bench.png",
+        "sha256": "b214359a1c30984e5e6259d662f8a4e1d1ce40a00a6c5c518d2ccfe604a3fd4f",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-survival-dioptra-vis.png",
+        "sha256": "05459680f2d71c4990aa2ab7fd7d112173a282769735e454c0025e2c08309a7e",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-native-dioptra-flux.png",
+        "sha256": "05755a7b0fc5eb5689c7f24e9e648f3c97901c6a4682582b10b38c540a84bb41",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-paid-pattern-study.png",
+        "sha256": "6fdc6de132ec60baf60658d6cd84f2d7f420ceda8a4d6e8dd7acd3ef8c6c8ead",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-paid-pattern-bench.png",
+        "sha256": "6a79a2054c63272f2e14d3b9ae195d10239a1b4f06f65942773a9b95b3b52f60",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-survival-pattern-placement.png",
+        "sha256": "d20108f5c8b5aad11a51951957b19f1327ffbb022e9489b9bc1d3d0b9c9794cf",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-0-nine.png",
+        "sha256": "7db51b5223a4e5ad94ce445e84b0b0c621c2c65bb84d1c5f26e200e9322a5302",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-1-one.png",
+        "sha256": "0dd224a21a63ec3f44fae5e0e0e9c8434b6d406732c932eb9d2b9cdee786c845",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-2-horizontal-two.png",
+        "sha256": "01584961cc75a5366e1920a03e9544a9d4e1c108ca2abf9710d6565a7977a21f",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-3-vertical-two.png",
+        "sha256": "1f6633e3dbf50e08788da7a6403a0eb0683c8f19acbcf907bb7e697d3e855e77",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-4-square-four.png",
+        "sha256": "7dd233494d69cfb4f9c03e715027dbde34405e426a3a731f70ab4d17d7c0e575",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-5-horizontal-three.png",
+        "sha256": "72daf7a8e9602d66618fab7769468da166be75cef95c9b4cf31500545c25b82f",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-6-vertical-three-unmatched.png",
+        "sha256": "8fd1c7168cf025b1760169bbdff1159ceeb9d1ee049ea961b8f488b3de1b27b8",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-7-horizontal-six.png",
+        "sha256": "e87033831ce0d9b01c404a4fc34930107b17906ab668cccacd2e4d040606735f",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-8-vertical-six.png",
+        "sha256": "62e8ebcd9fbe30e8dc15a04bc4102bb86218c8048c774b34d57aa9bea162fb3d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-die-9-ring-eight.png",
+        "sha256": "578673363723ab015a6ec7fe0b2fd491fe19eb0ea7b543439d98574dac08c6ed",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-native-redstone-pause.png",
+        "sha256": "54d8dc53f2287ae97838a11dd36857c1893a885054b3bd2d8780d9205cb3d53a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-native-redstone-resume.png",
+        "sha256": "d2b8e86a7901a282b0313224cad195e619d8f57896e80c7b4a6344cdbb0ff4fb",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-pattern-survival-dismantling.png",
+        "sha256": "ec7db82fadca91d7a8acfaf4b5e23306e103b7e6945d8911d562c3f5a76900f6",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Original paid research pages and physical arcane outputs remain readable without developer overlays or missing assets.",
+      "Original native Dioptra Vis/Flux geometric display and Pattern Crafter ten dies/opposed moving gears are visible.",
+      "Native physical crafting, unmatched-input conservation, redstone pause/resume and Survival teardown are bound to actual final logs.",
+      "Captions stay outside original game pixels; no generated artwork or synthetic gameplay state."
+    ],
+    "limits": [
+      "Prepared Survival fixtures with supplied BASEARTIFICE/rawknowledge/materials/typedcrystals/aura/arena/chests, not full ordinary survival.",
+      "Scanned raw typed crystals do not establish their crafting route; photographs of paid outputs do not photograph entire ingredient layouts.",
+      "Images alone do not prove recipe timing/payment or multiplayer/client reload/all camera angles/audio."
+    ],
+    "independentFindings": [
+      "All23 actual final-client frames were inspected individually. No visible missing-texture checkerboard, absent device asset, developer/server-check overlay or newly invented device GUI was found.",
+      "Both paid research conclusions are readable with original device icons and ordinary book presentation; both paid device outputs are visible in the workbench/hotbar captures.",
+      "Dioptra has a cyan-white raised Vis surface and purple low Flux surface with the visible bounding wire/stand; the two native mode captures are visibly distinct.",
+      "All ten front die patterns are visible and change across0..9, including the unmatched vertical-three pattern; opposed gear silhouettes differ between captured moments. Upper/lower chests and the original device body remain clear.",
+      "The redstone pause frame shows the actual output chest contents and adjacent redstone block. The resume frame shows the removed physical redstone item; the dismantling frame shows a physical miniature device drop between retained chests.",
+      "The full23-frame sheet and six-frame preview contain the corresponding actual captures. Russian captions stay outside game pixels and are not clipped or overlapping."
+    ],
+    "independentLimits": [
+      "Prepared Survival arena, supplied BASEARTIFICE/rawknowledge/materials/typedcrystals/chests/initialaura are fixtures. Visible bedrock/floating ore scenery does not establish ordinary survival acquisition.",
+      "The three scan captures are after the actual callback: scanned crystals are already conserved into hotbar/inventory and the two-handed empty-offhand visor is visible. Aspect acquisition is tied to the final native log, not inferred from the image alone.",
+      "Both bench captures show the empty post-payment grid and manufactured output in hotbar/hand; they do not photograph complete ingredient layouts or independently prove costs.",
+      "Most die captures use one front-oblique angle. Static images plus final logs do not establish every angle, every animation frame, audible sound, multiplayer or client reload.",
+      "Exact native timings, conserved unmatched input, paid knowledge/aura and physical24-output census require matching final logs/server tests; screenshots alone do not prove them."
+    ]
+  },
+  "independentReviewEvidence": {
+    "file": "pattern-independent-review-0.36.json",
+    "bytes": 7223,
+    "sha256": "1410e8d1a1486b1298241fadfeb4daaba0416bec66aa08faf1a46fc06615603b"
+  },
+  "localJsonCount": 2859,
+  "jarResourceByteParityChecks": 3689,
+  "originalMediaByteParity": {
+    ".ogg": 57,
+    ".png": 670,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.36.0.jar",
+      "bytes": 11869638,
+      "sha256": "a0e07e889bba4cb31870b03115f9752701fe510579232052541817cdc0397cd2"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.36.0-mods.zip",
+      "bytes": 10955300,
+      "sha256": "e0ba3ba8f65eb16c56966b1734839c02d6885a7adc6452208b9e09d64519fcf3"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.36.0-screenshots.zip",
+      "bytes": 8130689,
+      "sha256": "d78400ef5c45ed7fc6cf96c6214adefa2d86651b2e4c2e9442d39ac27402f6d7"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.36.0-preview.png",
+      "bytes": 988907,
+      "sha256": "9b2151afd3e9f96ddce9c769a2e69f7d1bc460e7af92b8921315d78e8fc40e09"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.36-final.log",
+    "bytes": 1212,
+    "sha256": "e4823d232ab8ad2336ea29a690ba1a77ba3ac8c8b644225cf08ce9e122a1983b"
+  },
+  "resourceLog": {
+    "file": "resources-0.36-final.log",
+    "bytes": 188,
+    "sha256": "0a3617a3acd7eec1d6b5bca6724e0fa700ddc69dc94dba67698c821f6f5a9466"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "a426faa77053c6ef4d05c6990d8099907c5c0d523ddaa7dd97bb42a4601a2de0"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "6e190acd5fa3780b5ed855e0ac5faecf308d90cfbfa229f5bd2e440274ca733c"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "2695d5fa39d982e98547482259c71d8751f71dbe1a678b6ce5c4d751a7b800f6"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "67ef417f43f3a601130e343d18be4988b6fbff05a377df2da22f6d868b7a6bb2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "accef5b781ef9a3dc641822d4d154f8617a443802cd5ce5f38f2e2b980baffd6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/construct/TurretGameTests.java",
+      "sha256": "b0cbb4a85f2b8cdb47e952cb97c5a1f8c1de406823a5b87ec841c177caf663d4"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/dioptra/DioptraBlock.java",
+      "sha256": "83f7cebcf71b351d15270a4bf641f67f708c56fd9e155f2967770eb27869a5ec"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/dioptra/DioptraBlockEntity.java",
+      "sha256": "008f84d8f6a04efad5359d8bd96319e191ca43e802aa31a5022c1c13acee69f5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/dioptra/DioptraGameTests.java",
+      "sha256": "c52d3b002eb5a8faef3d313d716b86320d3cab41736ea7d06f01b99ecaabcd3c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/dioptra/DioptraModule.java",
+      "sha256": "c165a1e6ace8d11da38fa8c98e1129c965301cec8003e9a035e1e83ef3f9ae2d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/dioptra/LegacyDioptraMigration.java",
+      "sha256": "7b1d53c0f132e5d40e6ec86dab1fcee542a474c4ead6062abe07f7cdcca686ba"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/LegacyPatternCrafterMigration.java",
+      "sha256": "593ed92cc802b884890d9de6ae8b622dd6618e226c0d9ba25d723897de14ef71"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/NativePatternInventory.java",
+      "sha256": "cf4b028069f54e462fd6912e7ed1ecca7230816239f978d035a379fd717aa4f3"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternCrafterBlock.java",
+      "sha256": "187d930d93483845454b97a5f2297d5b1bf0880d5efd6c9fe211d634a9a6cf4d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternCrafterBlockEntity.java",
+      "sha256": "88e983891a17288a938c299df57544df76e49e6f0ecc05eb8292d7cb3be4d004"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternCrafterBlockItem.java",
+      "sha256": "b2ad3f904915c62dcac0653cebe5b224da0ee99ffc3f98312b8c007180e42337"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternCrafterGameTests.java",
+      "sha256": "385112d06fd79098e9c4c102f58de6fe44598fcef9baa12d8eb3251a5c7b5b52"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternCrafterModule.java",
+      "sha256": "3d0e9ef56acf935a675c0434b378425c30925b267d06a4999a06bd86cd34b347"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternOutputData.java",
+      "sha256": "85cc896dc9c59039165a5c9b73e77b14fe87e2562570855f83a039d83058e560"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternOwnershipGameTests.java",
+      "sha256": "b0920edb34dcd99bf9e37fa012746b74a2f17f74272418dfebd9f86107cd07db"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/PatternRecipes.java",
+      "sha256": "08aa7e45285f7b4e46bbf3fa7e5adf1ded08990229ae06b6abc63611ad9d69d4"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/client/DioptraRenderer.java",
+      "sha256": "da3c1c95bfbc97baf4b9db9d8f8f7489a2a75dc1b88d2bc73b333119392f5d26"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/client/PatternClientSmokeTest.java",
+      "sha256": "a3ed909b43105722d738ec544691aed98856b47ba3692f60bcd22bc4c6948415"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/client/PatternCrafterItemExtension.java",
+      "sha256": "4b54695543babeeb2d722dcb21e628b7fcb19970862a267ad510d9fd42e3c91c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/pattern/client/PatternCrafterRenderer.java",
+      "sha256": "a1b9e2a1d17582581be8bc01e33615dc1e9c0d5181fdf780ae819825d56d482d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/blocks/CatalogBlocks.java",
+      "sha256": "b20c7060c04bffae6d9e5809380ad6fef82a07cabcf7b8542a1ad92f75ab320b"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/blocks/client/CatalogBlockRenderer.java",
+      "sha256": "5d078bcb8c17794fb21310730df12ca5926fd3b7df715a3f72e67684b45ab6fa"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "f28609d6b7c0451d72e005ebbd923c500fcbb10370513504812f7bd065289cd7"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "7e1aeef6e2722409a89ecb40837905667e5ad6880138c6b2c1e978471bbab5a7"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CondenserProgressionGameTests.java",
+      "sha256": "1ee541d95fbc5b76a867e2ef97ab1cd02a21826c2ba78d95bb412921988434ba"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "1b0acea79a611064a44889a6deda025f1006d7a91c2e05d9d212325ba3266019"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "c0c4b2a243f35205914998d4a4500ee56a04ac29edcfe44b01674ae44c1884ef"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "fbe5361f97d02e524ff46c381a50748c6cbd5fb78ca6fdcf13684b93db3758bb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "6114be8bf5d889d902c6b2251ed7a1fd8d2dffff54291fd8a90ea874570d2e5e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "469be49586e78f0b5468362bf46947534f7e7a1c4dc56d860e162b5f833f4ec8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionGameTests.java",
+      "sha256": "e5f874b5c1b235007e7509251f794c928dc7a988e911616fba81e3a980d1efe1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/LampProgressionGameTests.java",
+      "sha256": "a4a52fdf1bba65dcf4c6b700720b4ff1af327ccfe3a3a4deacbb09ea70f516ed"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "17a6a2a7aa806e89c55ad9cd9bc0fa48932f45f7e7e7d8a724fc21673374e735"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/PatternCrafterProgressionGameTests.java",
+      "sha256": "e954ef94c65dfe77227fbb18fa32be1cb1d218fcbdd1cc991e4e1733cc5b26ee"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "d95bc152a8ef64ec8d2d27a1532c23b1f7b2f1eece4ff158ee07c4f1affc8fa6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "43e6aeab83c779ab70967129882007036db4d418ba018ff523dcf061084133f3"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "c92cc853db239a175f9f411db1c27ea88ebf3a036cde17369395a80a32de7577"
+    },
+    {
+      "file": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+      "sha256": "5c80577f64ed21ca4b42d69f65e733c25dc8bb99c30f2aa614a2162d5721814d"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "d535c4d6353c40b4204751e8d3dd7e0006e4faa306a18f0fc26a7546f05fc9e6"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/misc/gridblock.png",
+      "sha256": "a07750c21fccfe6e14ccfd3c21c2d6671c89b355467c71de25c03a045b3bbe90"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/models/dioptra_side.png",
+      "sha256": "7ab7b5604c0dfef5666e448b57565ce4cf4d2e9a12661edbbf227fbbb6914413"
+    },
+    {
+      "file": "src/main/resources/data/forge/tags/items/workbench.json",
+      "sha256": "f6ac748571cd6d50a3becb4fe358331336650c6988c2e58ecdd72a10a64ad1db"
+    },
+    {
+      "file": "src/main/resources/data/minecraft/tags/blocks/mineable/pickaxe.json",
+      "sha256": "ab372c19ef343c02d4a9d6f0d8c6a918f8b28d44603195fe6319df1b08b8dd9e"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/dioptra.json",
+      "sha256": "41b9df66a5b1643afcf00af421f72eba420a1f00e2fff35df949f17c0cbe3164"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/patterncrafter.json",
+      "sha256": "6c601af3d3cfa9bdb1d8f06df0ce5882d03a0a94fa8dc1562926cf4dfd3ed9b9"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "pattern-036-server4-sources.json",
+      "bytes": 637968,
+      "sha256": "40cb59027c061a14d8ea70fbe33a25351922f9114abaedd713f685fbba2d4338"
+    },
+    {
+      "file": "pattern-036-client1-ready-sources.json",
+      "bytes": 637968,
+      "sha256": "40cb59027c061a14d8ea70fbe33a25351922f9114abaedd713f685fbba2d4338"
+    },
+    {
+      "file": "pattern-036-build-final-sources.json",
+      "bytes": 637968,
+      "sha256": "40cb59027c061a14d8ea70fbe33a25351922f9114abaedd713f685fbba2d4338"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": true,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4425,
+    "matchingServerRelevantFileCount": 4425,
+    "clientOnlyExceptions": [],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "fixtures": [
+    "Fresh owned prepared native Survival world; completed BASEARTIFICE/raw knowledge supplied, three target aspect facts earned by actual Thaumometer C2S",
+    "Raw typed scanning crystals, original arcane ingredients, five primal crystals, workbench and arena supplied; actual native callbacks pay them",
+    "Loaded chunks and varied initial Vis/Flux are supplied before consumers; Dioptra actual native169-sample cache drives its Vis/Flux views",
+    "Raw chests and vanilla recipe inputs are fixtures; target Dioptra/Pattern studies and physical paid device outputs are never granted",
+    "Actual knob C2S chooses10dies; native world ticks perform9matched die recipes plus1resumed craft, leaving the unmatched vertical-three input intact"
+  ],
+  "limitations": [
+    "Prepared Survival QA does not establish a full ordinary survival playthrough, multiplayer, client reload, all camera angles or audible sound",
+    "Original Pattern Crafter20tick cadence, oneitemtype recipes, power refill and original10-die layouts/first valid source order remain",
+    "Original Dioptra cached169samples/VisFlux toggle and original geometric144cells/48edge/4side rendering are preserved",
+    "Loaded-only discovery, native inventory snapshot/callback ownership and accepted/refused physical output conservation are explicit modern adaptations",
+    "Unknown third-party paid handlers without observable ownership cannot provide the exact-native snapshot/callback contract",
+    "All delivered gameplay frames are actual final native captures; captions are outside gameplay pixels and do not constitute generated/composited game state",
+    "Later equipment/Warp/Crimson/Eldritch and remaining taint ecology still require porting"
+  ],
+  "earlierClientRuns": [],
+  "earlierRuns": [
+    {
+      "file": "pattern-036-gametest1.log",
+      "bytes": 592995,
+      "sha256": "4a5c3198ee70baf8360276ced5e067c80dfda2187a0720770ae9238ed5c211e8"
+    },
+    {
+      "file": "pattern-036-gametest2.log",
+      "bytes": 656107,
+      "sha256": "7e2a7ea5da0f440e7deaf0d977114ce9468127347c620ed7d96e297048784d2e"
+    },
+    {
+      "file": "pattern-036-gametest3.log",
+      "bytes": 665924,
+      "sha256": "f6974a1539ae2f3c2886abf7019b969980804da16e1e6175bc1afe858fd5b40a"
+    }
+  ],
+  "otherEarlierEvidence": [
+    {
+      "file": "pattern-036-compile1.log",
+      "bytes": 6379,
+      "sha256": "cc453a114643490232c3d736c1612dd78b2b36b65a66abe8d5eaac84249e6ff7"
+    },
+    {
+      "file": "pattern-036-server1-run.json",
+      "bytes": 462,
+      "sha256": "d3bafaeea516e9ebcb79b08570139c19247c35d4109310452f8372cf42456ccc"
+    },
+    {
+      "file": "pattern-036-server2-run.json",
+      "bytes": 462,
+      "sha256": "a4120119b3c2c5c6e4091c308e41de4f9fbc02b5f637e14240dd5ed3cd6cba82"
+    },
+    {
+      "file": "pattern-036-server3-run.json",
+      "bytes": 462,
+      "sha256": "0efbd968ed8bcef433f9718b6da2c8e0b22533e2338f167d2f43ee32d79588a2"
+    },
+    {
+      "file": "pattern-036-server1-overlap-audit.json",
+      "bytes": 15170,
+      "sha256": "391bd75e33767aa76899bd1a9061b41eb500b2e89844e86e9d45459e31c23ae7"
+    },
+    {
+      "file": "pattern-036-server2-readiness-audit.json",
+      "bytes": 12074,
+      "sha256": "dc97fd021f8509b7d2364b713e1bc80983a34a1e2d9818df18a60a0bf434f5f1"
+    },
+    {
+      "file": "pattern-036-server3-readiness-budget-audit.json",
+      "bytes": 9378,
+      "sha256": "6f8b5d6134630682a70b97a503209facda9b907f7090deabe2428a0d8e35a140"
+    }
+  ]
+}

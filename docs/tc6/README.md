@@ -3,7 +3,22 @@
 Дата первоначального изучения справочников: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
 
-Текущий срез **0.35.0**: **99/148** исследований, **30/56** наполнений.
+Текущий срез **0.36.0**: **101/148** исследований, **30/56** наполнений.
+Исходная DIOPTRA→ARCANEPATTERNCRAFTER цепь оплачивает оба устройства;
+диоптра показывает Vis/Flux13×13, сборщик применяет10uniform-material схем
+через верхний/нижний инвентари с native аурой, redstone и исходной анимацией.
+Правила — [PATTERN-CRAFTER.md](../../PATTERN-CRAFTER.md); аудиты:
+[сборщик](ARCANE-PATTERN-CRAFTER-BETA26-AUDIT.md),
+[диоптра](DIOPTRA-BETA26-AUDIT.md),
+[прогрессия](PATTERN-DIOPTRA-PROGRESSION-BETA26-AUDIT.md),
+[клиент](ARCANE-PATTERN-CRAFTER-CLIENT-BETA26-AUDIT.md).
+Финальный `pattern-036-server4` 1488/1488, `pattern-036-client1`23/23, оба native exit0;
+все23полныхPNG и оба листа просмотрены двумя проверяющими.
+2859JSON/3689resource-byte/original670PNG7JPG57OGG прошли.
+[Отчёт0.36](../../validation/artifact-report-0.36.json) и
+[VALIDATION.md](../../VALIDATION.md) фиксируют оплаты, fixtures и границы.
+
+Исторический срез **0.35.0**: **99/148** исследований, **30/56** наполнений.
 LAMPGROWTH/LAMPFERTILITY связаны с исходной прогрессией, двумя платными
 наполнениями, Herba/Desiderium, настоящим ростом растений и парами животных.
 Правила — [LAMPS.md](../../LAMPS.md); аудиты:

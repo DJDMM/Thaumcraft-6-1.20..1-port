@@ -39,14 +39,14 @@ public final class ArtificeTurretProgressionGameTests {
         var p=player(h);var k=KnowledgeStore.get(p);
         String[][] parents={{"REDSTONERELAY","BASEARTIFICE"},{"ARCANEEAR","REDSTONERELAY"},
                 {"BASICTURRET","MINDCLOCKWORK","ARCANEEAR"},{"ADVANCEDTURRET","MINDBIOTHAUMIC","BASICTURRET"}};
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==99,"Expected preserved97 plus both original lamp studies");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==101,"Expected preserved99 plus Dioptra and Pattern Crafter");
         for(String[] pair:parents) {
             h.assertTrue(ResearchCatalog.get(pair[0]).parents().equals(List.of(pair).subList(1,pair.length)),"Original turret-chain parents changed");
             result(h,p,pair[0],0,ResearchProgression.Result.LOCKED);
         }
         result(h,p,"ARCANEBORE",0,ResearchProgression.Result.LOCKED);
         h.assertTrue(k.researchStage("ARCANEBORE")==0,"Unpaid bore parents opened the device");
-        for(String key:List.of("DIOPTRA","BASEELDRITCH")) {
+        for(String key:List.of("BASEELDRITCH")) {
             result(h,p,key,0,ResearchProgression.Result.UNSUPPORTED);
             h.assertTrue(k.researchStage(key)==0,"Turret research exposed an unrelated late branch");
         }

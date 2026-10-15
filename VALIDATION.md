@@ -1,4 +1,135 @@
-# Проверка ламп роста и плодородия0.35.0
+# Проверка шаблонного верстака и диоптры0.36.0
+
+Дата: **2026-10-16**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26. Охват101/148, наполнение30/56;
+зарегистрированных исходных наполнений по-прежнему56.
+Правила — [PATTERN-CRAFTER.md](PATTERN-CRAFTER.md), точные SHA/наблюдения —
+[artifact-report0.36](validation/artifact-report-0.36.json).
+
+Свежий полный `pattern-036-server4` прошёл **1488/1488**, native exit0 и BUILD SUCCESSFUL.
+Сохранены1422 прежних проверки; новые определения: {'artifice/pattern/PatternCrafterGameTests.java': 30, 'artifice/pattern/PatternOwnershipGameTests.java': 6, 'artifice/dioptra/DioptraGameTests.java': 14, 'research/PatternCrafterProgressionGameTests.java': 16}.
+Проверены исходные маски/одинаковый материал/порядок источников/стороны
+верхнего и нижнего контейнеров, native recipes, idle5vis/literal1power,
+redstone, физическая оплата/выход, повторы/сохранения/loaded-only migration.
+Диоптра проверяет настоящий legacyTRUEdefault/placementTRUE,20tick clock,
+169сэмплов/центр84/ориентацию, read-only Vis/Flux, click-only mode,
+redstone-ignored/comparator,169byteNBT/разные load-update clocks,
+bounded malformed saves, missing loaded chunks и сохранение чужих BE.
+Есть настоящий world-ticked тест диоптры с native readiness/region ticket;
+синхронные проверки clock/NBT используют явные подготовленные состояния.
+Исследования проходят исходную BASEARTIFICE→DIOPTRA→ARCANEPATTERNCRAFTER
+цепь,16rawObservationAUROMANCY, по32rawTheory трёх категорий,
+!sensus/!auram/!fabrico, по5+5XP и два настоящих50vis arcane-рецепта.
+
+Клиент `pattern-036-client1` прошёл **23/23**, JVM exit0, PID26160,
+максимум16 собственных окон скрытого
+`WinSta0\ThaumcraftQA_*`; входной рабочий стол
+`Default→Default`. Нет переключения/global input.
+Root и независимый проверяющий просмотрели все23полных1600×1000PNG,
+полный лист и шестикадровое превью одного финального native прогона.
+
+Нативные наблюдения финального лога:
+
+- `[03:17:56] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_FIXTURES: ownedSurvivalarena/rawbench/30loadedchunks variedinitialVisFlux/BASEARTIFICEprecursor/rawknowledgeandtypedcrystals/materialsdeferred/rawchestsandvanillarecipeinputs; targetstudies/paiddevices/aspects absent; no directactiveconsumer tick/count/power/type/grid/RNG/aura reset; notfullsurvival/multiplayer/reload/audio/allangles`
+- `[03:17:57] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/sensus/no targetaspectsetter`
+- `[03:17:59] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/auram/no targetaspectsetter`
+- `[03:18:01] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/fabrico/no targetaspectsetter`
+- `[03:18:02] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_STUDY_PAID: DIOPTRA actualnativeC2S/16rawknowledge/+10earnedXP/actualdiscoveredaspects/noitemcost`
+- `[03:18:04] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_BENCH_PAID: dioptra actualnativeC2S/50vis/2crystals/physicaloriginalingredients->oneactualoutput,total=1`
+- `[03:18:05] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_PLACED: dioptra nativeC2S/paidBlockItem/no forcedtargetstate`
+- `[03:18:08] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_DIOPTRA_FLUX: actualnativeC2Stoggle/169nativecachedaurasamples/centerbyte2/no directgridsetter`
+- `[03:18:09] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_STUDY_PAID: ARCANEPATTERNCRAFTER actualnativeC2S/96rawknowledge/+10earnedXP/actualdiscoveredaspects/noitemcost`
+- `[03:18:11] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_BENCH_PAID: pattern_crafter actualnativeC2S/50vis/3crystals/physicaloriginalingredients->oneactualoutput,total=2`
+- `[03:18:12] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_PLACED: pattern_crafter nativeC2S/paidBlockItem/no forcedtargetstate`
+- `[03:18:15] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode0/actualnativeworldticks/physical9wheat->1hay_block /onepower/total1`
+- `[03:18:17] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode1/actualnativeworldticks/physical1oak_log->4oak_planks /onepower/total2`
+- `[03:18:19] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode2/actualnativeworldticks/physical2oak_planks->1oak_pressure_plate /onepower/total3`
+- `[03:18:21] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode3/actualnativeworldticks/physical2oak_planks->4stick /onepower/total4`
+- `[03:18:23] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode4/actualnativeworldticks/physical4oak_planks->1crafting_table /onepower/total5`
+- `[03:18:25] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode5/actualnativeworldticks/physical3oak_planks->6oak_slab /onepower/total6`
+- `[03:18:30] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_UNMATCHED: mode6/threeverticalplanks/no vanilla recipe/80actualworldticks/physicalinput3conserved/power4.0 unchanged`
+- `[03:18:33] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode7/actualnativeworldticks/physical6oak_planks->2oak_trapdoor /onepower/total7`
+- `[03:18:35] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode8/actualnativeworldticks/physical6oak_planks->3oak_door /onepower/total8`
+- `[03:18:37] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_CRAFT: mode9/actualnativeworldticks/physical8oak_planks->1chest /onepower/total9`
+- `[03:18:42] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_PAUSE: actualC2Sredstone/80worldticks/input8/output23 /power1.0 unchanged`
+- `[03:18:46] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_NATIVE_RESUME: actualSurvivalRedstoneharvest/native20tickworldcraft/8physicalplanks->secondchest/onepower,total10`
+- `[03:18:48] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_HARVESTED: pattern_crafter actualnativeC2S/onephysicalpaiditem/no syntheticrefund`
+- `[03:18:48] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_SURVIVAL_HARVESTED: dioptra actualnativeC2S/onephysicalpaiditem/no syntheticrefund`
+- `[03:18:50] [Server thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_CLIENT_FACTS: scenes23 nativeAspects3/studies2/paidTheoryGOLEMANCY32ARTIFICE32AUROMANCY32/paidObservationAUROMANCY16/earnedXP20/paidBench2/vis100/Aer1Aqua2Terra1Ordo1/SurvivalPlacement2/nativeDioptraVisFlux169samples/knobCycles9/dies10/nativeVanillaCrafts10/oneUnmatchedDieConserved/physicalOutputs24/chest2/redstonePause80ticks/SurvivalTeardown2/renderFrames1053/movingFrames989/renderModes1023/dioptraVisFrames73/FluxFrames110; explicitBASEARTIFICE/rawknowledge/crystals/materials/chests/arena/initialaura,notfullsurvival/multiplayer/reload/audio/allangles`
+- `[03:18:50] [Render thread/INFO] [th.ar.pa.cl.PatternClientSmokeTest/]: THAUMCRAFT_PATTERN_RENDER_AUDIT_OK: 23 scenes; originaltenframeDie/nativeopposedextrudedgears/actualnativeblockevent/Dioptra144cells48edges4sides/nativeVisFluxcolors/lightmapfogadditive/noinventedGUI`
+
+Arcane-оплата:100vis, Aer1/Aqua2/Terra1/Ordo1, точные реальные компоненты
+двух устройств. Это отдельная оплата от последующего native расхода ауры
+автокрафтером. Девять подходящих схем и повтор после паузы дают10операций,
+24реальных выходных предмета, включая два сундука. Схема6 не имеет vanilla
+рецепта для трёх вертикальных досок:80native world ticks сохраняют ввод
+и power, затем физический остаток участвует в следующей подходящей схеме.
+Оба изготовленных устройства поставлены и разобраны через Survival C2S.
+Диоптра использует настоящий native cache169сэмплов в обоих режимах.
+
+Фикстуры: завершён только BASEARTIFICE; сырые знания, typed scan crystals,
+обычные материалы/5первичных кристаллов, workbench, сундуки/vanilla ввод,
+арена/загруженные чанки и начальные Vis/Flux заданы явно. Sensus/Auram/
+Fabrico получены actual Thaumometer C2S; открытия и готовые исследованные
+устройства не выданы. После размещения нет прямого вызова consumer tick,
+сброса его счётчиков/типа/power/grid/RNG или ауры ради результата.
+Нативные сканы сохраняют заработанные Observation rewards, не обнуляют их.
+
+Исходные quirks и современные ограничения указаны в четырёх аудитах:
+uniform-material recipes,20tick cadence, idle5vis refill/literal1craftcost,
+fractional stall, данные BE/геометрия/анимации; loaded-only границы,
+наблюдаемое физическое владение и callback conservation являются явными
+адаптациями. Неизвестные сторонние handlers без наблюдаемого владения
+не заявлены как поддерживаемый оплачиваемый контракт.
+
+Перед финальным прогоном исправлялась только подготовка тестов. Server1
+завершился четырьмя сбоями: аудит сохранённого мира подтвердил пересечение
+широкой арены турели с алтарём зеркала и печью; отдельно исправлено создание
+двойного сундука настоящим BlockItem. Первая мешавшая сущность не установлена.
+После изоляции арен Server2 выявил восемь проверок, которые начинали поиск
+сущностей до готовности новых чанков. Добавлено однократное ожидание
+настоящей загрузки и обработки чанков. Server3 прошёл 1487/1488:
+одна подготовка не уложилась в старые 100 тиков; подробных состояний чанков
+тот прогон не записывал, поэтому точная причина задержки не установлена.
+Финальная подготовка ограничена 300 тиками, с очисткой на 298-м и диагностикой
+недоступных чанков. Все 81 условие двадцати проверок сохранены; отдельная
+проверка AI по-прежнему использует ровно 140 настоящих тиков и прежний лимит.
+Аудиты трёх ранних прогонов привязаны к исходным логам и SHA в отчёте.
+Код игровых механик между этими прогонами не менялся.
+
+Клиент1 выполнен перед финальным Server4. Все 4425 отпечатков исходников,
+ресурсов и помощников совпадают между этим клиентом, Server4 и финальной
+сборкой; исключений нет.
+
+Ранние попытки сохранены отдельно. Список ниже привязывает фактически
+найденные файлы SHA256 и не переименовывает отказ в успех или причину:
+
+- `pattern-036-gametest1.log`: SHA256 `4a5c3198ee70baf8360276ced5e067c80dfda2187a0720770ae9238ed5c211e8`.
+- `pattern-036-gametest2.log`: SHA256 `7e2a7ea5da0f440e7deaf0d977114ce9468127347c620ed7d96e297048784d2e`.
+- `pattern-036-gametest3.log`: SHA256 `f6974a1539ae2f3c2886abf7019b969980804da16e1e6175bc1afe858fd5b40a`.
+- `pattern-036-compile1.log`: SHA256 `cc453a114643490232c3d736c1612dd78b2b36b65a66abe8d5eaac84249e6ff7`.
+- `pattern-036-server1-run.json`: SHA256 `d3bafaeea516e9ebcb79b08570139c19247c35d4109310452f8372cf42456ccc`.
+- `pattern-036-server2-run.json`: SHA256 `a4120119b3c2c5c6e4091c308e41de4f9fbc02b5f637e14240dd5ed3cd6cba82`.
+- `pattern-036-server3-run.json`: SHA256 `0efbd968ed8bcef433f9718b6da2c8e0b22533e2338f167d2f43ee32d79588a2`.
+- `pattern-036-server1-overlap-audit.json`: SHA256 `391bd75e33767aa76899bd1a9061b41eb500b2e89844e86e9d45459e31c23ae7`.
+- `pattern-036-server2-readiness-audit.json`: SHA256 `dc97fd021f8509b7d2364b713e1bc80983a34a1e2d9818df18a60a0bf434f5f1`.
+- `pattern-036-server3-readiness-budget-audit.json`: SHA256 `6f8b5d6134630682a70b97a503209facda9b907f7090deabe2428a0d8e35a140`.
+
+Все 4425 финальных client/build source/resource/helper fingerprint совпадают;
+server-релевантные совпадают. Единственное допустимое исключение после
+server — opt-in Dist.CLIENT QA driver; если оно было, оба SHA связаны в report.
+Сборка успешна, **2859JSON**, **3689**resource-byte, оригинальные
+**670PNG/7JPG/57OGG** прошли. Версии, классы, CRC и архивы проверены.
+JAR SHA256: `a0e07e889bba4cb31870b03115f9752701fe510579232052541817cdc0397cd2`.
+
+Ограничения: подготовленный QA не доказывает полное обычное survival,
+естественное получение всех precursor материалов, отдельный multiplayer,
+client reload, все углы/кадры анимации или слышимый звук. Изображения —
+реальные кадры; подписи листа находятся вне игровых пикселей.
+
+---
+
+## История: Проверка ламп роста и плодородия0.35.0
 
 Дата: **2026-10-15**. Minecraft1.20.1 / Forge47.4.10 / Java17.
 Оригинал — выпущенный TC6.1.BETA26. Охват99/148, наполнение30/56;

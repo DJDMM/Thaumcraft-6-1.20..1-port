@@ -51,7 +51,10 @@ public final class CatalogGameTests {
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.golemancy.jar.BrainJarBlockEntity
                     : entry.getKey().equals("centrifuge")
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity
+                    : entry.getKey().equals("pattern_crafter")
+                    ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.pattern.PatternCrafterBlockEntity
                     : helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
+            if(entry.getKey().equals("dioptra")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.dioptra.DioptraBlockEntity,"Dioptra lost native aura grid ticker");
             if(entry.getKey().equals("hungry_chest")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.hungrychest.HungryChestBlockEntity,"Hungry Chest lost operational inventory");
             if(entry.getKey().equals("levitator")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.golemancy.levitator.LevitatorBlockEntity,"Levitator lost operational aura ticker");
             if(entry.getKey().equals("redstone_relay")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.redstone.RedstoneRelayBlockEntity,"Relay lost operational signal settings");

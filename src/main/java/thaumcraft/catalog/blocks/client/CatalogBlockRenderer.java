@@ -96,7 +96,7 @@ public final class CatalogBlockRenderer implements BlockEntityRenderer<CatalogBl
                 valve.renderParts(pose,buffers.getBuffer(RenderType.entityCutoutNoCull(texture("textures/models/valve.png"))),light,overlay,0x7380FF,"ValveRod");
             }
         } else if(id.equals("pattern_crafter")) {
-            renderPattern(state,pose,buffers,light,overlay);
+            thaumcraft.artifice.pattern.client.PatternCrafterRenderer.renderHardware(state,0,0,pose,buffers,light,overlay);
         } else if(id.startsWith("nitor_")) {
             pose.translate(.5,.5,.5);pose.mulPose(net.minecraft.client.Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
             var vertices=buffers.getBuffer(RenderType.entityTranslucent(texture("textures/misc/particles.png")));
@@ -112,42 +112,6 @@ public final class CatalogBlockRenderer implements BlockEntityRenderer<CatalogBl
         if(direction.getStepX()!=0)pose.mulPose(Axis.XP.rotationDegrees(90*direction.getStepX()));
         else if(direction.getStepY()!=0)pose.mulPose(Axis.YP.rotationDegrees(90*direction.getStepY()));
         else pose.mulPose(Axis.ZP.rotationDegrees(90*direction.getStepZ()));
-    }
-    private static void renderPattern(BlockState state,PoseStack pose,MultiBufferSource buffers,int light,int overlay) {
-        pose.translate(.5,.75,.5);
-        float rotation=switch(facing(state)){case EAST -> 90;case WEST -> 270;case NORTH -> 180;default -> 0;};
-        pose.mulPose(Axis.YP.rotationDegrees(rotation));
-        pose.pushPose();pose.mulPose(Axis.ZP.rotationDegrees(90));pose.translate(0,0,-.5001);
-        var panel=buffers.getBuffer(RenderType.entityCutoutNoCull(texture("textures/blocks/pattern_crafter_modes.png")));
-        // TC6 renderQuadCentered(10,1,frame=0,scale=.5): original rotated UV order.
-        vertex(panel,pose.last(),-.25f,.25f,0,.1f,1,light,overlay,0,0,-1);
-        vertex(panel,pose.last(),.25f,.25f,0,.1f,0,light,overlay,0,0,-1);
-        vertex(panel,pose.last(),.25f,-.25f,0,0,0,light,overlay,0,0,-1);
-        vertex(panel,pose.last(),-.25f,-.25f,0,0,1,light,overlay,0,0,-1);
-        pose.popPose();
-        var gear=buffers.getBuffer(RenderType.entityCutoutNoCull(texture("textures/misc/gear_brass.png")));
-        for(float x:new float[]{-.2f,.2f}) {
-            pose.pushPose();pose.translate(x,-.40625,.05);pose.scale(.5f,.5f,1);pose.translate(-.5,-.5,0);
-            extrudedSprite(gear,pose.last(),light,overlay,.1f);pose.popPose();
-        }
-    }
-    /** Original UtilsFX.renderTextureIn3D(1,0,0,1,16,16,.1) using modern vertices. */
-    private static void extrudedSprite(VertexConsumer vertices,PoseStack.Pose pose,int light,int overlay,float thickness) {
-        vertex(vertices,pose,0,0,0,1,1,light,overlay,0,0,1);vertex(vertices,pose,1,0,0,0,1,light,overlay,0,0,1);
-        vertex(vertices,pose,1,1,0,0,0,light,overlay,0,0,1);vertex(vertices,pose,0,1,0,1,0,light,overlay,0,0,1);
-        vertex(vertices,pose,0,1,-thickness,1,0,light,overlay,0,0,-1);vertex(vertices,pose,1,1,-thickness,0,0,light,overlay,0,0,-1);
-        vertex(vertices,pose,1,0,-thickness,0,1,light,overlay,0,0,-1);vertex(vertices,pose,0,0,-thickness,1,1,light,overlay,0,0,-1);
-        for(int i=0;i<16;i++) {
-            float f=i/16f,next=f+1/16f,uv=1-f-1/32f;
-            vertex(vertices,pose,f,0,-thickness,uv,1,light,overlay,-1,0,0);vertex(vertices,pose,f,0,0,uv,1,light,overlay,-1,0,0);
-            vertex(vertices,pose,f,1,0,uv,0,light,overlay,-1,0,0);vertex(vertices,pose,f,1,-thickness,uv,0,light,overlay,-1,0,0);
-            vertex(vertices,pose,next,1,-thickness,uv,0,light,overlay,1,0,0);vertex(vertices,pose,next,1,0,uv,0,light,overlay,1,0,0);
-            vertex(vertices,pose,next,0,0,uv,1,light,overlay,1,0,0);vertex(vertices,pose,next,0,-thickness,uv,1,light,overlay,1,0,0);
-            vertex(vertices,pose,0,next,0,1,uv,light,overlay,0,1,0);vertex(vertices,pose,1,next,0,0,uv,light,overlay,0,1,0);
-            vertex(vertices,pose,1,next,-thickness,0,uv,light,overlay,0,1,0);vertex(vertices,pose,0,next,-thickness,1,uv,light,overlay,0,1,0);
-            vertex(vertices,pose,1,f,0,0,uv,light,overlay,0,-1,0);vertex(vertices,pose,0,f,0,1,uv,light,overlay,0,-1,0);
-            vertex(vertices,pose,0,f,-thickness,1,uv,light,overlay,0,-1,0);vertex(vertices,pose,1,f,-thickness,0,uv,light,overlay,0,-1,0);
-        }
     }
     private static ResourceLocation texture(String path) {return ResourceLocation.fromNamespaceAndPath("thaumcraft",path);}
     private static void render(LegacyVisualModel model,PoseStack pose,MultiBufferSource buffers,String texture,int light,int overlay,int color) {

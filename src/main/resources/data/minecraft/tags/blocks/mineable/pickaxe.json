@@ -11,6 +11,8 @@
     "thaumcraft:condenser_lattice_dirty",
     "thaumcraft:lamp_growth",
     "thaumcraft:lamp_fertility",
+    "thaumcraft:dioptra",
+    "thaumcraft:pattern_crafter",
     "#thaumcraft:world_ores"
   ],
   "replace": false

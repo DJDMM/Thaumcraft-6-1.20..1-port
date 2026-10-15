@@ -54,8 +54,8 @@ public final class LampProgressionGameTests {
 
     @GameTest(template="empty")
     public static void bothOriginalLampStudiesRequireEveryStrictCompletedParentAndKeepLaterDevicesClosed(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==99,
-                "Expected preserved97 plus only the two original lamp studies");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==101,
+                "Expected preserved99 plus Dioptra and Pattern Crafter");
         h.assertTrue(h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get()).size()==56,
                 "Enabling two existing lamp paths duplicated the archived56 infusion recipes");
         for (String key:KEYS) {
@@ -71,7 +71,7 @@ public final class LampProgressionGameTests {
                 h.assertTrue(k.researchStage(key)==0&&p.totalExperience==0,"Started parent unlocked lamp "+key);
                 complete(k,missing);result(h,p,key,0,ResearchProgression.Result.STARTED);
                 h.assertTrue(k.researchStage(key)==1&&p.totalExperience==5,"Lamp start skipped paid stage or5XP");
-                for (String later:List.of("DIOPTRA","ARCANEPATTERNCRAFTER","BASEELDRITCH"))
+                for (String later:List.of("BASEELDRITCH"))
                     result(h,p,later,0,ResearchProgression.Result.UNSUPPORTED);
             }
         }

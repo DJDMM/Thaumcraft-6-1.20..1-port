@@ -31,7 +31,10 @@ public final class CatalogBlocks {
         for (Spec spec : SPECS) if (!existing.contains(ResourceLocation.fromNamespaceAndPath("thaumcraft",spec.id()))) {
             RegistryObject<Block> block = BLOCKS.register(spec.id(), () -> create(spec));
             ENTRIES.put(spec.id(),block);
-            if (spec.item()) ITEMS.register(spec.id(), () -> thaumcraft.artifice.mirror.MirrorModule.handlesBlock(spec.id())
+            if (spec.item()) ITEMS.register(spec.id(), () -> thaumcraft.artifice.pattern.PatternCrafterModule.handlesBlock(spec.id())
+                    ? thaumcraft.artifice.pattern.PatternCrafterModule.createBlockItem(block.get())
+                    : spec.id().equals("dioptra") ? new BlockItem(block.get(),new Item.Properties())
+                    : thaumcraft.artifice.mirror.MirrorModule.handlesBlock(spec.id())
                     ? thaumcraft.artifice.mirror.MirrorModule.createBlockItem(block.get())
                     : thaumcraft.essentia.condenser.CondenserModule.handlesBlock(spec.id())
                     ? thaumcraft.essentia.condenser.CondenserModule.createBlockItem(block.get())
@@ -70,6 +73,8 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (thaumcraft.artifice.pattern.PatternCrafterModule.handlesBlock(id)) return thaumcraft.artifice.pattern.PatternCrafterModule.createBlock(id);
+        if (id.equals("dioptra")) return new thaumcraft.artifice.dioptra.DioptraBlock();
         if (thaumcraft.artifice.furnace.InfernalFurnaceModule.handlesBlock(id)) return thaumcraft.artifice.furnace.InfernalFurnaceModule.createBlock(id);
         if (thaumcraft.essentia.condenser.CondenserModule.handlesBlock(id)) return thaumcraft.essentia.condenser.CondenserModule.createBlock(id);
         if (thaumcraft.artifice.mirror.MirrorModule.handlesBlock(id)) return thaumcraft.artifice.mirror.MirrorModule.createBlock(id);

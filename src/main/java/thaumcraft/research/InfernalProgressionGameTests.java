@@ -50,7 +50,7 @@ public final class InfernalProgressionGameTests {
 
     @GameTest(template="empty")
     public static void twoOriginalStudiesRequireStrictParentsAndNinetySixCanonicalEntries(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==99,
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==101,
                 "Preserved97 plus both original lamp studies census changed");
         for (String key:List.of("INFERNALFURNACE","BELLOWS")) {
             String parent=key.equals("BELLOWS")?"INFERNALFURNACE":"BASEARTIFICE";
@@ -63,7 +63,7 @@ public final class InfernalProgressionGameTests {
             complete(k,parent);result(h,p,key,0,ResearchProgression.Result.STARTED);
             h.assertTrue(k.researchStage(key)==1&&p.totalExperience==5,"Study skipped its initial payment stage");
         }
-        for(String key:List.of("DIOPTRA","BASEELDRITCH"))
+        for(String key:List.of("BASEELDRITCH"))
             result(h,player(h),key,0,ResearchProgression.Result.UNSUPPORTED);
         h.succeed();
     }

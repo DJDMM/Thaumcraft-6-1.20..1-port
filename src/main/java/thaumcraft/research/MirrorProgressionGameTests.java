@@ -58,8 +58,8 @@ public final class MirrorProgressionGameTests {
 
     @GameTest(template = "empty")
     public static void mirrorChainKeepsEveryOriginalStrictParentAndNinetySixCanonicalEntries(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 99,
-                "Preserved97 plus both original lamp studies changed");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 101,
+                "Preserved99 plus Dioptra and Pattern Crafter changed");
         Map<String,List<String>> parents = Map.of("ARCANELAMP", List.of("BASEARTIFICE"), "MIRROR", List.of("ARCANELAMP","INFUSION"),
                 "MIRRORHAND", List.of("MIRROR"), "MIRRORESSENTIA", List.of("MIRROR"));
         for (String key : KEYS) {
@@ -76,7 +76,7 @@ public final class MirrorProgressionGameTests {
                 h.assertTrue(k.researchStage(key) == 1 && p.totalExperience == 5, "Parent completion skipped first-stage mirror payment");
             }
         }
-        for (String key : List.of("DIOPTRA","BASEELDRITCH")) {
+        for (String key : List.of("BASEELDRITCH")) {
             var p = player(h); result(h,p,key,0,ResearchProgression.Result.UNSUPPORTED);
         }
         h.succeed();

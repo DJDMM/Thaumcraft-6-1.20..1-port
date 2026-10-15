@@ -80,3 +80,10 @@ ordinary gameplay saves and global keyboard/mouse input remain untouched.
 - `capture-javaexec.init.gradle`: ForgeGradle preparation and final command dump.
 - `New-JavaArgumentFile.ps1`: safe Java argument-file and environment delta export.
 - `Start-IsolatedJava.ps1`: native named-desktop launch and exact-JVM lifetime.
+
+# Pattern Crafter and Dioptra
+
+`run_client_smoke_isolated.ps1 -SmokeTest Pattern` prepares the opt-in
+`patternSmokeTest` JVM under `run/pattern-smoke` on the same verified hidden,
+non-input desktop. Actual pass/fail and reviewed captures belong to the
+versioned validation report; selecting this profile alone is not proof.
