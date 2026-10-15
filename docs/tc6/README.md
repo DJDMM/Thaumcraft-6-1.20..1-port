@@ -3,7 +3,20 @@
 Дата первоначального изучения справочников: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
 
-Текущий срез **0.34.0**: **97/148** исследований, **28/56** наполнений.
+Текущий срез **0.35.0**: **99/148** исследований, **30/56** наполнений.
+LAMPGROWTH/LAMPFERTILITY связаны с исходной прогрессией, двумя платными
+наполнениями, Herba/Desiderium, настоящим ростом растений и парами животных.
+Правила — [LAMPS.md](../../LAMPS.md); аудиты:
+[устройства](GROWTH-FERTILITY-LAMPS-BETA26-AUDIT.md),
+[прогрессия](GROWTH-FERTILITY-PROGRESSION-BETA26-AUDIT.md),
+[клиент](GROWTH-FERTILITY-CLIENT-BETA26-AUDIT.md).
+Финальный `lamps-035-server3` 1422/1422, `lamps-035-client2`15/15, оба native exit0;
+все15полныхPNG и оба листа просмотрены двумя проверяющими.
+2856JSON/3684resource-byte/original668PNG7JPG57OGG прошли.
+[Отчёт0.35](../../validation/artifact-report-0.35.json) и
+[VALIDATION.md](../../VALIDATION.md) фиксируют оплаты, fixtures и границы.
+
+Исторический срез **0.34.0**: **97/148** исследований, **28/56** наполнений.
 FLUXCLEANUP связан с исходным исследованием, двумя arcane-рецептами и native
 конденсатором/clean-dirty решётками/фильтрами/резонатором.
 Правила — [CONDENSER.md](../../CONDENSER.md); аудиты:

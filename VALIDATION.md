@@ -1,4 +1,121 @@
-# Проверка конденсатора загрязнения0.34.0
+# Проверка ламп роста и плодородия0.35.0
+
+Дата: **2026-10-15**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26. Охват99/148, наполнение30/56;
+зарегистрированных исходных рецептов наполнения по-прежнему56.
+Контракты — [LAMPS.md](LAMPS.md), SHA/наблюдения/фикстуры —
+[artifact-report0.35](validation/artifact-report-0.35.json).
+
+Свежий полный `lamps-035-server3` прошёл **1422/1422**, native exit0 и BUILD SUCCESSFUL.
+Сохранены1369 прежних проверок; фактические новые определения: {'lampCore': 32, 'placementOwnership': 6, 'paidResearchAndCrafting': 15}.
+Проверены исходная геометрия/шесть сторон/свет15/0, оплата и отменённые,
+reentrant/foreign placement callbacks, транспорт/строгая тяга/резерв,
+сохранение отрицательных зарядов и исходных счётчиков, поиск растений,
+мature/stacked исключения, отложенный native рост, сохранение принятых tick,
+точные классы/возраст/любовь/население животных, redstone, физические
+выпадения, повторы/сохранения и loaded-only миграция старых блоков.
+Прогрессия проверяет оба исходных родителя,32rawTheory на запись,
+Herba/Desiderium, физическую костную муку/пшеницу/морковь и5+5XP.
+Два настоящих алтаря используют оплаченные предшествующие лампы,
+по шесть реальных реагентов и65эссенции, без ручного продвижения ритуала.
+
+Клиент `lamps-035-client2` прошёл **15/15**, JVM exit0, PID30284,
+максимум16 собственных окон скрытого
+`WinSta0\ThaumcraftQA_*`; входной рабочий стол
+`Default→Default`. Нет переключения/global input.
+Root и независимый проверяющий просмотрели все15полных1600×1000PNG,
+полный лист и шестикадровое превью. Снимки дымки и сердец выбираются
+по реально наблюдаемым эффектам; QA не создаёт их ради фотографии.
+
+Нативные наблюдения финального лога:
+
+- `[17:02:55] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_FIXTURES: ownedSurvivalarena/rawbench+stablealtar+sixpedestals+32candles+148typedaltarEssentia/2500visperloadedchunk/predecessorARCANELAMP+INFUSION/80rawAGE0Wheat/randomTickSpeed0/fence; rawknowledge/studymaterials/crystals/recipeingredients deferred; targetaspects/studies/paidArcaneLamps/GrowthFertility/babies absent; no directruntime tick/grow/charge/reserve/queue/RNG/love/breedcall`
+- `[17:02:56] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/herba; no targetaspectsetter`
+- `[17:02:58] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_ASPECT_SCANNED: actualThaumometerC2S/rawtypedcrystal/desiderium; no targetaspectsetter`
+- `[17:02:59] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_STUDY_PAID: LAMPGROWTH actualnativeC2S/32rawTheoryARTIFICE/+10earnedXP/originalphysicalitems`
+- `[17:03:01] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_STUDY_PAID: LAMPFERTILITY actualnativeC2S/32rawTheoryARTIFICE/+10earnedXP/originalphysicalitems`
+- `[17:03:02] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_BENCH_PAID: 50vis/Aer1Ignis1/fourIronPlates+AmberBlock->oneArcaneLamp,total=1`
+- `[17:03:02] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_BENCH_PAID: 50vis/Aer1Ignis1/fourIronPlates+AmberBlock->oneArcaneLamp,total=2`
+- `[17:03:32] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_ALTAR_PAID: lamp_growth physicalpaidArcaneLamp+sixoriginalperipherals+65nativeTypedEssentia->oneactualoutput,total=1`
+- `[17:04:00] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_ALTAR_PAID: lamp_fertility physicalpaidArcaneLamp+sixoriginalperipherals+65nativeTypedEssentia->oneactualoutput,total=2`
+- `[17:04:01] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_SURVIVAL_PLACED: lamp_growth actualnativeC2S/onepaidBlockItem/supportfacingDOWN/rawtyped40source+verticaltube,chargedonlybynativeworlddraw`
+- `[17:04:03] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_NATIVE_GROWTH: scheduledactualworldcropAGEsum=1 grown=1 rawHerbaRemaining=38 charges=12 reserve=true packets=1 emitted=8 drawn=104,randomTickSpeed0/no directdrivergrow/queue/tickcall`
+- `[17:04:04] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_RAW_ANIMAL_FIXTURE: twoadultnativeCow entities/fullnativeAI/no age/love/babysetter afterspawn`
+- `[17:04:04] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_SURVIVAL_PLACED: lamp_fertility actualnativeC2S/onepaidBlockItem/supportfacingDOWN/rawtyped40source+verticaltube,chargedonlybynativeworlddraw`
+- `[17:04:05] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_NATIVE_LOVE: originalDesiderium5payment/nativeCowsetInLove/events18=2 adultLove=2 charges=0 source=35; nofeeding/directdriverlove/birthcall`
+- `[17:04:08] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_NATIVE_BIRTH: actualvanillaBreedGoal/onephysicalbaby/twoadultcooldowns/DesideriumsourcePlusTube=27 charges=8 exactPairPayment5/heartEvents=3; no directbreed/spawnchilddrivercall`
+- `[17:04:29] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_NATIVE_PAUSE: actualtwoC2SRedstoneBlocks/320worldticks cropAGEsum=14 fertilityActiveTicks=71 poweredrefillallowed/growthcharges=11 reserve=true fertilitycharges=10`
+- `[17:04:32] [Render thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_NATIVE_RESUME: actualSurvivalRedstoneharvest/resumedcropAGEsum14->15 freshoriginalMistPackets6->7`
+- `[17:04:34] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_SURVIVAL_HARVESTED: lamp_growth actualnativeC2S/onephysicalpaiditem/lampremoved/nochargeforcedspill`
+- `[17:04:34] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_SURVIVAL_HARVESTED: lamp_fertility actualnativeC2S/onephysicalpaiditem/lampremoved/nochargeforcedspill`
+- `[17:04:36] [Server thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_CLIENT_FACTS: scenes=15 nativeAspects2/studies2/paidTheoryARTIFICE64/earnedXP20/paidArcaneLampBench2/vis100/Aer2Ignis2/paidInfusions2/typedEssentia130/altarRemainder18/nativeSurvivalPlacement2/herbaSourceRemaining34/desireSourceRemaining25/cropAGEsum22/nativeLoveObservedtrue/nativeCowBaby1/nativeHeartEvents3/nativeMistPackets12/nativeMistEmitted96/nativeMistDraws8278/redstonePause320ticks/refillallowed/nativeSurvivalTeardown2; explicitprecursors/rawknowledge/materials/crystals/arenacrops/adults/jars/tubes/aura,notfullsurvival/multiplayer/reload/audio/allangles`
+- `[17:04:36] [Render thread/INFO] [th.ar.la.cl.LampsClientSmokeTest/]: THAUMCRAFT_LAMPS_RENDER_AUDIT_OK: 15 scenes; originalstaticGrowthFertilitymodels/enabledlight15/nativegreenframe56grid16additivemist/nativeAnimalhearts/actualAIbaby/noinventedbeam/nooverlay`
+
+Фактические оплаты:64rawTheoryARTIFICE,20полученногоXP, два precursor bench
+по50vis/Aer1Ignis1, два наполнения по65эссенции/6реагентов/центральной лампе.
+Всего100vis,4первичных кристалла и130эссенции;18исходных единиц остаются
+в банках алтаря. Две изготовленные лампы поставлены в survival; источник
+Herba даёт native попытки роста при **randomTickSpeed0**, Desiderium —
+одну пару с ценой5, native event18 сердца и детёныша через настоящий BreedGoal.
+Подтверждены 320мировых тиков redstone-паузы с разрешённым исходным
+пополнением, продолжение роста и две физические survival-разборки.
+
+Подготовленные условия: завершённые ARCANELAMP/INFUSION, сырые знания,
+материалы/кристаллы/предметы исследования, bedrock-арена,80растений wheatAGE0,
+забор, workbench, стабильный алтарь/6пьедесталов/32свечи/148эссенции,
+начальные2500vis в загруженных чанках, два взрослых nativeCow и по40Herba/
+Desiderium в банках с трубами. Целевые открытия аспектов получены настоящим
+ThaumometerC2S. Целевые исследования, крафты, дети и заряды ламп не выданы
+как готовые результаты. После размещения потребителей QA не сбрасывает
+заряды/резерв/поиск/очередь/RNG и не вызывает напрямую рост/любовь/размножение.
+
+Исходные quirks сохранены: рост считает попытки забора, включая две при
+пустом устройстве, хранит20зарядов и отдельный резерв; применяет строгую
+сферу6,169перемешанных колонок, проход сверху вниз и задержанное сравнение
+последнего растения. Плодородие работает при charges>1, списывает ровно5
+и может получить−3 с тягой158; счётчик идёт только при разрешённой работе,
+с первым импульсом0 и следующими через300. Население считается по точному
+классу, включая молодых/уже влюблённых; при количестве>9 новых пар нет.
+
+Современная адаптация: native scheduled callback растений1.12 разделился
+в1.20 на scheduled tick и randomTick. Сохранён однократный принятый отложенный
+вызов, реальная chunk readiness, дедупликация/персистентность; используется
+нативный рост с его вероятностями и Forge событиями, не bonemeal.
+Loaded-only/неприсвоение чужих транзакций/наблюдаемое владение физическими
+выпадениями являются явными современными ограничениями безопасности ресурсов.
+Сторонние оплачиваемые handlers без наблюдаемого владения не заявлены.
+
+Ранние попытки этого этапа сохраняются отдельно и не заменяют финальный
+native прогон. Следующие реально найденные файлы привязаны SHA256;
+сам список не переименовывает отказ в успех и не приписывает ему причину:
+
+- `lamps-035-gametest1.log`: SHA256 `44bccac7a824b96395b85403d53812d8a38fb5d0361f202144a89c6c05415a3c`.
+- `lamps-035-gametest2.log`: SHA256 `afabc8e2214fcb94604cf0cb0a69703951e50239d357b771fdc1acadc4434270`.
+- `lamps-client-lamps-035-client1-client.log`: SHA256 `522d47d6d2d7fc10aa6d95126fa4af4e5e42ea9c2f26837629554f7108863591`.
+- `lamps-035-compile1.log`: SHA256 `5bb7c12d268b93510440f2d71519bdaefc8e049d2e17037345fe341df66f2740`.
+- `lamps-035-server1-run.json`: SHA256 `244eaad37918ec3fd7fce4ce7400d220a1b700dbfb4e5f4311b74aa8df666a92`.
+- `lamps-035-server2-run.json`: SHA256 `568ba91e414591db132ae2ac79574f03a294a12e851f5e4e9901616ec54e8112`.
+- `lamps-035-client1-audit.json`: SHA256 `be8d8ad9ad265953ae47de18e042ec7f991aa34a7bc0bb5290b247d186004625`.
+- `lamps-035-server1-falling-state.json`: SHA256 `f918e272dfc51bbd3ded4875ed635001392aef0eba8df82fc820a8af41de553d`.
+- `lamps-035-server1-source-drift.json`: SHA256 `0001c564f2f2c9b3ad4bc029563630258b296c99db613445336b056e240b2d8e`.
+- `lamps-035-server2-source-drift.json`: SHA256 `fff48fdc55b65e447c765bd9795b654310261e25f2ccc884f49bfb0d7d8899f1`.
+
+Все 4400 финальных client/build source/resource/helper fingerprint совпадают;
+server-релевантные совпадают. Допустимое исключение только для opt-in
+Dist.CLIENT QA driver, если оно было, связано обоими SHA в artifact report.
+Сборка успешна, **2856JSON**, **3684**resource-byte и оригинальные
+**668PNG/7JPG/57OGG** прошли; CRC/классы/версии/архивы проверены.
+JAR SHA256: `9118cbae541267fd46774b19d366d597c4f684bb874b2ad8d65c1667b281218e`.
+
+Ограничения: подготовленный QA не доказывает полное обычное survival-прохождение,
+естественное получение всех материалов, отдельную multiplayer-сессию,
+clientreload, все углы/кадры анимации или слышимый звук. Шесть направлений
+имеют серверную проверку; клиент использует фактическое крепление DOWN.
+Остальные устройства и поздние ветви требуют дальнейшего переноса.
+
+---
+
+## История: Проверка конденсатора загрязнения0.34.0
 
 Дата: **2026-10-14**. Minecraft1.20.1 / Forge47.4.10 / Java17.
 Оригинал — выпущенный TC6.1.BETA26. Охват97/148, наполнение28/56.

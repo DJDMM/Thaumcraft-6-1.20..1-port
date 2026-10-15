@@ -9,6 +9,8 @@
     "thaumcraft:condenser",
     "thaumcraft:condenser_lattice",
     "thaumcraft:condenser_lattice_dirty",
+    "thaumcraft:lamp_growth",
+    "thaumcraft:lamp_fertility",
     "#thaumcraft:world_ores"
   ],
   "replace": false

@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser', 'Lamps')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Lamps = @{ property = 'lampsSmokeTest'; directory = 'lamps-smoke'; prefix = 'lamps-client'; marker = 'THAUMCRAFT_LAMPS_CLIENT_SMOKE'; audit = 'THAUMCRAFT_LAMPS_RENDER_AUDIT_OK' }
     Condenser = @{ property = 'condenserSmokeTest'; directory = 'condenser-smoke'; prefix = 'condenser-client'; marker = 'THAUMCRAFT_CONDENSER_CLIENT_SMOKE'; audit = 'THAUMCRAFT_CONDENSER_RENDER_AUDIT_OK' }
     Infernal = @{ property = 'infernalSmokeTest'; directory = 'infernal-smoke'; prefix = 'infernal-client'; marker = 'THAUMCRAFT_INFERNAL_CLIENT_SMOKE'; audit = 'THAUMCRAFT_INFERNAL_RENDER_AUDIT_OK' }
     Mirror = @{ property = 'mirrorSmokeTest'; directory = 'mirror-smoke'; prefix = 'mirror-client'; marker = 'THAUMCRAFT_MIRROR_CLIENT_SMOKE'; audit = 'THAUMCRAFT_MIRROR_RENDER_AUDIT_OK' }

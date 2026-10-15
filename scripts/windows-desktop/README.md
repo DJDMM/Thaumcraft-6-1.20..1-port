@@ -1,5 +1,10 @@
 # Isolated Windows client QA
 
+The `-SmokeTest Lamps` profile uses only `run/lamps-smoke` for paid TC6
+Growth/Fertility research, two native lamp infusions, real crop ticks and
+animal breeding. It requests1600x1000 frames with the same hidden non-input
+desktop, exact-JVM and unchanged-input-desktop checks below.
+
 The `-SmokeTest Condenser` profile uses only `run/condenser-smoke` for the
 paid TC6 cleanup research and recipes, connected lattices, physical transport,
 native Flux/Vitium production, filter cleanup and redstone scenes. It requests

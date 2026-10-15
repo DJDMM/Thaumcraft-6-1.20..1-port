@@ -277,7 +277,8 @@ public final class AuromancyProgressionGameTests {
                 "infusion/elementalsword", "infusion/elementalpick", "infusion/elementalshovel", "infusion/elementalhoe",
                 "infusion/focus_2", "infusion/focus_3", "infusion/mindbiothaumic", "infusion/sealharvest", "infusion/sealbutcher", "infusion/sealbreak", "infusion/jarbrain",
                 "infusion/crystalclusterair", "infusion/crystalclusterfire", "infusion/crystalclusterwater", "infusion/crystalclusterearth",
-                "infusion/crystalclusterorder", "infusion/crystalclusterentropy", "infusion/crystalclusterflux", "infusion/causalitycollapser", "infusion/arcanebore", "infusion/mirror", "infusion/mirrorhand", "infusion/mirroressentia")),
+                "infusion/crystalclusterorder", "infusion/crystalclusterentropy", "infusion/crystalclusterflux", "infusion/causalitycollapser", "infusion/arcanebore", "infusion/mirror", "infusion/mirrorhand", "infusion/mirroressentia",
+                "infusion/lampgrowth", "infusion/lampfertility")),
                 "Unavailable mask/late research was bypassed: " + open);
         for (String key : new String[]{"FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING"})
             helper.assertTrue(!ResearchProgression.isImplemented(key), "Incomplete branch was silently advertised: " + key);

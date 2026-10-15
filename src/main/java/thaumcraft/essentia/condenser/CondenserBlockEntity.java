@@ -77,7 +77,8 @@ public final class CondenserBlockEntity extends BlockEntity implements IEssentia
     private static boolean nativeSource(BlockEntity tile){Class<?> type=tile.getClass();return type==thaumcraft.essentia.EssentiaJarBlockEntity.class||type==thaumcraft.essentia.production.AlembicBlockEntity.class
             ||type==thaumcraft.essentia.transport.TubeBlockEntity.class||type==thaumcraft.essentia.transport.TubeBufferBlockEntity.class||type==thaumcraft.essentia.transport.TubeFilterBlockEntity.class
             ||type==thaumcraft.essentia.centrifuge.CentrifugeBlockEntity.class||type==thaumcraft.essentia.thaumatorium.ThaumatoriumBlockEntity.class||type==thaumcraft.essentia.thaumatorium.ThaumatoriumTopBlockEntity.class||type==thaumcraft.golemancy.press.GolemPressBlockEntity.class
-            ||type==CondenserBlockEntity.class||type==thaumcraft.essentia.transfuser.EssentiaTransfuserBlockEntity.class;}
+            ||type==CondenserBlockEntity.class||type==thaumcraft.essentia.transfuser.EssentiaTransfuserBlockEntity.class
+            ||type==thaumcraft.artifice.lamp.GrowthLampBlockEntity.class||type==thaumcraft.artifice.lamp.FertilityLampBlockEntity.class;}
     private boolean safeBufferNeighbors(BlockEntity source){if(!(source instanceof thaumcraft.essentia.transport.TubeBufferBlockEntity))return true;
         // Buffer.takeEssentia queries every neighboring consumer. Do not enter an opaque nested debit callback.
         for(Direction side:Direction.values()){BlockPos pos=source.getBlockPos().relative(side);if(!loaded(level,pos))continue;BlockEntity other=level.getBlockEntity(pos);if(other instanceof IEssentiaTransport&&!(other instanceof CondenserBlockEntity)&&!nativeSource(other))return false;}return true;}

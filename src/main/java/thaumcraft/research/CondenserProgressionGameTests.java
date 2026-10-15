@@ -61,16 +61,16 @@ public final class CondenserProgressionGameTests {
     public static void originalCleanupAddsOneCanonicalStudyAndNoInfusionPath(GameTestHelper h) {
         var entry=ResearchCatalog.get(KEY);
         h.assertTrue(ResearchProgression.isImplemented(KEY)
-                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==97
+                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==99
                 &&entry.parents().equals(List.of("FLUX","f_toomuchflux","VISBATTERY"))
                 &&entry.category().equals("BASICS")&&entry.stages().size()==2,
-                "Released FLUXCLEANUP graph or preserved96 plus one study differs");
+                "Released FLUXCLEANUP graph or canonical99 study census differs");
         for(String original:List.of("thaumcraft:Condenser","thaumcraft:CondenserLattice")) {
             var display=BookRecipeCatalog.definitions(original);
             h.assertTrue(display.size()==1&&display.get(0).kind().equals("arcane")
                     &&display.get(0).research().equals(KEY),"Released recipe became infusion or lost bare gate");
         }
-        for(String later:List.of("LAMPGROWTH","LAMPFERTILITY","DIOPTRA","BASEELDRITCH"))
+        for(String later:List.of("DIOPTRA","BASEELDRITCH"))
             result(h,player(h),0,later,ResearchProgression.Result.UNSUPPORTED);
         h.succeed();
     }

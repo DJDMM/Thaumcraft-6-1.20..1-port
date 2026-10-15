@@ -46,7 +46,7 @@ public final class ArcaneBoreProgressionGameTests {
     @GameTest(template="empty")
     public static void boreStudyRequiresEveryOriginalCompletedParentAndKeepsLateDevicesClosed(GameTestHelper h) {
         h.assertTrue(ResearchProgression.isImplemented("ARCANEBORE")
-                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==97
+                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==99
                 &&ResearchCatalog.get("ARCANEBORE").parents().equals(PARENTS)
                 &&ResearchCatalog.get("ARCANEBORE").stages().size()==2,"Original bore graph or canonical census changed");
         for(String missing:PARENTS) {
@@ -58,7 +58,7 @@ public final class ArcaneBoreProgressionGameTests {
             h.assertTrue(k.researchStage("ARCANEBORE")==0&&p.totalExperience==0,"Started parent unlocked bore study");
             complete(k,missing);result(h,p,0,ResearchProgression.Result.STARTED);
             h.assertTrue(k.researchStage("ARCANEBORE")==1&&p.totalExperience==5,"Bore start charged or skipped first stage");
-            for(String key:List.of("DIOPTRA","LAMPGROWTH","LAMPFERTILITY","BASEELDRITCH"))
+            for(String key:List.of("DIOPTRA","BASEELDRITCH"))
                 h.assertTrue(ResearchNetwork.processAdvance(p,key,0)==ResearchProgression.Result.UNSUPPORTED
                         &&k.researchStage(key)==0,"Bore granted unrelated mirror or late branch");
         }

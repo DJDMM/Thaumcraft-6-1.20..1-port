@@ -35,6 +35,8 @@ public final class CatalogBlocks {
                     ? thaumcraft.artifice.mirror.MirrorModule.createBlockItem(block.get())
                     : thaumcraft.essentia.condenser.CondenserModule.handlesBlock(spec.id())
                     ? thaumcraft.essentia.condenser.CondenserModule.createBlockItem(block.get())
+                    : spec.id().equals("lamp_growth") || spec.id().equals("lamp_fertility")
+                    ? thaumcraft.artifice.lamp.LampModule.createBlockItem(block.get())
                     : spec.id().equals("lamp_arcane") || thaumcraft.artifice.furnace.InfernalFurnaceModule.handlesBlock(spec.id()) ? new BlockItem(block.get(),new Item.Properties())
                     : spec.id().equals("jar_brain")
                     ? new thaumcraft.golemancy.jar.BrainJarBlockItem(block.get())

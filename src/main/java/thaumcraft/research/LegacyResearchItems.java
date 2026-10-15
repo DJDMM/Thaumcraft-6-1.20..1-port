@@ -20,6 +20,8 @@ public final class LegacyResearchItems {
         // BETA26's dye defaults to metadata0 (ink sac), and web is the old cobweb ID.
         // Keep canonical craft proofs and book rows aligned with the physical modern output.
         if (metadata == 0 && id.toString().equals("minecraft:dye")) return ResourceLocation.fromNamespaceAndPath("minecraft", "ink_sac");
+        // LAMPGROWTH obtains one white dye: in 1.12 metadata15 was physical bone meal.
+        if (metadata == 15 && id.toString().equals("minecraft:dye")) return ResourceLocation.fromNamespaceAndPath("minecraft", "bone_meal");
         if (metadata == 0 && id.toString().equals("minecraft:web")) return ResourceLocation.fromNamespaceAndPath("minecraft", "cobweb");
         if (metadata == 0 && id.toString().equals("minecraft:noteblock")) return ResourceLocation.fromNamespaceAndPath("minecraft", "note_block");
         // The 1.12 nether_brick registry entry is the block. Its single brick was

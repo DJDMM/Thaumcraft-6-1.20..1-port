@@ -95,6 +95,8 @@ public final class Thaumcraft {
         thaumcraft.artifice.construct.TurretModule.register(bus);
         thaumcraft.artifice.mirror.MirrorModule.register(bus);
         thaumcraft.artifice.lamp.LampModule.register(bus);
+        bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) ->
+                event.enqueueWork(thaumcraft.artifice.lamp.client.GrowthMistPacket::register));
         thaumcraft.artifice.furnace.InfernalFurnaceModule.register(bus);
         bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) ->
                 event.enqueueWork(thaumcraft.artifice.furnace.InfernalPollutionPacket::register));
