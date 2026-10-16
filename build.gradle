@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.54'
 }
-version = '0.37.0'
+version = '0.38.0'
 group = 'thaumcraft.port'
 base { archivesName = 'thaumcraft-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -20,7 +20,11 @@ minecraft {
             mods { thaumcraft { source sourceSets.main } }
         }
         client {
-            if (project.hasProperty('generatorSmokeTest')) {
+            if (project.hasProperty('grappleSmokeTest')) {
+                workingDirectory project.file('run/grapple-smoke')
+                property 'thaumcraft.grappleSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('generatorSmokeTest')) {
                 workingDirectory project.file('run/generator-smoke')
                 property 'thaumcraft.generatorSmokeTest', 'true'
                 args '--width', '1600', '--height', '1000'

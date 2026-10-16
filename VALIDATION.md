@@ -1,3 +1,106 @@
+# Проверка крюка0.38.0
+
+Дата: **2026-10-16**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26. Охват103/148, наполнение30/56;
+зарегистрированных исходных наполнений56. Контракт — [GRAPPLE-GUN.md](GRAPPLE-GUN.md),
+точные SHA/наблюдения — [artifact-report0.38](validation/artifact-report-0.38.json).
+
+Свежий полный `grapple-038-server2` прошёл **1559/1559**, native exit0 и BUILD SUCCESSFUL.
+Сохранены1534 предыдущих проверки; новые определения: {'artifice/grapple/GrappleGameTests.java': 19, 'research/GrappleGunProgressionGameTests.java': 6}.
+Проверены строгие родители BASEARTIFICE+RECHARGEPEDESTAL,64rawTheory/валидный
+singular nugget meta10/10XP, три исходных arcane-рецепта, фактическое расходование
+оплаченных промежуточных частей, отсутствие повторной/неполной оплаты.
+Ядро проверяет100charge/стоимость выстрела включая Creative/обе руки,
+исходную траекторию/время жизни/попадания/формулу подтягивания/первый толчок,
+приседание/замену/сохранение transient-состояния и современные callback guards.
+Локальные native tickNonPassenger callbacks проверяют семантику сущности;
+они сами по себе не доказывают прошедшие мировые тики.
+
+Клиент `grapple-038-client2` прошёл **11/11**, JVM exit0, PID28860,
+максимум16 собственных окон скрытого
+`WinSta0\ThaumcraftQA_*`; входной рабочий стол
+`Default→Default`. Нет переключения/global input.
+Root и независимый проверяющий просмотрели все11полных1600×1000PNG,
+полный лист и шестикадровое превью одного финального native прогона.
+
+Нативные наблюдения финального лога:
+
+- `[15:59:05] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_FIXTURES: ownedSurvivalarena/staticstoneanchorwallZ24/rawbench+rechargepedestal/BASEARTIFICE+RECHARGEPEDESTALprecursors/rawtheory/nugget/ordinarycraftmaterials/primalcrystals/initial5000vis0fluxper30loadedchunks; actualpaidtip+spoolusedforgun; targetgun/research/charge/hooks absent; noactivehookteleports/noactivehookorplayermotion/charge/aura/RNGsetters; notfullsurvival/multiplayer/reload/audio/allangles`
+- `[15:59:06] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_STUDY_PAID: actualnativeC2S/32rawTheoryARTIFICE+32BASICS/originalsingularnuggetmeta10one/+10earnedXP`
+- `[15:59:07] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_BENCH_PAID: grapple_gun_tip actualnativeC2S/25vis/originalprimalprices/physicalingredients/actualpaidTipSpoolUsedForGun,total=1`
+- `[15:59:08] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_BENCH_PAID: grapple_gun_spool actualnativeC2S/25vis/originalprimalprices/physicalingredients/actualpaidTipSpoolUsedForGun,total=2`
+- `[15:59:09] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_BENCH_PAID: grapple_gun actualnativeC2S/75vis/originalprimalprices/physicalingredients/actualpaidTipSpoolUsedForGun,total=3`
+- `[15:59:11] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_EMPTY_USE: actualnativeC2S/unchargedpaidgun/nohook/nochargecost/originaliceSound`
+- `[15:59:20] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_PEDESTAL_PAID: actualC2Sinsert/nativeWorldTicks/20observedChargeSteps/100wholeChargeFromNative100visRoute/auraBefore4875.0/auraAfter4775.0/no directchargesetter; aggregateAuraAlsoHasNativeDiffusion`
+- `[15:59:21] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_PEDESTAL_RETRIEVED: actualC2Semptyhand/nativephysicalItemEntitypickup/samepaidgun100charge`
+- `[15:59:22] [Render thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_MAIN_FLIGHT: actualnativeC2S/mainhand/newhook207/originalflight/nosynthetichook`
+- `[15:59:23] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_MAIN_PULL: actualblockimpact/status6/nativeowneracceleration/move0.9100767530704659/rise0.7593570881920044/charge99/fallDistance0.0`
+- `[15:59:24] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_NATIVE_RELEASE: main actualC2Sshift/ownerhookremoved/nativeinventoryloaded0/charge99`
+- `[15:59:26] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_OFFHAND_PULL: actualnativeC2S/handOFF/nativeblockimpact/move0.9100849517241488/rise0.7593678247293809/charge98/hook209`
+- `[15:59:26] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_NATIVE_REPLACEMENT: actualnativeC2Srefirewhileloaded/old209removed/new211/oneactiveownerhook/charge97/noactiveownerteleport`
+- `[15:59:27] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_NATIVE_RELEASE: final actualC2Sshift/ownerhookremoved/nativeinventoryloaded0/charge97`
+- `[15:59:28] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_CLIENT_FACTS: scenes11 paidStudy1/TheoryARTIFICE32BASICS32/originalNugget1/earnedXP10/paidBench3/vis125/Terra1Aqua1Aer1Ignis1/actualPaidTipSpoolConsumed/oneFreshGun/emptyUse1/nativePedestalCharge100/nativeRechargeVis100/nativeShots3/charge97/mainMove20.890752976225453/mainRise3.175930142459407/offMove19.30924479798958/offRise3.175562874088925/replacementtrue/shiftReleases2/hookDraws121/ropeSegments7614/glowDraws121; explicitprecursors/rawknowledge/materials/arena/initialaura/rawpedestal,notfullsurvival/multiplayer/reload/audio/allangles`
+- `[15:59:28] [Render thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_RENDER_AUDIT_OK: 11 scenes; originalhookcuboids/sixframeadditiveglow/sourcewavecenterline/foursiderope/mainoffhandloadedmodels/noinventedGUI`
+
+Фактическая цепь:64rawTheory/rareearth1/10XP; три bench125vis,
+Terra1/Aqua1/Aer1/Ignis1; оплаченные tip/spool вошли в единственный свежий
+незаряженный крюк. C2S пустое использование не создало снаряд. Native пьедестал
+настоящими мировыми тиками зарядил100единиц через100vis API-route, затем
+тот же предмет возвращён физическим ItemEntity/native pickup. Совокупная
+аура может меняться от естественной диффузии, поэтому100vis — стоимость
+изолированного recharge-route, а не заявление о чистой разнице всей мировой ауры.
+Три реальных C2S-выстрела оставили97; основная/вторая рука дали настоящее
+движение/подъём, повторный выстрел заменил старый снаряд, оба освобождения
+выполнены приседанием. Ни одного active-hook/player-motion/charge/aura/RNG
+сброса ради кадров; телепорты только до активного зацепа/между освобождёнными.
+
+Фикстуры: completed родители, сырые знания/обычные study/bench материалы,
+кристаллы, простой механизм, верстак, пьедестал, bedrock-арена/каменная стена
+и начальная аура. Сам механизм в этой клиентской цепи выдан как материал,
+его отдельный прежний10vis-рецепт не включён в125vis. Target study/gun/charge
+не выданы. Материалы и исходные исследования не подтверждают полный survival.
+Модель/текстуры/центрline верёвки исходные; современная трубка заменяет GLE,
+точная эквивалентность его tessellation/UV/miter не заявляется.
+
+Ранний `grapple-038-server1` завершился четырьмя ошибками новых фикстур,
+native exit4/Gradle1: две проверки обходили native рост tickCount,
+две перепутали индексы Aqua/Terra. Исправлены фикстуры, исходные цены и
+правила оригинала сохранены. Ранние доказательства сохранены отдельно:
+
+Попытка `grapple-038-client1` остановлена **без pass**, PID29876,
+native exit4294967295, Default input desktop не изменён.
+Сохранены5полных кадров в
+`validation/grapple-038-client1-screenshots` и точный owned-stop receipt.
+Наблюдение: Study and threebench125vis passed, pedestal charged100 in20native steps/100vis actual aura4875→4775. Native END observer sees real held gun100charge; driver stalls waiting Inventory.contains fresh untagged sample. Five actual frames retained.
+Граница диагноза: Mapped native Inventory.contains(ItemStack) compares isSameItemSameTags; charged tc.charge100 differs from fresh sample. This is an opt-in QA predicate failure, not an established native pickup/gameplay defect.
+Исправление: Only opt-in Dist.CLIENT driver uses items.stream item identity for pickup readiness; existing exact server onepaidgun100charge and pedestalempty assertions retained.
+Единственное изменение source после этой попытки — opt-in Dist.CLIENT driver;
+оба SHA связаны в отчёте.
+
+
+- `grapple-038-gametest1.log`: SHA256 `fce705b231f7f72d651777e7f73c30ce4cbcf8ddcbe75bc6a03e5e4eb0a79b99`.
+- `grapple-038-server1-run.json`: SHA256 `87f5adf734a402ca5e1276126a4f290fc093352e98c1b696e16241cf1b0f23f6`.
+- `grapple-038-compile1.log`: SHA256 `459b43e7b1d4d7e1b9e5ef807af83fac93117cf82226c1233485a9ed694d176a`.
+- `grapple-038-compile2.log`: SHA256 `0ed9772555e18f62c7dab564297bdecfbe7473e912316e471b4d8a1f9ce5af54`.
+- `grapple-038-compile3.log`: SHA256 `00fa245023d9b5072617f274975121c4761fcd83571484f3b269eae33a573b13`.
+- `grapple-038-compile4.log`: SHA256 `68b3fb29ffa3765917f1fc9529d11987ed29bc561ba8a2f424c0a1f6e4870992`.
+- `grapple-client-grapple-038-client1-client.log`: SHA256 `b1219c50aceca5d1e4e7a630796ab86634fdfa3ea71747fade87fe794b754bc4`.
+- `grapple-038-client1-state.json`: SHA256 `b3d1a8084cef3d342fc0edcbad9c9a107d4b53135ac79b58c2b714a3e4293e0d`.
+- `grapple-038-client1-owned-stop.json`: SHA256 `46d140ee8e74a5f5fafa3d987e042992aa32b4a8b03cfb9eb69bd4fe35be9669`.
+
+Все 4449финальных client/build fingerprints совпадают; server-релевантные
+совпадают. Любое единственное исключение opt-in Dist.CLIENT QA driver после
+server связано обоими SHA в отчёте. Сборка успешна, **2863JSON**,
+**3696resource-byte**, оригинальные **670PNG/7JPG/60OGG** проверены.
+Версии, классы, CRC и архивы проверены. JAR SHA256: `10442d6f5b244ddf18adeda22dc1b261951551f4450eb0635f03f0aaec693a57`.
+
+Границы: подготовленный QA не доказывает полное обычное survival,
+independent multiplayer/reload, каждый угол/случайный кадр или слышимый звук.
+Bench кадры могут быть после оплаты; её точные значения устанавливают
+native logs/серверные проверки. Кадры настоящие, подписи листов вне игровых пикселей.
+
+---
+
 # Проверка вис-генератора0.37.0
 
 Дата: **2026-10-16**. Minecraft1.20.1 / Forge47.4.10 / Java17.

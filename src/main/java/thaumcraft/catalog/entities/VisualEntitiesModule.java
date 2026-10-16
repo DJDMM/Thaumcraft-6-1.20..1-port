@@ -37,10 +37,14 @@ public final class VisualEntitiesModule {
             EntityType.Builder.<thaumcraft.world.rift.collapser.CausalityCollapserEntity>of(thaumcraft.world.rift.collapser.CausalityCollapserEntity::new,MobCategory.MISC)
                     .sized(.25F,.25F).clientTrackingRange(4).updateInterval(20).setShouldReceiveVelocityUpdates(true).build("thaumcraft:causality_collapser"));
 
+    public static final RegistryObject<EntityType<thaumcraft.artifice.grapple.GrappleEntity>> GRAPPLE=TYPES.register("grapple",()->
+            EntityType.Builder.<thaumcraft.artifice.grapple.GrappleEntity>of(thaumcraft.artifice.grapple.GrappleEntity::new,MobCategory.MISC).sized(.1F,.1F)
+                    .clientTrackingRange(4).updateInterval(20).setShouldReceiveVelocityUpdates(true).build("thaumcraft:grapple"));
+
     static {
         ITEMS.register("golem_spawn_egg", () -> new ForgeSpawnEggItem(GOLEM,6842578,8421504,new Item.Properties()));
         for (VisualEntitySpec spec : VisualEntitySpec.ALL) {
-            if (java.util.Set.of("alumentum","focus_projectile","golem","golem_dart","golem_orb","causality_collapser").contains(spec.id())) continue;
+            if (java.util.Set.of("alumentum","focus_projectile","golem","golem_dart","golem_orb","causality_collapser","grapple").contains(spec.id())) continue;
             if (spec.living()) {
                 var type = TYPES.register(spec.id(), () -> EntityType.Builder.<VisualMobEntity>of(
                         switch (spec.id()) {

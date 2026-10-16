@@ -33,6 +33,7 @@ public final class VisualEntityRenderers {
         }));
         VisualEntitiesModule.EFFECTS.forEach((id,type) -> event.registerEntityRenderer(type.get(),context ->
                 id.equals("falling_taint") ? new FallingTaintRenderer(context) : new SpriteRenderer<VisualEffectEntity>(context)));
+        event.registerEntityRenderer(VisualEntitiesModule.GRAPPLE.get(),thaumcraft.artifice.grapple.client.GrappleRenderer::new);
         event.registerEntityRenderer(VisualEntitiesModule.FOCUS_PROJECTILE.get(),FocusProjectileRenderer::new);
         event.registerEntityRenderer(VisualEntitiesModule.GOLEM.get(),thaumcraft.golemancy.client.ThaumcraftGolemRenderer::new);
         event.registerEntityRenderer(VisualEntitiesModule.GOLEM_DART.get(),thaumcraft.golemancy.client.GolemProjectileRenderers.Dart::new);

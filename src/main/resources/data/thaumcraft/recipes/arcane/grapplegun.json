@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "GRAPPLEGUN",
+  "vis": 75,
+  "crystals": {
+    "aer": 1,
+    "ignis": 1
+  },
+  "pattern": [
+    "  S",
+    "TII",
+    " BW"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:grapple_gun_spool"
+    },
+    "T": {
+      "item": "thaumcraft:grapple_gun_tip"
+    },
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "B": {
+      "tag": "forge:plates/brass"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:grapple_gun",
+    "count": 1
+  }
+}

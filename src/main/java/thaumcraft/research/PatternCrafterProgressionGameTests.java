@@ -48,7 +48,7 @@ public final class PatternCrafterProgressionGameTests {
 
     @GameTest(template="empty")
     public static void releasedTwoDeviceGraphAddsOnlyTwoCanonicalStudiesAndNoInfusions(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==102,
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==103,
                 "Expected preserved101 plus exactly Vis Generator");
         h.assertTrue(h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get()).size()==56,
                 "Two original arcane recipes duplicated an archived infusion");
@@ -62,7 +62,7 @@ public final class PatternCrafterProgressionGameTests {
                     &&BookRecipeCatalog.definitions(originalRecipe(key)).get(0).kind().equals("arcane"),"Device became an infusion");
         }
         h.assertTrue(ResearchCatalog.get(DIOPTRA).hasMeta("REVERSE"),"Original Dioptra REVERSE layout flag lost");
-        for(String later:List.of("BASEELDRITCH","GRAPPLEGUN","VISAMULET"))
+        for(String later:List.of("BASEELDRITCH","VISAMULET"))
             result(h,player(h),later,0,ResearchProgression.Result.UNSUPPORTED);
         h.succeed();
     }

@@ -3,7 +3,20 @@
 Дата первоначального изучения справочников: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
 
-Текущий срез **0.37.0**: **102/148** исследований, **30/56** наполнений.
+Текущий срез **0.38.0**: **103/148** исследований, **30/56** наполнений.
+GRAPPLEGUN: исходная прогрессия, три paid arcane-рецепта125vis, native
+пьедестал100charge, полёт/подтягивание обеими руками/замена/приседание.
+Правила — [GRAPPLE-GUN.md](../../GRAPPLE-GUN.md); аудиты:
+[ядро](GRAPPLE-GUN-BETA26-AUDIT.md),
+[прогрессия](GRAPPLE-GUN-PROGRESSION-BETA26-AUDIT.md),
+[клиент](GRAPPLE-GUN-CLIENT-BETA26-AUDIT.md).
+`grapple-038-server2` 1559/1559, `grapple-038-client2`11/11, оба native exit0;
+все11полныхPNG и оба листа просмотрены двумя проверяющими.
+2863JSON/3696resource-byte/original670PNG7JPG60OGG прошли.
+Фикстуры/границы/ранние отказы — [отчёт0.38](../../validation/artifact-report-0.38.json)
+и [VALIDATION.md](../../VALIDATION.md).
+
+Исторический срез **0.37.0**: **102/148** исследований, **30/56** наполнений.
 VISGENERATOR использует исходную прогрессию/arcane25vis и настоящий Forge
 ENERGY выход до20FE/тик,6сторон, redstone и исходные заряженные искры.
 Правила — [VIS-GENERATOR.md](../../VIS-GENERATOR.md); аудиты:

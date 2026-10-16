@@ -57,6 +57,7 @@ public final class CatalogModule {
 
     /** Kept in one place so armor and special render adapters can be added independently. */
     private static Item createItem(Spec spec) {
+        if(spec.id().equals("grapple_gun"))return new thaumcraft.artifice.grapple.GrappleGunItem();
         Item mirror=thaumcraft.artifice.mirror.MirrorModule.createItem(spec.id());
         if(mirror!=null)return mirror;
         Item turret=thaumcraft.artifice.construct.TurretModule.createItem(spec);

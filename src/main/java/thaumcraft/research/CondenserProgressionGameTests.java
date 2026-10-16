@@ -61,10 +61,10 @@ public final class CondenserProgressionGameTests {
     public static void originalCleanupAddsOneCanonicalStudyAndNoInfusionPath(GameTestHelper h) {
         var entry=ResearchCatalog.get(KEY);
         h.assertTrue(ResearchProgression.isImplemented(KEY)
-                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==102
+                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==103
                 &&entry.parents().equals(List.of("FLUX","f_toomuchflux","VISBATTERY"))
                 &&entry.category().equals("BASICS")&&entry.stages().size()==2,
-                "Released FLUXCLEANUP graph or canonical102 study census differs");
+                "Released FLUXCLEANUP graph or canonical103 study census differs");
         for(String original:List.of("thaumcraft:Condenser","thaumcraft:CondenserLattice")) {
             var display=BookRecipeCatalog.definitions(original);
             h.assertTrue(display.size()==1&&display.get(0).kind().equals("arcane")

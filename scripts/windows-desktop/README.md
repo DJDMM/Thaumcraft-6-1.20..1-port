@@ -95,3 +95,11 @@ ordinary gameplay saves and global keyboard/mouse input remain untouched.
 `patternSmokeTest` JVM under `run/pattern-smoke` on the same verified hidden,
 non-input desktop. Actual pass/fail and reviewed captures belong to the
 versioned validation report; selecting this profile alone is not proof.
+
+# Grapple Gun
+
+`run_client_smoke_isolated.ps1 -SmokeTest Grapple` prepares the opt-in
+`grappleSmokeTest` JVM under `run/grapple-smoke` on the same verified hidden,
+non-input desktop. The driver operates only its owned QA world; actual native
+pass/fail, source fingerprints and reviewed captures belong to the versioned
+validation report. Selecting this profile alone is not evidence of completion.

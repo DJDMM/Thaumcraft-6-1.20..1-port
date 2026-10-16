@@ -46,7 +46,7 @@ public final class ArcaneBoreProgressionGameTests {
     @GameTest(template="empty")
     public static void boreStudyRequiresEveryOriginalCompletedParentAndKeepsLateDevicesClosed(GameTestHelper h) {
         h.assertTrue(ResearchProgression.isImplemented("ARCANEBORE")
-                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==102
+                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==103
                 &&ResearchCatalog.get("ARCANEBORE").parents().equals(PARENTS)
                 &&ResearchCatalog.get("ARCANEBORE").stages().size()==2,"Original bore graph or canonical census changed");
         for(String missing:PARENTS) {

@@ -1,0 +1,658 @@
+{
+  "version": "0.38.0",
+  "date": "2026-10-16",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 103,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 30,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1559,
+  "preservedRequiredGameTests": 1534,
+  "newTestsBySuite": {
+    "artifice/grapple/GrappleGameTests.java": 19,
+    "research/GrappleGunProgressionGameTests.java": 6
+  },
+  "serverLog": {
+    "file": "grapple-038-gametest2.log",
+    "bytes": 769276,
+    "sha256": "dac6157e0bc49038835ee50b3766d0dbb98905fd2fcb65e01f94401d9f0703a6"
+  },
+  "serverRun": {
+    "gradleExitCode": 0,
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "run": "grapple-038-server2",
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-grapple-038-server2",
+    "nativeExitCode": 0,
+    "failedRequiredTests": 0,
+    "requiredTestCount": 1559
+  },
+  "serverRunEvidence": {
+    "file": "grapple-038-server2-run.json",
+    "bytes": 462,
+    "sha256": "4bdbd25e1973a6c4442aa944b24633a55db0f0bf096bb0931b5620ad8b862f69"
+  },
+  "clientRunTag": "grapple-038-client2",
+  "client": {
+    "runTag": "grapple-038-client2",
+    "smokeTest": "Grapple",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\grapple-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client2-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client2-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client2.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client2-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client2-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client2-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_86c21eae93ba4012b182f2dff1a75a3c",
+    "jvmPid": 28860,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 11
+  },
+  "clientLog": {
+    "file": "grapple-client-grapple-038-client2-client.log",
+    "bytes": 25069,
+    "sha256": "b50bcfa1645db9f112d622c38bef0292f3cbeb132f71927922ab2c7bd6adf16e"
+  },
+  "clientScenes": 11,
+  "nativeClientFacts": [
+    "[15:59:05] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_FIXTURES: ownedSurvivalarena/staticstoneanchorwallZ24/rawbench+rechargepedestal/BASEARTIFICE+RECHARGEPEDESTALprecursors/rawtheory/nugget/ordinarycraftmaterials/primalcrystals/initial5000vis0fluxper30loadedchunks; actualpaidtip+spoolusedforgun; targetgun/research/charge/hooks absent; noactivehookteleports/noactivehookorplayermotion/charge/aura/RNGsetters; notfullsurvival/multiplayer/reload/audio/allangles",
+    "[15:59:06] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_STUDY_PAID: actualnativeC2S/32rawTheoryARTIFICE+32BASICS/originalsingularnuggetmeta10one/+10earnedXP",
+    "[15:59:07] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_BENCH_PAID: grapple_gun_tip actualnativeC2S/25vis/originalprimalprices/physicalingredients/actualpaidTipSpoolUsedForGun,total=1",
+    "[15:59:08] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_BENCH_PAID: grapple_gun_spool actualnativeC2S/25vis/originalprimalprices/physicalingredients/actualpaidTipSpoolUsedForGun,total=2",
+    "[15:59:09] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_BENCH_PAID: grapple_gun actualnativeC2S/75vis/originalprimalprices/physicalingredients/actualpaidTipSpoolUsedForGun,total=3",
+    "[15:59:11] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_EMPTY_USE: actualnativeC2S/unchargedpaidgun/nohook/nochargecost/originaliceSound",
+    "[15:59:20] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_PEDESTAL_PAID: actualC2Sinsert/nativeWorldTicks/20observedChargeSteps/100wholeChargeFromNative100visRoute/auraBefore4875.0/auraAfter4775.0/no directchargesetter; aggregateAuraAlsoHasNativeDiffusion",
+    "[15:59:21] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_PEDESTAL_RETRIEVED: actualC2Semptyhand/nativephysicalItemEntitypickup/samepaidgun100charge",
+    "[15:59:22] [Render thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_MAIN_FLIGHT: actualnativeC2S/mainhand/newhook207/originalflight/nosynthetichook",
+    "[15:59:23] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_MAIN_PULL: actualblockimpact/status6/nativeowneracceleration/move0.9100767530704659/rise0.7593570881920044/charge99/fallDistance0.0",
+    "[15:59:24] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_NATIVE_RELEASE: main actualC2Sshift/ownerhookremoved/nativeinventoryloaded0/charge99",
+    "[15:59:26] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_OFFHAND_PULL: actualnativeC2S/handOFF/nativeblockimpact/move0.9100849517241488/rise0.7593678247293809/charge98/hook209",
+    "[15:59:26] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_NATIVE_REPLACEMENT: actualnativeC2Srefirewhileloaded/old209removed/new211/oneactiveownerhook/charge97/noactiveownerteleport",
+    "[15:59:27] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_NATIVE_RELEASE: final actualC2Sshift/ownerhookremoved/nativeinventoryloaded0/charge97",
+    "[15:59:28] [Server thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_CLIENT_FACTS: scenes11 paidStudy1/TheoryARTIFICE32BASICS32/originalNugget1/earnedXP10/paidBench3/vis125/Terra1Aqua1Aer1Ignis1/actualPaidTipSpoolConsumed/oneFreshGun/emptyUse1/nativePedestalCharge100/nativeRechargeVis100/nativeShots3/charge97/mainMove20.890752976225453/mainRise3.175930142459407/offMove19.30924479798958/offRise3.175562874088925/replacementtrue/shiftReleases2/hookDraws121/ropeSegments7614/glowDraws121; explicitprecursors/rawknowledge/materials/arena/initialaura/rawpedestal,notfullsurvival/multiplayer/reload/audio/allangles",
+    "[15:59:28] [Render thread/INFO] [th.ar.gr.cl.GrappleClientSmokeTest/]: THAUMCRAFT_GRAPPLE_RENDER_AUDIT_OK: 11 scenes; originalhookcuboids/sixframeadditiveglow/sourcewavecenterline/foursiderope/mainoffhandloadedmodels/noinventedGUI"
+  ],
+  "nativeMotionAndVisualCounts": {
+    "mainMove": 20.890752976225453,
+    "mainRise": 3.175930142459407,
+    "offMove": 19.30924479798958,
+    "offRise": 3.175562874088925,
+    "hookDraws": 121.0,
+    "ropeSegments": 7614.0,
+    "glowDraws": 121.0
+  },
+  "paidClientTotals": {
+    "rawTheoryBasics": 32,
+    "rawTheoryArtifice": 32,
+    "studyRareearthNuggets": 1,
+    "earnedExperience": 10,
+    "arcaneCrafts": 3,
+    "arcaneVis": 125,
+    "terraCrystals": 1,
+    "aquaCrystals": 1,
+    "aerCrystals": 1,
+    "ignisCrystals": 1,
+    "paidTip": 1,
+    "paidSpool": 1,
+    "paidGun": 1,
+    "emptyUses": 1,
+    "nativePedestalCharge": 100,
+    "nativeRechargeVisRoute": 100,
+    "shots": 3,
+    "finalCharge": 97,
+    "shiftReleases": 2
+  },
+  "visualReview": {
+    "clientRunTag": "grapple-038-client2",
+    "clientLogSha256": "b50bcfa1645db9f112d622c38bef0292f3cbeb132f71927922ab2c7bd6adf16e",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "/root/pattern_core_036"
+    ],
+    "method": "Both reviewers actually viewed all11 full1600x1000 native PNG, complete contact sheet and six-frame delivery preview from the same final native pass.",
+    "contactSheet": {
+      "file": "grapple-0.38-review-sheet.png",
+      "sha256": "a45e34b202f8430f73f3246fd49f49a468c161c58e97fc765267a15a869fdada",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "grapple-0.38-preview.png",
+      "sha256": "b1d87afe5ae0951b062e5b0681dc8d96e797e41558422067d2cb83e8d8d2c75f",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-grapple-paid-study.png",
+        "sha256": "10b09dded5a433abf46d9a44eefb02545f29e6395ab72661b77b77f761ca2482",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-paid-tip-bench.png",
+        "sha256": "f9e26a42ce678a4560a799402039b9a50b1504e7cbdcacdabe601dab70dffdc3",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-paid-spool-bench.png",
+        "sha256": "384eb67e800b9bbd7635825a80f25377dc4c10a60bf65e5564c5efddd4527cee",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-paid-gun-bench.png",
+        "sha256": "597629f28f116d86a08bf79cfad9c2f3771a45ca56e82676e7b19b9b22b8e603",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-native-pedestal-recharge.png",
+        "sha256": "13adee52988bdd5984bccdf410e4b19644f6bc7f3426bcc188942df3502132e7",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-native-mainhand-flight.png",
+        "sha256": "362f680e53eacbbd71dd4c1f4153485395906e585a1de22bb8ff3dbf56108ebb",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-native-mainhand-pull.png",
+        "sha256": "539aaa7a93973da04fbfe367ed665d546f8a5617b9f5f9e5fcf1ed8823ef6676",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-native-mainhand-release.png",
+        "sha256": "1668f2abb4d852c54b87350d8d8d60979c667ab3b1bc485a88d64134a851b783",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-native-offhand-pull.png",
+        "sha256": "b68823de600d5dcdc22241ba98824b0138438446d814ca8773eca5ea7e9e0978",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-native-replacement-hook.png",
+        "sha256": "c8b55b2c204eae457e1909eb9bedb85473b181c17580eb7c5361dd4f30d01ff9",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-grapple-native-final-release.png",
+        "sha256": "33617b94c41a00c6e323d449a6a76a9eefe5bed5943bf840b8db3933532cbd1b",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Both reviewers viewed original paid study/three arcane outputs and native pedestal100charge captures.",
+      "Native hook cuboids, six-frame additive glow and four-sided source-wave rope are visible during flight/pull.",
+      "Main/offhand pull, actual native movement, refire replacement and two shift releases are tied to the same paid gun and final97charge.",
+      "Captions remain outside original gameplay pixels; no generated artwork or composited game state."
+    ],
+    "limits": [
+      "Prepared Survival fixtures supply predecessors, raw theories/materials/initial aura/arena/workbench/pedestal.",
+      "Original rope centerline/model/textures are retained; native tube tessellation is an explicit GLE adaptation.",
+      "Bench frames may show post-payment results; exact physical payments are established by logs and native tests.",
+      "No full survival, independent multiplayer, reload, every camera angle or audible sound proof."
+    ],
+    "independentFindings": [
+      "The completed Arcane Grappler research conclusion is readable on both book pages, with original parchment and recipe icons; no development/server-check/mockup/QA labels appear inside gameplay pixels.",
+      "The three bench images show post-payment empty grids, visible physical tip/spool/gun icons and aura 4975/4950/4875 respectively. They are consistent after-craft views; the native log, rather than the empty-grid images alone, establishes exact original materials, crystals and payment.",
+      "The pedestal view shows the textured three-dimensional gun on the native recharge pedestal without missing-texture checkerboards, broken meshes or an invented gun GUI. The log ties this to actual native charging of the same paid item, not a supplied charged tool.",
+      "The main-hand flight image visibly contains the hook, additive colored glow and textured four-sided rope against the stone wall. Main-hand and off-hand pull views both show a connected rope on the corresponding side and the held gun orientation. No apparent asset corruption, dangling untextured geometry or developer overlay was found.",
+      "The rope is noticeably dark in both anchored pull views while bright during flight. Current native tube lighting samples hook packed light for the whole tube. Released RenderGrapple assigns light220 to glow vertices but does not explicitly disable GLE lighting or assign a new global rope lightmap, so the primary source does not establish a fullbright-rope requirement. This observation is retained as a lighting adaptation limit, not silently removed from the review.",
+      "The release and replacement captures retain the correct held gun appearances and show ordinary gameplay after real movement. Close stone wall views make the new projectile itself hard to assess in the replacement frame; the matching native old209/new211/one-active-hook observation establishes replacement behavior.",
+      "The complete sheet includes all11 current native frames, and the six-frame preview covers study, pedestal, flight, both hands and replacement. Captions are outside the native gameplay pixels, legible and accurately describe their route context."
+    ],
+    "independentLimits": [
+      "Supplied precursors BASEARTIFICE/RECHARGEPEDESTAL, raw theories/nugget/crafting materials/crystals, initial aura, arena, anchor wall, workbench and pedestal are explicit QA fixtures. These frames are not a full ordinary survival playthrough, independent multiplayer/client reload test or audible-sound proof.",
+      "Exact theory/material/crystal/Vis/charge debits and movement magnitudes require the matching native callback log; a still image does not establish them independently. The log reports paidStudy1, three paid benches125Vis, native pedestal100charge, three native shots and final97charge on one paid gun.",
+      "Native rope buffers adapt removed GLE tessellation and lighting. Whole-tube hook packed-light sampling can darken the entire rope when the anchor is inside stone; per-segment light, binary-identical GLE normals/caps/triangulation and all lighting environments are not certified. No unsupported fullbright adjustment was assumed.",
+      "Replacement and final release frames are close to the actual stone anchor after pulling, so they establish a limited camera view. They do not independently display the removed old hook, the entire replacement trajectory or every release angle; native logs establish the ownership transition and two releases.",
+      "All11 original PNG and both sheets were reviewed, but this does not cover every model angle, random glow frame, FOV setting, texture pack, all charge-HUD states or every target/portal/entity collision."
+    ]
+  },
+  "independentReviewEvidence": {
+    "file": "grapple-independent-review-0.38.json",
+    "bytes": 6653,
+    "sha256": "4cb15457abfbccfbbdcf757bb2c317de227e81e1826a28a7f41443a86311e2eb"
+  },
+  "localJsonCount": 2863,
+  "jarResourceByteParityChecks": 3696,
+  "originalMediaByteParity": {
+    ".ogg": 60,
+    ".png": 670,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.38.0.jar",
+      "bytes": 12062080,
+      "sha256": "10442d6f5b244ddf18adeda22dc1b261951551f4450eb0635f03f0aaec693a57"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.38.0-mods.zip",
+      "bytes": 11142753,
+      "sha256": "d806479d4fdfa27689a70385abd8dbc444e2d0f2af57e8e7488b968ec1e8a222"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.38.0-screenshots.zip",
+      "bytes": 2401872,
+      "sha256": "71b5081a426ca7628b6cabe856aedb9270f3fac56dd14a4ca8cb141813b3295c"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.38.0-preview.png",
+      "bytes": 1157063,
+      "sha256": "b1d87afe5ae0951b062e5b0681dc8d96e797e41558422067d2cb83e8d8d2c75f"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.38-final.log",
+    "bytes": 1212,
+    "sha256": "216b58e5262b4bdc835ae552b6228b0e128768a4dd0504a0478b211fd34763da"
+  },
+  "resourceLog": {
+    "file": "resources-0.38-final.log",
+    "bytes": 188,
+    "sha256": "376f068a0fd5cb76026834578e9e2567e7b16dacc6c9f9043a028f93dc3815bc"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "ab3d23edd7f3ffec2a125612d010fcf9e765882c82164a4a3184db7efad3afc1"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "d993818cde7b69dfd3eb351236fab43b7c44f48d2f33cd5c2907d62d6bf817bb"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "273795ccf6bfb27940202cdff5da0278a63624129ab00a86e6e49b2c943b19b5"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "b334e653f070559a7c2155e306a8d96eafac3309862ffe15d5642103b798b631"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "2c12dfd8825021bf4a25f17f04898c8d8dc975cbf62a78033e4735f32de075fb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/grapple/GrappleEntity.java",
+      "sha256": "812f671093551573256ca8944718fb73b511cafd7b7d843bf2551b1d0ab8f305"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/grapple/GrappleGameTests.java",
+      "sha256": "9e894324f24481b7b39c40ee4002a2ad5e11b0ea464f1dbbe1b6558b5fe19c18"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/grapple/GrappleGunItem.java",
+      "sha256": "a59df276de85812e7522e773572398a23f34867c5ce325b2441876fe3ff52a16"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/grapple/GrappleModule.java",
+      "sha256": "8c5d325d48f8e6c46c577b5c675308510a1229ae06d2cd9187e4ddc9747820cf"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/grapple/client/GrappleClientSmokeTest.java",
+      "sha256": "c99801f089240175982cd44bd401dd02cdbb9235f7bd605795ea2c8394b8a9dc"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/grapple/client/GrappleRenderer.java",
+      "sha256": "76037be727bf8b4f8033f62c8b25d37661357cb02f9bb02412431951f92e030a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/CatalogModule.java",
+      "sha256": "f19e962df3d901931bbb64b0d1b3f76178ba6b784bb343e44b4d755ffdd1e548"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/VisualEntitiesModule.java",
+      "sha256": "e8022ea5d09fbe1f88856f296aeb629290c0455e7460afa71e661495a03e0886"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/entities/client/VisualEntityRenderers.java",
+      "sha256": "4c8c36759e6d81d170c8e3ba2c13f6e9963c31fb0d9186b9bad694e108997716"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "5ccfa43171b16b77f45bae3fc029157a02676df48cc942395dba7fa9463cebb8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "e053016320d0f2b12e72986d73d3d5611aaa1f37ea3932d350516e61fe422230"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CondenserProgressionGameTests.java",
+      "sha256": "daef609b43775d19ff2be3ed12b8c52aed9a3c1a55faee829f5641b4d34b8365"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "ef07128177e7b45733904f1091a936a353fa6d2264d422275d8c299daa152729"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "466165448c31bda7a920fcc98b5da1d9c171240fd55f32bf3bd34101ccdf0f2e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "42349ce55b100c50b589674c17e3a15155c8078ac98eb882eb1b7b18865bd741"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "87b0ccdb4993c6ca26ccc8c5f46959dba4f80bb8908750ff5b5568d4f5598c13"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "61547d6f9b9a77bd4d210c2a4f3a7e9232e605a4e238daf1e8f8c993d251c2e6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GrappleGunProgressionGameTests.java",
+      "sha256": "ca91648434d48d6218cfe6de455242d98493be41cb7cc0aa1b2566c8f7c7bfb8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionGameTests.java",
+      "sha256": "ee33b815a4cc0f2df80ea49984ebda929cb3222dff5a1e6cf2a9bd24855359bf"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/LampProgressionGameTests.java",
+      "sha256": "c95df7d306f0a80c8592db7345bf6eba9c9ae043a382b522b7ba41c2d892afc2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "6dc83901b3fbaa8fc0cf08488ae565b843ebfe89a27bdbf0c889665e2e9e7ab8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/PatternCrafterProgressionGameTests.java",
+      "sha256": "f51cd85e9328d66076c2d7e0f77e38a24d93c8ae7159239cbe69fe50d21a2a25"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "3ed29b20097e4c6f0c56622da6fa132636f43ff147507ced77b507629e42faab"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "9beec961868d1e71787c2ef37743972eac27c94fa7a649c656a671255a3795c2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "2e7572f0ad3c73aa60bd3e6573e8bd984ce0216a0a776aedf00ff463267363c0"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/VisGeneratorProgressionGameTests.java",
+      "sha256": "481628cb98aec97076cf85d8011a1c6d3cd77a00df6e1d7c85ec966557061925"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "a8977fd1dfed72991159f24b9be3d4948371f56a83799f8898e96a1c319745da"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/sounds.json",
+      "sha256": "d568b571220bd06470abd440b060d3f38310116a3ca2a4002261eaade0777052"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/sounds/ice1.ogg",
+      "sha256": "b9ec487c15a4131dc6d543722858f44c4b45a89fc1eed5417774a07af8940328"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/sounds/ice2.ogg",
+      "sha256": "d2f626a1342723692ee912255775b2300a0eaa8c95d8de173c1cb258e4f6792b"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/sounds/ice3.ogg",
+      "sha256": "0f81b16c7fe6ed4cb7271052e99bf947aeb1f222b79502af2cb842f49ad0f5da"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/grapplegun.json",
+      "sha256": "3f9563332f1522a1fb5b9ce3b7ed08c7cb5c6be67f068df5441631a24fefddd7"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/grapplegunspool.json",
+      "sha256": "af8b49f6297be5d4308c4749818289aacb7a02e19fec4482685ed2554b47e8a1"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/grappleguntip.json",
+      "sha256": "071f8789ed0c10dface2c1f38a8bc2c19f5818ebd896981af87cb87b80fd32f3"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "grapple-038-server2-sources.json",
+      "bytes": 641381,
+      "sha256": "6fcad2ed223946aeb8bbad3c12508668a4eced0a2d34629355c8750810359a4a"
+    },
+    {
+      "file": "grapple-038-client2-sources.json",
+      "bytes": 641381,
+      "sha256": "d1a30cdb74862fcb7ed38893efd33ada35b077c318b8270448bdea04a3340a20"
+    },
+    {
+      "file": "grapple-038-build-sources.json",
+      "bytes": 641381,
+      "sha256": "d1a30cdb74862fcb7ed38893efd33ada35b077c318b8270448bdea04a3340a20"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": false,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4449,
+    "matchingServerRelevantFileCount": 4448,
+    "clientOnlyExceptions": [
+      {
+        "file": "src/main/java/thaumcraft/artifice/grapple/client/GrappleClientSmokeTest.java",
+        "serverExecutedSha256": "6a83eb896bb3e49ddcc5797b1f939cfd19e4231dce76315e7d5fd35d4c4595c8",
+        "finalClientBuildSha256": "c99801f089240175982cd44bd401dd02cdbb9235f7bd605795ea2c8394b8a9dc",
+        "reason": "Only opt-in Dist.CLIENT QA driver changed; core/resources/helpers/tests identical"
+      }
+    ],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "earlierEvidence": [
+    {
+      "file": "grapple-038-gametest1.log",
+      "bytes": 771753,
+      "sha256": "fce705b231f7f72d651777e7f73c30ce4cbcf8ddcbe75bc6a03e5e4eb0a79b99"
+    },
+    {
+      "file": "grapple-038-server1-run.json",
+      "bytes": 462,
+      "sha256": "87f5adf734a402ca5e1276126a4f290fc093352e98c1b696e16241cf1b0f23f6"
+    },
+    {
+      "file": "grapple-038-compile1.log",
+      "bytes": 5477,
+      "sha256": "459b43e7b1d4d7e1b9e5ef807af83fac93117cf82226c1233485a9ed694d176a"
+    },
+    {
+      "file": "grapple-038-compile2.log",
+      "bytes": 4530,
+      "sha256": "0ed9772555e18f62c7dab564297bdecfbe7473e912316e471b4d8a1f9ce5af54"
+    },
+    {
+      "file": "grapple-038-compile3.log",
+      "bytes": 2066,
+      "sha256": "00fa245023d9b5072617f274975121c4761fcd83571484f3b269eae33a573b13"
+    },
+    {
+      "file": "grapple-038-compile4.log",
+      "bytes": 2439,
+      "sha256": "68b3fb29ffa3765917f1fc9529d11987ed29bc561ba8a2f424c0a1f6e4870992"
+    },
+    {
+      "file": "grapple-client-grapple-038-client1-client.log",
+      "bytes": 27381,
+      "sha256": "b1219c50aceca5d1e4e7a630796ab86634fdfa3ea71747fade87fe794b754bc4"
+    },
+    {
+      "file": "grapple-038-client1-state.json",
+      "bytes": 2422,
+      "sha256": "b3d1a8084cef3d342fc0edcbad9c9a107d4b53135ac79b58c2b714a3e4293e0d"
+    },
+    {
+      "file": "grapple-038-client1-owned-stop.json",
+      "bytes": 649,
+      "sha256": "46d140ee8e74a5f5fafa3d987e042992aa32b4a8b03cfb9eb69bd4fe35be9669"
+    }
+  ],
+  "fixtures": [
+    "Fresh owned prepared Survival world; completed BASEARTIFICE/RECHARGEPEDESTAL and raw32+32theory supplied; target study paid through actual C2S",
+    "Raw ordinary study/bench materials and primal crystals supplied; actual paid tip/spool physically consumed into final gun",
+    "Prepared bedrock arena/static stone anchor wall/workbench/raw recharge pedestal/initial aura supplied before consumers; no active hook/player motion/charge/aura/RNG setters",
+    "Player teleports only before active hooks/between released shots; native movement/pickup and actual C2S use/release establish observed behavior"
+  ],
+  "limitations": [
+    "Prepared Survival QA is not full ordinary survival, independent multiplayer/client reload/audio or every camera angle",
+    "Original hook model/textures/source-wave centerline retained; modern four-side tube tessellation replaces GLE and is not byte-identical GLE miter/UV proof",
+    "Native pedestal100charge from100vis API route is observed; aggregate world aura may also change through native diffusion",
+    "Bench captures may show post-callback outputs; exact native payments established by logs and common tests",
+    "Modern UUID/world ownership, reliable hand/pull sync, loaded-only bounds and physical charge reservation are explicit adaptations; callbacks that mutate paid stack bytes own their new data",
+    "Earlier server1 had four fixture failures: two manual tickCount and two swapped Aqua/Terra arrays; failed evidence retained without pass claim",
+    "Remaining research/equipment/Warp/Crimson/Eldritch and taint ecology require further porting"
+  ],
+  "stoppedClientRuns": [
+    {
+      "runTag": "grapple-038-client1",
+      "result": "stopped without pass",
+      "stateEvidence": {
+        "file": "grapple-038-client1-state.json",
+        "bytes": 2422,
+        "sha256": "b3d1a8084cef3d342fc0edcbad9c9a107d4b53135ac79b58c2b714a3e4293e0d"
+      },
+      "state": {
+        "runTag": "grapple-038-client1",
+        "result": "stopped without pass",
+        "clientLog": {
+          "file": "grapple-client-grapple-038-client1-client.log",
+          "bytes": 27381,
+          "sha256": "b1219c50aceca5d1e4e7a630796ab86634fdfa3ea71747fade87fe794b754bc4"
+        },
+        "sourceSnapshot": "grapple-038-client1-sources.json",
+        "lastNativeHeartbeat": "THAUMCRAFT_GRAPPLE_HEARTBEAT: scene=5 phase=2 bench=3 hook=-1 pull=false charge=100 pedestalUnits=100 mainMove=0.0 mainRise=0.0 offMove=0.0 offRise=0.0 replacement=false renders=0/0",
+        "actualObserved": "Study and threebench125vis passed, pedestal charged100 in20native steps/100vis actual aura4875→4775. Native END observer sees real held gun100charge; driver stalls waiting Inventory.contains fresh untagged sample. Five actual frames retained.",
+        "causeLimit": "Mapped native Inventory.contains(ItemStack) compares isSameItemSameTags; charged tc.charge100 differs from fresh sample. This is an opt-in QA predicate failure, not an established native pickup/gameplay defect.",
+        "plannedCorrection": "Only opt-in Dist.CLIENT driver uses items.stream item identity for pickup readiness; existing exact server onepaidgun100charge and pedestalempty assertions retained.",
+        "archivedScreenshotDirectory": "grapple-038-client1-screenshots",
+        "archivedNativeScreenshots": [
+          {
+            "file": "tc6-grapple-paid-study.png",
+            "bytes": 653312,
+            "sha256": "e4725e6dcd9e396c9fb222bbe7b305daada90038ea7709de9b99f1b328cdbac2"
+          },
+          {
+            "file": "tc6-grapple-paid-tip-bench.png",
+            "bytes": 224310,
+            "sha256": "92450f183d774b5a9c253b1c10f2962c05dafd4614c6756525b2f8005e6697a4"
+          },
+          {
+            "file": "tc6-grapple-paid-spool-bench.png",
+            "bytes": 222098,
+            "sha256": "56b0f0ca1d073f612e00e5c371f30d0e6addf1d9f8cd82bf3de08951f6cc0ee0"
+          },
+          {
+            "file": "tc6-grapple-paid-gun-bench.png",
+            "bytes": 218031,
+            "sha256": "e44613ada167a4e742ab623f64452df3964ff64223f22f9bbbe9df5bc0bca245"
+          },
+          {
+            "file": "tc6-grapple-native-pedestal-recharge.png",
+            "bytes": 217158,
+            "sha256": "e7c8b2ba084be80fdbeda58384267d5ccdd0f21205ada16becff12c63c3ade71"
+          }
+        ],
+        "nativeExitCode": 4294967295,
+        "ownedStopEvidence": {
+          "file": "grapple-038-client1-owned-stop.json",
+          "bytes": 649,
+          "sha256": "46d140ee8e74a5f5fafa3d987e042992aa32b4a8b03cfb9eb69bd4fe35be9669"
+        }
+      },
+      "clientLog": {
+        "file": "grapple-client-grapple-038-client1-client.log",
+        "bytes": 27381,
+        "sha256": "b1219c50aceca5d1e4e7a630796ab86634fdfa3ea71747fade87fe794b754bc4"
+      },
+      "runEvidence": {
+        "file": "grapple-client-grapple-038-client1-run.json",
+        "bytes": 1703,
+        "sha256": "b0bc6c5d9cb7d55f457f78f6a1ad6984db14d1b0ed99fbe1b1dcbfc4ddf1a7bb"
+      },
+      "run": {
+        "runTag": "grapple-038-client1",
+        "smokeTest": "Grapple",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\grapple-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_39c173d5cf1340ccbb1744fa5e6d384d",
+        "jvmPid": 29876,
+        "jvmExitCode": 4294967295,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default"
+      },
+      "desktopEvidence": {
+        "file": "grapple-client-grapple-038-client1-desktop.json",
+        "bytes": 458,
+        "sha256": "0cd50426500a4b47ad8e50ac51180e08661877cf3efb046c8ca230b0e5aa40dd"
+      },
+      "desktop": {
+        "state": "exited",
+        "pid": 29876,
+        "desktop": "WinSta0\\ThaumcraftQA_39c173d5cf1340ccbb1744fa5e6d384d",
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "logPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1-client.log",
+        "currentOwnedWindowsOnTargetDesktop": 14,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "exitCode": 4294967295
+      },
+      "ownedStopEvidence": {
+        "file": "grapple-038-client1-owned-stop.json",
+        "bytes": 649,
+        "sha256": "46d140ee8e74a5f5fafa3d987e042992aa32b4a8b03cfb9eb69bd4fe35be9669"
+      },
+      "ownedStop": {
+        "checkedDesktop": "WinSta0\\ThaumcraftQA_39c173d5cf1340ccbb1744fa5e6d384d",
+        "checkedJavaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "aliveAfterStop": false,
+        "checkedArgumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\grapple-client-grapple-038-client1.args",
+        "reason": "Stopped only verified owned QA JVM after charged native pickup reached serverCharge100 but opt-in driver Inventory.contains compared full NBT with uncharged sample; no gameplay defect inferred.",
+        "runTag": "grapple-038-client1",
+        "pid": 29876
+      },
+      "sourceSnapshotEvidence": {
+        "file": "grapple-038-client1-sources.json",
+        "bytes": 641381,
+        "sha256": "6fcad2ed223946aeb8bbad3c12508668a4eced0a2d34629355c8750810359a4a"
+      },
+      "changedSourceHashes": [
+        {
+          "file": "src/main/java/thaumcraft/artifice/grapple/client/GrappleClientSmokeTest.java",
+          "stoppedClientSha256": "6a83eb896bb3e49ddcc5797b1f939cfd19e4231dce76315e7d5fd35d4c4595c8",
+          "finalClientBuildSha256": "c99801f089240175982cd44bd401dd02cdbb9235f7bd605795ea2c8394b8a9dc"
+        }
+      ],
+      "actualNativeScreenshotCount": 5
+    }
+  ]
+}
