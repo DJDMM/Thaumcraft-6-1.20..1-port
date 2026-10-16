@@ -3,7 +3,7 @@ loaderVersion="[47,)"
 license="All rights reserved; upstream assets retain their original ownership"
 [[mods]]
 modId="thaumcraft"
-version="0.36.0"
+version="0.37.0"
 displayName="Thaumcraft 6"
 authors="Azanor (original mod); DJDMM (Minecraft 1.20.1 adaptation)"
 description='''Discover aspects, study magic and uncover the secrets of the Thaumonomicon. Shape the aura, craft arcane tools, work with essentia and build golems. An unofficial adaptation of Thaumcraft 6 for Minecraft 1.20.1.'''

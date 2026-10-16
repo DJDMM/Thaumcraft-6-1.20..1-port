@@ -1,0 +1,29 @@
+package thaumcraft.artifice.generator;
+
+import java.util.function.Consumer;
+import net.minecraft.core.Direction;
+import net.minecraft.gametest.framework.*;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.*;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.gametest.*;
+import thaumcraft.catalog.blocks.CatalogBlocks;
+import thaumcraft.world.aura.AuraManager;
+
+/** Native physical hand payment and Forge cancellation; no free output is supplied to gameplay. */
+@GameTestHolder("thaumcraft") @PrefixGameTestTemplate(false)
+public final class VisGeneratorOwnershipGameTests {
+    private VisGeneratorOwnershipGameTests(){}
+    private static InteractionResult place(VisGeneratorGameTests.Fixture f,net.minecraftforge.common.util.FakePlayer player,Consumer<BlockEvent.EntityPlaceEvent> observer){MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST,false,BlockEvent.EntityPlaceEvent.class,observer);try{return player.getMainHandItem().useOn(new UseOnContext(player,InteractionHand.MAIN_HAND,new BlockHitResult(Vec3.atCenterOf(f.pos.below()).add(0,.5,0),Direction.UP,f.pos.below(),false)));}finally{MinecraftForge.EVENT_BUS.unregister(observer);}}
+    @GameTest(template="empty") public static void nativeSurvivalAndCreativePlacementCommitExactHandOnce(GameTestHelper h){for(boolean creative:new boolean[]{false,true})try(var f=new VisGeneratorGameTests.Fixture(h)){f.put(f.pos.below(),Blocks.STONE.defaultBlockState());var player=f.player();player.setGameMode(creative?GameType.CREATIVE:GameType.SURVIVAL);player.setYRot(Direction.SOUTH.toYRot());var physical=new ItemStack(CatalogBlocks.block("vis_generator"));player.setItemInHand(InteractionHand.MAIN_HAND,physical);int[] events={0};h.assertTrue(place(f,player,event->{if(event.getEntity()!=player)return;events[0]++;h.assertTrue(!f.level.captureBlockSnapshots&&player.getMainHandItem()==physical&&physical.getCount()==1,"Native placement callback lost predebit physical hand/capturefalse");}).consumesAction()&&events[0]==1&&f.level.getBlockEntity(f.pos) instanceof VisGeneratorBlockEntity&&f.level.getBlockState(f.pos).getValue(VisGeneratorBlock.FACING)==Direction.NORTH&&(creative?physical.getCount()==1:physical.isEmpty()),"Native survival/creative placement did not commit original facing and one physical payment");}h.succeed();}
+    @GameTest(template="empty") public static void canceledPlacementCannotConvertProvisionalNbtEnergyOrSpendAura(GameTestHelper h){try(var f=new VisGeneratorGameTests.Fixture(h)){f.put(f.pos.below(),Blocks.STONE.defaultBlockState());var player=f.player();var physical=new ItemStack(CatalogBlocks.block("vis_generator"));var paid=new CompoundTag();paid.putInt("energy",1000);physical.getOrCreateTag().put("BlockEntityTag",paid);player.setItemInHand(InteractionHand.MAIN_HAND,physical);f.aura(2);h.assertTrue(!place(f,player,event->{if(event.getEntity()!=player)return;var tile=(VisGeneratorBlockEntity)f.level.getBlockEntity(f.pos);h.assertTrue(tile.energy()==1000,"Native provisional BlockEntityTag credit fixture was not installed");for(int i=0;i<100;i++)tile.serverTick();h.assertTrue(tile.energy()==1000&&AuraManager.getVis(f.level,f.pos)==2,"Unpaid provisional generator executed");event.setCanceled(true);}).consumesAction()&&physical.getCount()==1&&physical.getTag().getCompound("BlockEntityTag").getInt("energy")==1000&&f.level.getBlockState(f.pos).isAir()&&AuraManager.getVis(f.level,f.pos)==2,"Canceled generator placement debited hand or paid aura");}h.succeed();}
+    @GameTest(template="empty") public static void canceledCallbackCannotOverwriteForeignTargetOrChangedPhysicalHand(GameTestHelper h){try(var f=new VisGeneratorGameTests.Fixture(h)){f.put(f.pos.below(),Blocks.STONE.defaultBlockState());var player=f.player();var physical=new ItemStack(CatalogBlocks.block("vis_generator"));var foreign=new ItemStack(Items.EMERALD,5);player.setItemInHand(InteractionHand.MAIN_HAND,physical);h.assertTrue(!place(f,player,event->{if(event.getEntity()!=player)return;f.put(f.pos,Blocks.DIAMOND_BLOCK.defaultBlockState());player.setItemInHand(InteractionHand.MAIN_HAND,foreign);event.setCanceled(true);}).consumesAction()&&physical.getCount()==1&&player.getMainHandItem()==foreign&&foreign.getCount()==5&&f.level.getBlockState(f.pos).is(Blocks.DIAMOND_BLOCK),"Native canceled placement claimed callback-owned foreign hand/target");}h.succeed();}
+    @GameTest(template="empty") public static void ordinaryPhysicalTeardownDropsOneFreshGeneratorWithoutPortableEnergy(GameTestHelper h){try(var f=new VisGeneratorGameTests.Fixture(h)){var tile=f.generator(Direction.EAST,1000);var player=f.player();player.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.STICK));int[] count={0};Consumer<net.minecraftforge.event.entity.EntityJoinLevelEvent> observe=event->{if(event.getLevel()!=f.level||!(event.getEntity() instanceof net.minecraft.world.entity.item.ItemEntity item)||item.position().distanceToSqr(Vec3.atCenterOf(f.pos))>4)return;h.assertTrue(item.getItem().is(CatalogBlocks.block("vis_generator").asItem())&&!item.getItem().hasTag(),"Original teardown carried buffered FE/custom resource tag");count[0]+=item.getItem().getCount();item.discard();};MinecraftForge.EVENT_BUS.addListener(observe);try{player.gameMode.destroyBlock(f.pos);}finally{MinecraftForge.EVENT_BUS.unregister(observe);}h.assertTrue(count[0]==1&&f.level.getBlockState(f.pos).isAir()&&tile.isRemoved(),"Native bare-tool teardown did not emit one ordinary generator");}h.succeed();}
+}

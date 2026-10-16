@@ -97,6 +97,7 @@ public final class Thaumcraft {
         thaumcraft.artifice.lamp.LampModule.register(bus);
         thaumcraft.artifice.pattern.PatternCrafterModule.register(bus);
         thaumcraft.artifice.dioptra.DioptraModule.register(bus);
+        thaumcraft.artifice.generator.VisGeneratorModule.register(bus);
         bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) ->
                 event.enqueueWork(thaumcraft.artifice.lamp.client.GrowthMistPacket::register));
         thaumcraft.artifice.furnace.InfernalFurnaceModule.register(bus);

@@ -1,4 +1,135 @@
-# Проверка шаблонного верстака и диоптры0.36.0
+# Проверка вис-генератора0.37.0
+
+Дата: **2026-10-16**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26. Охват102/148, наполнение30/56;
+зарегистрированных исходных наполнений по-прежнему56.
+Правила — [VIS-GENERATOR.md](VIS-GENERATOR.md), точные SHA/наблюдения —
+[artifact-report0.37](validation/artifact-report-0.37.json).
+
+Свежий полный `generator-037-server1` прошёл **1534/1534**, native exit0 и BUILD SUCCESSFUL.
+Сохранены1488 прежних проверок; новые определения: {'artifice/generator/VisGeneratorGameTests.java': 28, 'artifice/generator/VisGeneratorOwnershipGameTests.java': 4, 'research/VisGeneratorProgressionGameTests.java': 14}.
+Прогрессия проверяет strict completed REDSTONERELAY,32rawTheoryBASICS и32ARTIFICE,
+!potentia, оплату физического redstone_block/piston из main inventory,
+5+5XP/noWarp, книгу/повторы/сохранение и настоящий arcane recipe25vis/Ignis1/Ordo1.
+Два разных поршня оплачиваются отдельно: один исследованием, другой рецептом.
+Устройство проверяет оригинальное1vis→1000FE, фактическую дробную конверсию,
+нулевой/положительный запас, предел20FE, шесть сторон, redstone/capability,
+loaded-only, physicalplacement/drop/save/callback ownership. Конкретные
+проверки, оригинальные quirks и современные адаптации описаны в аудитах.
+
+Клиент `generator-037-client2` прошёл **12/12**, JVM exit0, PID20244,
+максимум16 собственных окон скрытого
+`WinSta0\ThaumcraftQA_*`; входной рабочий стол
+`Default→Default`. Нет переключения/global input.
+Root и независимый проверяющий просмотрели все12полных1600×1000PNG,
+полный лист и шестикадровое превью одного финального native прогона.
+
+Нативные наблюдения финального лога:
+
+- `[09:34:38] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_FIXTURES: ownedSurvivalarena/rawbench/REDSTONERELAYprecursor/rawknowledge/studymaterials/typedPotentiacrystal/originalbenchingredients/initial500visper16loadedchunks/sixnativeChestwithOPTINQAForgeFEreceiverscapacity200000; vanillaChesthasnoFEconsumer/gameplaydummyregistrationsnone; onepaidtargetdevice reused, no activeenergy/tick/aura/RNG reset`
+- `[09:34:39] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_ASPECT_SCANNED: actualThaumometerC2S/rawtypedPotentiaCrystal/no targetaspectsetter`
+- `[09:34:40] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_STUDY_PAID: actualnativeC2S/32rawTheoryBASICS+32ARTIFICE/redstoneBlock1+piston1/+10earnedXP`
+- `[09:34:42] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_BENCH_PAID: actualnativeC2S/25vis/Ignis1Ordo1/fourPlanks+RedstoneDust+Piston+twoRareEarthNuggets+VisResonator->onephysicalVisGenerator`
+- `[09:34:43] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingdown actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState`
+- `[09:34:49] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingdown actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE`
+- `[09:34:49] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=277cea1d-d9db-4cff-aa9b-5a32d00c09ce at-11.914841495078822/113.875/-7.632657172568726/movePlayerOnly/no itemmovement/directpickup`
+- `[09:34:49] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingup actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState`
+- `[09:34:55] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingup actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE`
+- `[09:34:55] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=19010d06-697e-43a8-9835-d4c4dedb284d at1.7173954906036613/112.0/-8.716675768879636/movePlayerOnly/no itemmovement/directpickup`
+- `[09:34:56] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingnorth actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState`
+- `[09:35:01] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingnorth actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE`
+- `[09:35:02] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=d87aaa49-c91f-4a04-963a-add65aaa633d at11.450979996089197/112.0/-7.536537536272094/movePlayerOnly/no itemmovement/directpickup`
+- `[09:35:02] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingsouth actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState`
+- `[09:35:07] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingsouth actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE`
+- `[09:35:08] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=ddf90110-71f8-4abb-9f10-30eedd8762c5 at-11.313048567341648/114.0/6.653479624237246/movePlayerOnly/no itemmovement/directpickup`
+- `[09:35:08] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingwest actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState`
+- `[09:35:14] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingwest actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE`
+- `[09:35:15] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=80d5653b-4231-4579-a25b-69396b01e2b8 at0.0625/114.0/6.070691423083777/movePlayerOnly/no itemmovement/directpickup`
+- `[09:35:15] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingeast actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState`
+- `[09:35:22] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PAUSE: actualC2Sredstone/81worldticks/energy880unchanged/receiverFE1120unchanged/originalpoweredchargedSparks4`
+- `[09:35:25] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_RESUME: actualSurvivalRedstoneharvest/native20FEpush/receiver1120->1320FE/no directenergy/tick/aura reset`
+- `[09:35:30] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingEAST actualnativeC2S/onephysicalpaidBlockItem/finalteardown`
+- `[09:35:31] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_CLIENT_FACTS: scenes12 nativeAspectPotentia/study1/paidTheoryBASICS32ARTIFICE32/paidStudyRedstoneBlock1Piston1/earnedXP10/paidBench1/vis25/Ignis1Ordo1/onePaidDevice/SurvivalPlacements6/nativeDropPickups5/SurvivalHarvests6/nativeFacingMask63/acceptedFE13820/receiverCalls691/maxOffer20/redstonePause80ticks/nativePoweredChargedSparks15/nativeSparkEmitted81/drawn854/sparkFaces63/positiveEnergySamples83/poweredPositiveSamples15; explicitREDSTONERELAY/rawknowledge/materials/arena/initialaura/OPTINownedChestFEcapability,notvanillaChestFE/notfullsurvival/multiplayer/reload/audio`
+- `[09:35:31] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_RENDER_AUDIT_OK: 12 scenes; originalsixfacingbakedmodels/sameOriginalTextureForEnabledAndPoweredStates/actualstoredenergyrandomDisplayTickSpark/FXGeneric16grid8frames/originalpoweredchargedquirk/noGUI`
+
+Фактическая оплата:64rawTheory, redstoneblock1/piston1,10earnedXP;
+один bench25vis/Ignis1/Ordo1 и реальные4доски/redstoneDust/дваrareearthnuggets/
+piston/VisResonator. Один оплаченный генератор проходит6Survival-размещений,
+6разборок и5обычных native ItemEntity pickup между ними. Сервер наблюдал
+все6выходных направлений и13820принятыхFE; кадры содержат исходные
+6направлений корпуса и реальные заряженные искры. 81мировых тиков
+красного камня сохраняют запас/вывод; искры при заряде продолжаются как
+в оригинале. После удаления красного камня настоящий FE-приём возобновляется.
+
+Финальный native log содержит 5 наблюдаемых
+`NATIVE_PICKUP_APPROACH`: игрок QA подходит к уникальному настоящему ItemEntity,
+только когда тот уже на земле; UUID и реальные координаты связаны в отчёте.
+Положение/стек предмета не переписываются, прямого pickup или кредита инвентаря
+нет. Количество подходов не подменяет пять реально завершённых подборов.
+
+Важная граница: шесть ChestBlockEntity имеют явно подготовленную opt-in
+Forge ENERGY capability только в этом именном QA-мире. Обычный сундук
+Minecraft не является потребителем FE, игровой фиктивный блок/предмет для
+этой проверки не регистрируется. Этот route доказывает настоящий Forge
+capability-контракт с наблюдаемым приёмом, но не полную совместимость со
+всеми сторонними энергетическими модами.
+
+Фикстуры: completed REDSTONERELAY, сырые знания/typed Potentia crystal,
+обычные study/bench материалы, магический верстак, bedrock-арена и начальные
+500vis в16чанках до размещения потребителей. Potentia получен настоящим
+Thaumometer C2S. Target study/готовый генератор не выданы. После размещения
+нет прямого вызова consumer tick, сброса energy/count/RNG или ауры ради фото.
+Точный shader/atlas/spark source, те же original textures для обоих состояний,
+state/facing и собственные persistence/callback guards закреплены в аудитах.
+
+Ранние попытки сохранены отдельно. Перечень связывает фактически найденные
+файлы SHA256 и не переименовывает отказ в успех или непроверенную причину:
+
+Попытка `generator-037-client1` остановлена **без pass**:
+сохранены 6 исходных полных кадров,
+native exit `4294967295`, проверенный собственный PID5264,
+входной рабочий стол `Default→Default`.
+Последнее фактическое состояние:
+
+`THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290`
+
+Наблюдение: Native NORTH teardown asserted one physical paid generator drop; next scene waited for third native pickup at fixed player position. No continued FE output after source removal.
+
+Граница диагноза: Exact live item coordinates were not captured. Adjacent elevated receiver geometry makes the fixed y112 pickup approach fragile; this is a fixture diagnosis, not proof of a generator drop defect.
+
+Остановка: Native smoke stalled at scene6 phase3 waiting for physical pickup after NORTH teardown; no forced pickup/item copy. Stop only this verified owned QA JVM before fixing driver approach.
+
+Исправление только opt-in клиента: Move only owned QA player to the unique real dropped ItemEntity native position; never copy/move item, set inventory credit or call direct pickup.
+Остальные source/resource/helper fingerprint этого запуска совпадают
+с финальными; изменённые SHA привязаны в отчёте. Сохранены
+[generator-037-client1-state.json](validation/generator-037-client1-state.json),
+[generator-037-client1-owned-stop.json](validation/generator-037-client1-owned-stop.json),
+снимки в `validation/generator-037-client1-screenshots` и исходный log.
+Это не успешная проверка и не доказательство дефекта выпадения генератора.
+
+
+- `generator-client-generator-037-client1-client.log`: SHA256 `138e5377e159f5ba0bff75ec09504120d1baf10e83af96d57b3747928aef3900`.
+- `generator-037-compile1.log`: SHA256 `41af0ae3ff5e7fb0d953ecfabecb9b963513371521b066f034ad0334c6a38d49`.
+- `generator-037-compile2.log`: SHA256 `29f08024c62379b981a12eac1fc975ce87d5a44e2ec1bc340dcb5027f949c317`.
+- `generator-037-client1-owned-stop.json`: SHA256 `7a81abc80b3dbfa29771136cc445e0f539f0734c6c29ab58e7b55ec28bd27475`.
+- `generator-037-client1-state.json`: SHA256 `8a8be5354ce36d2114d8abef9b8b4966483ea94092095742f76701e3b13743ab`.
+
+Все 4436 отпечатков исходников, ресурсов и скриптов совпадают между
+финальными серверным прогоном, клиентским прогоном и сборкой. Исключений нет.
+Сборка успешна, **2860JSON**, **3690**resource-byte, оригинальные
+**670PNG/7JPG/57OGG** прошли. Версии, классы, CRC и архивы проверены.
+JAR SHA256: `5a76376fe228f029460560ae0a7f2ccce52ba2579e2d13b08c1fbbce0870eae8`.
+
+Ограничения: подготовленный QA не доказывает полное обычное survival,
+естественное получение всех precursor материалов, стороннюю FE compatibility
+matrix, отдельный multiplayer, client reload, каждый угол/случайный кадр
+частиц или слышимый звук. Снимки после scan/bench callback не показывают
+весь платёж; точные цены и действия связаны с native logs/серверными тестами.
+Кадры реальные, подписи листов находятся вне игровых пикселей.
+
+---
+
+## История: Проверка шаблонного верстака и диоптры0.36.0
 
 Дата: **2026-10-16**. Minecraft1.20.1 / Forge47.4.10 / Java17.
 Оригинал — выпущенный TC6.1.BETA26. Охват101/148, наполнение30/56;

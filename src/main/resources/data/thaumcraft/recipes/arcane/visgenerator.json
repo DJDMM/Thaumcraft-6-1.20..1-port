@@ -1,0 +1,16 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "VISGENERATOR",
+  "vis": 25,
+  "crystals": { "ignis": 1, "ordo": 1 },
+  "pattern": ["WSW", "EPE", "WRW"],
+  "key": {
+    "W": { "tag": "minecraft:planks" },
+    "S": { "tag": "forge:dusts/redstone" },
+    "E": { "item": "thaumcraft:nugget_rareearth" },
+    "P": { "item": "minecraft:piston" },
+    "R": { "item": "thaumcraft:vis_resonator" }
+  },
+  "result": { "item": "thaumcraft:vis_generator", "count": 1 }
+}

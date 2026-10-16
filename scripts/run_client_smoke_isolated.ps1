@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser', 'Lamps', 'Pattern')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser', 'Lamps', 'Pattern', 'Generator')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Generator = @{ property = 'generatorSmokeTest'; directory = 'generator-smoke'; prefix = 'generator-client'; marker = 'THAUMCRAFT_GENERATOR_CLIENT_SMOKE'; audit = 'THAUMCRAFT_GENERATOR_RENDER_AUDIT_OK' }
     Pattern = @{ property = 'patternSmokeTest'; directory = 'pattern-smoke'; prefix = 'pattern-client'; marker = 'THAUMCRAFT_PATTERN_CLIENT_SMOKE'; audit = 'THAUMCRAFT_PATTERN_RENDER_AUDIT_OK' }
     Lamps = @{ property = 'lampsSmokeTest'; directory = 'lamps-smoke'; prefix = 'lamps-client'; marker = 'THAUMCRAFT_LAMPS_CLIENT_SMOKE'; audit = 'THAUMCRAFT_LAMPS_RENDER_AUDIT_OK' }
     Condenser = @{ property = 'condenserSmokeTest'; directory = 'condenser-smoke'; prefix = 'condenser-client'; marker = 'THAUMCRAFT_CONDENSER_CLIENT_SMOKE'; audit = 'THAUMCRAFT_CONDENSER_RENDER_AUDIT_OK' }

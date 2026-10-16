@@ -1,0 +1,729 @@
+{
+  "version": "0.37.0",
+  "date": "2026-10-16",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 102,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 30,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1534,
+  "preservedRequiredGameTests": 1488,
+  "newTestsBySuite": {
+    "artifice/generator/VisGeneratorGameTests.java": 28,
+    "artifice/generator/VisGeneratorOwnershipGameTests.java": 4,
+    "research/VisGeneratorProgressionGameTests.java": 14
+  },
+  "serverLog": {
+    "file": "generator-037-gametest1.log",
+    "bytes": 762614,
+    "sha256": "d017379b5fe8c5e13e0a6b82107b5cdf7913fae8e046a878127f13f93b6ec248"
+  },
+  "serverRun": {
+    "nativeExitCode": 0,
+    "failedRequiredTests": 0,
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "run": "generator-037-server1",
+    "gradleExitCode": 0,
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-generator-037-server1",
+    "requiredTestCount": 1534
+  },
+  "serverRunEvidence": {
+    "file": "generator-037-server1-run.json",
+    "bytes": 466,
+    "sha256": "4332063fbc6391d3eba82702baae7f10acbd755b1063cf3fba4f0613e61fd62f"
+  },
+  "serverResult": "1534/1534; native complete; BUILD SUCCESSFUL",
+  "nativeServerFacts": [],
+  "clientRunTag": "generator-037-client2",
+  "client": {
+    "runTag": "generator-037-client2",
+    "smokeTest": "Generator",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\generator-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client2-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client2-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client2.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client2-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client2-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client2-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_04dbeeb9ccb348d68083b63c1f9bf698",
+    "jvmPid": 20244,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 12
+  },
+  "clientLog": {
+    "file": "generator-client-generator-037-client2-client.log",
+    "bytes": 28508,
+    "sha256": "a4d382ddac32807727ee3d621767f4c2135ffc51e14dca1554935ede3af2d77a"
+  },
+  "clientScenes": 12,
+  "nativeClientFacts": [
+    "[09:34:38] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_FIXTURES: ownedSurvivalarena/rawbench/REDSTONERELAYprecursor/rawknowledge/studymaterials/typedPotentiacrystal/originalbenchingredients/initial500visper16loadedchunks/sixnativeChestwithOPTINQAForgeFEreceiverscapacity200000; vanillaChesthasnoFEconsumer/gameplaydummyregistrationsnone; onepaidtargetdevice reused, no activeenergy/tick/aura/RNG reset",
+    "[09:34:39] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_ASPECT_SCANNED: actualThaumometerC2S/rawtypedPotentiaCrystal/no targetaspectsetter",
+    "[09:34:40] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_STUDY_PAID: actualnativeC2S/32rawTheoryBASICS+32ARTIFICE/redstoneBlock1+piston1/+10earnedXP",
+    "[09:34:42] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_BENCH_PAID: actualnativeC2S/25vis/Ignis1Ordo1/fourPlanks+RedstoneDust+Piston+twoRareEarthNuggets+VisResonator->onephysicalVisGenerator",
+    "[09:34:43] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingdown actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState",
+    "[09:34:49] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingdown actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE",
+    "[09:34:49] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=277cea1d-d9db-4cff-aa9b-5a32d00c09ce at-11.914841495078822/113.875/-7.632657172568726/movePlayerOnly/no itemmovement/directpickup",
+    "[09:34:49] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingup actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState",
+    "[09:34:55] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingup actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE",
+    "[09:34:55] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=19010d06-697e-43a8-9835-d4c4dedb284d at1.7173954906036613/112.0/-8.716675768879636/movePlayerOnly/no itemmovement/directpickup",
+    "[09:34:56] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingnorth actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState",
+    "[09:35:01] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingnorth actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE",
+    "[09:35:02] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=d87aaa49-c91f-4a04-963a-add65aaa633d at11.450979996089197/112.0/-7.536537536272094/movePlayerOnly/no itemmovement/directpickup",
+    "[09:35:02] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingsouth actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState",
+    "[09:35:07] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingsouth actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE",
+    "[09:35:08] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=ddf90110-71f8-4abb-9f10-30eedd8762c5 at-11.313048567341648/114.0/6.653479624237246/movePlayerOnly/no itemmovement/directpickup",
+    "[09:35:08] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingwest actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState",
+    "[09:35:14] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingwest actualnativeC2S/onephysicalpaidBlockItem; originaldropdoesnotpersiststoredFE",
+    "[09:35:15] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=80d5653b-4231-4579-a25b-69396b01e2b8 at0.0625/114.0/6.070691423083777/movePlayerOnly/no itemmovement/directpickup",
+    "[09:35:15] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_PLACED: facingeast actualnativeC2S/samepaidBlockItem/nativeadjacentFEdiscovery/no forcedBlockState",
+    "[09:35:22] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_PAUSE: actualC2Sredstone/81worldticks/energy880unchanged/receiverFE1120unchanged/originalpoweredchargedSparks4",
+    "[09:35:25] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_NATIVE_RESUME: actualSurvivalRedstoneharvest/native20FEpush/receiver1120->1320FE/no directenergy/tick/aura reset",
+    "[09:35:30] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_SURVIVAL_HARVESTED: facingEAST actualnativeC2S/onephysicalpaidBlockItem/finalteardown",
+    "[09:35:31] [Server thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_CLIENT_FACTS: scenes12 nativeAspectPotentia/study1/paidTheoryBASICS32ARTIFICE32/paidStudyRedstoneBlock1Piston1/earnedXP10/paidBench1/vis25/Ignis1Ordo1/onePaidDevice/SurvivalPlacements6/nativeDropPickups5/SurvivalHarvests6/nativeFacingMask63/acceptedFE13820/receiverCalls691/maxOffer20/redstonePause80ticks/nativePoweredChargedSparks15/nativeSparkEmitted81/drawn854/sparkFaces63/positiveEnergySamples83/poweredPositiveSamples15; explicitREDSTONERELAY/rawknowledge/materials/arena/initialaura/OPTINownedChestFEcapability,notvanillaChestFE/notfullsurvival/multiplayer/reload/audio",
+    "[09:35:31] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_RENDER_AUDIT_OK: 12 scenes; originalsixfacingbakedmodels/sameOriginalTextureForEnabledAndPoweredStates/actualstoredenergyrandomDisplayTickSpark/FXGeneric16grid8frames/originalpoweredchargedquirk/noGUI"
+  ],
+  "nativeClientPickupApproaches": [
+    {
+      "itemEntityUuid": "277cea1d-d9db-4cff-aa9b-5a32d00c09ce",
+      "x": -11.914841495078822,
+      "y": 113.875,
+      "z": -7.632657172568726,
+      "nativeFact": "THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=277cea1d-d9db-4cff-aa9b-5a32d00c09ce at-11.914841495078822/113.875/-7.632657172568726/movePlayerOnly/no itemmovement/directpickup"
+    },
+    {
+      "itemEntityUuid": "19010d06-697e-43a8-9835-d4c4dedb284d",
+      "x": 1.7173954906036613,
+      "y": 112.0,
+      "z": -8.716675768879636,
+      "nativeFact": "THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=19010d06-697e-43a8-9835-d4c4dedb284d at1.7173954906036613/112.0/-8.716675768879636/movePlayerOnly/no itemmovement/directpickup"
+    },
+    {
+      "itemEntityUuid": "d87aaa49-c91f-4a04-963a-add65aaa633d",
+      "x": 11.450979996089197,
+      "y": 112.0,
+      "z": -7.536537536272094,
+      "nativeFact": "THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=d87aaa49-c91f-4a04-963a-add65aaa633d at11.450979996089197/112.0/-7.536537536272094/movePlayerOnly/no itemmovement/directpickup"
+    },
+    {
+      "itemEntityUuid": "ddf90110-71f8-4abb-9f10-30eedd8762c5",
+      "x": -11.313048567341648,
+      "y": 114.0,
+      "z": 6.653479624237246,
+      "nativeFact": "THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=ddf90110-71f8-4abb-9f10-30eedd8762c5 at-11.313048567341648/114.0/6.653479624237246/movePlayerOnly/no itemmovement/directpickup"
+    },
+    {
+      "itemEntityUuid": "80d5653b-4231-4579-a25b-69396b01e2b8",
+      "x": 0.0625,
+      "y": 114.0,
+      "z": 6.070691423083777,
+      "nativeFact": "THAUMCRAFT_GENERATOR_NATIVE_PICKUP_APPROACH: actualSettledItemEntity=80d5653b-4231-4579-a25b-69396b01e2b8 at0.0625/114.0/6.070691423083777/movePlayerOnly/no itemmovement/directpickup"
+    }
+  ],
+  "nativeClientPickupApproachCount": 5,
+  "observedPauseWorldTicks": 81,
+  "nativeVisualCounts": {
+    "nativePoweredChargedSparks": 15,
+    "nativeSparkEmitted": 81,
+    "drawn": 854,
+    "sparkFaces": 63,
+    "positiveEnergySamples": 83,
+    "poweredPositiveSamples": 15
+  },
+  "nativeClientEnergyCounts": {
+    "acceptedFE": 13820,
+    "receiverCalls": 691,
+    "nativeFacingMask": 63,
+    "nativePoweredChargedSparks": 15,
+    "nativeSparkEmitted": 81,
+    "drawn": 854,
+    "sparkFaces": 63,
+    "positiveEnergySamples": 83,
+    "poweredPositiveSamples": 15
+  },
+  "paidClientTotals": {
+    "rawTheoryBasics": 32,
+    "rawTheoryArtifice": 32,
+    "studyRedstoneBlocks": 1,
+    "studyPistons": 1,
+    "earnedExperience": 10,
+    "arcaneCrafts": 1,
+    "vis": 25,
+    "ignisCrystals": 1,
+    "ordoCrystals": 1,
+    "paidGeneratorItems": 1,
+    "survivalPlacements": 6,
+    "nativeDropPickups": 5,
+    "survivalHarvests": 6,
+    "nativeFacingMask": 63,
+    "acceptedForgeEnergy": 13820
+  },
+  "visualReview": {
+    "clientRunTag": "generator-037-client2",
+    "clientLogSha256": "a4d382ddac32807727ee3d621767f4c2135ffc51e14dca1554935ede3af2d77a",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "pattern_progression_036"
+    ],
+    "method": "Both reviewers actually viewed all12 full1600x1000 native PNG, complete contact sheet and six-frame delivery preview from the same final native pass.",
+    "contactSheet": {
+      "file": "generator-0.37-review-sheet.png",
+      "sha256": "47c1b7af99aa382e50ea536d04d2f29ff2141a9d28ddd110b8d221315fc11e9f",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "generator-0.37-preview.png",
+      "sha256": "d94b1a4a60c2fa34be6d242e4e53793c53f55a7a2324f4f6381e5c248cc369bd",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-generator-native-potentia-scan.png",
+        "sha256": "32dc3fdfe6eeecb40e0b22705779629ebbb4b14ebba71a9c03dc94a51fe819b9",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-paid-generator-study.png",
+        "sha256": "d4b5d03d99b92042ac89c02a395c6f400c999eaa5b659c0bb4c56ffc10498ffe",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-paid-generator-bench.png",
+        "sha256": "3b5090787276de1921fc8858d0c945d2c302ca1017807abe96538f08d0f53802",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-survival-facing-down.png",
+        "sha256": "3c7fa92d164ece8de57a4555d5b9fe8c3d910405538de7129ebe215f4528f779",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-survival-facing-up.png",
+        "sha256": "30eba00c96a606460e60f0aeda7979c77b7aaaa2d6fda25bc36d572ef685a651",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-survival-facing-north.png",
+        "sha256": "626ac5c702aa90265a220101b775dff3dc972191d45f93041332ca9c72ed1d95",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-survival-facing-south.png",
+        "sha256": "135efa8679b44e1f184f33fbf06aec545b51c79364f18f95b197243967498be8",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-survival-facing-west.png",
+        "sha256": "064b77f6ac64da0150b8c2e460d20fae60065637d719a7b02f9b63122f7d3a7d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-survival-facing-east.png",
+        "sha256": "cfa1b1dcf0db17414f05394e536f33771cba4020f2c6fb0741dfb5956372f15d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-native-powered-pause.png",
+        "sha256": "77091e3b0a6d5c6a498dfb726802115e4eca236cccdf48ff62cb1ac40bdbcdb8",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-native-output-resumed.png",
+        "sha256": "d5f130d31018c839a29db89d1e69143eaf76330aed4c75188cb03f16cd4f498d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-generator-survival-dismantling.png",
+        "sha256": "9adf912aaf6f4be55d725c51e4154930ab9b7fa97baca167233ddf5fe1d3941b",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "The original generator research conclusion and paid arcane output are readable without developer overlays, missing assets or invented device GUI.",
+      "Six original facing models use the same original texture for enabled and powered states; actual charged sparks are visible in the final native captures.",
+      "The same paid device is tied by native logs to six Survival placements, five real pickups, native FE capability acceptance and six harvests.",
+      "Original charged sparks while powered, native80tick pause and resumed FE output are tied to actual final observations.",
+      "Captions stay outside original gameplay pixels; no generated artwork or composited game state."
+    ],
+    "limits": [
+      "Prepared Survival fixtures include supplied REDSTONERELAY/rawknowledge/materials/typedPotentiaCrystal/initialaura/arena/workbench.",
+      "Six native chest receivers have an explicit opt-in owned-world QA Forge FE capability; ordinary vanilla chests do not consume FE. No third-party FE compatibility matrix is claimed.",
+      "The aspect and bench captures may be post-callback/post-payment; matching logs establish exact discovery/payment, not a single screenshot.",
+      "All six facing views do not establish every camera angle/random particle frame, full survival, multiplayer, client reload or audible sound."
+    ],
+    "independentFindings": [
+      "The Vis Powered Generator research conclusion is readable across both pages, with an intact book background and completed-study status. No developer/server-check/mockup/QA text is visible inside the gameplay images.",
+      "The paid-bench image shows the consumed grid, remaining 475 vis and one generator item in the hotbar. This is an after-payment view; exact 25-vis/Ignis/Ordo and component debits are established by the matching native callback facts, not inferred from an empty grid.",
+      "All six facing captures show a consistent textured generator body and central axle with vertical and horizontal orientations. No missing-texture pattern, broken face, visual corruption or clipping defect was found. Enabled and powered captures retain the same texture, as documented for original TC6.",
+      "Charged spark details are small and sparse rather than a fabricated large effect; tiny cyan details can be seen near the device in the original frames. The actual final native log records 81 admitted sparks, 15 powered charged sparks, 854 draw observations and facing mask63. A still frame does not establish their lifetime, cadence or every random frame.",
+      "Pause visibly adds a real redstone block; resume removes it while preserving the generator model. The final teardown shows the placed generator removed with physical dropped items. Exact 81-world-tick pause, resumed FE receipt, six paid placements/harvests and five native pickups are bound to the same client2 log.",
+      "The complete sheet and compact preview use these actual final frames with captions outside the game pixels. Their scene labels agree with the reviewed captures and no unsupported screenshot editing was observed.",
+      "No concrete visual defect requiring a source change was found in the reviewed 12-frame scope."
+    ],
+    "independentLimits": [
+      "This is a prepared owned Survival QA arena with supplied completed REDSTONERELAY, raw knowledge/materials/typed Potentia crystal, workbench and initial aura; it is not a full ordinary survival progression playthrough.",
+      "The six chest-shaped receivers have an explicit opt-in owned-world Forge ENERGY capability fixture. Ordinary Minecraft chests do not consume FE, and these images do not establish compatibility with every third-party energy mod.",
+      "The scanner capture is after the callback and shows the learned-something notification; it does not by itself identify every scanned aspect. The bench image is after payment. Matching server-thread native facts establish the aspect and exact payment.",
+      "Small transient sparks and FE transfer are not completely provable from static images. Their native counters and callback observations are separately recorded; the review does not claim every camera angle, particle frame, motion/audio, multiplayer or client reload coverage.",
+      "QA moves only its real player to each unique settled physical dropped ItemEntity before ordinary pickup; this is prepared navigation, not evidence of unassisted walking. Actual UUID/coordinates are preserved in NATIVE_PICKUP_APPROACH logs; no item movement, copying or direct pickup call is claimed.",
+      "The earlier client1 attempt remains a separate stopped-without-pass run with six archived frames. This review certifies only the complete client2 captures and does not reinterpret client1 or its uncertain drop coordinates as a successful run or a proven production drop defect."
+    ]
+  },
+  "independentReviewEvidence": {
+    "file": "generator-independent-review-0.37.json",
+    "bytes": 6506,
+    "sha256": "955f4d4106c132bf70841ff08e4fcf8063bb695642105b5250273757ef3ee641"
+  },
+  "localJsonCount": 2860,
+  "jarResourceByteParityChecks": 3690,
+  "originalMediaByteParity": {
+    ".ogg": 57,
+    ".png": 670,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.37.0.jar",
+      "bytes": 11967432,
+      "sha256": "5a76376fe228f029460560ae0a7f2ccce52ba2579e2d13b08c1fbbce0870eae8"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.37.0-mods.zip",
+      "bytes": 11049535,
+      "sha256": "aaaff6f3fa8c0be7243aa22b2ee1b5ebde7e58543c91520be2f1ce1272ae3522"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.37.0-screenshots.zip",
+      "bytes": 9454599,
+      "sha256": "d4c0de7ead25557251d5f3745937cce21734924f0f56cb21544965045f397b38"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.37.0-preview.png",
+      "bytes": 1691201,
+      "sha256": "d94b1a4a60c2fa34be6d242e4e53793c53f55a7a2324f4f6381e5c248cc369bd"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "buildLog": {
+    "file": "build-0.37-final.log",
+    "bytes": 1212,
+    "sha256": "9b21efddd242fb52f7e341a3b60f3364b0cb2c0a70e7ee40cab21d953073fed5"
+  },
+  "resourceLog": {
+    "file": "resources-0.37-final.log",
+    "bytes": 188,
+    "sha256": "57237f9dcc3239e0bd972cea2c46abf4c44ff055c0f41a07054971d060fcce69"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "c3c3c2677e2db65cb2e31253ee95e8a797bc0f408a1bd00cddf70c49391f8e7a"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "384a79a84a3dcf9302dff3163516a456bd013f550590662a1030ae860248cae9"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "068542ab8c39bbc884282f8efefb9334e9830b544a4f6e6773d9e48d1cd67245"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "0cc89c07f9690ac516f1621b16e70aa912635beb4aa585f5a263f3ce998140ce"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "55caef013d4e3e761157d4d7ae93e8942b4c51860f539f3f6ab57a89cec388b6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/LegacyVisGeneratorMigration.java",
+      "sha256": "b6f20f5a768dcad636dcf4929df02e77467979d17fdcc5912d24c95f6c6f12e3"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/VisGeneratorBlock.java",
+      "sha256": "50f204fe60466279d7d40ab3bc0f1537c6fb4dac3cc562c6d73116a5ff12b32a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/VisGeneratorBlockEntity.java",
+      "sha256": "fc25e512b2b51afef37f9eeada6a17b1711597263f0a900fce0aa68cec97adc1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/VisGeneratorBlockItem.java",
+      "sha256": "c37308a8b8b5a88b3270c6eed949b925930eb899f0a4770ac94eff8c50a39460"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/VisGeneratorGameTests.java",
+      "sha256": "56668e5826be670298737806a21dc74c06539b3949b1b9449ff61bc01e1315e7"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/VisGeneratorModule.java",
+      "sha256": "50b3ee5e00bf58e6db78cc9367fc0b7551823a3246e99d0eacdb5ef7f6486683"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/VisGeneratorOwnershipGameTests.java",
+      "sha256": "e3512b75d66e787716e4ffdff99dee37af443b09d6cf263138c41bb0c126f6ae"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/client/GeneratorClientEffects.java",
+      "sha256": "07b182b6191fe105d5eacfdd16d86b8a7903cceb396e628f7e136dc47d84e9d1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/artifice/generator/client/GeneratorClientSmokeTest.java",
+      "sha256": "29920299b7ad2ab5640ed02d5749b0200a43de39683b02a7a30cf15e55a9ba89"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/blocks/CatalogBlocks.java",
+      "sha256": "95f5ec8debae2179f5c38ae4eadd92b4c815877fa8f45cf165142f1fd28c069e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "f34a404ecc81d97281ee143c59b7db113a57b9bdc7df440517d9954413dc9718"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "b4eae8f1dfc85e4893bd3f05b892a54654672d444a34c0d0758ce417efb5bc8b"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CondenserProgressionGameTests.java",
+      "sha256": "f197fb44bd7635c55524156e35c742bed14a6ac589f686eacab0b69acb24f239"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "6718e8fa3b8e938a8b38e1fe3f765cbb0af3b1a49a503dc21795ecd94e8b08ba"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "24033ed2775e54a4e81825c2295ad07311e268fa8dbcc3d8514747aa545a7371"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "106fe222da3e2c1a7b49539249ee67339b73d62938c800c417ada4a4b04f1205"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "7387250e95cc91ec20ba58bbb3ae80257cfd97e781d0f4fa157954ea7baa5814"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "b4ce1f6f4f94a3691b78ad057f323440cf3245ce99f97bd0aeeccd5d1af5a810"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionGameTests.java",
+      "sha256": "13924dc24cab9f75d8ec9ce7a200e491ff8950cb8035245a3ac88d2d5058d9e2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/LampProgressionGameTests.java",
+      "sha256": "e3b0d3cf6c9b1781fa49a1941054bba6d9b6f2d338d2eda0decac66ece388a43"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "88bec96dae27eaa63208e8d3f0ff3112544b53bb9745e148ad6e89bcd81b6255"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/PatternCrafterProgressionGameTests.java",
+      "sha256": "cb647ce6aad1cebbd70f2c0dc79b9b9557a10c94f4be564c12c570c424116dc4"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "cc0f2f368c526f4511e690e44fcaa994723ff16ba98cc7ae3f30bab6cb73d9a8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "098a670c3d24de4598a57a649955aa83413ec99cadc514161acb203e2ced2740"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "ce0e1229827d4e2c508942fa1e058a86f6548095d80bd697b2b1d81e35067bc9"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/VisGeneratorProgressionGameTests.java",
+      "sha256": "a5f41af6d312338926bd5a04fc5620ac14ae93af9afd1021f8ab0c728e1aa5db"
+    },
+    {
+      "file": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+      "sha256": "6ad64f38715e41bd9dc0fca7832fa64ca22d0fd3aedb558b703369d2a013886b"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "db43f03cc2589d66025e30c962a6339d295803fff57f4017b9d1da88bd1c182d"
+    },
+    {
+      "file": "src/main/resources/data/minecraft/tags/blocks/mineable/axe.json",
+      "sha256": "223565c5998600ffdd911d03d3ecbd2e863ed655522c66bd410e4a7c003302a0"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/visgenerator.json",
+      "sha256": "ee0168d3312e1c2506ab6fce6837bf223bf1df42e87e590c32d8aed92ad9d27a"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "generator-037-server1-sources.json",
+      "bytes": 639589,
+      "sha256": "4d48649b8bafde7d6cab07ac3531306797ab68c79252b56e7688bd2c983b32c3"
+    },
+    {
+      "file": "generator-037-client2-sources.json",
+      "bytes": 639589,
+      "sha256": "4d48649b8bafde7d6cab07ac3531306797ab68c79252b56e7688bd2c983b32c3"
+    },
+    {
+      "file": "generator-037-build-final-sources.json",
+      "bytes": 639589,
+      "sha256": "4d48649b8bafde7d6cab07ac3531306797ab68c79252b56e7688bd2c983b32c3"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": true,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4436,
+    "matchingServerRelevantFileCount": 4436,
+    "clientOnlyExceptions": [],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "fixtures": [
+    "Fresh owned prepared native Survival world; completed REDSTONERELAY and raw32+32Theory supplied; target Potentia fact earned by actual Thaumometer C2S",
+    "Raw typed Potentia crystal, original physical redstoneblock/piston study specimens and original nine-cell arcane materials/two primal crystals supplied; native callbacks pay them",
+    "Prepared bedrock arena/workbench and initial500vis in16loadedchunks supplied before consumers; no active generator energy/count/tick/aura/RNG reset",
+    "Six raw native ChestBlockEntity fixtures receive an explicit opt-in owned-world Forge FE capability; ordinary vanilla chests do not consume FE",
+    "One physically paid generator is reused in six native Survival placements and six harvests through five actual ItemEntity pickups; no extra target item or synthetic refund supplied",
+    "Opt-in QA player approaches the unique settled native physical ItemEntity position; item position/stack is not rewritten and direct pickup is not called"
+  ],
+  "limitations": [
+    "Prepared Survival QA is not a full ordinary survival playthrough, multiplayer, client reload or audible sound proof",
+    "Forge ENERGY receiver fixtures establish the native capability route; they do not establish energy-consuming vanilla chests or every third-party FE mod",
+    "All six actual facing views and original charged-powered sparks are covered; no claim about every camera angle or random particle frame",
+    "Original1vis->1000FE/fractional truncation/no top-up while positive/max20FEpush/inverse redstone/plain lossy-energy drops remain; failed callbacks retain the modern paid ledger",
+    "Loaded-only endpoint discovery, guarded placement/callback ownership and modern capability persistence are explicit adaptations; unknown handlers with unobservable or dishonest acceptance are not certified",
+    "Actual native final screenshots have captions outside gameplay pixels; no generated or composited game state",
+    "GRAPPLEGUN, later equipment/Warp/Crimson/Eldritch and remaining taint ecology still require porting"
+  ],
+  "earlierClientRuns": [
+    {
+      "file": "generator-client-generator-037-client1-client.log",
+      "bytes": 27007,
+      "sha256": "138e5377e159f5ba0bff75ec09504120d1baf10e83af96d57b3747928aef3900"
+    }
+  ],
+  "earlierRuns": [],
+  "otherEarlierEvidence": [
+    {
+      "file": "generator-037-compile1.log",
+      "bytes": 4975,
+      "sha256": "41af0ae3ff5e7fb0d953ecfabecb9b963513371521b066f034ad0334c6a38d49"
+    },
+    {
+      "file": "generator-037-compile2.log",
+      "bytes": 1009,
+      "sha256": "29f08024c62379b981a12eac1fc975ce87d5a44e2ec1bc340dcb5027f949c317"
+    },
+    {
+      "file": "generator-037-client1-owned-stop.json",
+      "bytes": 3247,
+      "sha256": "7a81abc80b3dbfa29771136cc445e0f539f0734c6c29ab58e7b55ec28bd27475"
+    },
+    {
+      "file": "generator-037-client1-state.json",
+      "bytes": 2379,
+      "sha256": "8a8be5354ce36d2114d8abef9b8b4966483ea94092095742f76701e3b13743ab"
+    }
+  ],
+  "stoppedClientRuns": [
+    {
+      "runTag": "generator-037-client1",
+      "result": "stopped without pass",
+      "stateEvidence": {
+        "file": "generator-037-client1-state.json",
+        "bytes": 2379,
+        "sha256": "8a8be5354ce36d2114d8abef9b8b4966483ea94092095742f76701e3b13743ab"
+      },
+      "state": {
+        "runTag": "generator-037-client1",
+        "result": "stopped without pass",
+        "clientLog": {
+          "file": "generator-client-generator-037-client1-client.log",
+          "sha256": "138e5377e159f5ba0bff75ec09504120d1baf10e83af96d57b3747928aef3900"
+        },
+        "lastNativeHeartbeat": "THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+        "actualObserved": "Native NORTH teardown asserted one physical paid generator drop; next scene waited for third native pickup at fixed player position. No continued FE output after source removal.",
+        "causeLimit": "Exact live item coordinates were not captured. Adjacent elevated receiver geometry makes the fixed y112 pickup approach fragile; this is a fixture diagnosis, not proof of a generator drop defect.",
+        "stop": "Only verified Java17 PID5264 was stopped; desktop stayed Default. See generator-037-client1-owned-stop.json and native desktop report.",
+        "archivedNativeScreenshots": [
+          {
+            "file": "tc6-generator-native-potentia-scan.png",
+            "bytes": 495323,
+            "sha256": "744d1b7c9158e423bdb54ecd53df7a1c99685db58a672313c698392aa1ea347b"
+          },
+          {
+            "file": "tc6-generator-paid-generator-bench.png",
+            "bytes": 426635,
+            "sha256": "2036a26948784d3e261660eae1223d07fd5b7946c2c5d016a6413a7491d4cc61"
+          },
+          {
+            "file": "tc6-generator-paid-generator-study.png",
+            "bytes": 696755,
+            "sha256": "2232c6f70af1184343bb01b4cb15572e4ce45eecf25cbf390ca62be1467d94d9"
+          },
+          {
+            "file": "tc6-generator-survival-facing-down.png",
+            "bytes": 305873,
+            "sha256": "da7dd8d22e58f1ff3893913d49d79a27864860b627a0c28cee7f12aebbc56513"
+          },
+          {
+            "file": "tc6-generator-survival-facing-north.png",
+            "bytes": 764570,
+            "sha256": "bfa9e183339045a3247b5ca11201f7aa6a0f4dca77bce196bfc14da15178731b"
+          },
+          {
+            "file": "tc6-generator-survival-facing-up.png",
+            "bytes": 714254,
+            "sha256": "eca46d38b3fb7f78d1a0839aba32a9d0ff8ac951c01b3b9cffe936ef08065913"
+          }
+        ],
+        "sourceSnapshot": "generator-037-client1-sources.json",
+        "plannedCorrection": "Move only owned QA player to the unique real dropped ItemEntity native position; never copy/move item, set inventory credit or call direct pickup."
+      },
+      "clientLog": {
+        "file": "generator-client-generator-037-client1-client.log",
+        "bytes": 27007,
+        "sha256": "138e5377e159f5ba0bff75ec09504120d1baf10e83af96d57b3747928aef3900"
+      },
+      "ownedStopEvidence": {
+        "file": "generator-037-client1-owned-stop.json",
+        "bytes": 3247,
+        "sha256": "7a81abc80b3dbfa29771136cc445e0f539f0734c6c29ab58e7b55ec28bd27475"
+      },
+      "ownedStop": {
+        "runTag": "generator-037-client1",
+        "pid": 5264,
+        "executable": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "checkedArgumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1.args",
+        "checkedDesktop": "WinSta0\\ThaumcraftQA_b3f66539464b4e36b499d967dcbb4b36",
+        "reason": "Native smoke stalled at scene6 phase3 waiting for physical pickup after NORTH teardown; no forced pickup/item copy. Stop only this verified owned QA JVM before fixing driver approach.",
+        "lastLogLines": [
+          "[09:31:09] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:14] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:19] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:24] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:29] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:34] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:39] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:44] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:49] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290",
+          "[09:31:54] [Render thread/INFO] [th.ar.ge.cl.GeneratorClientSmokeTest/]: THAUMCRAFT_GENERATOR_HEARTBEAT: scene=6 phase=3 placed=3 harvested=3 pickedUp=2 energy=940 acceptedFE=6840 calls=342 nativeFaces=7 sparkFaces=7 sparks=29 poweredSparks=0 drawn=290"
+        ]
+      },
+      "runEvidence": {
+        "file": "generator-client-generator-037-client1-run.json",
+        "bytes": 1732,
+        "sha256": "dc5b574868da2a606b00348727755115a000828790983dd8250d356b589d3b67"
+      },
+      "run": {
+        "runTag": "generator-037-client1",
+        "smokeTest": "Generator",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\generator-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_b3f66539464b4e36b499d967dcbb4b36",
+        "jvmPid": 5264,
+        "jvmExitCode": 4294967295,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default"
+      },
+      "desktopEvidence": {
+        "file": "generator-client-generator-037-client1-desktop.json",
+        "bytes": 461,
+        "sha256": "67bdda767916b69c6a2667c155b4dd2e0dbd73d41bd82cbeb25a406b333a4811"
+      },
+      "desktop": {
+        "state": "exited",
+        "pid": 5264,
+        "desktop": "WinSta0\\ThaumcraftQA_b3f66539464b4e36b499d967dcbb4b36",
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "logPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\generator-client-generator-037-client1-client.log",
+        "currentOwnedWindowsOnTargetDesktop": 14,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "exitCode": 4294967295
+      },
+      "sourceSnapshotEvidence": {
+        "file": "generator-037-client1-sources.json",
+        "bytes": 639589,
+        "sha256": "52af5bc01d649efcbe2f88086c686983d38e639f08164ee97731ab1ec9c2305f"
+      },
+      "sourceChangesSinceStoppedRun": [
+        "src/main/java/thaumcraft/artifice/generator/client/GeneratorClientSmokeTest.java"
+      ],
+      "changedSourceHashes": [
+        {
+          "file": "src/main/java/thaumcraft/artifice/generator/client/GeneratorClientSmokeTest.java",
+          "stoppedClientSha256": "224e7a80f4659be036ce7178151e4381fd24a79a383ab103b402a0c1bf5c32f0",
+          "finalClientBuildSha256": "29920299b7ad2ab5640ed02d5749b0200a43de39683b02a7a30cf15e55a9ba89"
+        }
+      ],
+      "archivedScreenshotDirectory": "generator-037-client1-screenshots",
+      "archivedNativeScreenshots": [
+        {
+          "file": "tc6-generator-native-potentia-scan.png",
+          "bytes": 495323,
+          "sha256": "744d1b7c9158e423bdb54ecd53df7a1c99685db58a672313c698392aa1ea347b"
+        },
+        {
+          "file": "tc6-generator-paid-generator-bench.png",
+          "bytes": 426635,
+          "sha256": "2036a26948784d3e261660eae1223d07fd5b7946c2c5d016a6413a7491d4cc61"
+        },
+        {
+          "file": "tc6-generator-paid-generator-study.png",
+          "bytes": 696755,
+          "sha256": "2232c6f70af1184343bb01b4cb15572e4ce45eecf25cbf390ca62be1467d94d9"
+        },
+        {
+          "file": "tc6-generator-survival-facing-down.png",
+          "bytes": 305873,
+          "sha256": "da7dd8d22e58f1ff3893913d49d79a27864860b627a0c28cee7f12aebbc56513"
+        },
+        {
+          "file": "tc6-generator-survival-facing-north.png",
+          "bytes": 764570,
+          "sha256": "bfa9e183339045a3247b5ca11201f7aa6a0f4dca77bce196bfc14da15178731b"
+        },
+        {
+          "file": "tc6-generator-survival-facing-up.png",
+          "bytes": 714254,
+          "sha256": "eca46d38b3fb7f78d1a0839aba32a9d0ff8ac951c01b3b9cffe936ef08065913"
+        }
+      ],
+      "actualNativeScreenshotCount": 6
+    }
+  ]
+}

@@ -3,7 +3,21 @@
 Дата первоначального изучения справочников: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
 
-Текущий срез **0.36.0**: **101/148** исследований, **30/56** наполнений.
+Текущий срез **0.37.0**: **102/148** исследований, **30/56** наполнений.
+VISGENERATOR использует исходную прогрессию/arcane25vis и настоящий Forge
+ENERGY выход до20FE/тик,6сторон, redstone и исходные заряженные искры.
+Правила — [VIS-GENERATOR.md](../../VIS-GENERATOR.md); аудиты:
+[устройство](VIS-GENERATOR-BETA26-AUDIT.md),
+[прогрессия](VIS-GENERATOR-PROGRESSION-BETA26-AUDIT.md),
+[клиент](VIS-GENERATOR-CLIENT-BETA26-AUDIT.md).
+Финальный `generator-037-server1` 1534/1534, `generator-037-client2`12/12, оба native exit0;
+все12полныхPNG и оба листа просмотрены двумя проверяющими.
+2860JSON/3690resource-byte/original670PNG7JPG57OGG прошли.
+13820FE приняты явными opt-in capability-фикстурами; обычный сундук
+Minecraft не потребляет FE. [Отчёт0.37](../../validation/artifact-report-0.37.json)
+и [VALIDATION.md](../../VALIDATION.md) фиксируют оплаты/fixtures/границы.
+
+Исторический срез **0.36.0**: **101/148** исследований, **30/56** наполнений.
 Исходная DIOPTRA→ARCANEPATTERNCRAFTER цепь оплачивает оба устройства;
 диоптра показывает Vis/Flux13×13, сборщик применяет10uniform-material схем
 через верхний/нижний инвентари с native аурой, redstone и исходной анимацией.

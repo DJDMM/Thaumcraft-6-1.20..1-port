@@ -1,5 +1,13 @@
 # Isolated Windows client QA
 
+The `-SmokeTest Generator` profile uses only `run/generator-smoke` for the
+paid TC6 Vis Generator study and25vis bench recipe, native Survival placement,
+six output faces, actual Forge Energy pushes and redstone pause/resume.
+Its exact-owned-world opt-in Chest FE capability is explicitly a QA receiver
+fixture, not vanilla Chest behavior. It requests1600x1000 frames with the same
+hidden non-input desktop and exact-JVM checks below. Selecting the profile is
+not evidence of a passed run; actual results belong to the versioned report.
+
 The `-SmokeTest Lamps` profile uses only `run/lamps-smoke` for paid TC6
 Growth/Fertility research, two native lamp infusions, real crop ticks and
 animal breeding. It requests1600x1000 frames with the same hidden non-input
