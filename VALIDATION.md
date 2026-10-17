@@ -1,3 +1,185 @@
+# Проверка аксессуаров0.39.0
+
+Дата: **2026-10-17**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26. Канонические исследования105/148,
+доступные наполнения31/56; исходных зарегистрированных наполнений56.
+Контракт — [ACCESSORIES.md](ACCESSORIES.md), точные файлы/SHA —
+[artifact-report0.39](validation/artifact-report-0.39.json).
+
+Свежий полный `accessories-039-server2` прошёл **1628/1628**, native exit0 и BUILD SUCCESSFUL.
+Сохранены1559предыдущих проверок; новые определения: `{'equipment/accessories/AccessoriesGameTests.java': 29, 'equipment/pouch/FocusPouchGameTests.java': 25, 'research/AccessoriesProgressionGameTests.java': 15}`.
+Проверены реальные Curios capability/слоты/экипировка/выпадение и копирование,
+два исходных исследования, точные оплаты обычных/магического/наполнения
+рецептов, обе частоты амулета, выбор цели и дробный расход, общие потребители,
+владение сумкой/фокусами и отсутствие повторной/неполной оплаты.
+Локальные native block-entity callbacks серверного алтаря устанавливают
+семантику оплаты, а не истечение мирового времени. Его подготовлено209ess,
+осталось9; клиентский алтарь отдельно получил203ess и оставил3.
+
+Клиент `accessories-039-client2` прошёл **14/14**, JVM exit0, PID13976,
+максимум16 собственных окон скрытого
+`WinSta0\ThaumcraftQA_*`. Входной стол
+`Default→Default`; переключений/global input нет.
+Root и независимый проверяющий просмотрели все14полных1600×1000PNG,
+полный обзорный лист и компактное превью одного финального native прогона.
+
+Нативные наблюдения финального лога:
+
+- `[14:22:51] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_FIXTURES: ownedSurvivalarena/rawCraftingTable+ArcaneBench+stableAltar+6pedestals+32candles+2stabilizers/203typedEssentia51Auram101Potentia51Vacuos/initial5000vis0fluxper30loadedChunks/rawstrictparents/rawknowledge+ordinarymaterials+crystals/rawgoggles+apprenticeRing+foundAmulet+fresh0chargeGrapple+emptyCaster+3compiledFocusPackages+1blank; targetstudies/paidBaubles/Pouch/craftedAmulet/chargeAbsent; noactiveChargeAuraClockRngSetters; notfullsurvival/multiplayer/thirdpartyCuriosMatrix/audio`
+- `[14:22:52] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_STUDY_PAID: FOCUSPOUCH actualC2S/originalrawknowledge/+10XP,total1`
+- `[14:22:53] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-paid-pouch-study.png`
+- `[14:22:53] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_STUDY_PAID: VISAMULET actualC2S/originalrawknowledge/+10XP,total2`
+- `[14:22:54] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-paid-visamulet-study.png`
+- `[14:22:54] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_amulet_mundane actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total1`
+- `[14:22:54] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_ring_mundane actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total2`
+- `[14:22:54] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_girdle_mundane actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total3`
+- `[14:22:55] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_amulet_fancy actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total4`
+- `[14:22:55] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_ring_fancy actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total5`
+- `[14:22:55] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_girdle_fancy actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total6`
+- `[14:22:55] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-six-paid-bauble-crafts.png`
+- `[14:22:56] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ARCANE_PAID: onePouch/25vis/zeroCrystals/actualPaidMundaneBelt+7leather+goldConsumed`
+- `[14:22:56] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-paid-pouch-bench.png`
+- `[14:23:02] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=4 phase=2 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:02] [IO-Worker-16/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-native-visamulet-altar-active.png`
+- `[14:23:07] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:12] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:17] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:22] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:27] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:32] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:37] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:42] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:47] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:52] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:23:57] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0`
+- `[14:24:00] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_INFUSION_PAID: actualPaidMundaneAmulet+6originalReagents/200typedEssentia/remaining3/oneCraftedVisAmulet/nativeCasterC2S+worldTicks`
+- `[14:24:01] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-native-visamulet-altar-complete.png`
+- `[14:24:02] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_POUCH_STORED: nativeMainHandC2S/3compiledFixtureFoci+1blank/4physicalQuickMoves/fullNBTPreserved`
+- `[14:24:02] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-original-pouch-mainhand-storage.png`
+- `[14:24:02] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_POUCH_OFFHAND: nativeRequestedHandC2S/samePaidBag/fourStoredStacks/noForeignMainReplacement`
+- `[14:24:03] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-original-pouch-offhand-reopen.png`
+- `[14:24:04] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CURIO_EQUIPPED: actualVanillaInventoryButton/nativeCuriosC2SMenu/fourPhysicalItems/paidPouchBelt+paidCraftedVisNecklace+rawGogglesHead+rawApprenticeRing/sevenOriginalLogicalSlots`
+- `[14:24:05] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-native-curios-seven-slots.png`
+- `[14:24:06] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-original-equipped-pouch-radial.png`
+- `[14:24:06] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_FOCUS_SWAP: originalRadialNativeMouseClick/actualC2S/equippedPhysicalPaidBagSource/compiledFocusInstalled/remainingBag3`
+- `[14:24:07] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-native-pouch-focus-swap.png`
+- `[14:24:07] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_FOCUS_RETURN: actualRemoveC2S/equippedPouchFirst/sameThreeCompiled+OneBlank/conservedNBT/noLooseCopy`
+- `[14:24:07] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-native-pouch-focus-return.png`
+- `[14:24:09] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_NATIVE_RECHARGE: actualPaidCraftedVisAmulet/CuriosLivingTickEvent/nativeInterval5/20oneUnitCredits/freshPhysicalGun/auraBefore5000.0/auraNow4980.0/noTargetChargeAuraClockSetters`
+- `[14:24:10] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-native-visamulet-recharge.png`
+- `[14:24:14] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_UNEQUIP_PAUSE: actualCuriosC2S/80worldTicks/nativeCharge24Unchanged/paidAmuletPreserved`
+- `[14:24:15] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\accessories-smoke\.\screenshots\tc6-accessories-native-worn-goggles.png`
+- `[14:24:15] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_FACTS: scenes14/paidStudies2/observationAuromancy16/observationArtifice16/theoryAuromancy64/earnedXP20/ordinaryCrafts6/arcaneCrafts1/arcaneVis25/arcaneCrystals0/infusionCrafts1/infusionEssentia200/infusionReagents6/rawEssentia203/altarRemaining3/storedCompiled3/storedBlank1/curiosEquips4/selectorSwaps1/selectorReturns1/nativeChargedUnits24/chargeAtValidation24/amuletUnequipPause80/gogglesDraws93/onePaidPouch1/onePaidCraftedAmulet1; explicitrawparents/knowledge/materials/stableAltar/essentia/aura/previousstageGunCaster/lootGogglesApprenticeFoundAmulet/compiledFocusPackages,notfullsurvival/multiplayer/thirdpartyMatrix/audio`
+- `[14:24:15] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_RENDER_AUDIT_OK: 14 scenes; originalPouch175x232/18slots/redX/actualOffhand/originalCounterRotatingRadial/CuriosNativeSevenSlots/actualWornGoggles/noInventedLabels`
+- `[14:24:15] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_OK: 14 scenes; actualPaidStudies+6ordinaryCrafts+Pouch25vis+Amulet200ess/nativeCuriosEquip/storage+RadialC2S/nativeAmuletCharge+80tickUnequipPause,world=thaumcraft-accessories-smoke-1792232532205`
+
+Оплаты отдельно разобраны из конкретных native markers и связаны с их
+файлом/хешем через `clientFactContractEvidence`; это не числа из кадров:
+
+```json
+{
+  "paidStudies": 2,
+  "observationAuromancy": 16,
+  "observationArtifice": 16,
+  "theoryAuromancy": 64,
+  "earnedXP": 20,
+  "ordinaryCrafts": 6,
+  "arcaneCrafts": 1,
+  "arcaneVis": 25,
+  "arcaneCrystals": 0,
+  "infusionCrafts": 1,
+  "infusionEssentia": 200,
+  "infusionReagents": 6,
+  "altarRemaining": 3,
+  "onePaidPouch": 1,
+  "onePaidCraftedAmulet": 1
+}
+```
+
+Прочие численно проверенные наблюдения финального native прогона:
+
+```json
+{
+  "scenes": 14,
+  "rawEssentia": 203,
+  "storedCompiled": 3,
+  "storedBlank": 1,
+  "curiosEquips": 4,
+  "selectorSwaps": 1,
+  "selectorReturns": 1,
+  "amuletUnequipPause": 80,
+  "nativeChargedUnits": 24,
+  "chargeAtValidation": 24,
+  "wornGogglesDrawsAtValidation": 93,
+  "rechargeCreditsAtScene12": 20,
+  "rechargeAuraBefore": 5000.0,
+  "rechargeAuraAtScene12": 4980.0,
+  "actualUnequipPauseWorldTicks": 80,
+  "unequippedGunCharge": 24
+}
+```
+
+Подготовленные условия:
+
+- Owned Survival arena/player setup; native crafting table, Arcane Workbench and stable altar with six pedestals,32 candles and two stabilizers are prepared fixtures.
+- Strict precursor studies and raw16 AUROMANCY+16 ARTIFICE observations/64 AUROMANCY theory are supplied; both target studies are then paid through actual C2S advances and award20 XP.
+- Raw ordinary crafting ingredients and six infusion reagents are supplied. Six native ordinary result-slot payments create the jewelry; the resulting actual mundane belt/amulet are consumed in the target recipes.
+- Prepared203 typed essentia consists of51 Auram,101 Potentia and51 Vacuos; actual native infusion consumes200 and leaves one in each jar (three total).
+- Initial5000 Vis/zero Flux per30 loaded chunks is supplied before active consumers; no active target charge, aura, source item, clock or RNG reset substitutes for recharge.
+- Raw goggles, apprentice ring, found Vis Amulet, fresh zero-charge prior-stage Grapple Gun, empty caster, three compiled named focus packages and one blank focus are supplied.
+- The paid pouch/paid crafted amulet and raw goggles/apprentice ring are physically equipped through native Curios inventory-button/menu C2S actions; Curios owns native storage and synchronization.
+
+Границы фактических утверждений:
+
+- Prepared routes are not a complete survival acquisition playthrough. Supplying apprentice ring/found amulet does not prove natural loot or Pech trading.
+- Client covers crafted five-tick Vis Amulet dispatch and one charged gun. Found forty-tick cadence, broader ordering/guards and native lifecycle cases require the separately selected actual full server run.
+- Ownership-safe offhand pouch opening, Curios storage/lifecycle/GUI, expanded configured slots and modern cursor/input bridge are explicit modern adaptations rather than Baubles packet/UI byte parity.
+- Native screenshots supplement source assertions and exact logged transaction debits; they alone do not prove conservation, synchronization or every mechanical case.
+- No independent multiplayer, persisted world restart/respawn, arbitrary addon/canceled-death matrix, audio playback or every pose/view-angle render proof.
+- Contract generation does not perform visual review. Both reviewers must actually view every final full1600x1000 PNG and both sheets before recording pass.
+
+Ранние ошибки и остановленные попытки сохранены отдельно без pass:
+
+- `accessories-039-gametest1.log`: SHA256 `eba55386638ff8c2c3c2fe324fb35158c03b17ea4819e51541bec920bdaaf353`.
+- `accessories-039-server1-run.json`: SHA256 `1e608d0693bcc12fdd6d3e27165637e022e1c55362f576e992868f788a4b3a52`.
+- `accessories-039-compile1.log`: SHA256 `c23d41970a1497f0aca4837b20d04bb5ffee613bdb05f2aecb41ab0332dc282c`.
+- `accessories-039-compile2.log`: SHA256 `da42f02fc4fbbf5e97f6aa31cbda93417138cfe9c76e9a159644cae4b3cb4a23`.
+- `accessories-client-accessories-039-client1-client.log`: SHA256 `83a607042f28d5e03908cc2e1ed110007cda43daba4f061c4b625ebc324e2905`.
+- `accessories-039-client1-state.json`: SHA256 `803db2141aa83413c7e030574a3d0db735867dbb0adeff38c711ac7a844bfd9e`.
+- `accessories-039-client1-owned-stop.json`: SHA256 `5281a28dd43c99ea48af54bf7cfb2480803787cc00d72b425fea418635ca0f6d`.
+- `accessories-client-accessories-039-client1-desktop.json`: SHA256 `82fa082e26c8d4834ae1e52f77d39250493f0906822acf2bb0a16345f3aa43ee`.
+- `accessories-client-accessories-039-client1-run.json`: SHA256 `b261efbaf32a090971f88d4e91c36689c0b372c6bc7b250093cbf19367848a5d`.
+
+В первом серверном прогоне было3ошибки/native3/Gradle1: привязка алтарной
+фикстуры к переданному вместо фактически клонированного предмета,
+проверка старого объекта после native quick-move и устаревший список
+доступных наполнений. Исправлены проверки физического владения и ожидание
+амулета без открытия остальных поздних ветвей. Файлы и результаты каждого
+раннего прогона сохранены.
+
+Все4485финальных client/build fingerprints совпадают; server-релевантные
+совпадают. Единственные разрешённые post-server изменения касаются opt-in
+Dist.CLIENT QA driver и связаны обоими SHA, если они были:
+
+```json
+[
+  {
+    "file": "src/main/java/thaumcraft/equipment/accessories/client/AccessoriesClientSmokeTest.java",
+    "serverExecutedSha256": "39fc88dc9437a0557b4d39ef2c3a6f1d3ecf40b3780256e2d9530a4c44423275",
+    "finalClientBuildSha256": "785e27518f2ec06c93cde87e8eb18aaa390480c61c2dc20c40d1999ed632ef81",
+    "reason": "Only opt-in Dist.CLIENT QA driver changed; core/resources/helpers/tests identical"
+  }
+]
+```
+
+Финальная сборка успешна: **2881JSON**, **3718resource-byte**,
+исходные **674PNG/7JPG/60OGG** проверены. Проверены версии, CRC, классы,
+ресурсные байты и три JAR в установочном архиве: порт, TerraBlender3.0.1.10,
+Curios5.14.1+1.20.1. JAR SHA256: `1ddaa352e77419af7a8f5a9e198386250ccb09d0e0813264b23c86ed868f9fa4`.
+Снимки настоящие; подписи листов находятся вне игровых пикселей.
+
+---
+
 # Проверка крюка0.38.0
 
 Дата: **2026-10-16**. Minecraft1.20.1 / Forge47.4.10 / Java17.

@@ -1,5 +1,14 @@
 # Isolated Windows client QA
 
+The `-SmokeTest Accessories` profile uses only `run/accessories-smoke` for
+the two TC6 accessory studies, six ordinary jewellery crafts, paid25vis Focus
+Pouch and native200ess Vis Amulet infusion, real Curios equip/menu packets,
+pouch storage/radial selector, worn amulet recharge and accessory goggles.
+Parents, raw knowledge/materials/essentia/aura, arena and previously available
+gear are explicit QA fixtures. It requests1600x1000 frames on the same hidden
+non-input desktop with unchanged-input-desktop and exact-JVM checks below.
+Selecting a profile does not establish a pass; use its versioned native report.
+
 The `-SmokeTest Generator` profile uses only `run/generator-smoke` for the
 paid TC6 Vis Generator study and25vis bench recipe, native Survival placement,
 six output faces, actual Forge Energy pushes and redstone pause/resume.

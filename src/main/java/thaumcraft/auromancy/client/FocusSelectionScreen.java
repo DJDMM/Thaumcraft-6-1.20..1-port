@@ -1,75 +1,70 @@
 package thaumcraft.auromancy.client;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.math.Axis;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import thaumcraft.auromancy.FocusSelection;
 import thaumcraft.auromancy.FocusSelectionNetwork;
-import thaumcraft.auromancy.focus.FocusStacks;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-/** TC6 F/Shift-F inventory selection, adapted to a cursor radial screen and bounded pages. */
+/** Original hold-F radial HUD, with a non-pausing Screen as the modern cursor bridge. */
 public final class FocusSelectionScreen extends Screen {
-    private record Choice(int slot,ItemStack stack) {}
+    private static final ResourceLocation R1=ResourceLocation.fromNamespaceAndPath("thaumcraft","textures/misc/radial.png");
+    private static final ResourceLocation R2=ResourceLocation.fromNamespaceAndPath("thaumcraft","textures/misc/radial2.png");
     private final InteractionHand hand;
     private ItemStack caster=ItemStack.EMPTY;
-    private final List<Choice> choices=new ArrayList<>();
-    private int page, hovered=-2;
-    public FocusSelectionScreen(InteractionHand hand) { super(Component.translatable("gui.thaumcraft.focus.select"));this.hand=hand; }
-    @Override protected void init() {
-        choices.clear();caster=minecraft.player.getItemInHand(hand).copy();
-        for(int i=0;i<36;i++){
-            ItemStack focus=minecraft.player.getInventory().getItem(i);
-            if(focus.getCount()==1 && FocusStacks.readPlan(focus).isPresent())choices.add(new Choice(i,focus.copy()));
-        }
-        choices.sort(Comparator.comparing(c->c.stack.getHoverName().getString()));
-        page=Math.min(page,Math.max(0,(choices.size()-1)/8));
+    private final List<FocusSelection.Choice> choices=new ArrayList<>();
+    private float[] hoverScale=new float[0];
+    private int hovered=-1;
+    private float scale;
+    private long lastFrame;
+    private boolean closing,sent;
+    public FocusSelectionScreen(InteractionHand hand){super(Component.empty());this.hand=hand;}
+    @Override protected void init(){
+        choices.clear();caster=minecraft.player.getItemInHand(hand).copy();choices.addAll(FocusSelection.choices(minecraft.player));
+        choices.sort(Comparator.comparing(c->c.focus().getHoverName().getString()+sortingHash(c.focus())));
+        hoverScale=new float[choices.size()];java.util.Arrays.fill(hoverScale,1);lastFrame=System.nanoTime();
     }
     @Override public boolean isPauseScreen(){return false;}
-    @Override public void tick(){ if(minecraft.player==null || !ItemStack.matches(caster,minecraft.player.getItemInHand(hand)))onClose(); }
-    private int count(){return Math.min(8,choices.size()-page*8);}
-    private int x(int index){return width/2+(int)Math.round(Math.cos(-Math.PI/2+Math.PI*2*index/Math.max(1,count()))*64)-12;}
-    private int y(int index){return height/2+(int)Math.round(Math.sin(-Math.PI/2+Math.PI*2*index/Math.max(1,count()))*64)-12;}
-    @Override public void render(GuiGraphics gui,int mouseX,int mouseY,float partial){
-        gui.fill(0,0,width,height,0x9910101D);
-        gui.drawCenteredString(font,title,width/2,height/2-108,0xDDC899);
-        hovered=-2;
-        for(int i=0;i<count();i++){
-            int cx=x(i),cy=y(i);boolean over=mouseX>=cx && mouseX<cx+24 && mouseY>=cy && mouseY<cy+24;
-            if(over)hovered=page*8+i;
-            gui.fill(cx-2,cy-2,cx+26,cy+26,over?0xFFC6A56B:0xFF56416A);
-            gui.fill(cx,cy,cx+24,cy+24,0xED21182E);
-            gui.renderItem(choices.get(page*8+i).stack,cx+4,cy+4);
+    @Override public void tick(){if(minecraft.player==null||!ItemStack.matches(caster,minecraft.player.getItemInHand(hand)))closing=true;}
+    public int choiceCount(){return choices.size();}
+    private static int sortingHash(ItemStack focus){int cached=focus.hasTag()?focus.getTag().getInt("srt"):0;return cached!=0?cached:thaumcraft.auromancy.focus.FocusStacks.readPlan(focus).orElseThrow().sortingHash();}
+    private double radius(){return 16+choices.size()*2.5;}
+    private double angle(int i){return Math.toRadians(-90*scale+360.0*i/Math.max(1,choices.size()));}
+    public int choiceX(int index){return width/2+(int)(Math.cos(angle(index))*radius()*scale);}
+    public int choiceY(int index){return height/2+(int)(Math.sin(angle(index))*radius()*scale);}
+    private void hover(double x,double y){hovered=-1;if(closing)return;for(int i=0;i<choices.size();i++)if(Math.abs(x-choiceX(i))<=10&&Math.abs(y-choiceY(i))<=10){hovered=i;break;}}
+    private void ring(GuiGraphics graphics,ResourceLocation texture,float degrees,double size){
+        graphics.pose().pushPose();graphics.pose().translate(width/2.,height/2.,0);graphics.pose().mulPose(Axis.ZP.rotationDegrees(degrees+90));
+        graphics.pose().scale((float)(size/256),(float)(size/256),1);graphics.blit(texture,-128,-128,0,0,256,256);graphics.pose().popPose();
+    }
+    @Override public void render(GuiGraphics graphics,int mouseX,int mouseY,float partial){
+        long now=System.nanoTime();float elapsed=Math.min(100,(now-lastFrame)/1_000_000F);lastFrame=now;
+        scale=Math.max(0,Math.min(1,scale+(closing?-1:1)*elapsed/150));
+        if(closing&&scale<=0){minecraft.setScreen(null);return;}
+        hover(mouseX,mouseY);if(choices.isEmpty())return;
+        float rotation=partial+minecraft.player.tickCount%720/2F;
+        RenderSystem.enableBlend();RenderSystem.defaultBlendFunc();graphics.setColor(.5F,.5F,.5F,.5F);
+        ring(graphics,R1,rotation,radius()*2.75*scale);ring(graphics,R2,-rotation,radius()*2.55*scale);graphics.setColor(1,1,1,1);
+        ItemStack installed=FocusSelection.installed(minecraft.player.getItemInHand(hand)),tooltip=ItemStack.EMPTY;
+        if(!installed.isEmpty()){graphics.renderItem(installed,width/2-8,height/2-8);if(Math.abs(mouseX-width/2)<=10&&Math.abs(mouseY-height/2)<=10)tooltip=installed;}
+        for(int i=0;i<choices.size();i++){
+            hoverScale[i]=i==hovered?Math.min(1.3F,hoverScale[i]+elapsed/150):Math.max(1,hoverScale[i]-elapsed/250);
+            graphics.pose().pushPose();graphics.pose().translate(choiceX(i),choiceY(i),100);graphics.pose().scale(hoverScale[i]*scale,hoverScale[i]*scale,1);graphics.renderItem(choices.get(i).focus(),-8,-8);graphics.pose().popPose();
         }
-        int cx=width/2,cy=height/2;
-        boolean remove=mouseX>=cx-22 && mouseX<cx+22 && mouseY>=cy-13 && mouseY<cy+13;
-        if(remove)hovered=-1;
-        gui.fill(cx-22,cy-13,cx+22,cy+13,remove?0xFFE4CAA0:0xFF6F597F);
-        gui.drawCenteredString(font,Component.translatable("gui.thaumcraft.focus.remove"),cx,cy-4,remove?0x32213F:0xFFFFFF);
-        if(choices.isEmpty())gui.drawCenteredString(font,Component.translatable("gui.thaumcraft.focus.none"),cx,cy+92,0xDDC899);
-        else gui.drawCenteredString(font,(page+1)+" / "+((choices.size()+7)/8),cx,cy+92,0xDDC899);
-        gui.drawCenteredString(font,Component.translatable("gui.thaumcraft.focus.hint"),cx,cy+106,0xAFA3B6);
-        if(hovered>=0)gui.renderTooltip(font,choices.get(hovered).stack,mouseX,mouseY);
+        if(hovered>=0)tooltip=choices.get(hovered).focus();if(!tooltip.isEmpty())graphics.renderTooltip(font,tooltip,-4,20);
+        RenderSystem.disableBlend();
     }
-    @Override public boolean mouseClicked(double mx,double my,int button){
-        if(button!=0)return super.mouseClicked(mx,my,button);
-        hovered=-2;
-        for(int i=0;i<count();i++)if(mx>=x(i)&&mx<x(i)+24&&my>=y(i)&&my<y(i)+24)hovered=page*8+i;
-        if(mx>=width/2-22&&mx<width/2+22&&my>=height/2-13&&my<height/2+13)hovered=-1;
-        if(hovered<-1)return super.mouseClicked(mx,my,button);
-        if(hovered==-1)FocusSelectionNetwork.request(hand,-1,caster,ItemStack.EMPTY);
-        else {var choice=choices.get(hovered);FocusSelectionNetwork.request(hand,choice.slot,caster,choice.stack);}
-        onClose();return true;
-    }
-    @Override public boolean mouseScrolled(double x,double y,double delta){
-        if(choices.size()>8)page=Math.floorMod(page+(delta<0?1:-1),(choices.size()+7)/8);return true;
-    }
-    @Override public boolean keyReleased(int key,int scan,int modifiers){
-        if(FocusSelectionClient.CHANGE.matches(key,scan)){onClose();return true;}
-        return super.keyReleased(key,scan,modifiers);
-    }
+    private void choose(){if(sent||closing)return;sent=true;if(hovered>=0){var choice=choices.get(hovered);FocusSelectionNetwork.request(hand,choice.source(),caster,choice.pouch(),choice.focus());}closing=true;}
+    @Override public boolean mouseClicked(double x,double y,int button){if(button!=0)return false;hover(x,y);if(hovered>=0)choose();return true;}
+    @Override public boolean mouseReleased(double x,double y,int button){var key=FocusSelectionClient.CHANGE.getKey();if(key.getType()==com.mojang.blaze3d.platform.InputConstants.Type.MOUSE&&key.getValue()==button){hover(x,y);choose();return true;}return super.mouseReleased(x,y,button);}
+    @Override public boolean keyReleased(int key,int scan,int modifiers){if(FocusSelectionClient.CHANGE.matches(key,scan)){choose();return true;}return super.keyReleased(key,scan,modifiers);}
+    @Override public void onClose(){closing=true;}
 }

@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 import thaumcraft.api.items.IGoggles;
 import thaumcraft.api.items.IRevealer;
 
-/** The available TC6 equipment slots; Baubles HEAD requires a future accessory integration. */
+/** Original hand/armor/accessory search; Goggles and Revealer keep distinct offhand rules. */
 public final class GogglesArmorSupport {
     private GogglesArmorSupport() {}
 
@@ -13,6 +13,7 @@ public final class GogglesArmorSupport {
         if (player == null) return false;
         if (popups(player.getMainHandItem(), player)) return true;
         for (ItemStack stack : player.getArmorSlots()) if (popups(stack, player)) return true;
+        for (ItemStack stack : thaumcraft.equipment.accessories.AccessoriesSupport.equipped(player)) if (popups(stack,player)) return true;
         // EntityUtils.hasGoggles deliberately does not inspect the offhand.
         return false;
     }
@@ -25,6 +26,7 @@ public final class GogglesArmorSupport {
         if (player == null) return false;
         if (reveals(player.getMainHandItem(), player) || reveals(player.getOffhandItem(), player)) return true;
         for (ItemStack stack : player.getArmorSlots()) if (reveals(stack, player)) return true;
+        for (ItemStack stack : thaumcraft.equipment.accessories.AccessoriesSupport.equipped(player)) if (reveals(stack,player)) return true;
         return false;
     }
 

@@ -54,8 +54,8 @@ public final class LampProgressionGameTests {
 
     @GameTest(template="empty")
     public static void bothOriginalLampStudiesRequireEveryStrictCompletedParentAndKeepLaterDevicesClosed(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==103,
-                "Expected preserved101 plus Vis Generator");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==105,
+                "Expected current105 canonical entries");
         h.assertTrue(h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get()).size()==56,
                 "Enabling two existing lamp paths duplicated the archived56 infusion recipes");
         for (String key:KEYS) {

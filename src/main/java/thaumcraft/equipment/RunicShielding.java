@@ -29,6 +29,7 @@ public final class RunicShielding {
         State state=STATES.computeIfAbsent(player,key->new State());
         if(player.tickCount%20==0) {
             int max=0;for(ItemStack stack:player.getArmorSlots()) max+=getRunicCharge(stack);
+            for(ItemStack stack:thaumcraft.equipment.accessories.AccessoriesSupport.equipped(player)) max+=getRunicCharge(stack);
             if(state.max>max) player.setAbsorptionAmount(Math.max(0,player.getAbsorptionAmount()-(state.max-max)));
             state.max=max;
             if(max==0) { STATES.remove(player);return; }

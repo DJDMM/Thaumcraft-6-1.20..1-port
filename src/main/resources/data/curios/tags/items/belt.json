@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:baubles_girdle_mundane",
+    "thaumcraft:baubles_girdle_fancy",
+    "thaumcraft:focus_pouch"
+  ]
+}

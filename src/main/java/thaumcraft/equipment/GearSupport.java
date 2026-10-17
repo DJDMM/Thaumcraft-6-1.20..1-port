@@ -15,13 +15,19 @@ public final class GearSupport {
     public static int getEquippedWarp(Player wearer) {
         int warp = getFinalWarp(wearer.getMainHandItem(), wearer);
         for (ItemStack stack : wearer.getArmorSlots()) warp += getFinalWarp(stack, wearer);
+        for (ItemStack stack : thaumcraft.equipment.accessories.AccessoriesSupport.equipped(wearer)) warp += getFinalWarp(stack, wearer);
         return warp;
     }
     public static float getTotalVisDiscount(Player wearer) {
         if (wearer == null) return 0;
         int discount = 0;
+        for (ItemStack stack : thaumcraft.equipment.accessories.AccessoriesSupport.equipped(wearer))
+            if (stack.getItem() instanceof IVisDiscountGear gear) discount += gear.getVisDiscount(stack, wearer);
         for (ItemStack stack : wearer.getArmorSlots())
             if (stack.getItem() instanceof IVisDiscountGear gear) discount += gear.getVisDiscount(stack, wearer);
+        int ordinary=wearer.hasEffect(thaumcraft.infusion.InfusionEffects.VIS_EXHAUST.get())?wearer.getEffect(thaumcraft.infusion.InfusionEffects.VIS_EXHAUST.get()).getAmplifier():-1;
+        int infectious=wearer.hasEffect(thaumcraft.infusion.InfusionEffects.INFECTIOUS_VIS_EXHAUST.get())?wearer.getEffect(thaumcraft.infusion.InfusionEffects.INFECTIOUS_VIS_EXHAUST.get()).getAmplifier():-1;
+        discount-=(Math.max(ordinary,infectious)+1)*10;
         return discount / 100F;
     }
 }

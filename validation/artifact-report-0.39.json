@@ -1,0 +1,844 @@
+{
+  "version": "0.39.0",
+  "date": "2026-10-17",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 105,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 31,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1628,
+  "preservedRequiredGameTests": 1559,
+  "newTestsBySuite": {
+    "equipment/accessories/AccessoriesGameTests.java": 29,
+    "equipment/pouch/FocusPouchGameTests.java": 25,
+    "research/AccessoriesProgressionGameTests.java": 15
+  },
+  "serverLog": {
+    "file": "accessories-039-gametest2.log",
+    "bytes": 797605,
+    "sha256": "a8011a84e54d8da6e2c831eba069b361a83320f91e540cce9071f8089ead0bdb"
+  },
+  "serverRun": {
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-accessories-039-server2",
+    "failedRequiredTests": 0,
+    "gradleExitCode": 0,
+    "run": "accessories-039-server2",
+    "nativeExitCode": 0,
+    "requiredTestCount": 1628,
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server"
+  },
+  "serverRunEvidence": {
+    "file": "accessories-039-server2-run.json",
+    "bytes": 470,
+    "sha256": "09a26cd468c4d016d8345bfa2eded6853191455549d20c629fce5832cd96c4d0"
+  },
+  "clientRunTag": "accessories-039-client2",
+  "client": {
+    "runTag": "accessories-039-client2",
+    "smokeTest": "Accessories",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client2-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client2-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client2.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client2-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client2-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client2-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_08d732be0182435e8cb67754d738c879",
+    "jvmPid": 13976,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 14
+  },
+  "clientLog": {
+    "file": "accessories-client-accessories-039-client2-client.log",
+    "bytes": 30367,
+    "sha256": "48d069dc15572c37dd31cdd791f601760371e80bde9a74bb07d8a14eba947e43"
+  },
+  "clientScenes": 14,
+  "clientFactContractEvidence": {
+    "file": "accessories-039-client2-client-contract.json",
+    "bytes": 10429,
+    "sha256": "07c739a81276de81383f1cb34f13465437973ce5aef7dd265c2616a6e923039e"
+  },
+  "nativeClientFacts": [
+    "[14:22:51] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_FIXTURES: ownedSurvivalarena/rawCraftingTable+ArcaneBench+stableAltar+6pedestals+32candles+2stabilizers/203typedEssentia51Auram101Potentia51Vacuos/initial5000vis0fluxper30loadedChunks/rawstrictparents/rawknowledge+ordinarymaterials+crystals/rawgoggles+apprenticeRing+foundAmulet+fresh0chargeGrapple+emptyCaster+3compiledFocusPackages+1blank; targetstudies/paidBaubles/Pouch/craftedAmulet/chargeAbsent; noactiveChargeAuraClockRngSetters; notfullsurvival/multiplayer/thirdpartyCuriosMatrix/audio",
+    "[14:22:52] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_STUDY_PAID: FOCUSPOUCH actualC2S/originalrawknowledge/+10XP,total1",
+    "[14:22:53] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-paid-pouch-study.png",
+    "[14:22:53] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_STUDY_PAID: VISAMULET actualC2S/originalrawknowledge/+10XP,total2",
+    "[14:22:54] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-paid-visamulet-study.png",
+    "[14:22:54] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_amulet_mundane actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total1",
+    "[14:22:54] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_ring_mundane actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total2",
+    "[14:22:54] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_girdle_mundane actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total3",
+    "[14:22:55] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_amulet_fancy actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total4",
+    "[14:22:55] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_ring_fancy actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total5",
+    "[14:22:55] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ORDINARY_PAID: baubles_girdle_fancy actualnativeCraftingMenuC2S/oneoriginaloutput/physicalingredients,total6",
+    "[14:22:55] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-six-paid-bauble-crafts.png",
+    "[14:22:56] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_ARCANE_PAID: onePouch/25vis/zeroCrystals/actualPaidMundaneBelt+7leather+goldConsumed",
+    "[14:22:56] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-paid-pouch-bench.png",
+    "[14:23:02] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=4 phase=2 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:02] [IO-Worker-16/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-native-visamulet-altar-active.png",
+    "[14:23:07] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:12] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:17] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:22] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:27] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:32] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:37] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:42] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:47] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:52] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:23:57] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=5 phase=0 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+    "[14:24:00] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_INFUSION_PAID: actualPaidMundaneAmulet+6originalReagents/200typedEssentia/remaining3/oneCraftedVisAmulet/nativeCasterC2S+worldTicks",
+    "[14:24:01] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-native-visamulet-altar-complete.png",
+    "[14:24:02] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_POUCH_STORED: nativeMainHandC2S/3compiledFixtureFoci+1blank/4physicalQuickMoves/fullNBTPreserved",
+    "[14:24:02] [IO-Worker-17/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-original-pouch-mainhand-storage.png",
+    "[14:24:02] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_POUCH_OFFHAND: nativeRequestedHandC2S/samePaidBag/fourStoredStacks/noForeignMainReplacement",
+    "[14:24:03] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-original-pouch-offhand-reopen.png",
+    "[14:24:04] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CURIO_EQUIPPED: actualVanillaInventoryButton/nativeCuriosC2SMenu/fourPhysicalItems/paidPouchBelt+paidCraftedVisNecklace+rawGogglesHead+rawApprenticeRing/sevenOriginalLogicalSlots",
+    "[14:24:05] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-native-curios-seven-slots.png",
+    "[14:24:06] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-original-equipped-pouch-radial.png",
+    "[14:24:06] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_FOCUS_SWAP: originalRadialNativeMouseClick/actualC2S/equippedPhysicalPaidBagSource/compiledFocusInstalled/remainingBag3",
+    "[14:24:07] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-native-pouch-focus-swap.png",
+    "[14:24:07] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_FOCUS_RETURN: actualRemoveC2S/equippedPouchFirst/sameThreeCompiled+OneBlank/conservedNBT/noLooseCopy",
+    "[14:24:07] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-native-pouch-focus-return.png",
+    "[14:24:09] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_NATIVE_RECHARGE: actualPaidCraftedVisAmulet/CuriosLivingTickEvent/nativeInterval5/20oneUnitCredits/freshPhysicalGun/auraBefore5000.0/auraNow4980.0/noTargetChargeAuraClockSetters",
+    "[14:24:10] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-native-visamulet-recharge.png",
+    "[14:24:14] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_UNEQUIP_PAUSE: actualCuriosC2S/80worldTicks/nativeCharge24Unchanged/paidAmuletPreserved",
+    "[14:24:15] [IO-Worker-18/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke\\.\\screenshots\\tc6-accessories-native-worn-goggles.png",
+    "[14:24:15] [Server thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_FACTS: scenes14/paidStudies2/observationAuromancy16/observationArtifice16/theoryAuromancy64/earnedXP20/ordinaryCrafts6/arcaneCrafts1/arcaneVis25/arcaneCrystals0/infusionCrafts1/infusionEssentia200/infusionReagents6/rawEssentia203/altarRemaining3/storedCompiled3/storedBlank1/curiosEquips4/selectorSwaps1/selectorReturns1/nativeChargedUnits24/chargeAtValidation24/amuletUnequipPause80/gogglesDraws93/onePaidPouch1/onePaidCraftedAmulet1; explicitrawparents/knowledge/materials/stableAltar/essentia/aura/previousstageGunCaster/lootGogglesApprenticeFoundAmulet/compiledFocusPackages,notfullsurvival/multiplayer/thirdpartyMatrix/audio",
+    "[14:24:15] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_RENDER_AUDIT_OK: 14 scenes; originalPouch175x232/18slots/redX/actualOffhand/originalCounterRotatingRadial/CuriosNativeSevenSlots/actualWornGoggles/noInventedLabels",
+    "[14:24:15] [Render thread/INFO] [th.eq.ac.cl.AccessoriesClientSmokeTest/]: THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE_OK: 14 scenes; actualPaidStudies+6ordinaryCrafts+Pouch25vis+Amulet200ess/nativeCuriosEquip/storage+RadialC2S/nativeAmuletCharge+80tickUnequipPause,world=thaumcraft-accessories-smoke-1792232532205"
+  ],
+  "nativeObservations": {
+    "scenes": 14,
+    "rawEssentia": 203,
+    "storedCompiled": 3,
+    "storedBlank": 1,
+    "curiosEquips": 4,
+    "selectorSwaps": 1,
+    "selectorReturns": 1,
+    "amuletUnequipPause": 80,
+    "nativeChargedUnits": 24,
+    "chargeAtValidation": 24,
+    "wornGogglesDrawsAtValidation": 93,
+    "rechargeCreditsAtScene12": 20,
+    "rechargeAuraBefore": 5000.0,
+    "rechargeAuraAtScene12": 4980.0,
+    "actualUnequipPauseWorldTicks": 80,
+    "unequippedGunCharge": 24
+  },
+  "paidClientTotals": {
+    "paidStudies": 2,
+    "observationAuromancy": 16,
+    "observationArtifice": 16,
+    "theoryAuromancy": 64,
+    "earnedXP": 20,
+    "ordinaryCrafts": 6,
+    "arcaneCrafts": 1,
+    "arcaneVis": 25,
+    "arcaneCrystals": 0,
+    "infusionCrafts": 1,
+    "infusionEssentia": 200,
+    "infusionReagents": 6,
+    "altarRemaining": 3,
+    "onePaidPouch": 1,
+    "onePaidCraftedAmulet": 1
+  },
+  "visualReview": {
+    "clientRunTag": "accessories-039-client2",
+    "clientLogSha256": "48d069dc15572c37dd31cdd791f601760371e80bde9a74bb07d8a14eba947e43",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "/root/accessories_evidence_finish"
+    ],
+    "method": "Both reviewers actually viewed all14 full1600x1000 native PNG, complete contact sheet and six-frame delivery preview from the same final native pass.",
+    "contactSheet": {
+      "file": "accessories-0.39-review-sheet.png",
+      "sha256": "b16a584e6654bb0f00aadaa9ed617395a7079dc34b43ed41f68da0988e94cc18",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "accessories-0.39-preview.png",
+      "sha256": "2cb4936cc84a9356608abdb74f8bfbabb6691793bada91137dcb5df77939c720",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-accessories-paid-pouch-study.png",
+        "sha256": "328c3bab50aa9ac6d7203e1420fb993fc6a26260d6112835a43dee35e7ce8ab6",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-paid-visamulet-study.png",
+        "sha256": "547071c662bb3a0dba7a707e64b23315f7fe989b39b62501b6b63521243e86cc",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-six-paid-bauble-crafts.png",
+        "sha256": "ef0377350feb5983df1c6b2c84a9ab204b2f90cab8ebb54c6960dedd461ba032",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-paid-pouch-bench.png",
+        "sha256": "eeaa71954c2aad93df3568b5d7547ac2d8d19f22cf42d7c7962e11e3e740eb75",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-native-visamulet-altar-active.png",
+        "sha256": "035f5e0135ad8e3a92b3d8debcceb3d9f3a20d32db677e7b2ab60fe6f5a91ebc",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-native-visamulet-altar-complete.png",
+        "sha256": "fba03fd0391ca4b125c461ec11d74789a8119bad5050c25bc767e4f5ffaa9d3d",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-original-pouch-mainhand-storage.png",
+        "sha256": "f4a7a21825babd31c819eb80ad9a1226e8d916b96cb018b3576dec7c55957ea6",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-original-pouch-offhand-reopen.png",
+        "sha256": "2dac8b1923baac74edc3ed7f0dbd08af3ef2f6a487fb040d7a0c7e69f19b39ce",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-native-curios-seven-slots.png",
+        "sha256": "baf00f20954b2188eae9cf43a7abe0eaae37a774a5c872123acc73ea54741541",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-original-equipped-pouch-radial.png",
+        "sha256": "cce16d03469367e91ec92d507755fb75bae5a32d2c21adf33959600838af3de9",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-native-pouch-focus-swap.png",
+        "sha256": "87f23f4348af630c6f40dc51d4d0a274b192a080948c3312fe0d767632bb0fbe",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-native-pouch-focus-return.png",
+        "sha256": "d662df828dc78259da745bfa33133e14c1b81ab55a80704c68622b6a1de1f0e5",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-native-visamulet-recharge.png",
+        "sha256": "2c5ab243239eca2d5d4c0ac7520180eb79749c424146a5ec825758969908e5a3",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-accessories-native-worn-goggles.png",
+        "sha256": "9514791285d65702405ce2e964e25902baa9b87aec61d563e2df75935bbf815b",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Original pouch texture, six-by-three item grid and main-hand lock are visible; offhand reopening preserves the same paid physical pouch.",
+      "Original radial textures surround actual compiled foci; native swap and return are tied to equipped pouch storage.",
+      "Native Curios slots, actually worn goggles and charged equipment are captured from the same paid progression route.",
+      "Captions stay outside original gameplay pixels; no generated artwork or composited game state."
+    ],
+    "limits": [
+      "Prepared Survival fixtures supply predecessors, raw knowledge/materials/essentia/aura/arena and previously available gear/compiled spells.",
+      "Screenshots supplement exact native payment and synchronization assertions; they alone do not prove every transaction.",
+      "Curios lifecycle/GUI and ownership-safe offhand pouch opening are explicit modern adaptations.",
+      "No full survival, independent multiplayer, reload, arbitrary addon matrix, every pose/angle or audible sound proof."
+    ],
+    "independentFindings": [
+      "Both research spreads are readable, show the pouch25vis/no-crystal grid and the Vis Amulet six-reagent/200ess/instability6 recipe; no clipped page text or missing textures were observed.",
+      "The ordinary crafting and arcane bench captures show resulting jewelry/pouch in inventory. The altar pair shows original matrix/pedestal models, active particles and the completed amulet; native payment facts remain log-bound.",
+      "Both pouch screens use the original bag texture without invented headings; three compiled orange foci plus one blank focus occupy the top row. The main-hand screenshot shows the red hotbar lock; the offhand reopen shows the same four displayed stacks with an empty main hand.",
+      "Native Curios inventory exposes the seven-slot strip with actual amulet, apprentice ring, pouch and goggles. The player preview and final third-person capture show gold-and-purple goggles positioned across the face, without an obvious detached plane or missing texture.",
+      "The radial screenshot shows original purple transparent circular artwork with three foci and unobscured world. Subsequent swap/return captures show the caster with an attached orange focus and then without it.",
+      "Both full and compact sheets retain the intended scene order and readable Russian captions outside native game pixels. No captions overlap captured gameplay and no development/debug status overlays were observed."
+    ],
+    "independentLimits": [
+      "Static images establish the captured appearance; they do not independently prove rotations, easing, all poses/angles, audio or every rendering/light condition.",
+      "The recharge screenshot shows native equipped Curios gear and held Grapple Gun, but does not display a numerical charge/aura meter. Actual charge cadence/payment/unequip pause must be established by the selected native log and source assertions.",
+      "White completion particles partly obscure the altar output in the single completion frame; the same amulet icon is visible in later native equipment views. Exact reagent/essentia debit is a log/test claim, not a pixel-only finding.",
+      "Prepared bedrock Survival arena, supplied precursor studies/materials/knowledge/essentia/aura and prior-stage/loot/compiled-focus fixtures are not a full survival playthrough or natural acquisition proof.",
+      "Curios GUI/lifecycle and ownership-safe offhand pouch opening are modern adaptations. No independent multiplayer, world reload/respawn or arbitrary-addon matrix is established by these images."
+    ]
+  },
+  "independentReviewEvidence": {
+    "file": "accessories-independent-review-0.39.json",
+    "bytes": 6037,
+    "sha256": "54bcbed4e7fdac4fd9b3a739a5689f2da56a94926f087cfc59df7fbe68ff036e"
+  },
+  "localJsonCount": 2881,
+  "jarResourceByteParityChecks": 3718,
+  "originalMediaByteParity": {
+    ".ogg": 60,
+    ".png": 674,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.39.0.jar",
+      "bytes": 12323273,
+      "sha256": "1ddaa352e77419af7a8f5a9e198386250ccb09d0e0813264b23c86ed868f9fa4"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.39.0-mods.zip",
+      "bytes": 11758299,
+      "sha256": "5743834978d234def96b018d939a9ca19f32050838ef116bbc3db103ec320978"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.39.0-screenshots.zip",
+      "bytes": 4629794,
+      "sha256": "f1a7dfe42571d721a6ad8bdf23cf82b496c8ff3991eadf07d3822528158e6082"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.39.0-preview.png",
+      "bytes": 941756,
+      "sha256": "2cb4936cc84a9356608abdb74f8bfbabb6691793bada91137dcb5df77939c720"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "curios": {
+    "file": "curios-forge-5.14.1+1.20.1.jar",
+    "bytes": 398066,
+    "sha256": "6d77ae8ad532fdf303390f404b0081b3b4ac4f61e7f1f4b4d4a9077e132dae4f"
+  },
+  "buildLog": {
+    "file": "build-0.39-final.log",
+    "bytes": 1212,
+    "sha256": "6b6b5b9ac9102a6356ef488efa1863e089ba8dedf3a03c3c22b8390d0be93962"
+  },
+  "resourceLog": {
+    "file": "resources-0.39-final.log",
+    "bytes": 188,
+    "sha256": "87706918b173f1844b02bd6055099e04f8e1b331ddb72d96c8095ffe2310541e"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "339137461ed57977a071febda73abd553097aebc7c8294b6382c3c8889094fc0"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "7c4797379277bb35ac04eced23e74a0dc5bac34a7fc7da62b8e4b8db8f31132e"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "f8b5512adc3602298b43d5b0b4b3acd4c4aa2de57444638aabd6d46150e93541"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "9e5580d12102408ae2d0d8d4e7e9db2ac8e1ac0918909a77f412162820a91991"
+    },
+    {
+      "file": "src/main/java/thaumcraft/Thaumcraft.java",
+      "sha256": "82b11d44e6b7b3f8cd309cfda83f5722bad269a50a8c726dc7e8d03943b43f03"
+    },
+    {
+      "file": "src/main/java/thaumcraft/auromancy/FocusCasting.java",
+      "sha256": "d31d5851570c0d62d116d249ced2d86b8575f7bef96c5525ead4ffb293da40d5"
+    },
+    {
+      "file": "src/main/java/thaumcraft/auromancy/FocusSelection.java",
+      "sha256": "dd6e224dab821cfd0f7e62ebf35d2397b5895355f6db36a9de3d77c5df355f85"
+    },
+    {
+      "file": "src/main/java/thaumcraft/auromancy/FocusSelectionNetwork.java",
+      "sha256": "7b1fb4575055e2595e4cd9917d04292e2f8c9f28a4376f8d28d9f566b77bc558"
+    },
+    {
+      "file": "src/main/java/thaumcraft/auromancy/FocusSource.java",
+      "sha256": "c6b17bc7c8d323b5ee16eff2fa7191bb3dd50bde51f6ac252f12e6af2f44155c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/auromancy/client/FocusSelectionScreen.java",
+      "sha256": "497868216e6e139da5b40d9f06d3e5b3dc3805af5503d77c72d9842f537c21aa"
+    },
+    {
+      "file": "src/main/java/thaumcraft/catalog/CatalogModule.java",
+      "sha256": "b6f25f9d2fe79bd1e3d6eaec5d1a1a55dd83aed1f994978151fda5eb65c80e4e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/GearSupport.java",
+      "sha256": "6ca45bb830207f6807377335d148cff49b611f3de0b2caac90e41a3638405225"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/RunicShielding.java",
+      "sha256": "d44c6160f5efa04a6c32ee01c6062cccaa92039ca97edd544c2601edea5d2a2f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/accessories/AccessoriesGameTests.java",
+      "sha256": "4c3cffd9d0b6f4c6915878ebee3fbb0fd33d83664319718a79e9cae2683fb012"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/accessories/AccessoriesModule.java",
+      "sha256": "08aefee7c21d5d6261b2382a37b89b8e5779ab3e8e21188870a164821c0a5686"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/accessories/AccessoriesSupport.java",
+      "sha256": "30cba2e2dadd227a6c070119284b6024536339516526b8a2334e6ffbed1e8510"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/accessories/BaubleItem.java",
+      "sha256": "7dc8c80466630b9d2ec1dd474f4a914c503b2bac0931e25a0cfd571ce5a3d44f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/accessories/VisAmuletItem.java",
+      "sha256": "48a76aa6e4394e6a2fa2f98299bce4a194eb81701be0b09a4e3d0662e39adbec"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/accessories/client/AccessoriesClientSmokeTest.java",
+      "sha256": "785e27518f2ec06c93cde87e8eb18aaa390480c61c2dc20c40d1999ed632ef81"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/accessories/client/GogglesCurioRenderer.java",
+      "sha256": "8d485c9782df9d3e58c797dd4fb32f227b7d2bccbbacc5dc26bb6c9f2eb65da7"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/armor/GogglesArmorSupport.java",
+      "sha256": "9e3637ebd2c1e16cdbaf8c208335ac9713e36065745b245d8793674d29be3572"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/pouch/FocusPouchGameTests.java",
+      "sha256": "b63bc896d34e09353a6fba494b6844e4c751e1bccb2efa00b688eacde4dda563"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/pouch/FocusPouchItem.java",
+      "sha256": "f69b8a62f2c2104eb37ba2779fe4353bd1cdb32dfbbf5859b8ba27e4630df367"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/pouch/FocusPouchMenu.java",
+      "sha256": "74f5a77461476d58d25dcfec2d2a086c436bc6d4bb42f9ea1ae39bbaa70a56fe"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/pouch/FocusPouchModule.java",
+      "sha256": "045fb864a906525d6ae94d74b9a70a9d556b53ad5f784f53b174947e1bb59c07"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/pouch/client/FocusPouchScreen.java",
+      "sha256": "e93ee58b5d3c054764a1c58cf734cc2122854f1c93eb45b7fc641d3c0e41428d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/AccessoriesProgressionGameTests.java",
+      "sha256": "d2e5092d2246bc3255228042a024ae3b5d81e5e8b046736afa3cc549789f87e2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "2718fc6b42dd8927f012ed616a8604b1ee1cbd16d834b82c245c3f52415d7a6b"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "9eed6e8087214f76430974efe29d099cbc77bebbdc2126a009b265e8f2ed413f"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/AuromancyProgressionGameTests.java",
+      "sha256": "4a20dc84a9876e45c57573800006d3fd76354e22bfce457505be3345fe48f296"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CondenserProgressionGameTests.java",
+      "sha256": "49e1493342cb1825498e393c352be67e3bbee86cb8712cd8eb78d0d551a9b670"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "2990725c30a550d0c765fc446ec1b0820bbba9accbd7cc8a4c99f75e1cc4ccc4"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "0ffd517c1e1830a3e9057a1e26b457fde289ef88e4d133decc3c5c32733427b8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "5c49d0321af5cdcf103c2726242b27a8bcd9d019f72128046f9085c6e5e2bdba"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "d4c8dcf2785d7ac1582342e2e8bb68650fe53b424a1b78ab050f4e2bbcbf6ac9"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "b9bb4393332aa7d74f2faaf2dd69b8d31ffb8cc4d828907d12f244b040caed45"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GrappleGunProgressionGameTests.java",
+      "sha256": "97a1fc3bd78434fdf7fe54813bb56f5b315a4e7f0338de9b68065fa104d3d32e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionGameTests.java",
+      "sha256": "4f00d2a410c351633806cfaf20782bd1043b3c595788a74616c809919749df12"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/LampProgressionGameTests.java",
+      "sha256": "513718f6c387bc7fe66427a33acf5108fecef0dd0b8a4baa174aa28cd29fe79b"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "7118c12c4ff34af03c2cb1e9c2aaeabe7365afbcbebb14c15d9aceeca6ec75f1"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/PatternCrafterProgressionGameTests.java",
+      "sha256": "bf74cc8aad7a515b0519fe471ea60ab7476c52f9acad92cc024c9ea4333322f6"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "f839ba9ba8ddae5195d8279548900a24d61aadc177638cdbc642d3b65d497cbd"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "689039917bd50aae28c44b9893b77de027d8efa3b6341e22778c12f15bc02c7d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "3c8f288686d3ffef2ce02bfde9ad0ca1b1461a27a206083c417b7bf6e884dc0e"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/VisGeneratorProgressionGameTests.java",
+      "sha256": "58698d3a11fe47bb9140eed07384fac5b05aae6f6195c00af9fff230babdaf5b"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "788e85ed510f81732b53f71eda00cdfe6428e53811418f9ce5f6ac0a8c69ac32"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/gui/gui_focuspouch.png",
+      "sha256": "d5002659e6972d7c982c3a3667fad6a6310a10ccfb935db9c82cdf695870137a"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/items/goggles_bauble.png",
+      "sha256": "9cd01a5c65168d6d96eabaa53e36722e23430b0ed948dbe0f8c1690488786aef"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/misc/radial.png",
+      "sha256": "07d379a3e754ed351b633bcd70649a465bbc9e1864c001d9886540d4a89c0d2d"
+    },
+    {
+      "file": "src/main/resources/assets/thaumcraft/textures/misc/radial2.png",
+      "sha256": "931d88b76ff06276740628c956ac58e7f6d229e529b4f0862d474ecc98fadc61"
+    },
+    {
+      "file": "src/main/resources/data/curios/tags/items/belt.json",
+      "sha256": "e5d196381c4ad1b709c294bf721f65d284e3372c4fdba25c9f7b7aadafb505e3"
+    },
+    {
+      "file": "src/main/resources/data/curios/tags/items/head.json",
+      "sha256": "83d340061a8b126c598b1c3a5cec812a88ddf82aa0d5d2e70ef0c204881465fd"
+    },
+    {
+      "file": "src/main/resources/data/curios/tags/items/necklace.json",
+      "sha256": "d3a77e5ad31151fe4351a5d532a82caffa7599506a43c0c547f73321a54f9fc0"
+    },
+    {
+      "file": "src/main/resources/data/curios/tags/items/ring.json",
+      "sha256": "eb17c4d90043aca5f3edfc700266f02b1c126681e69bebb0ab6930b30e2bdcb4"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/curios/entities/player.json",
+      "sha256": "9c3c434aee6b8b47b697d34e7bcdc7fb2a2cc1c1f18cf20d605bfcbd249694f2"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/curios/slots/belt.json",
+      "sha256": "e335aef9c78c535bfce2cb58fabe726e66e3c6f9357b021c4aaac6cc8198df7f"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/curios/slots/body.json",
+      "sha256": "5f169ffe190627069b44904f08e8401c5aa062991b332dc2a02bd9ab28f36f43"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/curios/slots/charm.json",
+      "sha256": "f7028ba4b1fe1fb2bf8361fee0b08731fe256729036496dc859eba0afc361c77"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/curios/slots/head.json",
+      "sha256": "2dccb068e656dce4f45e7cd4e20d45325ef69c9622dec77a9fd03ccd245d7ac0"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/curios/slots/necklace.json",
+      "sha256": "b8dc672e1233a7f04ed3f32ee2f9c574d5f9b2fbb65856728c105847de54860b"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/curios/slots/ring.json",
+      "sha256": "484b0aa27c4bdfe5c65145c2ebd7c46cfe3e149060afd315e2374157f03c28ab"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/arcane/focuspouch.json",
+      "sha256": "defb7c8ef928b1768968437275a37ffeec45e614eb9f605b0f03d531618de0dd"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/babuleamulet.json",
+      "sha256": "e4d9a25b6cb0c189674f1c55cd71228f8fc21ac12cb8fbcaf95ae76ad7f1b94c"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/babuleamuletfancy.json",
+      "sha256": "a1b914682a07eff65ab8c5d30a0801fe806fd46793d34103d0d861a4310e3ed2"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/babulegirdle.json",
+      "sha256": "1192c98e7f914e228c402c52a2c689299590979f4e94b0bbfb3d27eae7ddad32"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/babulegirdlefancy.json",
+      "sha256": "ba8117c710190d28ab561b936711fca218e01f88e61e19bdda21e07e9d936d0b"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/babulering.json",
+      "sha256": "7da402f0ddb3f379ab971e45885d4d7cf38d4442e1c1cb2ddb06c5f22167029c"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/babuleringfancy.json",
+      "sha256": "82c7ab9346d31202f1d75c78cc99c21b3edf40cd53c3eb24d3cc2da0404ba2a0"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "accessories-039-server2-sources.json",
+      "bytes": 646334,
+      "sha256": "2b933c03e6723b51a5856674535cf2108205c0239e94ad374ae56c1ccd48b334"
+    },
+    {
+      "file": "accessories-039-client2-sources.json",
+      "bytes": 646334,
+      "sha256": "3f5ee95fe588bd21d59c859918000ded18fcd6b6b0f70048e420d5a21127e3a8"
+    },
+    {
+      "file": "accessories-039-build-sources.json",
+      "bytes": 646334,
+      "sha256": "3f5ee95fe588bd21d59c859918000ded18fcd6b6b0f70048e420d5a21127e3a8"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": false,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4485,
+    "matchingServerRelevantFileCount": 4484,
+    "clientOnlyExceptions": [
+      {
+        "file": "src/main/java/thaumcraft/equipment/accessories/client/AccessoriesClientSmokeTest.java",
+        "serverExecutedSha256": "39fc88dc9437a0557b4d39ef2c3a6f1d3ecf40b3780256e2d9530a4c44423275",
+        "finalClientBuildSha256": "785e27518f2ec06c93cde87e8eb18aaa390480c61c2dc20c40d1999ed632ef81",
+        "reason": "Only opt-in Dist.CLIENT QA driver changed; core/resources/helpers/tests identical"
+      }
+    ],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "earlierEvidence": [
+    {
+      "file": "accessories-039-gametest1.log",
+      "bytes": 799720,
+      "sha256": "eba55386638ff8c2c3c2fe324fb35158c03b17ea4819e51541bec920bdaaf353"
+    },
+    {
+      "file": "accessories-039-server1-run.json",
+      "bytes": 470,
+      "sha256": "1e608d0693bcc12fdd6d3e27165637e022e1c55362f576e992868f788a4b3a52"
+    },
+    {
+      "file": "accessories-039-compile1.log",
+      "bytes": 6795,
+      "sha256": "c23d41970a1497f0aca4837b20d04bb5ffee613bdb05f2aecb41ab0332dc282c"
+    },
+    {
+      "file": "accessories-039-compile2.log",
+      "bytes": 1009,
+      "sha256": "da42f02fc4fbbf5e97f6aa31cbda93417138cfe9c76e9a159644cae4b3cb4a23"
+    },
+    {
+      "file": "accessories-client-accessories-039-client1-client.log",
+      "bytes": 28777,
+      "sha256": "83a607042f28d5e03908cc2e1ed110007cda43daba4f061c4b625ebc324e2905"
+    },
+    {
+      "file": "accessories-039-client1-state.json",
+      "bytes": 2237,
+      "sha256": "803db2141aa83413c7e030574a3d0db735867dbb0adeff38c711ac7a844bfd9e"
+    },
+    {
+      "file": "accessories-039-client1-owned-stop.json",
+      "bytes": 661,
+      "sha256": "5281a28dd43c99ea48af54bf7cfb2480803787cc00d72b425fea418635ca0f6d"
+    },
+    {
+      "file": "accessories-client-accessories-039-client1-desktop.json",
+      "bytes": 466,
+      "sha256": "82fa082e26c8d4834ae1e52f77d39250493f0906822acf2bb0a16345f3aa43ee"
+    },
+    {
+      "file": "accessories-client-accessories-039-client1-run.json",
+      "bytes": 1763,
+      "sha256": "b261efbaf32a090971f88d4e91c36689c0b372c6bc7b250093cbf19367848a5d"
+    }
+  ],
+  "stoppedClientRuns": [
+    {
+      "runTag": "accessories-039-client1",
+      "result": "stopped without pass",
+      "stateEvidence": {
+        "file": "accessories-039-client1-state.json",
+        "bytes": 2237,
+        "sha256": "803db2141aa83413c7e030574a3d0db735867dbb0adeff38c711ac7a844bfd9e"
+      },
+      "state": {
+        "runTag": "accessories-039-client1",
+        "result": "stopped without pass",
+        "clientLog": {
+          "file": "accessories-client-accessories-039-client1-client.log",
+          "bytes": 28777,
+          "sha256": "83a607042f28d5e03908cc2e1ed110007cda43daba4f061c4b625ebc324e2905"
+        },
+        "sourceSnapshot": "accessories-039-client1-sources.json",
+        "lastNativeHeartbeat": "THAUMCRAFT_ACCESSORIES_HEARTBEAT: scene=4 phase=1 studies=2 ordinary=6 stored=0 wear=0 charged=0 gun=0 goggles=0",
+        "actualObserved": "Both studies/20XP, six native ordinary crafts and one paid25vis pouch/actual crafted belt consumed passed. Four native frames retained; altar not activated by QA.",
+        "causeLimit": "Opt-in altar readiness calls position(), which increments ready, then increments ready again before checking ready%20. Once position succeeds the second value remains odd, so no activation click is sent. This is a driver cadence bug; native altar mechanics are not implicated.",
+        "plannedCorrection": "Only opt-in Dist.CLIENT driver uses the independently incremented client wait clock for periodic native caster click; position readiness and native matrix payment/state assertions remain.",
+        "archivedScreenshotDirectory": "accessories-039-client1-screenshots",
+        "archivedNativeScreenshots": [
+          {
+            "file": "tc6-accessories-paid-pouch-study.png",
+            "bytes": 691617,
+            "sha256": "fddb8093fd20d4f90b4e583b7a67e0a3e4ec923169888e92c7112cfc79ea84b4"
+          },
+          {
+            "file": "tc6-accessories-paid-visamulet-study.png",
+            "bytes": 682142,
+            "sha256": "29b2846c893ca769256bf941b732ebe5b4c6d0a66ad9dbc1c334dcaa8b579c7f"
+          },
+          {
+            "file": "tc6-accessories-six-paid-bauble-crafts.png",
+            "bytes": 294899,
+            "sha256": "a45b27b9d3ab450ad4364216799fad1d62adc00ff4b272cda55a79ad42ed1878"
+          },
+          {
+            "file": "tc6-accessories-paid-pouch-bench.png",
+            "bytes": 249702,
+            "sha256": "317247b5d88555993a6ccef19767e54672c040ab5810e0ba10e51a7b271bec64"
+          }
+        ],
+        "nativeExitCode": 4294967295,
+        "ownedStopEvidence": {
+          "file": "accessories-039-client1-owned-stop.json",
+          "bytes": 661,
+          "sha256": "5281a28dd43c99ea48af54bf7cfb2480803787cc00d72b425fea418635ca0f6d"
+        }
+      },
+      "clientLog": {
+        "file": "accessories-client-accessories-039-client1-client.log",
+        "bytes": 28777,
+        "sha256": "83a607042f28d5e03908cc2e1ed110007cda43daba4f061c4b625ebc324e2905"
+      },
+      "runEvidence": {
+        "file": "accessories-client-accessories-039-client1-run.json",
+        "bytes": 1763,
+        "sha256": "b261efbaf32a090971f88d4e91c36689c0b372c6bc7b250093cbf19367848a5d"
+      },
+      "run": {
+        "runTag": "accessories-039-client1",
+        "smokeTest": "Accessories",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\accessories-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_1c7879259acf42acb5094ca024742a69",
+        "jvmPid": 12388,
+        "jvmExitCode": 4294967295,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default"
+      },
+      "desktopEvidence": {
+        "file": "accessories-client-accessories-039-client1-desktop.json",
+        "bytes": 466,
+        "sha256": "82fa082e26c8d4834ae1e52f77d39250493f0906822acf2bb0a16345f3aa43ee"
+      },
+      "desktop": {
+        "state": "exited",
+        "pid": 12388,
+        "desktop": "WinSta0\\ThaumcraftQA_1c7879259acf42acb5094ca024742a69",
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "logPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1-client.log",
+        "currentOwnedWindowsOnTargetDesktop": 14,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "exitCode": 4294967295
+      },
+      "ownedStopEvidence": {
+        "file": "accessories-039-client1-owned-stop.json",
+        "bytes": 661,
+        "sha256": "5281a28dd43c99ea48af54bf7cfb2480803787cc00d72b425fea418635ca0f6d"
+      },
+      "ownedStop": {
+        "creationDate": "2026-10-17T14:18:50.778236+04:00",
+        "checkedDesktop": "WinSta0\\ThaumcraftQA_1c7879259acf42acb5094ca024742a69",
+        "pid": 12388,
+        "checkedExecutable": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "runTag": "accessories-039-client1",
+        "inputDesktopBefore": "Default",
+        "aliveAfterStop": false,
+        "inputDesktopAfter": "Default",
+        "checkedCommandLine": "\"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe\" \"@C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\accessories-client-accessories-039-client1.args\""
+      },
+      "sourceSnapshotEvidence": {
+        "file": "accessories-039-client1-sources.json",
+        "bytes": 646334,
+        "sha256": "9da65a3569f7c64457c1480fe7580612756805e5405c088b8ca6822d1bec2eeb"
+      },
+      "argumentFileEvidence": {
+        "file": "accessories-client-accessories-039-client1.args",
+        "bytes": 22259,
+        "sha256": "3906e868bb76357c799d33a61bf967c1fe6f229aaa05a57cdcd1e31f81233bdb"
+      },
+      "prepareLogEvidence": {
+        "file": "accessories-client-accessories-039-client1-prepare.log",
+        "bytes": 1598,
+        "sha256": "575088687752bb4d4affce7af3dddba064b495ed4d805ec8add86a7349a1d379"
+      },
+      "changedSourceHashes": [
+        {
+          "file": "src/main/java/thaumcraft/equipment/accessories/client/AccessoriesClientSmokeTest.java",
+          "stoppedClientSha256": "c9ef7ef0b8359330d5d58fb0e236d176d4e6b38442f8071d95cf39c1a7a2a227",
+          "finalClientBuildSha256": "785e27518f2ec06c93cde87e8eb18aaa390480c61c2dc20c40d1999ed632ef81"
+        }
+      ],
+      "actualNativeScreenshotCount": 4
+    }
+  ],
+  "fixtures": [
+    "Owned Survival arena/player setup; native crafting table, Arcane Workbench and stable altar with six pedestals,32 candles and two stabilizers are prepared fixtures.",
+    "Strict precursor studies and raw16 AUROMANCY+16 ARTIFICE observations/64 AUROMANCY theory are supplied; both target studies are then paid through actual C2S advances and award20 XP.",
+    "Raw ordinary crafting ingredients and six infusion reagents are supplied. Six native ordinary result-slot payments create the jewelry; the resulting actual mundane belt/amulet are consumed in the target recipes.",
+    "Prepared203 typed essentia consists of51 Auram,101 Potentia and51 Vacuos; actual native infusion consumes200 and leaves one in each jar (three total).",
+    "Initial5000 Vis/zero Flux per30 loaded chunks is supplied before active consumers; no active target charge, aura, source item, clock or RNG reset substitutes for recharge.",
+    "Raw goggles, apprentice ring, found Vis Amulet, fresh zero-charge prior-stage Grapple Gun, empty caster, three compiled named focus packages and one blank focus are supplied.",
+    "The paid pouch/paid crafted amulet and raw goggles/apprentice ring are physically equipped through native Curios inventory-button/menu C2S actions; Curios owns native storage and synchronization."
+  ],
+  "limitations": [
+    "Prepared routes are not a complete survival acquisition playthrough. Supplying apprentice ring/found amulet does not prove natural loot or Pech trading.",
+    "Client covers crafted five-tick Vis Amulet dispatch and one charged gun. Found forty-tick cadence, broader ordering/guards and native lifecycle cases require the separately selected actual full server run.",
+    "Ownership-safe offhand pouch opening, Curios storage/lifecycle/GUI, expanded configured slots and modern cursor/input bridge are explicit modern adaptations rather than Baubles packet/UI byte parity.",
+    "Native screenshots supplement source assertions and exact logged transaction debits; they alone do not prove conservation, synchronization or every mechanical case.",
+    "No independent multiplayer, persisted world restart/respawn, arbitrary addon/canceled-death matrix, audio playback or every pose/view-angle render proof.",
+    "Contract generation does not perform visual review. Both reviewers must actually view every final full1600x1000 PNG and both sheets before recording pass."
+  ]
+}

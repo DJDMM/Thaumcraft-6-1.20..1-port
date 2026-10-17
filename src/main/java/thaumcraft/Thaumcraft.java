@@ -99,6 +99,8 @@ public final class Thaumcraft {
         thaumcraft.artifice.dioptra.DioptraModule.register(bus);
         thaumcraft.artifice.generator.VisGeneratorModule.register(bus);
         thaumcraft.artifice.grapple.GrappleModule.register(bus);
+        thaumcraft.equipment.accessories.AccessoriesModule.register(bus);
+        thaumcraft.equipment.pouch.FocusPouchModule.register(bus);
         bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) ->
                 event.enqueueWork(thaumcraft.artifice.lamp.client.GrowthMistPacket::register));
         thaumcraft.artifice.furnace.InfernalFurnaceModule.register(bus);
