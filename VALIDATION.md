@@ -1,3 +1,243 @@
+# Проверка улучшений наполнением0.40.0
+
+Дата: **2026-10-18**. Minecraft1.20.1 / Forge47.4.10 / Java17.
+Оригинал — выпущенный TC6.1.BETA26. Охват108/148 исследований,
+44/56 наполнений; исходных физических рецептов56.
+Контракт — [UPGRADES.md](UPGRADES.md), точные файлы/SHA —
+[artifact-report0.40](validation/artifact-report-0.40.json).
+
+Свежий полный `infusion-upgrades-040-server3` прошёл **1673/1673**, native exit0 и BUILD SUCCESSFUL.
+Сохранены1628 предыдущих проверок; новые определения: `{'equipment/enchantment/InfusionEnchantmentEffectsGameTests.java': 32, 'research/InfusionUpgradesProgressionGameTests.java': 13}`.
+Проверены исходные строгие родители, теории, янтарь, XP, Warp и replay,
+настоящие оплаченные наполнения, обычные infused-инструменты и Forge hooks,
+руны на настоящих Curios/броне, типизированные маски/очки и их потребители.
+Серверные прямые block-entity callbacks устанавливают физическую оплату,
+а не истечение мирового времени. Реальный маршрут клиента проверен отдельно.
+
+Клиент `infusion-upgrades-040-client4` прошёл **24/24**, JVM exit0, PID15728,
+максимум16 собственных окон скрытого
+`WinSta0\ThaumcraftQA_*`; входной стол
+`Default→Default`. Переключений/global input нет.
+Два проверяющих просмотрели все24полных1600×1000PNG, полный обзорный
+лист и компактное превью одного финального native прогона.
+
+Фактические native markers:
+
+- `[18:44:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_FIXTURES: ownedSurvivalArena/fourRawStableAltars+24Pedestals+128Candles+8stabilizers/initialTypedJarsFor14originalInfusions+1eachAspect/rawstrictParents128InfusionTheoryOneAmber/rawVanillaUnenchantedTools+FortressChestLegsHelmDamage17OwnerMemory+MundaneRingCaster/rawComponents+Initial5000vis0fluxPer49Chunks/raw1collectorLog9stone3burrowingLogs32ironOreSoundingOreAndDarkCave/controlledNoAIVanillaActors; targetstudies/enchants/runic/masksAbsent/noActiveAuraChargeClockRngSetters/notFullSurvivalMultiplayerReloadAudio`
+- `[18:44:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_STUDY_PAID: INFUSIONENCHANTMENT/actualC2S/rawInfusionTheory64/earnedXP10/runicAmber1orMaskWarpPermanent1Normal1`
+- `[18:44:26] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-enchantment-study.png`
+- `[18:44:26] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_STUDY_PAID: RUNICSHIELDING/actualC2S/rawInfusionTheory32/earnedXP10/runicAmber1orMaskWarpPermanent1Normal1`
+- `[18:44:27] [IO-Worker-16/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-runic-study.png`
+- `[18:44:27] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_STUDY_PAID: FORTRESSMASK/actualC2S/rawInfusionTheory32/earnedXP10/runicAmber1orMaskWarpPermanent1Normal1`
+- `[18:44:28] [IO-Worker-16/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-fortress-mask-study.png`
+- `[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iecollector/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/180rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iedestructive/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/450rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ieburrowing/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/230rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iesounding/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:44:38] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=0 batch=0 launch=2 infusions=0 paidEss=0 shield=0`
+- `[18:44:48] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0`
+- `[18:44:58] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0`
+- `[18:45:08] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0`
+- `[18:45:18] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0`
+- `[18:45:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iecollector/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/2reagents/physicalRemainderConserved/totalInfusions1`
+- `[18:45:21] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-collector.png`
+- `[18:45:31] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0`
+- `[18:45:41] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0`
+- `[18:45:51] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0`
+- `[18:46:01] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0`
+- `[18:46:11] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0`
+- `[18:46:21] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0`
+- `[18:46:31] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0`
+- `[18:46:32] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iedestructive/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/450essentia/2reagents/physicalRemainderConserved/totalInfusions2`
+- `[18:46:33] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-destructive.png`
+- `[18:46:33] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ieburrowing/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/230essentia/2reagents/physicalRemainderConserved/totalInfusions3`
+- `[18:46:34] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-burrowing.png`
+- `[18:46:34] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iesounding/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions4`
+- `[18:46:35] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-sounding.png`
+- `[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ierefining/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/140rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iearcing/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ieessence/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ielamplight/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:46:45] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=7 phase=1 batch=2 launch=0 infusions=4 paidEss=960 shield=0`
+- `[18:46:55] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=7 phase=1 batch=2 launch=0 infusions=4 paidEss=960 shield=0`
+- `[18:47:05] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=7 phase=1 batch=2 launch=0 infusions=4 paidEss=960 shield=0`
+- `[18:47:14] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ierefining/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/140essentia/2reagents/physicalRemainderConserved/totalInfusions5`
+- `[18:47:14] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-refining.png`
+- `[18:47:15] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iearcing/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions6`
+- `[18:47:15] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-arcing.png`
+- `[18:47:16] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ieessence/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions7`
+- `[18:47:16] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-essence.png`
+- `[18:47:17] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ielamplight/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions8`
+- `[18:47:18] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-lamplight.png`
+- `[18:47:18] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: runicarmor/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/80rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:47:28] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=11 phase=2 batch=2 launch=0 infusions=8 paidEss=1400 shield=0`
+- `[18:47:38] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=11 phase=2 batch=2 launch=0 infusions=8 paidEss=1400 shield=0`
+- `[18:47:41] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: runicarmor/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/80essentia/2reagents/physicalRemainderConserved/totalInfusions9`
+- `[18:47:42] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-runic-armor.png`
+- `[18:47:42] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: runicarmor/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/80rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:47:52] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=12 phase=2 batch=2 launch=0 infusions=9 paidEss=1480 shield=0`
+- `[18:48:02] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=12 phase=2 batch=2 launch=0 infusions=9 paidEss=1480 shield=0`
+- `[18:48:05] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: runicarmor/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/80essentia/2reagents/physicalRemainderConserved/totalInfusions10`
+- `[18:48:06] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-runic-accessory.png`
+- `[18:48:06] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: helmgoggles/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/80rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:48:16] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=13 phase=2 batch=2 launch=0 infusions=10 paidEss=1560 shield=0`
+- `[18:48:26] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=13 phase=2 batch=2 launch=0 infusions=10 paidEss=1560 shield=0`
+- `[18:48:30] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: helmgoggles/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/80essentia/2reagents/physicalRemainderConserved/totalInfusions11`
+- `[18:48:30] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: helmgoggles/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved`
+- `[18:48:30] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-fortress-goggles.png`
+- `[18:48:31] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: maskgrinningdevil/physicalUnenchantedTargetOrPreservedPaidInput/6rawReagents/180rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:48:40] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0`
+- `[18:48:50] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0`
+- `[18:49:00] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0`
+- `[18:49:10] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0`
+- `[18:49:20] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0`
+- `[18:49:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: maskgrinningdevil/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/6reagents/physicalRemainderConserved/totalInfusions12`
+- `[18:49:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: maskgrinningdevil/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved`
+- `[18:49:26] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-grinning-devil.png`
+- `[18:49:26] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: maskangryghost/physicalUnenchantedTargetOrPreservedPaidInput/6rawReagents/180rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:49:36] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0`
+- `[18:49:46] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0`
+- `[18:49:56] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0`
+- `[18:50:06] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0`
+- `[18:50:16] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0`
+- `[18:50:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: maskangryghost/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/6reagents/physicalRemainderConserved/totalInfusions13`
+- `[18:50:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_MASK_WITHER: nativePaidWornMask1/controlledVanillaZombie12attack/nativeLivingHurtEvent/Wither80/noRNGReset/noHealthSet`
+- `[18:50:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: maskangryghost/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved`
+- `[18:50:21] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-angry-ghost.png`
+- `[18:50:22] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: masksippingfiend/physicalUnenchantedTargetOrPreservedPaidInput/6rawReagents/180rawExpectedEssentia/noPaidOutputSupplied`
+- `[18:50:32] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0`
+- `[18:50:42] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0`
+- `[18:50:52] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0`
+- `[18:51:02] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0`
+- `[18:51:12] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0`
+- `[18:51:16] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: masksippingfiend/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/6reagents/physicalRemainderConserved/totalInfusions14`
+- `[18:51:16] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: masksippingfiend/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved`
+- `[18:51:17] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-paid-sipping-fiend.png`
+- `[18:51:20] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_RUNIC: actualArmorQuickMoveC2S+CuriosButtonRingC2S/paidChest1+paidRing1/nativeWallClock2credits2vis/fullFortressSet/sameFourTimesMutatedHelmMask2Goggles`
+- `[18:51:21] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-native-curios-runic-shield.png`
+- `[18:51:22] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_COLLECTOR: paidVanillaDiamondAxe/nativeSurvivalMiningC2S/oneOakLogHomedThenPhysicalPickup/durability1`
+- `[18:51:23] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-native-collector.png`
+- `[18:51:24] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_DESTRUCTIVE: paidVanillaDiamondPickaxe/nativeSurvivalC2S/nineRealStoneBlocks/nineDurability`
+- `[18:51:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_BURROWING: paidVanillaDiamondAxe/nativeSurvivalC2S/furthestTopLogOnly/baseTwoConserved/oneDurability`
+- `[18:51:25] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-native-destructive-burrowing.png`
+- `[18:51:30] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_REFINING: paidVanillaDiamondPickaxe/nativeSurvivalMiningC2S/actualRawIronToCluster/successAfter4OrdinaryOres/noRNGReset`
+- `[18:51:31] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-native-refining.png`
+- `[18:51:32] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_ARCING: paidVanillaDiamondSword/nativeAttackC2S/actualPrimaryAndSecondaryCowDamage/noRNGReset`
+- `[18:51:39] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_ESSENCE: paidVanillaDiamondSword/nativeAttackC2S/nativeCowDeathAndTypedAspectCrystals/4Attacks/noRNGReset`
+- `[18:51:39] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_SIPPING: actualPaidMask2/nativeLivingHurtEventObservedHeals2/controlledNativeWounds1/noHealthSet/noRNGReset`
+- `[18:51:40] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-native-arcing-essence.png`
+- `[18:51:40] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_SOUNDING: paidVanillaDiamondPickaxe/nativeSneakUseC2S/oneFiveDurabilityPayment/nativeS2COreRipples/noScanOrTerrainMutation`
+- `[18:51:41] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-native-sounding.png`
+- `[18:51:43] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_LAMPLIGHT: paidVanillaDiamondPickaxe/nativeSurvivalMiningC2S/combinedLightBelow10/afterNativeWorldTickENDGlimmer15/oneOrdinaryDurability/noExtraVis`
+- `[18:51:43] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\infusion-upgrades-smoke\.\screenshots\tc6-infusion-upgrades-native-lamplight.png`
+- `[18:51:43] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_FACTS: scenes24/studies3/theoryInfusion128/researchAmber1/earnedXP30/maskPermanentWarp1NormalWarp1/paidInfusions14/enchants8/runicArmor1Curio1/onePhysicalHelmFourMutations/paidEssentia2180/shieldCredits4/maskWither1/maskNativeHeals2/refiningOreAttempts4/essenceAttackAttempts4/allEightNativeEffects/noActiveAuraChargeRngClockSetters/notFullSurvivalMultiplayerReloadAudio`
+- `[18:51:43] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RENDER_AUDIT_OK: 24 scenes; actualBook/nativeAltars/physicalPaidTools/nativeCurios/fortressNBT/nativeEffects/noDeveloperLabels`
+- `[18:51:43] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_OK: 24 scenes; originalThreeStudies/14NativeInfusions/physicalPaidVanillaToolsCurioArmorHelm/nativeEffects,world=thaumcraft-infusion-upgrades-smoke-1792334625359`
+
+Оплаты разобраны из конкретных native markers и связаны с файлом/хешем
+через `clientFactContractEvidence`; числа не извлечены из картинок:
+
+```json
+{
+  "studies": 3,
+  "theoryInfusion": 128,
+  "researchAmber": 1,
+  "earnedXP": 30,
+  "paidInfusions": 14,
+  "enchants": 8,
+  "paidEssentia": 2180,
+  "runicArmor": 1,
+  "runicCurio": 1
+}
+```
+
+Прочие численно проверенные наблюдения:
+
+```json
+{
+  "scenes": 24,
+  "nativeShieldCredits": 4,
+  "nativeMaskWither": 1,
+  "nativeSippingHeals": 2,
+  "actualRefiningOreAttempts": 4,
+  "actualEssenceAttackAttempts": 4,
+  "refiningMarkerOreAttempts": 4,
+  "essenceMarkerAttackAttempts": 4,
+  "sippingMarkerObservedHeals": 2,
+  "controlledNativeWounds": 1
+}
+```
+
+Подготовленные условия:
+
+- Owned Survival arena, four stable40block-spaced altars,24pedestals,128candles,eightstabilizers and initial typed jars are prepared fixtures.
+- Strict precursor studies,128raw Infusion theory and one research amber are supplied; three actual target-study C2S payments award30XP and the Mask transition awards permanent1/normal1 Warp.
+- Eight unenchanted vanilla tools, raw component materials, prior-stage Fortress pieces and a mundane ring are fixtures. No target enchantments, runic charge, goggles or mask are supplied.
+- All14 actual native altar payments consume2180essentia and40reagents; one physical milk-bucket remainder is retained. Initial jars hold original aggregate costs plus one surplus per distinct altar/aspect pair.
+- Initial5000Vis/zeroFlux in49loaded arena chunks precedes active consumers. Runic shielding pays native aura; no active aura/charge/health/absorption/clock/RNG reset substitutes for gameplay.
+- Mining targets,32iron ores, buried sounding ores, a physically enclosed dark room and controlled no-AI vanilla actors are fixtures. Controlled zombie attacks12 and60 are actor attributes, not ordinary zombie statistics. The60attack may create at most seven actual native wounds total, only after native iframe expiry/full health, until an actual Sipping heal is observed; no health, hunger, RNG or timer setters are used.
+- Native pedestal pickup, armor Quick Move C2S and actual Curios inventory-button/ring-slot C2S conserve the paid physical items; camera/player teleports are positioning fixtures.
+
+Границы утверждений:
+
+- Prepared routes are not complete Survival acquisition, natural resource exploration or a proof of earlier-stage item crafting.
+- Random Refining and Essence results come from bounded ordinary native actions with no forced RNG. Exact observed attempt counts are bound to the selected log.
+- Client checks one runic level on one armor piece and one Curios ring; dynamic higher levels, malformed data and wider compatibility are separate server contracts.
+- Grinning Devil is worn and its paid mutation is checked; no full WarpEvent is manufactured. Source severity-consumer contracts require separately selected native server evidence.
+- Screenshots supplement exact native payments and synchronization assertions; they do not alone prove all transactions or detailed visual/audio parity.
+- No independent multiplayer, restart/respawn, arbitrary addon/death/Curios configuration matrix, every pose/view angle or audio playback proof.
+- This helper performs no pixel review. Both reviewers must actually inspect all24full1600x1000frames and both complete sheets before recording pass.
+
+Ранние попытки сохранены отдельно без присвоения pass:
+
+- `infusion-upgrades-040-gametest1.log`: SHA256 `8ad95ce090d4f85f11a3967655efbd6b9db9b74242f6c8fef07bfe979745b345`.
+- `infusion-upgrades-040-gametest2.log`: SHA256 `a75b1344e8d55e6e7a7461e506d92f33f47d392711e82550697c0d34bfdcc696`.
+- `infusion-upgrades-040-server1-run.json`: SHA256 `250c7968371984896fd589a28062d9a0c5c3a6dd82f2cc10a79e75b1f1b37f73`.
+- `infusion-upgrades-040-server2-run.json`: SHA256 `5ade57a809b4e0947bd8a0ebdbeccaa9e82c8c75ad468508c4ca52f18b46f7bf`.
+- `infusion-upgrades-040-compile1.log`: SHA256 `47ba9d1da3e0785aba491565d8d6867d8b0340ed60c565702849416e845bd205`.
+- `infusion-upgrades-040-compile2.log`: SHA256 `fb1c3c284f81d05a54d913f1e9f993db6071a4a729f48dd0327837e9b32a208d`.
+- `infusion-upgrades-040-compile3.log`: SHA256 `f2ddfa38a7a4a439d6c496e458e3819066be5c48576f8a8a63237dc73f8201d9`.
+- `infusion-upgrades-client-infusion-upgrades-040-client1-client.log`: SHA256 `a1fb96783265156a8dcc59fe4acd0042ebdf4a0869eb22288cd7405a96c8b347`.
+- `infusion-upgrades-client-infusion-upgrades-040-client2-client.log`: SHA256 `9c1d7e2362d03127195b4f57d46d9a5e3463661176386852fa56e43bd415f8b5`.
+- `infusion-upgrades-client-infusion-upgrades-040-client3-client.log`: SHA256 `85e85e1d68caa7eae90ca093912aa2e805322683cea39531dcfe328896838d02`.
+- `infusion-upgrades-040-client1-state.json`: SHA256 `79a679fcead5d66f0abd2bfd02d99a8720a47eaf8a42f817f9f5cca095bf5b0d`.
+- `infusion-upgrades-040-client2-state.json`: SHA256 `10751b072b56ee7a13a1a263bff254746440a96993a3b11a6a1716201e3f3ff2`.
+- `infusion-upgrades-040-client3-state.json`: SHA256 `704f2c47a6fa45a07e4630741ccb7f7097a7d2c3a59941bfe453cafce30ae322`.
+- `infusion-upgrades-040-client2-owned-stop.json`: SHA256 `2af3b8f12620ff80bf552d1ff5ffcda2d0c181f5a710e17f45fe4a05679352c4`.
+- `infusion-upgrades-040-client3-owned-stop.json`: SHA256 `51bfbf81b48625ebff4cb3d44b91629b57dd9dd8cc6aa3a4f4394e0a5090a423`.
+- `infusion-upgrades-client-infusion-upgrades-040-client1-desktop.json`: SHA256 `66b7bc65f4cf001fc0ef17d947d1d0a69a1f1c398e2b19f2a97cc7cc1604b01c`.
+- `infusion-upgrades-client-infusion-upgrades-040-client2-desktop.json`: SHA256 `974b8a84c2e2953d9bc1f7568430b232043309b38b162a9dad62dd036c9cb472`.
+- `infusion-upgrades-client-infusion-upgrades-040-client3-desktop.json`: SHA256 `8c5cef752536b7b2365b8a205417750ca1bfc42635c8562a717a18c6b8d6bf71`.
+- `infusion-upgrades-client-infusion-upgrades-040-client1-run.json`: SHA256 `19531534c47b2c1ed05b69957f8e3579052370cfe6c22dac36303bc4cfb5218f`.
+- `infusion-upgrades-client-infusion-upgrades-040-client2-run.json`: SHA256 `ff131492c41a69d74c6fddd6ad415a402b422f1ab2d8fb8d3cc80353ca4658b8`.
+- `infusion-upgrades-client-infusion-upgrades-040-client3-run.json`: SHA256 `77db02e9acf7405dfe72d674df7b43720c3e26a3142660860b2fb39377f200c2`.
+
+Все4491 финальных client/build fingerprints совпадают; все server-релевантные
+совпадают. Возможное исключение относится только к opt-in Dist.CLIENT QA driver:
+
+```json
+[
+  {
+    "file": "src/main/java/thaumcraft/equipment/upgrades/client/InfusionUpgradesClientSmokeTest.java",
+    "serverExecutedSha256": "9856a7691c005c4b29f41ebeea4cf3c2e1960a29f3ed85b25940000144f787c2",
+    "finalClientBuildSha256": "1bfa287cd28531114dec46aa8ab0b0cd0804fb4b4fd56ecaf8719f185d283d1a",
+    "reason": "Only opt-in Dist.CLIENT QA driver changed; core/resources/helpers/tests identical"
+  }
+]
+```
+
+Финальная сборка успешна: **2882JSON**, **3720resource-byte**,
+исходные **674PNG/7JPG/60OGG** проверены. Проверены версия, CRC, классы,
+ресурсные байты, точные public методы/дескрипторы узкого Forge bridge
+в итоговом reobfuscated JAR и обоих Forge47.4.10 binaries (mapped/SRG).
+Это структурная проверка; отдельный запуск production-установки не заявлен.
+В архиве три JAR:
+порт, TerraBlender3.0.1.10, Curios5.14.1+1.20.1.
+JAR SHA256: `7a9b2c5d72e5417cd4d55bb7144a80713996c2aa03a2e0e0393b0d4f36c6a93d`. Скриншоты настоящие;
+подписи обзорных листов находятся вне игровых пикселей.
+
+---
+
 # Проверка аксессуаров0.39.0
 
 Дата: **2026-10-17**. Minecraft1.20.1 / Forge47.4.10 / Java17.

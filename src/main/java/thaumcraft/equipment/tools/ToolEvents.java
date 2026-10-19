@@ -4,6 +4,10 @@ import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.OwnableEntity;
@@ -22,7 +26,9 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
+import thaumcraft.equipment.enchantment.InfusionEnchantmentEffects;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -35,8 +41,8 @@ public final class ToolEvents {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void breakApproved(BlockEvent.BreakEvent event) {
-        if (event.getPlayer() instanceof ServerPlayer player && ToolMining.isTool(player.getMainHandItem()))
-            ToolMining.approve(player, event.getPos(), event.getState(), event.getExpToDrop());
+        if (event.getPlayer() instanceof ServerPlayer player)
+            ToolMining.approve(player, event);
     }
     @SubscribeEvent public static void leftClick(PlayerInteractEvent.LeftClickBlock event) {
         if (!event.getLevel().isClientSide) ToolMining.face(event.getEntity(), event.getFace());
@@ -45,9 +51,26 @@ public final class ToolEvents {
         if (!event.getLevel().isClientSide && event.getEntity() instanceof ItemEntity item) ToolMining.spawnedDrop(item);
     }
     @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void sounding(PlayerInteractEvent.RightClickBlock event) {
+        if (!(event.getEntity() instanceof ServerPlayer player) || !player.isAlive() || player.isSpectator()
+                || !player.isShiftKeyDown() || event.getUseItem() == net.minecraftforge.eventbus.api.Event.Result.DENY) return;
+        var stack = player.getItemInHand(event.getHand());
+        int rank = ToolSupport.enchantment(stack, EnumInfusionEnchantment.SOUNDING);
+        if (rank == 0 || !player.serverLevel().hasChunkAt(event.getPos())
+                || !player.serverLevel().mayInteract(player, event.getPos())
+                || !player.mayUseItemAt(event.getPos(), event.getFace(), stack)) return;
+        ToolSupport.damage(stack, player, event.getHand(), 5);
+        var sound = ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.fromNamespaceAndPath("thaumcraft", "wandfail"));
+        player.level().playSound(null, event.getPos(), sound == null ? SoundEvents.AMETHYST_BLOCK_CHIME : sound,
+                SoundSource.BLOCKS, .2F, .2F + player.getRandom().nextFloat() * .2F);
+        ToolNetwork.sendSounding(player, event.getPos(), rank);
+        // One acknowledged modern use prevents a second-hand attempt from billing the same click again.
+        event.setCanceled(true);
+        event.setCancellationResult(InteractionResult.CONSUME);
+    }
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void arcing(AttackEntityEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer player) || !event.getTarget().isAlive()
-                || !ToolMining.isTool(player.getMainHandItem())) return;
+        if (!(event.getEntity() instanceof ServerPlayer player) || !event.getTarget().isAlive()) return;
         int rank = ToolSupport.enchantment(player.getMainHandItem(), EnumInfusionEnchantment.ARCING);
         if (rank == 0) return;
         int count = 0;
@@ -73,9 +96,13 @@ public final class ToolEvents {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void livingDrops(LivingDropsEvent event) {
-        if (!(event.getSource().getEntity() instanceof ServerPlayer player) || !ToolMining.isTool(player.getMainHandItem())
-                || ToolSupport.enchantment(player.getMainHandItem(), EnumInfusionEnchantment.COLLECTOR) == 0) return;
-        for (ItemEntity drop : event.getDrops()) follow(drop, player);
+        if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
+        var weapon = player.getMainHandItem();
+        if (weapon.isEmpty()) return;
+        var essence = InfusionEnchantmentEffects.essenceDrops(event, weapon);
+        event.getDrops().addAll(essence);
+        if (ToolSupport.enchantment(weapon, EnumInfusionEnchantment.COLLECTOR) > 0)
+            for (ItemEntity drop : event.getDrops()) follow(drop, player);
     }
 
     /** type=10 in TC6 means blue collector FX, not a ten-tick delay. The original homing age starts at 20. */

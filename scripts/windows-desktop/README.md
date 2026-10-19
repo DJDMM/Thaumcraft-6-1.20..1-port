@@ -1,5 +1,13 @@
 # Isolated Windows client QA
 
+The `-SmokeTest InfusionUpgrades` profile uses only `run/infusion-upgrades-smoke`
+for the three original enchantment/runic/fortress studies, actual paid altar
+upgrades, ordinary infused-tool effects, equipped runic shielding and original
+helmet modifications. Prepared parents, knowledge, materials, essentia, aura,
+stable altars and controlled actors are explicit QA fixtures. All1600x1000
+captures use the same hidden non-input desktop and exact-JVM checks below.
+Selecting the profile is not a passed run; use its versioned native evidence.
+
 The `-SmokeTest Accessories` profile uses only `run/accessories-smoke` for
 the two TC6 accessory studies, six ordinary jewellery crafts, paid25vis Focus
 Pouch and native200ess Vis Amulet infusion, real Curios equip/menu packets,

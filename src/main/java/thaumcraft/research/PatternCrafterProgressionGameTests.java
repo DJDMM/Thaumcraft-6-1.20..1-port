@@ -48,7 +48,7 @@ public final class PatternCrafterProgressionGameTests {
 
     @GameTest(template="empty")
     public static void releasedTwoDeviceGraphAddsOnlyTwoCanonicalStudiesAndNoInfusions(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==105,
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108,
                 "Expected preserved101 plus exactly Vis Generator");
         h.assertTrue(h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get()).size()==56,
                 "Two original arcane recipes duplicated an archived infusion");

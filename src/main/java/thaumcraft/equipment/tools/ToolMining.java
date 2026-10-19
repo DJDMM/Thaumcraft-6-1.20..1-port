@@ -15,8 +15,10 @@ import net.minecraft.world.level.block.GameMasterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
+import thaumcraft.equipment.enchantment.InfusionEnchantmentEffects;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -36,9 +38,15 @@ public final class ToolMining {
                 || stack.getItem() instanceof ToolItems.Axe || stack.getItem() instanceof ToolItems.Sword
                 || stack.getItem() instanceof ToolItems.Hoe;
     }
-    static void approve(ServerPlayer player, BlockPos pos, BlockState state, int experience) {
-        APPROVALS.put(player.getUUID(), new Approval(player.serverLevel(), pos.immutable(), state,
-                player.serverLevel().getGameTime(), experience));
+    /** Narrow Forge default-method bridge, called only after the native central BreakEvent has fully returned. */
+    public static boolean beforeVanillaBlockStart(Object source, BlockPos pos, Player user) {
+        if (!(source instanceof ItemStack stack) || stack.isEmpty() || isTool(stack)
+                || !stack.hasTag() || !stack.getTag().contains("infench", net.minecraft.nbt.Tag.TAG_LIST)) return false;
+        return start(stack, pos, user);
+    }
+    static void approve(ServerPlayer player, BlockEvent.BreakEvent event) {
+        APPROVALS.put(player.getUUID(), new Approval(player.serverLevel(), event.getPos().immutable(), event.getState(),
+                player.serverLevel().getGameTime(), event));
     }
     static void face(Player player, Direction face) { if (face != null) FACES.put(player.getUUID(), face); }
     static void clearApprovals() { APPROVALS.clear(); }
@@ -46,7 +54,8 @@ public final class ToolMining {
 
     /** Returns true only when this class replaces the one ordinary block-break action. */
     public static boolean start(ItemStack stack, BlockPos origin, Player user) {
-        if (!(user instanceof ServerPlayer player) || HARVEST.get() != null || player.isCreative() || stack.isEmpty()) return false;
+        if (!(user instanceof ServerPlayer player) || HARVEST.get() != null || player.isCreative() || stack.isEmpty()
+                || player.getMainHandItem() != stack) return false;
         ServerLevel level = player.serverLevel();
         BlockState state = level.getBlockState(origin);
         if (!effective(stack, state) || state.hasBlockEntity() || !state.canHarvestBlock(level, origin, player)) return false;
@@ -55,10 +64,11 @@ public final class ToolMining {
         boolean destructive = !player.isShiftKeyDown() && ToolSupport.enchantment(stack, EnumInfusionEnchantment.DESTRUCTIVE) > 0;
         boolean refining = ToolSupport.enchantment(stack, EnumInfusionEnchantment.REFINING) > 0;
         boolean collector = !player.isShiftKeyDown() && ToolSupport.enchantment(stack, EnumInfusionEnchantment.COLLECTOR) > 0;
-        if (!burrow && !destructive && !refining && !collector) return false;
+        boolean lamplight = !player.isShiftKeyDown() && ToolSupport.enchantment(stack, EnumInfusionEnchantment.LAMPLIGHT) > 0;
+        if (!burrow && !destructive && !refining && !collector && !lamplight) return false;
         if (burrow) {
             BlockPos furthest = furthest(level, origin, state, state.is(BlockTags.LOGS) ? 2 : 1);
-            if (harvest(player, stack, furthest, furthest.equals(origin))) {
+            if (harvest(player, stack, furthest, furthest.equals(origin), true)) {
                 for (BlockPos leaf : BlockPos.betweenClosed(furthest.offset(-3, -3, -3), furthest.offset(3, 3, 3))) {
                     BlockState leaves = level.getBlockState(leaf);
                     if (leaves.is(BlockTags.LEAVES)) level.scheduleTick(leaf.immutable(), leaves.getBlock(), 50 + player.getRandom().nextInt(75));
@@ -81,6 +91,10 @@ public final class ToolMining {
     }
 
     private static boolean harvest(ServerPlayer player, ItemStack tool, BlockPos pos, boolean approvedCentral) {
+        return harvest(player, tool, pos, approvedCentral, false);
+    }
+
+    private static boolean harvest(ServerPlayer player, ItemStack tool, BlockPos pos, boolean approvedCentral, boolean burrowing) {
         ServerLevel level = player.serverLevel();
         if (tool.isEmpty() || player.isSpectator() || !level.hasChunkAt(pos) || !level.getWorldBorder().isWithinBounds(pos)
                 || !level.mayInteract(player, pos) || player.blockActionRestricted(level, pos, player.gameMode.getGameModeForPlayer())) return false;
@@ -88,13 +102,18 @@ public final class ToolMining {
         if (state.isAir() || state.hasBlockEntity() || state.getDestroySpeed(level, pos) < 0
                 || state.getBlock() instanceof GameMasterBlock && !player.canUseGameMasterBlocks()
                 || !state.canHarvestBlock(level, pos, player)) return false;
+        ItemStack before = tool.copy();
         int experience;
         Approval approval = approvedCentral ? APPROVALS.remove(player.getUUID()) : null;
         if (approval != null && approval.level == level && approval.tick == level.getGameTime()
-                && approval.pos.equals(pos) && approval.state == state) experience = approval.experience;
+                && approval.pos.equals(pos) && approval.state == state) {
+            // Native dispatch is complete here. Later LOWEST listeners may have changed the final XP amount.
+            if (approval.event.isCanceled()) return false;
+            experience = approval.event.getExpToDrop();
+        }
         else experience = ForgeHooks.onBlockBreakEvent(level, player.gameMode.getGameModeForPlayer(), player, pos);
-        if (experience < 0 || level.getBlockState(pos) != state) return false;
-        ItemStack before = tool.copy();
+        if (experience < 0 || level.getBlockState(pos) != state || player.level() != level || !player.isAlive()
+                || player.getMainHandItem() != tool || !ItemStack.matches(tool, before)) return false;
         Harvest context = new Harvest(player, pos.immutable(), before);
         HARVEST.set(context);
         try {
@@ -105,10 +124,12 @@ public final class ToolMining {
             if (approvedCentral) tool.mineBlock(level, state, pos, player);
             else ToolSupport.damage(tool, player, InteractionHand.MAIN_HAND, 1);
             if (tool.isEmpty()) ForgeEventFactory.onPlayerDestroyItem(player, before, InteractionHand.MAIN_HAND);
-            if (experience > 0) state.getBlock().popExperience(level, pos, experience);
+            // Released breakFurthestBlock uses harvestBlockSkipCheck, whose literal experience is always zero.
+            if (!burrowing && experience > 0) state.getBlock().popExperience(level, pos, experience);
             level.levelEvent(null, 2001, pos, Block.getId(state));
             if (context.refined) level.playSound(null, pos, net.minecraft.sounds.SoundEvents.EXPERIENCE_ORB_PICKUP,
                     net.minecraft.sounds.SoundSource.PLAYERS, .2F, .7F + player.getRandom().nextFloat() * .2F);
+            InfusionEnchantmentEffects.harvested(player, pos, before, context.sneaking);
             return true;
         } finally { HARVEST.remove(); }
     }
@@ -128,6 +149,7 @@ public final class ToolMining {
     }
 
     private static ItemStack refine(ItemStack input, ServerPlayer player, float chance) {
+        float roll = player.serverLevel().random.nextFloat();
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(input.getItem());
         if (id == null) return input;
         String cluster = switch (id.toString()) {
@@ -144,7 +166,7 @@ public final class ToolMining {
                     ResourceLocation.fromNamespaceAndPath("forge", "ores/" + metal));
             if (input.is(tag)) { cluster = metal; break; }
         }
-        if (cluster == null || player.getRandom().nextFloat() > chance) return input;
+        if (cluster == null || roll > chance) return input;
         var item = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath("thaumcraft", "cluster_" + cluster));
         return item == null || item == net.minecraft.world.item.Items.AIR ? input : new ItemStack(item, input.getCount());
     }
@@ -183,9 +205,9 @@ public final class ToolMining {
         return current;
     }
 
-    private record Approval(ServerLevel level, BlockPos pos, BlockState state, long tick, int experience) {}
+    private record Approval(ServerLevel level, BlockPos pos, BlockState state, long tick, BlockEvent.BreakEvent event) {}
     private static final class Harvest {
-        final ServerPlayer player; final BlockPos pos; final ItemStack tool; boolean refined;
-        Harvest(ServerPlayer player, BlockPos pos, ItemStack tool) { this.player = player; this.pos = pos; this.tool = tool; }
+        final ServerPlayer player; final BlockPos pos; final ItemStack tool; final boolean sneaking; boolean refined;
+        Harvest(ServerPlayer player, BlockPos pos, ItemStack tool) { this.player = player; this.pos = pos; this.tool = tool; sneaking=player.isShiftKeyDown(); }
     }
 }

@@ -50,10 +50,10 @@ public final class VisGeneratorProgressionGameTests {
     @GameTest(template="empty")
     public static void releasedGeneratorAddsOneCanonicalStudyAndNoNewInfusionOrLateEquipmentGate(GameTestHelper h) {
         var entry=ResearchCatalog.get(KEY);
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==105
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108
                 &&ResearchProgression.isImplemented(KEY)&&entry.parents().equals(List.of("REDSTONERELAY"))
                 &&entry.category().equals("ARTIFICE")&&entry.stages().size()==2&&entry.siblings().isEmpty()
-                &&entry.stages().stream().allMatch(stage->stage.warp()==0),"Released Vis Generator graph or105-entry census changed");
+                &&entry.stages().stream().allMatch(stage->stage.warp()==0),"Released Vis Generator graph or108-entry census changed");
         h.assertTrue(h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get()).size()==56
                 &&BookRecipeCatalog.definitions("thaumcraft:VisGenerator").size()==1
                 &&BookRecipeCatalog.definitions("thaumcraft:VisGenerator").get(0).kind().equals("arcane"),"Generator invented infusion or duplicate original recipe");

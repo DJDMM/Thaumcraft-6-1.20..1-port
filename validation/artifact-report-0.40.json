@@ -1,0 +1,1442 @@
+{
+  "version": "0.40.0",
+  "date": "2026-10-18",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 108,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 44,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1673,
+  "preservedRequiredGameTests": 1628,
+  "newTestsBySuite": {
+    "equipment/enchantment/InfusionEnchantmentEffectsGameTests.java": 32,
+    "research/InfusionUpgradesProgressionGameTests.java": 13
+  },
+  "serverLog": {
+    "file": "infusion-upgrades-040-gametest3.log",
+    "bytes": 833547,
+    "sha256": "770fcf6a55911a8305eb53e5889858b75d80b677c325b0e9dbfb6ab953c35c54"
+  },
+  "serverRun": {
+    "run": "infusion-upgrades-040-server3",
+    "gradleExitCode": 0,
+    "failedRequiredTests": 0,
+    "requiredTestCount": 1673,
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-infusion-upgrades-040-server3",
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "nativeExitCode": 0
+  },
+  "serverRunEvidence": {
+    "file": "infusion-upgrades-040-server3-run.json",
+    "bytes": 482,
+    "sha256": "7ec16d451d2f471f1d61efe3dae93ba04b3b91c4fce9f9d541ff65512b9565b2"
+  },
+  "clientRunTag": "infusion-upgrades-040-client4",
+  "client": {
+    "runTag": "infusion-upgrades-040-client4",
+    "smokeTest": "InfusionUpgrades",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client4-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client4-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client4.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client4-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client4-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client4-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_bc34b6fb2d77455581f1d4d45c95470e",
+    "jvmPid": 15728,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 24
+  },
+  "clientLog": {
+    "file": "infusion-upgrades-client-infusion-upgrades-040-client4-client.log",
+    "bytes": 45932,
+    "sha256": "4a9d8fba9e1f3a8172e817f0facd28601bac7b109ba2c101ab85f8a48905ecc7"
+  },
+  "clientScenes": 24,
+  "clientFactContractEvidence": {
+    "file": "infusion-upgrades-040-client4-client-contract.json",
+    "bytes": 8287,
+    "sha256": "d5b204a8b6ecb491fb0adfb4137598741a9e5d0c7cdf8c116c68ac05ebcefad8"
+  },
+  "nativeClientFacts": [
+    "[18:44:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_FIXTURES: ownedSurvivalArena/fourRawStableAltars+24Pedestals+128Candles+8stabilizers/initialTypedJarsFor14originalInfusions+1eachAspect/rawstrictParents128InfusionTheoryOneAmber/rawVanillaUnenchantedTools+FortressChestLegsHelmDamage17OwnerMemory+MundaneRingCaster/rawComponents+Initial5000vis0fluxPer49Chunks/raw1collectorLog9stone3burrowingLogs32ironOreSoundingOreAndDarkCave/controlledNoAIVanillaActors; targetstudies/enchants/runic/masksAbsent/noActiveAuraChargeClockRngSetters/notFullSurvivalMultiplayerReloadAudio",
+    "[18:44:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_STUDY_PAID: INFUSIONENCHANTMENT/actualC2S/rawInfusionTheory64/earnedXP10/runicAmber1orMaskWarpPermanent1Normal1",
+    "[18:44:26] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-enchantment-study.png",
+    "[18:44:26] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_STUDY_PAID: RUNICSHIELDING/actualC2S/rawInfusionTheory32/earnedXP10/runicAmber1orMaskWarpPermanent1Normal1",
+    "[18:44:27] [IO-Worker-16/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-runic-study.png",
+    "[18:44:27] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_STUDY_PAID: FORTRESSMASK/actualC2S/rawInfusionTheory32/earnedXP10/runicAmber1orMaskWarpPermanent1Normal1",
+    "[18:44:28] [IO-Worker-16/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-fortress-mask-study.png",
+    "[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iecollector/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/180rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iedestructive/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/450rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ieburrowing/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/230rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:44:28] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iesounding/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:44:38] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=0 batch=0 launch=2 infusions=0 paidEss=0 shield=0",
+    "[18:44:48] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0",
+    "[18:44:58] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0",
+    "[18:45:08] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0",
+    "[18:45:18] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=3 phase=1 batch=1 launch=0 infusions=0 paidEss=0 shield=0",
+    "[18:45:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iecollector/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/2reagents/physicalRemainderConserved/totalInfusions1",
+    "[18:45:21] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-collector.png",
+    "[18:45:31] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+    "[18:45:41] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+    "[18:45:51] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+    "[18:46:01] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+    "[18:46:11] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+    "[18:46:21] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+    "[18:46:31] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+    "[18:46:32] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iedestructive/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/450essentia/2reagents/physicalRemainderConserved/totalInfusions2",
+    "[18:46:33] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-destructive.png",
+    "[18:46:33] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ieburrowing/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/230essentia/2reagents/physicalRemainderConserved/totalInfusions3",
+    "[18:46:34] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-burrowing.png",
+    "[18:46:34] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iesounding/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions4",
+    "[18:46:35] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-sounding.png",
+    "[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ierefining/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/140rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: iearcing/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ieessence/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:46:35] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: ielamplight/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/100rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:46:45] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=7 phase=1 batch=2 launch=0 infusions=4 paidEss=960 shield=0",
+    "[18:46:55] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=7 phase=1 batch=2 launch=0 infusions=4 paidEss=960 shield=0",
+    "[18:47:05] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=7 phase=1 batch=2 launch=0 infusions=4 paidEss=960 shield=0",
+    "[18:47:14] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ierefining/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/140essentia/2reagents/physicalRemainderConserved/totalInfusions5",
+    "[18:47:14] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-refining.png",
+    "[18:47:15] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: iearcing/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions6",
+    "[18:47:15] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-arcing.png",
+    "[18:47:16] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ieessence/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions7",
+    "[18:47:16] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-essence.png",
+    "[18:47:17] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: ielamplight/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/100essentia/2reagents/physicalRemainderConserved/totalInfusions8",
+    "[18:47:18] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-lamplight.png",
+    "[18:47:18] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: runicarmor/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/80rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:47:28] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=11 phase=2 batch=2 launch=0 infusions=8 paidEss=1400 shield=0",
+    "[18:47:38] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=11 phase=2 batch=2 launch=0 infusions=8 paidEss=1400 shield=0",
+    "[18:47:41] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: runicarmor/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/80essentia/2reagents/physicalRemainderConserved/totalInfusions9",
+    "[18:47:42] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-runic-armor.png",
+    "[18:47:42] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: runicarmor/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/80rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:47:52] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=12 phase=2 batch=2 launch=0 infusions=9 paidEss=1480 shield=0",
+    "[18:48:02] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=12 phase=2 batch=2 launch=0 infusions=9 paidEss=1480 shield=0",
+    "[18:48:05] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: runicarmor/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/80essentia/2reagents/physicalRemainderConserved/totalInfusions10",
+    "[18:48:06] [IO-Worker-18/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-runic-accessory.png",
+    "[18:48:06] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: helmgoggles/physicalUnenchantedTargetOrPreservedPaidInput/2rawReagents/80rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:48:16] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=13 phase=2 batch=2 launch=0 infusions=10 paidEss=1560 shield=0",
+    "[18:48:26] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=13 phase=2 batch=2 launch=0 infusions=10 paidEss=1560 shield=0",
+    "[18:48:30] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: helmgoggles/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/80essentia/2reagents/physicalRemainderConserved/totalInfusions11",
+    "[18:48:30] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: helmgoggles/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved",
+    "[18:48:30] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-fortress-goggles.png",
+    "[18:48:31] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: maskgrinningdevil/physicalUnenchantedTargetOrPreservedPaidInput/6rawReagents/180rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:48:40] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0",
+    "[18:48:50] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0",
+    "[18:49:00] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0",
+    "[18:49:10] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0",
+    "[18:49:20] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=14 phase=2 batch=2 launch=0 infusions=11 paidEss=1640 shield=0",
+    "[18:49:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: maskgrinningdevil/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/6reagents/physicalRemainderConserved/totalInfusions12",
+    "[18:49:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: maskgrinningdevil/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved",
+    "[18:49:26] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-grinning-devil.png",
+    "[18:49:26] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: maskangryghost/physicalUnenchantedTargetOrPreservedPaidInput/6rawReagents/180rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:49:36] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0",
+    "[18:49:46] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0",
+    "[18:49:56] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0",
+    "[18:50:06] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0",
+    "[18:50:16] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=2 batch=2 launch=0 infusions=12 paidEss=1820 shield=0",
+    "[18:50:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: maskangryghost/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/6reagents/physicalRemainderConserved/totalInfusions13",
+    "[18:50:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_MASK_WITHER: nativePaidWornMask1/controlledVanillaZombie12attack/nativeLivingHurtEvent/Wither80/noRNGReset/noHealthSet",
+    "[18:50:21] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: maskangryghost/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved",
+    "[18:50:21] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-angry-ghost.png",
+    "[18:50:22] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RAW_COMPONENTS: masksippingfiend/physicalUnenchantedTargetOrPreservedPaidInput/6rawReagents/180rawExpectedEssentia/noPaidOutputSupplied",
+    "[18:50:32] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0",
+    "[18:50:42] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0",
+    "[18:50:52] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0",
+    "[18:51:02] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0",
+    "[18:51:12] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=16 phase=2 batch=2 launch=0 infusions=13 paidEss=2000 shield=0",
+    "[18:51:16] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_ALTAR_PAID: masksippingfiend/actualCasterC2S+nativeWorldTicks/fullInputNBTPreserved/180essentia/6reagents/physicalRemainderConserved/totalInfusions14",
+    "[18:51:16] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_HELM_WORN: masksippingfiend/actualArmorQuickMoveC2S/samePhysicalHelm/gogglesRetained/damageAndUnrelatedNBTConserved",
+    "[18:51:17] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-paid-sipping-fiend.png",
+    "[18:51:20] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_RUNIC: actualArmorQuickMoveC2S+CuriosButtonRingC2S/paidChest1+paidRing1/nativeWallClock2credits2vis/fullFortressSet/sameFourTimesMutatedHelmMask2Goggles",
+    "[18:51:21] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-native-curios-runic-shield.png",
+    "[18:51:22] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_COLLECTOR: paidVanillaDiamondAxe/nativeSurvivalMiningC2S/oneOakLogHomedThenPhysicalPickup/durability1",
+    "[18:51:23] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-native-collector.png",
+    "[18:51:24] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_DESTRUCTIVE: paidVanillaDiamondPickaxe/nativeSurvivalC2S/nineRealStoneBlocks/nineDurability",
+    "[18:51:25] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_BURROWING: paidVanillaDiamondAxe/nativeSurvivalC2S/furthestTopLogOnly/baseTwoConserved/oneDurability",
+    "[18:51:25] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-native-destructive-burrowing.png",
+    "[18:51:30] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_REFINING: paidVanillaDiamondPickaxe/nativeSurvivalMiningC2S/actualRawIronToCluster/successAfter4OrdinaryOres/noRNGReset",
+    "[18:51:31] [IO-Worker-20/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-native-refining.png",
+    "[18:51:32] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_ARCING: paidVanillaDiamondSword/nativeAttackC2S/actualPrimaryAndSecondaryCowDamage/noRNGReset",
+    "[18:51:39] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_ESSENCE: paidVanillaDiamondSword/nativeAttackC2S/nativeCowDeathAndTypedAspectCrystals/4Attacks/noRNGReset",
+    "[18:51:39] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_SIPPING: actualPaidMask2/nativeLivingHurtEventObservedHeals2/controlledNativeWounds1/noHealthSet/noRNGReset",
+    "[18:51:40] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-native-arcing-essence.png",
+    "[18:51:40] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_SOUNDING: paidVanillaDiamondPickaxe/nativeSneakUseC2S/oneFiveDurabilityPayment/nativeS2COreRipples/noScanOrTerrainMutation",
+    "[18:51:41] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-native-sounding.png",
+    "[18:51:43] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_NATIVE_LAMPLIGHT: paidVanillaDiamondPickaxe/nativeSurvivalMiningC2S/combinedLightBelow10/afterNativeWorldTickENDGlimmer15/oneOrdinaryDurability/noExtraVis",
+    "[18:51:43] [IO-Worker-17/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke\\.\\screenshots\\tc6-infusion-upgrades-native-lamplight.png",
+    "[18:51:43] [Server thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_FACTS: scenes24/studies3/theoryInfusion128/researchAmber1/earnedXP30/maskPermanentWarp1NormalWarp1/paidInfusions14/enchants8/runicArmor1Curio1/onePhysicalHelmFourMutations/paidEssentia2180/shieldCredits4/maskWither1/maskNativeHeals2/refiningOreAttempts4/essenceAttackAttempts4/allEightNativeEffects/noActiveAuraChargeRngClockSetters/notFullSurvivalMultiplayerReloadAudio",
+    "[18:51:43] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_RENDER_AUDIT_OK: 24 scenes; actualBook/nativeAltars/physicalPaidTools/nativeCurios/fortressNBT/nativeEffects/noDeveloperLabels",
+    "[18:51:43] [Render thread/INFO] [th.eq.up.cl.InfusionUpgradesClientSmokeTest/]: THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_OK: 24 scenes; originalThreeStudies/14NativeInfusions/physicalPaidVanillaToolsCurioArmorHelm/nativeEffects,world=thaumcraft-infusion-upgrades-smoke-1792334625359"
+  ],
+  "nativeObservations": {
+    "scenes": 24,
+    "nativeShieldCredits": 4,
+    "nativeMaskWither": 1,
+    "nativeSippingHeals": 2,
+    "actualRefiningOreAttempts": 4,
+    "actualEssenceAttackAttempts": 4,
+    "refiningMarkerOreAttempts": 4,
+    "essenceMarkerAttackAttempts": 4,
+    "sippingMarkerObservedHeals": 2,
+    "controlledNativeWounds": 1
+  },
+  "paidClientTotals": {
+    "studies": 3,
+    "theoryInfusion": 128,
+    "researchAmber": 1,
+    "earnedXP": 30,
+    "paidInfusions": 14,
+    "enchants": 8,
+    "paidEssentia": 2180,
+    "runicArmor": 1,
+    "runicCurio": 1
+  },
+  "visualReview": {
+    "clientRunTag": "infusion-upgrades-040-client4",
+    "clientLogSha256": "4a9d8fba9e1f3a8172e817f0facd28601bac7b109ba2c101ab85f8a48905ecc7",
+    "rootReview": "pass",
+    "independentReview": "pass",
+    "reviewers": [
+      "root",
+      "infusion_upgrades_progression_040"
+    ],
+    "method": "Both reviewers actually viewed all24 full1600x1000 native PNG, complete contact sheet and eight-frame delivery preview from the same final native pass.",
+    "contactSheet": {
+      "file": "infusion-upgrades-0.40-review-sheet.png",
+      "sha256": "5042eb32f84c4e1cb36e6bb0011d6967da82e65794b8c4542e243e9203a89024",
+      "result": "pass"
+    },
+    "preview": {
+      "file": "infusion-upgrades-0.40-preview.png",
+      "sha256": "553a9e47c5102e00e0c3b55d705b73680c4daa65f998e163349f2ae39a50b3d0",
+      "result": "pass"
+    },
+    "screenshots": [
+      {
+        "file": "tc6-infusion-upgrades-paid-enchantment-study.png",
+        "sha256": "0a2c630b09fb75123ee2907e6438dbdda103f49d6e9461627eef9d87e815f679",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-runic-study.png",
+        "sha256": "8042924b7faa6a1a239c66431fe4dc0e8bcbdf64b64de9aeb814008943e2a081",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-fortress-mask-study.png",
+        "sha256": "be4851f763dce3d2c1789387ff14b7cf206a25c25be950d1d3191142fac6e94f",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-collector.png",
+        "sha256": "3deee19cceef8fb9b7a6858f00a3471107bb1c9f89681794ccd49e930b1585c0",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-destructive.png",
+        "sha256": "142573fc755ded494ae449deac87a48ce4747a10848a48c8fe1657984920189c",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-burrowing.png",
+        "sha256": "fac9f235c34a63460cd6ede5c813baf517878eb0e69ed2bdeed29e06be1d38f7",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-sounding.png",
+        "sha256": "20fdf27d6d0002e13c46944f582235e0c0c4669010cd7385a82bf0834f1bc8ed",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-refining.png",
+        "sha256": "440d45771b274aabc139f004f310f09b19e6a7bce636a2f4019e9c38827e9f0a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-arcing.png",
+        "sha256": "7d45d4f79288787a4dc1bd1b63ff71ae4ec2b541df87ca4b28a2d5d7156bad30",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-essence.png",
+        "sha256": "30c9f07c25526ac64a1dcfc877f5a4576ad659fd264bba64a4ca0550478ff167",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-lamplight.png",
+        "sha256": "1c76a6b85da6df7fce742b9f70a9bd3d82a64aab58f79fb48268c914488393e2",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-runic-armor.png",
+        "sha256": "ec1de580316ff76c7d173c992e0fa24c4adbd4ae40684d460dfab5213aeb20cc",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-runic-accessory.png",
+        "sha256": "e325fdd67938b9b823fb191310e9ec2f27de7b8b96dd9f3463e1de0d66ebca57",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-fortress-goggles.png",
+        "sha256": "da4224abae746147dc38bf654abfa466f19a332b55a9220638ca93c6a3849ff6",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-grinning-devil.png",
+        "sha256": "de1f8cdefb605ecac12b0cdc0ee7416c343b33f036e019a2a32c66afa0727c0b",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-angry-ghost.png",
+        "sha256": "0c0c5002311c8648abafa0ec30a2df78ee78f976482596d2e8bfded1bc886ab9",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-paid-sipping-fiend.png",
+        "sha256": "615a65ffa437c994fb8ed037acdbfa7a03ef36d638f6fac3b81fe25f3851d3af",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-native-curios-runic-shield.png",
+        "sha256": "a34187905818351241b9533a44b85ebecd498e409b305058ec088560f5896284",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-native-collector.png",
+        "sha256": "4cbde561067655de6de050b0b56f8df29934b4c0b6f8ccfcf3606d2d0ea97b0a",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-native-destructive-burrowing.png",
+        "sha256": "8987ee727f0fc88de319d277b4b663b679304b9749a64d81c9185d60ab1a4767",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-native-refining.png",
+        "sha256": "38502f2813bdfb992f6d945746f7cdf3b196e9c590c9cc7e0818d7195772ea98",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-native-arcing-essence.png",
+        "sha256": "02204538744be8f67fadcd3045806699937b1e6e90ae170f89abe0ddb37aba6c",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-native-sounding.png",
+        "sha256": "eadc0b17062ca6d0396b4a4e862d72834bd1982053d814b7f7ad409c04308ddb",
+        "result": "pass"
+      },
+      {
+        "file": "tc6-infusion-upgrades-native-lamplight.png",
+        "sha256": "ae5f8a2d68d2d13e3148e862f6a5876e73d6ebf74a91e0f76f51e93bc767b16c",
+        "result": "pass"
+      }
+    ],
+    "findings": [
+      "Native book, altar outputs, armor inventory and Curios views belong to the actual paid route; all24 full frames were viewed.",
+      "Paid vanilla-tool effect scenes, worn Fortress modifications and the native light/ripple frames were inspected in full.",
+      "Captions remain outside original gameplay pixels; no generated artwork or composited game state."
+    ],
+    "limits": [
+      "Prepared Survival fixtures supply strict predecessors, raw knowledge/materials/essentia/aura/arena and previous-stage items.",
+      "Screenshots supplement exact native payment, effect and ownership assertions; they alone do not prove every transaction.",
+      "Controlled actor attributes and owned-server positioning are explicit QA fixtures.",
+      "No full Survival, independent multiplayer, reload, arbitrary addon matrix, every pose/angle or audible sound proof."
+    ],
+    "independentFindings": [
+      "All three completed Thaumonomicon study pages have readable body text within parchment columns, stage2/2 state, intact icons/tabs and no technical developer labels.",
+      "All eight paid vanilla tools show the expected distinct gold infusion names with readable ordinary item/attack-stat tooltips and intact textures.",
+      "Paid fortress cuirass and mundane ring show Runic shield+1; the native Curios view shows the ring equipped, fortress gear and the golden absorption HUD.",
+      "Worn goggles and all three mask variants show their distinct tooltip lines with goggles retained. The Angry Ghost capture preserves actual post-hit camera displacement and a reduced-heart HUD.",
+      "Native effect frames show physical mined items, the remaining lower logs, an actual Refining cluster, combat aftermath drops/particles, the Sounding scene and light reaching the walls/floor of the enclosed Lamplight room.",
+      "Both overview sheets contain the expected final-run images in coherent order; captions remain outside gameplay pixels. No missing-texture checkerboard, clipped tooltip text or blocking layout defect was found."
+    ],
+    "independentLimits": [
+      "Hover tooltips cover much of the inventory avatar face in helmet and Curios scenes. These images establish displayed names/state and visible portions only; they do not establish every faceplate surface, viewing angle or pose.",
+      "Single screenshots capture selected animation instants, including combat aftermath; they do not prove every arc/ripple frame, timing sequence, sound or full TC6 visual parity.",
+      "Exact payments, typed output, source conservation, shield credits and native effects rely on separately bound native assertions/logs; image review is complementary evidence.",
+      "Strict research parents, raw theory/materials/essentia, stable altars, initial aura/terrain and bounded controlled actors are declared fixtures. Full Survival progression, independent multiplayer, save/reload, arbitrary modded tool/Curios combinations and full WarpEvents are not established."
+    ]
+  },
+  "independentReviewEvidence": {
+    "file": "infusion-upgrades-independent-review-0.40.json",
+    "bytes": 7432,
+    "sha256": "32e4397463a79f02a3aea6772df8222193633e835b0ea582efb682e7c8471921"
+  },
+  "packagedForgeBridgeStructuralChecks": [
+    {
+      "kind": "finalReobfuscatedMod",
+      "status": "pass",
+      "artifactPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\build\\libs\\thaumcraft-1.20.1-0.40.0.jar",
+      "artifactSha256": "7a9b2c5d72e5417cd4d55bb7144a80713996c2aa03a2e0e0393b0d4f36c6a93d",
+      "class": "thaumcraft.equipment.tools.ToolMining",
+      "classSha256": "d48a62661fb500da041f629ebdedbf490d129dedcb485b94d5039659ae8d9325",
+      "method": "beforeVanillaBlockStart",
+      "descriptor": "(Ljava/lang/Object;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z",
+      "publicDeclarationAndDescriptor": "public static boolean beforeVanillaBlockStart(java.lang.Object, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Ljava/lang/Object;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z",
+      "javapCommand": [
+        "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\javap.exe",
+        "-s",
+        "-p",
+        "-classpath",
+        "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\build\\libs\\thaumcraft-1.20.1-0.40.0.jar",
+        "thaumcraft.equipment.tools.ToolMining"
+      ],
+      "javapExitCode": 0,
+      "javapStdoutSha256": "e20404c37658841a0882c3d57be6616b6690fbe4ab8fc4705e78792799868d4a",
+      "javapStdout": "Compiled from \"ToolMining.java\"\npublic final class thaumcraft.equipment.tools.ToolMining {\n  private static final java.util.Map<java.util.UUID, thaumcraft.equipment.tools.ToolMining$Approval> APPROVALS;\n    descriptor: Ljava/util/Map;\n  private static final java.util.Map<java.util.UUID, net.minecraft.core.Direction> FACES;\n    descriptor: Ljava/util/Map;\n  private static final java.lang.ThreadLocal<thaumcraft.equipment.tools.ToolMining$Harvest> HARVEST;\n    descriptor: Ljava/lang/ThreadLocal;\n  private thaumcraft.equipment.tools.ToolMining();\n    descriptor: ()V\n\n  static boolean isTool(net.minecraft.world.item.ItemStack);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z\n\n  public static boolean beforeVanillaBlockStart(java.lang.Object, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Ljava/lang/Object;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z\n\n  static void approve(net.minecraft.server.level.ServerPlayer, net.minecraftforge.event.level.BlockEvent$BreakEvent);\n    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraftforge/event/level/BlockEvent$BreakEvent;)V\n\n  static void face(net.minecraft.world.entity.player.Player, net.minecraft.core.Direction);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/Direction;)V\n\n  static void clearApprovals();\n    descriptor: ()V\n\n  static void logout(net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;)V\n\n  public static boolean start(net.minecraft.world.item.ItemStack, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z\n\n  private static boolean harvest(net.minecraft.server.level.ServerPlayer, net.minecraft.world.item.ItemStack, net.minecraft.core.BlockPos, boolean);\n    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/BlockPos;Z)Z\n\n  private static boolean harvest(net.minecraft.server.level.ServerPlayer, net.minecraft.world.item.ItemStack, net.minecraft.core.BlockPos, boolean, boolean);\n    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/BlockPos;ZZ)Z\n\n  static void spawnedDrop(net.minecraft.world.entity.item.ItemEntity);\n    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)V\n\n  private static net.minecraft.world.item.ItemStack refine(net.minecraft.world.item.ItemStack, net.minecraft.server.level.ServerPlayer, float);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/server/level/ServerPlayer;F)Lnet/minecraft/world/item/ItemStack;\n\n  private static boolean effective(net.minecraft.world.item.ItemStack, net.minecraft.world.level.block.state.BlockState);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/block/state/BlockState;)Z\n\n  public static boolean isOre(net.minecraft.world.level.block.state.BlockState);\n    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;)Z\n\n  static boolean isTaint(net.minecraft.world.level.block.state.BlockState);\n    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;)Z\n\n  private static net.minecraft.core.BlockPos furthest(net.minecraft.server.level.ServerLevel, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, int);\n    descriptor: (Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Lnet/minecraft/core/BlockPos;\n\n  static {};\n    descriptor: ()V\n}\n",
+      "javapStderr": "",
+      "scope": "Read-only bytecode structure; native dev gameplay is evidenced separately; no standalone production launch"
+    },
+    {
+      "kind": "forgeMappedOfficial47.4.10",
+      "status": "pass",
+      "artifactPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\build\\fg_cache\\net\\minecraftforge\\forge\\1.20.1-47.4.10_mapped_official_1.20.1\\forge-1.20.1-47.4.10_mapped_official_1.20.1.jar",
+      "artifactSha256": "b4311e0fa6aa39c96113197dfbba74588f64e82a9d615c12e4746801e48f561d",
+      "class": "net.minecraftforge.common.extensions.IForgeItemStack",
+      "classSha256": "3550ef8b876eae9957370e5b46dcc201189a76b30e9a3c61c6e832a601a6cff3",
+      "method": "onBlockStartBreak",
+      "descriptor": "(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z",
+      "publicDeclarationAndDescriptor": "public default boolean onBlockStartBreak(net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z",
+      "javapCommand": [
+        "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\javap.exe",
+        "-s",
+        "-p",
+        "-classpath",
+        "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\build\\fg_cache\\net\\minecraftforge\\forge\\1.20.1-47.4.10_mapped_official_1.20.1\\forge-1.20.1-47.4.10_mapped_official_1.20.1.jar",
+        "net.minecraftforge.common.extensions.IForgeItemStack"
+      ],
+      "javapExitCode": 0,
+      "javapStdoutSha256": "8fba6802d0d493fbdbbd4cc085d1f86b12f425b9237c429e0d872bf1c68e9557",
+      "javapStdout": "Compiled from \"IForgeItemStack.java\"\npublic interface net.minecraftforge.common.extensions.IForgeItemStack extends net.minecraftforge.common.capabilities.ICapabilitySerializable<net.minecraft.nbt.CompoundTag> {\n  private net.minecraft.world.item.ItemStack self();\n    descriptor: ()Lnet/minecraft/world/item/ItemStack;\n\n  public default net.minecraft.world.item.ItemStack getCraftingRemainingItem();\n    descriptor: ()Lnet/minecraft/world/item/ItemStack;\n\n  public default boolean hasCraftingRemainingItem();\n    descriptor: ()Z\n\n  public default int getBurnTime(net.minecraft.world.item.crafting.RecipeType<?>);\n    descriptor: (Lnet/minecraft/world/item/crafting/RecipeType;)I\n\n  public default net.minecraft.world.InteractionResult onItemUseFirst(net.minecraft.world.item.context.UseOnContext);\n    descriptor: (Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;\n\n  public default net.minecraft.nbt.CompoundTag serializeNBT();\n    descriptor: ()Lnet/minecraft/nbt/CompoundTag;\n\n  public default boolean canPerformAction(net.minecraftforge.common.ToolAction);\n    descriptor: (Lnet/minecraftforge/common/ToolAction;)Z\n\n  public default boolean onBlockStartBreak(net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z\n\n  public default boolean shouldCauseBlockBreakReset(net.minecraft.world.item.ItemStack);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z\n\n  public default boolean canApplyAtEnchantingTable(net.minecraft.world.item.enchantment.Enchantment);\n    descriptor: (Lnet/minecraft/world/item/enchantment/Enchantment;)Z\n\n  public default int getEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantment);\n    descriptor: (Lnet/minecraft/world/item/enchantment/Enchantment;)I\n\n  public default java.util.Map<net.minecraft.world.item.enchantment.Enchantment, java.lang.Integer> getAllEnchantments();\n    descriptor: ()Ljava/util/Map;\n\n  public default int getEnchantmentValue();\n    descriptor: ()I\n\n  public default net.minecraft.world.entity.EquipmentSlot getEquipmentSlot();\n    descriptor: ()Lnet/minecraft/world/entity/EquipmentSlot;\n\n  public default boolean canDisableShield(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.LivingEntity, net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default boolean onEntitySwing(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default void onStopUsing(net.minecraft.world.entity.LivingEntity, int);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;I)V\n\n  public default int getEntityLifespan(net.minecraft.world.level.Level);\n    descriptor: (Lnet/minecraft/world/level/Level;)I\n\n  public default boolean onEntityItemUpdate(net.minecraft.world.entity.item.ItemEntity);\n    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z\n\n  public default float getXpRepairRatio();\n    descriptor: ()F\n\n  public default void onArmorTick(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)V\n\n  public default void onInventoryTick(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, int, int);\n    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;II)V\n\n  public default void onHorseArmorTick(net.minecraft.world.level.Level, net.minecraft.world.entity.Mob);\n    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Mob;)V\n\n  public default boolean canEquip(net.minecraft.world.entity.EquipmentSlot, net.minecraft.world.entity.Entity);\n    descriptor: (Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/entity/Entity;)Z\n\n  public default boolean isBookEnchantable(net.minecraft.world.item.ItemStack);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z\n\n  public default boolean onDroppedByPlayer(net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;)Z\n\n  public default net.minecraft.network.chat.Component getHighlightTip(net.minecraft.network.chat.Component);\n    descriptor: (Lnet/minecraft/network/chat/Component;)Lnet/minecraft/network/chat/Component;\n\n  public default net.minecraft.nbt.CompoundTag getShareTag();\n    descriptor: ()Lnet/minecraft/nbt/CompoundTag;\n\n  public default void readShareTag(net.minecraft.nbt.CompoundTag);\n    descriptor: (Lnet/minecraft/nbt/CompoundTag;)V\n\n  public default boolean doesSneakBypassUse(net.minecraft.world.level.LevelReader, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z\n\n  public default boolean areShareTagsEqual(net.minecraft.world.item.ItemStack);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z\n\n  public default boolean equals(net.minecraft.world.item.ItemStack, boolean);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;Z)Z\n\n  public default boolean isRepairable();\n    descriptor: ()Z\n\n  public default boolean isPiglinCurrency();\n    descriptor: ()Z\n\n  public default boolean makesPiglinsNeutral(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default boolean isEnderMask(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.monster.EnderMan);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/monster/EnderMan;)Z\n\n  public default boolean canElytraFly(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default boolean elytraFlightTick(net.minecraft.world.entity.LivingEntity, int);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;I)Z\n\n  public default boolean canWalkOnPowderedSnow(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default net.minecraft.world.phys.AABB getSweepHitBox(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.Entity);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/world/phys/AABB;\n\n  public default void onDestroyed(net.minecraft.world.entity.item.ItemEntity, net.minecraft.world.damagesource.DamageSource);\n    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;Lnet/minecraft/world/damagesource/DamageSource;)V\n\n  public default net.minecraft.world.food.FoodProperties getFoodProperties(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Lnet/minecraft/world/food/FoodProperties;\n\n  public default boolean isNotReplaceableByPickAction(net.minecraft.world.entity.player.Player, int);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;I)Z\n\n  public default boolean canGrindstoneRepair();\n    descriptor: ()Z\n\n  public default net.minecraft.nbt.Tag serializeNBT();\n    descriptor: ()Lnet/minecraft/nbt/Tag;\n}\n",
+      "javapStderr": "",
+      "scope": "Read-only bytecode structure; native dev gameplay is evidenced separately; no standalone production launch"
+    },
+    {
+      "kind": "forgeSrg47.4.10",
+      "status": "pass",
+      "artifactPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\build\\fg_cache\\net\\minecraftforge\\forge\\1.20.1-47.4.10\\forge-1.20.1-47.4.10-srg.jar",
+      "artifactSha256": "80fa1b80863e2d423c07255766150ff2955aa1de2692fe874f782b62e88388d7",
+      "class": "net.minecraftforge.common.extensions.IForgeItemStack",
+      "classSha256": "57d1c95138f00590038441582a527f76e0f6e512dab5996c4b33403c7360cd30",
+      "method": "onBlockStartBreak",
+      "descriptor": "(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z",
+      "publicDeclarationAndDescriptor": "public default boolean onBlockStartBreak(net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z",
+      "javapCommand": [
+        "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\javap.exe",
+        "-s",
+        "-p",
+        "-classpath",
+        "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\build\\fg_cache\\net\\minecraftforge\\forge\\1.20.1-47.4.10\\forge-1.20.1-47.4.10-srg.jar",
+        "net.minecraftforge.common.extensions.IForgeItemStack"
+      ],
+      "javapExitCode": 0,
+      "javapStdoutSha256": "8fba6802d0d493fbdbbd4cc085d1f86b12f425b9237c429e0d872bf1c68e9557",
+      "javapStdout": "Compiled from \"IForgeItemStack.java\"\npublic interface net.minecraftforge.common.extensions.IForgeItemStack extends net.minecraftforge.common.capabilities.ICapabilitySerializable<net.minecraft.nbt.CompoundTag> {\n  private net.minecraft.world.item.ItemStack self();\n    descriptor: ()Lnet/minecraft/world/item/ItemStack;\n\n  public default net.minecraft.world.item.ItemStack getCraftingRemainingItem();\n    descriptor: ()Lnet/minecraft/world/item/ItemStack;\n\n  public default boolean hasCraftingRemainingItem();\n    descriptor: ()Z\n\n  public default int getBurnTime(net.minecraft.world.item.crafting.RecipeType<?>);\n    descriptor: (Lnet/minecraft/world/item/crafting/RecipeType;)I\n\n  public default net.minecraft.world.InteractionResult onItemUseFirst(net.minecraft.world.item.context.UseOnContext);\n    descriptor: (Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;\n\n  public default net.minecraft.nbt.CompoundTag serializeNBT();\n    descriptor: ()Lnet/minecraft/nbt/CompoundTag;\n\n  public default boolean canPerformAction(net.minecraftforge.common.ToolAction);\n    descriptor: (Lnet/minecraftforge/common/ToolAction;)Z\n\n  public default boolean onBlockStartBreak(net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z\n\n  public default boolean shouldCauseBlockBreakReset(net.minecraft.world.item.ItemStack);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z\n\n  public default boolean canApplyAtEnchantingTable(net.minecraft.world.item.enchantment.Enchantment);\n    descriptor: (Lnet/minecraft/world/item/enchantment/Enchantment;)Z\n\n  public default int getEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantment);\n    descriptor: (Lnet/minecraft/world/item/enchantment/Enchantment;)I\n\n  public default java.util.Map<net.minecraft.world.item.enchantment.Enchantment, java.lang.Integer> getAllEnchantments();\n    descriptor: ()Ljava/util/Map;\n\n  public default int getEnchantmentValue();\n    descriptor: ()I\n\n  public default net.minecraft.world.entity.EquipmentSlot getEquipmentSlot();\n    descriptor: ()Lnet/minecraft/world/entity/EquipmentSlot;\n\n  public default boolean canDisableShield(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.LivingEntity, net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default boolean onEntitySwing(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default void onStopUsing(net.minecraft.world.entity.LivingEntity, int);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;I)V\n\n  public default int getEntityLifespan(net.minecraft.world.level.Level);\n    descriptor: (Lnet/minecraft/world/level/Level;)I\n\n  public default boolean onEntityItemUpdate(net.minecraft.world.entity.item.ItemEntity);\n    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z\n\n  public default float getXpRepairRatio();\n    descriptor: ()F\n\n  public default void onArmorTick(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)V\n\n  public default void onInventoryTick(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, int, int);\n    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;II)V\n\n  public default void onHorseArmorTick(net.minecraft.world.level.Level, net.minecraft.world.entity.Mob);\n    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Mob;)V\n\n  public default boolean canEquip(net.minecraft.world.entity.EquipmentSlot, net.minecraft.world.entity.Entity);\n    descriptor: (Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/entity/Entity;)Z\n\n  public default boolean isBookEnchantable(net.minecraft.world.item.ItemStack);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z\n\n  public default boolean onDroppedByPlayer(net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;)Z\n\n  public default net.minecraft.network.chat.Component getHighlightTip(net.minecraft.network.chat.Component);\n    descriptor: (Lnet/minecraft/network/chat/Component;)Lnet/minecraft/network/chat/Component;\n\n  public default net.minecraft.nbt.CompoundTag getShareTag();\n    descriptor: ()Lnet/minecraft/nbt/CompoundTag;\n\n  public default void readShareTag(net.minecraft.nbt.CompoundTag);\n    descriptor: (Lnet/minecraft/nbt/CompoundTag;)V\n\n  public default boolean doesSneakBypassUse(net.minecraft.world.level.LevelReader, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);\n    descriptor: (Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)Z\n\n  public default boolean areShareTagsEqual(net.minecraft.world.item.ItemStack);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z\n\n  public default boolean equals(net.minecraft.world.item.ItemStack, boolean);\n    descriptor: (Lnet/minecraft/world/item/ItemStack;Z)Z\n\n  public default boolean isRepairable();\n    descriptor: ()Z\n\n  public default boolean isPiglinCurrency();\n    descriptor: ()Z\n\n  public default boolean makesPiglinsNeutral(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default boolean isEnderMask(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.monster.EnderMan);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/monster/EnderMan;)Z\n\n  public default boolean canElytraFly(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default boolean elytraFlightTick(net.minecraft.world.entity.LivingEntity, int);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;I)Z\n\n  public default boolean canWalkOnPowderedSnow(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z\n\n  public default net.minecraft.world.phys.AABB getSweepHitBox(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.Entity);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/world/phys/AABB;\n\n  public default void onDestroyed(net.minecraft.world.entity.item.ItemEntity, net.minecraft.world.damagesource.DamageSource);\n    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;Lnet/minecraft/world/damagesource/DamageSource;)V\n\n  public default net.minecraft.world.food.FoodProperties getFoodProperties(net.minecraft.world.entity.LivingEntity);\n    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Lnet/minecraft/world/food/FoodProperties;\n\n  public default boolean isNotReplaceableByPickAction(net.minecraft.world.entity.player.Player, int);\n    descriptor: (Lnet/minecraft/world/entity/player/Player;I)Z\n\n  public default boolean canGrindstoneRepair();\n    descriptor: ()Z\n\n  public default net.minecraft.nbt.Tag serializeNBT();\n    descriptor: ()Lnet/minecraft/nbt/Tag;\n}\n",
+      "javapStderr": "",
+      "scope": "Read-only bytecode structure; native dev gameplay is evidenced separately; no standalone production launch"
+    }
+  ],
+  "localJsonCount": 2882,
+  "jarResourceByteParityChecks": 3720,
+  "originalMediaByteParity": {
+    ".ogg": 60,
+    ".png": 674,
+    ".jpg": 7
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.40.0.jar",
+      "bytes": 12412119,
+      "sha256": "7a9b2c5d72e5417cd4d55bb7144a80713996c2aa03a2e0e0393b0d4f36c6a93d"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.40.0-mods.zip",
+      "bytes": 11845588,
+      "sha256": "0d39702caa176c5d2304861975e5a1603b5137bfae228f6784552a96337a9aa5"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.40.0-screenshots.zip",
+      "bytes": 7157767,
+      "sha256": "b4fa4ea767c42ae43ab2c9ef3c7db8ca4f203eb8e96790e856aeddb57d204139"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.40.0-preview.png",
+      "bytes": 1035741,
+      "sha256": "553a9e47c5102e00e0c3b55d705b73680c4daa65f998e163349f2ae39a50b3d0"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "curios": {
+    "file": "curios-forge-5.14.1+1.20.1.jar",
+    "bytes": 398066,
+    "sha256": "6d77ae8ad532fdf303390f404b0081b3b4ac4f61e7f1f4b4d4a9077e132dae4f"
+  },
+  "buildLog": {
+    "file": "build-0.40-final.log",
+    "bytes": 1212,
+    "sha256": "6b6b5b9ac9102a6356ef488efa1863e089ba8dedf3a03c3c22b8390d0be93962"
+  },
+  "resourceLog": {
+    "file": "resources-0.40-final.log",
+    "bytes": 188,
+    "sha256": "b5413b98fd30889c932d813f51960605a5e5d8452ab945c015884c7ce85cc4ec"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "92edc69b515b5dac070bc870b97d70c48c3335954b6c89fe954d4a39f626987e"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "52fd409c89bb41a2a1e608d847d1a902ba24938e4da827c957563550ba0acc68"
+    },
+    {
+      "file": "scripts/windows-desktop/README.md",
+      "sha256": "3cab3f222354bc076618ff285a2a43083e09269295a82817f16b98e9292f5bc9"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "0787d031e68a5cec959a1da55ddb4f40558a343ca0980a3bb43a751f9069a31a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/enchantment/InfusionEnchantmentEffects.java",
+      "sha256": "aa0ed4c4366eaca750748c3d33d7b6b13ab7fea8561826075906dd89cbb97567"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/enchantment/InfusionEnchantmentEffectsGameTests.java",
+      "sha256": "9046cfa04d56c03b5a5bcbeb97451e21cf8016afb0efaf342908d9e378beb27c"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/tools/ElementalPickaxeItem.java",
+      "sha256": "af80b3ac0932e0e72fc66a7fa9d27e060c5a3829cbc67bb4f6ef3d8825360e60"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/tools/ToolEvents.java",
+      "sha256": "163fc65673e8a67ec43cf3b70c1cdab9527658b22a498f1e9fc734356d1c6303"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/tools/ToolMining.java",
+      "sha256": "b182180ab13fb578d993e1134b774fdad5f489e237ac3a5402579954911236ce"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/upgrades/client/InfusionUpgradesClientSmokeTest.java",
+      "sha256": "1bfa287cd28531114dec46aa8ab0b0cd0804fb4b4fd56ecaf8719f185d283d1a"
+    },
+    {
+      "file": "src/main/java/thaumcraft/infusion/InfusionRecipe.java",
+      "sha256": "38bdb4e901a3f9f274e32a416ef3f457aa47a68cf721b98f1a977fd9b3ce12a8"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/AccessoriesProgressionGameTests.java",
+      "sha256": "81124c0f6f2dfe27010dab6292eaae1b3a17569beaee9e3e846f7a4e8a687a6d"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArcaneBoreProgressionGameTests.java",
+      "sha256": "f58c6e6fc53feebc4e396965333de7313bef9a5fa75410a0f8af5c23890c9147"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ArtificeTurretProgressionGameTests.java",
+      "sha256": "c0f0d1cf2be6f01e83407e813c7a7c835ce5e8a155a565e0586e47cf212e5e88"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/AuromancyProgressionGameTests.java",
+      "sha256": "23bf210b02ebb429b206da94083b898bb67abe804cf3a0ec4a24da15949e6bfd"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CondenserProgressionGameTests.java",
+      "sha256": "28d1c7a0c820a65b546d38a3398586d2d723cb8e303836b03288426292cb49af"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/CrystalFarmerProgressionGameTests.java",
+      "sha256": "b15c2553441f8c9979d5ab1d6f21625f5997c38ca3b06e9490d53d57edf68280"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ElementalProgressionGameTests.java",
+      "sha256": "1fdbb06a874c0be3c45f57df7ee7a880035cf8472680367a15e3afae2e410454"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/EssentiaTransfuserProgressionGameTests.java",
+      "sha256": "605e5f8a20bcdc342c9d9ada2e245a7951855d385d8d37bae64f02494e68c9f2"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/FourFocusProgressionGameTests.java",
+      "sha256": "4adc7e2008ad8ded4687371e0d9e6a171e00f307ea251e59c04d794815102529"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GolemancyComponentProgressionGameTests.java",
+      "sha256": "7f6dd8083ea7da832b432fbf2e8f461b94e1e286578a589b814bbcd3fc65d0eb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/GrappleGunProgressionGameTests.java",
+      "sha256": "7e3a5c0396e18ad8a59a4451abb9a9aed8c9098f299bea1a99ae4a2012b7b716"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfernalProgressionGameTests.java",
+      "sha256": "4de166f0d2534ec6bf508a70733d1b03bff14a98c4da053e7c6371d0aa302213"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfusionProgressionGameTests.java",
+      "sha256": "e0b017c0e07e0399c66aef22cb8e064b8b940dc955137bf8101a0c72a072ccb4"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfusionUpgradesProgressionGameTests.java",
+      "sha256": "f8681eda725d457a7e8dd9814c33f35384b97b450165dc1d9a1b19a811a2d195"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/LampProgressionGameTests.java",
+      "sha256": "5e6d8d4d603c4df52d3a2494c63fa6211e05173647b99a0fed4d8245d4da5f59"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/MirrorProgressionGameTests.java",
+      "sha256": "c8ad0eb63870e72380108c744a07239fe5fe408d19c38ed0110e81dddf0527de"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/PatternCrafterProgressionGameTests.java",
+      "sha256": "16ce5b9c4137b4e3b53b4e43e164c833ee56eb6e48e395f5f3c369f11a621422"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/RemainingFocusProgressionGameTests.java",
+      "sha256": "f5406f4df1f0058366cbe4e7fd0eca9e414a0438e2ad03cc54f5fd6d982d3526"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/ResearchProgression.java",
+      "sha256": "2a0e747e25133fc35d6f967521bae9dd2650793a7b5df6ad8bbf64e6bb3583ba"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/SealProgressionGameTests.java",
+      "sha256": "364415838305fd4c116ac4fd34bbf2447cf4361db4a5dec113853fd50c95fbfb"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/VisGeneratorProgressionGameTests.java",
+      "sha256": "a9cd5a7e5fdd8d92113621ddaca86af30e68d2c883f7879fa1c7bfde24f03baa"
+    },
+    {
+      "file": "src/main/resources/META-INF/coremods.json",
+      "sha256": "4fc53940f4e3f92f81809c51ee996622ed0239a7e91eec8474ea8cf73ab869e2"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "f6653ad8b64ddf22899d208558140c7856ab23a1867d72a0ed304ee12a40740a"
+    },
+    {
+      "file": "src/main/resources/coremods/infusion_tools.js",
+      "sha256": "541bc2773621b0b8e29eb0ff57ebc65e7372bcfb4a5717e8dba890a533fd56bf"
+    },
+    {
+      "file": "src/main/resources/data/thaumcraft/recipes/infusion/ielamplight.json",
+      "sha256": "8faadd321e1e1c10057611ca08bce2e87ffa4cfa99dcfd1de0321dbc6cc006cb"
+    }
+  ],
+  "executedSourceSnapshots": [
+    {
+      "file": "infusion-upgrades-040-server3-sources.json",
+      "bytes": 647197,
+      "sha256": "e357e641252e99efae1dfadc488b02f62c3c5f672f42be388389f180dd1bae9c"
+    },
+    {
+      "file": "infusion-upgrades-040-client4-sources.json",
+      "bytes": 647197,
+      "sha256": "3fe8af31f3c7aff03c5fa4c9cd235546b9e3a031b44eeae035707138bf4f5fa8"
+    },
+    {
+      "file": "infusion-upgrades-040-build-sources.json",
+      "bytes": 647197,
+      "sha256": "3fe8af31f3c7aff03c5fa4c9cd235546b9e3a031b44eeae035707138bf4f5fa8"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": false,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4491,
+    "matchingServerRelevantFileCount": 4490,
+    "clientOnlyExceptions": [
+      {
+        "file": "src/main/java/thaumcraft/equipment/upgrades/client/InfusionUpgradesClientSmokeTest.java",
+        "serverExecutedSha256": "9856a7691c005c4b29f41ebeea4cf3c2e1960a29f3ed85b25940000144f787c2",
+        "finalClientBuildSha256": "1bfa287cd28531114dec46aa8ab0b0cd0804fb4b4fd56ecaf8719f185d283d1a",
+        "reason": "Only opt-in Dist.CLIENT QA driver changed; core/resources/helpers/tests identical"
+      }
+    ],
+    "finalClientBuildAllFingerprintsMatch": true
+  },
+  "earlierEvidence": [
+    {
+      "file": "infusion-upgrades-040-gametest1.log",
+      "bytes": 836977,
+      "sha256": "8ad95ce090d4f85f11a3967655efbd6b9db9b74242f6c8fef07bfe979745b345"
+    },
+    {
+      "file": "infusion-upgrades-040-gametest2.log",
+      "bytes": 834346,
+      "sha256": "a75b1344e8d55e6e7a7461e506d92f33f47d392711e82550697c0d34bfdcc696"
+    },
+    {
+      "file": "infusion-upgrades-040-server1-run.json",
+      "bytes": 484,
+      "sha256": "250c7968371984896fd589a28062d9a0c5c3a6dd82f2cc10a79e75b1f1b37f73"
+    },
+    {
+      "file": "infusion-upgrades-040-server2-run.json",
+      "bytes": 482,
+      "sha256": "5ade57a809b4e0947bd8a0ebdbeccaa9e82c8c75ad468508c4ca52f18b46f7bf"
+    },
+    {
+      "file": "infusion-upgrades-040-compile1.log",
+      "bytes": 3056,
+      "sha256": "47ba9d1da3e0785aba491565d8d6867d8b0340ed60c565702849416e845bd205"
+    },
+    {
+      "file": "infusion-upgrades-040-compile2.log",
+      "bytes": 868,
+      "sha256": "fb1c3c284f81d05a54d913f1e9f993db6071a4a729f48dd0327837e9b32a208d"
+    },
+    {
+      "file": "infusion-upgrades-040-compile3.log",
+      "bytes": 868,
+      "sha256": "f2ddfa38a7a4a439d6c496e458e3819066be5c48576f8a8a63237dc73f8201d9"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client1-client.log",
+      "bytes": 37574,
+      "sha256": "a1fb96783265156a8dcc59fe4acd0042ebdf4a0869eb22288cd7405a96c8b347"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client2-client.log",
+      "bytes": 40206,
+      "sha256": "9c1d7e2362d03127195b4f57d46d9a5e3463661176386852fa56e43bd415f8b5"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client3-client.log",
+      "bytes": 41223,
+      "sha256": "85e85e1d68caa7eae90ca093912aa2e805322683cea39531dcfe328896838d02"
+    },
+    {
+      "file": "infusion-upgrades-040-client1-state.json",
+      "bytes": 3169,
+      "sha256": "79a679fcead5d66f0abd2bfd02d99a8720a47eaf8a42f817f9f5cca095bf5b0d"
+    },
+    {
+      "file": "infusion-upgrades-040-client2-state.json",
+      "bytes": 5840,
+      "sha256": "10751b072b56ee7a13a1a263bff254746440a96993a3b11a6a1716201e3f3ff2"
+    },
+    {
+      "file": "infusion-upgrades-040-client3-state.json",
+      "bytes": 7070,
+      "sha256": "704f2c47a6fa45a07e4630741ccb7f7097a7d2c3a59941bfe453cafce30ae322"
+    },
+    {
+      "file": "infusion-upgrades-040-client2-owned-stop.json",
+      "bytes": 679,
+      "sha256": "2af3b8f12620ff80bf552d1ff5ffcda2d0c181f5a710e17f45fe4a05679352c4"
+    },
+    {
+      "file": "infusion-upgrades-040-client3-owned-stop.json",
+      "bytes": 679,
+      "sha256": "51bfbf81b48625ebff4cb3d44b91629b57dd9dd8cc6aa3a4f4394e0a5090a423"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client1-desktop.json",
+      "bytes": 469,
+      "sha256": "66b7bc65f4cf001fc0ef17d947d1d0a69a1f1c398e2b19f2a97cc7cc1604b01c"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client2-desktop.json",
+      "bytes": 478,
+      "sha256": "974b8a84c2e2953d9bc1f7568430b232043309b38b162a9dad62dd036c9cb472"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client3-desktop.json",
+      "bytes": 478,
+      "sha256": "8c5cef752536b7b2365b8a205417750ca1bfc42635c8562a717a18c6b8d6bf71"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client1-run.json",
+      "bytes": 1843,
+      "sha256": "19531534c47b2c1ed05b69957f8e3579052370cfe6c22dac36303bc4cfb5218f"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client2-run.json",
+      "bytes": 1852,
+      "sha256": "ff131492c41a69d74c6fddd6ad415a402b422f1ab2d8fb8d3cc80353ca4658b8"
+    },
+    {
+      "file": "infusion-upgrades-client-infusion-upgrades-040-client3-run.json",
+      "bytes": 1852,
+      "sha256": "77db02e9acf7405dfe72d674df7b43720c3e26a3142660860b2fb39377f200c2"
+    }
+  ],
+  "stoppedClientRuns": [
+    {
+      "runTag": "infusion-upgrades-040-client2",
+      "result": "stopped without pass",
+      "stateEvidence": {
+        "file": "infusion-upgrades-040-client2-state.json",
+        "bytes": 5840,
+        "sha256": "10751b072b56ee7a13a1a263bff254746440a96993a3b11a6a1716201e3f3ff2"
+      },
+      "state": {
+        "runTag": "infusion-upgrades-040-client2",
+        "result": "stopped without pass",
+        "failureKind": "manual stop of stalled opt-in QA driver",
+        "manualStop": true,
+        "nativeExitCode": 4294967295,
+        "nativePidAlreadyExited": 29724,
+        "reason": "The native Angry Ghost zombie hit caused real knockback; an unconditional opt-in position gate prevented the subsequent phase7 screenshot. Explicitly stopped the checked owned hidden JVM; no native failure or success marker.",
+        "lastNativeHeartbeat": "THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=15 phase=7 batch=2 launch=0 infusions=13 paidEss=2000 shield=0",
+        "clientLog": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client2-client.log",
+          "bytes": 40206,
+          "sha256": "9c1d7e2362d03127195b4f57d46d9a5e3463661176386852fa56e43bd415f8b5"
+        },
+        "runEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client2-run.json",
+          "bytes": 1852,
+          "sha256": "ff131492c41a69d74c6fddd6ad415a402b422f1ab2d8fb8d3cc80353ca4658b8"
+        },
+        "desktopEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client2-desktop.json",
+          "bytes": 478,
+          "sha256": "974b8a84c2e2953d9bc1f7568430b232043309b38b162a9dad62dd036c9cb472"
+        },
+        "ownedStopEvidence": {
+          "file": "infusion-upgrades-040-client2-owned-stop.json",
+          "bytes": 679,
+          "sha256": "2af3b8f12620ff80bf552d1ff5ffcda2d0c181f5a710e17f45fe4a05679352c4"
+        },
+        "sourceSnapshot": "infusion-upgrades-040-client2-sources.json",
+        "sourceSnapshotEvidence": {
+          "file": "infusion-upgrades-040-client2-sources.json",
+          "bytes": 647197,
+          "sha256": "0e7ee15b3da78188853eac40787c07e8311027e05e6653e37e1daab76e21cbce"
+        },
+        "executedDriverSha256": "1f795d097f98a549e63d288bfb9fbae5af4950337142a50fbfac1c463847cd97",
+        "argumentFileEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client2.args",
+          "bytes": 22264,
+          "sha256": "6e6234b649681ca030cc2de58ca9d29459f164c424c9eb26953a170b60228597"
+        },
+        "prepareLogEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client2-prepare.log",
+          "bytes": 1622,
+          "sha256": "72c8814e4aa2cc8da95f2cb24dba50aa8fdee765cb41890852170906212d4aef"
+        },
+        "archivedScreenshotDirectory": "infusion-upgrades-040-client2-screenshots",
+        "archivedNativeScreenshots": [
+          {
+            "file": "tc6-infusion-upgrades-paid-enchantment-study.png",
+            "bytes": 709508,
+            "sha256": "0b5b761dbaf254a41c2a2b37824cd2a5c29f5cbbf400cfbd4cb2358a1f40d829"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-runic-study.png",
+            "bytes": 700965,
+            "sha256": "24ed64b81513f69cf871c81493d0f62864039215d8b6ebc1c423aaecf864a7b7"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-fortress-mask-study.png",
+            "bytes": 680135,
+            "sha256": "aee2e2504f3c63e4621747bb960c3510b5369187013fcf1eb7a3b3e77be8acbe"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-collector.png",
+            "bytes": 207018,
+            "sha256": "5cd6ca1c5dfcfe8c2677cc4e2c279ecf26ccedbc39b20a9c3fb7cbb2a567e737"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-destructive.png",
+            "bytes": 225028,
+            "sha256": "601f466c67d158462958bd600fa93996d627b9676a8952a3daa2c96eb81ced5e"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-burrowing.png",
+            "bytes": 245856,
+            "sha256": "f3339232fe6f88a347e104a2b1be3e745e3f313c06cc6ccd5b7c6d9e4820a826"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-sounding.png",
+            "bytes": 234292,
+            "sha256": "146f1d8b283be65b96cc353ddf125d9c1a1593e4875c03281530929962641df2"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-refining.png",
+            "bytes": 209196,
+            "sha256": "82595f967bbbbf442869cbb22fa06d1ce3f3be8646f7bda11773aa088cb95214"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-arcing.png",
+            "bytes": 223706,
+            "sha256": "c1a4a1e688a63e880fd935738081fd91b3238e056c97920d3d73423e52896b65"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-essence.png",
+            "bytes": 242740,
+            "sha256": "2f42a74230d5c5b494f0494c5b544628f86d8da268c333e9a5dc3f5e8c2ae6fe"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-lamplight.png",
+            "bytes": 233773,
+            "sha256": "25d0acfd1a732acb7649c9031e4955825bddf7bd3273419e1a5beaf2c499c9db"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-runic-armor.png",
+            "bytes": 186973,
+            "sha256": "7d1bf3d0ee98e36f4afe5b445f13904f01bbf04ef655abf7d8b4f8c41582078a"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-runic-accessory.png",
+            "bytes": 219141,
+            "sha256": "b0793617647912c97bf02a90c530d45fb7ef452599ea98307339d4f7bd528819"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-fortress-goggles.png",
+            "bytes": 202002,
+            "sha256": "1f506b240ef18b9a988829a1e5e686925acb02f50b5af04885ede092cc3a1545"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-grinning-devil.png",
+            "bytes": 202829,
+            "sha256": "8927733b2fafbe2f1d9dd889b45c572f987b30d4441c00fb1ca50a7884353572"
+          }
+        ],
+        "actualNativeScreenshotCount": 15,
+        "actualObserved": "Three paid studies, thirteen actual paid infusions/2000 essentia and fifteen original full frames retained. Native Angry Ghost Wither effect succeeded before the driver stalled at scene15 phase7. No failure or success marker was emitted.",
+        "causeLimit": "The opt-in driver called its exact position/teleport gate in every mask phase. A real native zombie hit knocked the wearer away, so phase7 capture could never satisfy that gate. No gameplay mechanic failure is claimed.",
+        "plannedCorrection": "Only the Dist.CLIENT opt-in driver gates position through pre-pickup phase3; native worn-item, mask, damage, Wither and real knockback checks remain."
+      },
+      "clientLog": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client2-client.log",
+        "bytes": 40206,
+        "sha256": "9c1d7e2362d03127195b4f57d46d9a5e3463661176386852fa56e43bd415f8b5"
+      },
+      "runEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client2-run.json",
+        "bytes": 1852,
+        "sha256": "ff131492c41a69d74c6fddd6ad415a402b422f1ab2d8fb8d3cc80353ca4658b8"
+      },
+      "run": {
+        "runTag": "infusion-upgrades-040-client2",
+        "smokeTest": "InfusionUpgrades",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_2fb3eeed96d0431aa577e00c40844290",
+        "jvmPid": 29724,
+        "jvmExitCode": 4294967295,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default"
+      },
+      "desktopEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client2-desktop.json",
+        "bytes": 478,
+        "sha256": "974b8a84c2e2953d9bc1f7568430b232043309b38b162a9dad62dd036c9cb472"
+      },
+      "desktop": {
+        "state": "exited",
+        "pid": 29724,
+        "desktop": "WinSta0\\ThaumcraftQA_2fb3eeed96d0431aa577e00c40844290",
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "logPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2-client.log",
+        "currentOwnedWindowsOnTargetDesktop": -1,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "exitCode": 4294967295
+      },
+      "ownedStopEvidence": {
+        "file": "infusion-upgrades-040-client2-owned-stop.json",
+        "bytes": 679,
+        "sha256": "2af3b8f12620ff80bf552d1ff5ffcda2d0c181f5a710e17f45fe4a05679352c4"
+      },
+      "ownedStop": {
+        "checkedDesktop": "WinSta0\\ThaumcraftQA_2fb3eeed96d0431aa577e00c40844290",
+        "checkedExecutable": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "aliveAfterStop": false,
+        "checkedCommandLine": "\"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe\" \"@C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client2.args\"",
+        "inputDesktopAfter": "Default",
+        "inputDesktopBefore": "Default",
+        "runTag": "infusion-upgrades-040-client2",
+        "creationDate": "2026-10-18T18:21:04.506978+04:00",
+        "pid": 29724
+      },
+      "sourceSnapshotEvidence": {
+        "file": "infusion-upgrades-040-client2-sources.json",
+        "bytes": 647197,
+        "sha256": "0e7ee15b3da78188853eac40787c07e8311027e05e6653e37e1daab76e21cbce"
+      },
+      "argumentFileEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client2.args",
+        "bytes": 22264,
+        "sha256": "6e6234b649681ca030cc2de58ca9d29459f164c424c9eb26953a170b60228597"
+      },
+      "prepareLogEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client2-prepare.log",
+        "bytes": 1622,
+        "sha256": "72c8814e4aa2cc8da95f2cb24dba50aa8fdee765cb41890852170906212d4aef"
+      },
+      "changedSourceHashes": [
+        {
+          "file": "src/main/java/thaumcraft/equipment/upgrades/client/InfusionUpgradesClientSmokeTest.java",
+          "stoppedClientSha256": "1f795d097f98a549e63d288bfb9fbae5af4950337142a50fbfac1c463847cd97",
+          "finalClientBuildSha256": "1bfa287cd28531114dec46aa8ab0b0cd0804fb4b4fd56ecaf8719f185d283d1a"
+        }
+      ],
+      "actualNativeScreenshotCount": 15
+    },
+    {
+      "runTag": "infusion-upgrades-040-client3",
+      "result": "stopped without pass",
+      "stateEvidence": {
+        "file": "infusion-upgrades-040-client3-state.json",
+        "bytes": 7070,
+        "sha256": "704f2c47a6fa45a07e4630741ccb7f7097a7d2c3a59941bfe453cafce30ae322"
+      },
+      "state": {
+        "runTag": "infusion-upgrades-040-client3",
+        "result": "stopped without pass",
+        "failureKind": "manual stop of stalled opt-in QA driver",
+        "manualStop": true,
+        "nativeExitCode": 4294967295,
+        "nativePidAlreadyExited": 29572,
+        "reason": "Native Refining succeeded after2ordinaryores, but its opt-in completion gate addressed the next ore after incrementing the attempt index. Explicitly stopped only the checked owned hidden JVM.",
+        "lastNativeHeartbeat": "THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=20 phase=5 batch=2 launch=0 infusions=14 paidEss=2180 shield=2",
+        "clientLog": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client3-client.log",
+          "bytes": 41223,
+          "sha256": "85e85e1d68caa7eae90ca093912aa2e805322683cea39531dcfe328896838d02"
+        },
+        "runEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client3-run.json",
+          "bytes": 1852,
+          "sha256": "77db02e9acf7405dfe72d674df7b43720c3e26a3142660860b2fb39377f200c2"
+        },
+        "desktopEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client3-desktop.json",
+          "bytes": 478,
+          "sha256": "8c5cef752536b7b2365b8a205417750ca1bfc42635c8562a717a18c6b8d6bf71"
+        },
+        "ownedStopEvidence": {
+          "file": "infusion-upgrades-040-client3-owned-stop.json",
+          "bytes": 679,
+          "sha256": "51bfbf81b48625ebff4cb3d44b91629b57dd9dd8cc6aa3a4f4394e0a5090a423"
+        },
+        "sourceSnapshot": "infusion-upgrades-040-client3-sources.json",
+        "sourceSnapshotEvidence": {
+          "file": "infusion-upgrades-040-client3-sources.json",
+          "bytes": 647197,
+          "sha256": "7c510600bf5c9a249d01c6bd1d3bae5e73289a9f1c45b05bda3b738725f040f6"
+        },
+        "executedDriverSha256": "c53c2fb5edf77313185d3bb26bb97a58b15dcc05bfc972cc10fef7e471168da1",
+        "argumentFileEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client3.args",
+          "bytes": 22264,
+          "sha256": "6e6234b649681ca030cc2de58ca9d29459f164c424c9eb26953a170b60228597"
+        },
+        "prepareLogEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client3-prepare.log",
+          "bytes": 1622,
+          "sha256": "c616ea5761b9fd22ecdda37f03985c3637b6ca8935848340c75d905fb2d50080"
+        },
+        "archivedScreenshotDirectory": "infusion-upgrades-040-client3-screenshots",
+        "archivedNativeScreenshots": [
+          {
+            "file": "tc6-infusion-upgrades-paid-enchantment-study.png",
+            "bytes": 708645,
+            "sha256": "0b4bc5f803532f30cfc7c120774626ec634e15e63082fffc9aa9c30a12d925f1"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-runic-study.png",
+            "bytes": 700064,
+            "sha256": "e37addc6156b47bc93dfc6c18139be3df9214a0f41a8843305f4045beeaea118"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-fortress-mask-study.png",
+            "bytes": 679732,
+            "sha256": "4f8669cd4b9d16e856084bd74f72fc104deb48b04e651b1984bb7bb2d0994d81"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-collector.png",
+            "bytes": 206029,
+            "sha256": "6afbb1d04775ec4adfe3d156b2bed32c5b13222fb2acbc721f5cac2079d1b579"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-destructive.png",
+            "bytes": 225733,
+            "sha256": "c539d653d5325b8c9c7acfaf33dc1e64698fd7a08b2171ad122eb62d9f9ea360"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-burrowing.png",
+            "bytes": 246330,
+            "sha256": "db4844155a68539edbad3aadf1fac2f15084422872d4779481e0e3247f8815bb"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-sounding.png",
+            "bytes": 233343,
+            "sha256": "242ebb23d23c773ec497e4970028377e6707e511737f0c4523525d4d892e4fac"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-refining.png",
+            "bytes": 207695,
+            "sha256": "1d50ba3d495e55e7bd9e3a007a374170d031b708149af416850dc4ed93803b16"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-arcing.png",
+            "bytes": 220883,
+            "sha256": "552ea7a3c093cdb01ea4c306854f4943c43bb1b3aa783adcc5d9db8a9180ed62"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-essence.png",
+            "bytes": 241554,
+            "sha256": "b72cd4dd9297fca4c5c2a1fa0c568abee1b7a2f41af2480bb7d58393d7a7aeb6"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-lamplight.png",
+            "bytes": 235168,
+            "sha256": "45fa53b34cbb32df32f06240f54a1e12beac6e4389ae6fd63044664ac51fec32"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-runic-armor.png",
+            "bytes": 186331,
+            "sha256": "5679b12639a99ae1059b7ad311279d4644e57f59ca20d26467caef525c3ef72c"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-runic-accessory.png",
+            "bytes": 219972,
+            "sha256": "17ce5cfc571daf0b74291732feb6205b837ccca0e4cedfd58baf550df761c2ce"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-fortress-goggles.png",
+            "bytes": 204122,
+            "sha256": "cb3e6fa458607bacbd1d66bd52f1e634ac2ebbcc7bcc887e66a886f20a383f14"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-grinning-devil.png",
+            "bytes": 203095,
+            "sha256": "4708628cd610fb5811f0142af9835aea530c8b5bbf278a875ebc28c3572f0d51"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-angry-ghost.png",
+            "bytes": 253712,
+            "sha256": "5bed8434e2a20f1d5861b4aedb67b0f0196eb39077540673f046533fd0933ab6"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-sipping-fiend.png",
+            "bytes": 204487,
+            "sha256": "c1d8cf0379424e0be2e4bf1f2c11770b3c4cc084e2ac9e5710cf3cf8f2fcb1b3"
+          },
+          {
+            "file": "tc6-infusion-upgrades-native-curios-runic-shield.png",
+            "bytes": 210334,
+            "sha256": "65383fe998ab8c5e9a1c14ccdab0926b9514395fde2def45994f5588c42be54f"
+          },
+          {
+            "file": "tc6-infusion-upgrades-native-collector.png",
+            "bytes": 247248,
+            "sha256": "8385d266ebe1372b95e8acefafcc15bc7cb26aeb6066222a8f203100f1f87309"
+          },
+          {
+            "file": "tc6-infusion-upgrades-native-destructive-burrowing.png",
+            "bytes": 304488,
+            "sha256": "d18869d2e619fd7dd89bb8a4b7d8f3284202bcbd78e2c1208cca3f7f3002662d"
+          }
+        ],
+        "actualNativeScreenshotCount": 20,
+        "actualObserved": "Three paid studies, all14actual paid infusions/2180essentia, two paid native shield credits, native Collector/Destructive/Burrowing and Refining successAfter2OrdinaryOres were recorded. Twenty original1600x1000frames retained. Scene20phase5 stalled without a failure or success marker; later native combat/Sounding/Lamplight route is not claimed.",
+        "causeLimit": "After actual native Refining success the callback increments oreAttempts and leaves phase5. The following opt-in frame computes the next ore coordinate and enters its position gate before returning refiningObserved; the wearer remains at the just-mined ore. This is a QA driver completion gate defect, not a production Refining failure.",
+        "plannedCorrection": "Only the guarded Dist.CLIENT driver returns its actual refiningObserved flag at phase5 before computing or checking any next ore coordinate. Native ore mining, attempts, physical cluster output, durability, RNG and payment assertions remain."
+      },
+      "clientLog": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client3-client.log",
+        "bytes": 41223,
+        "sha256": "85e85e1d68caa7eae90ca093912aa2e805322683cea39531dcfe328896838d02"
+      },
+      "runEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client3-run.json",
+        "bytes": 1852,
+        "sha256": "77db02e9acf7405dfe72d674df7b43720c3e26a3142660860b2fb39377f200c2"
+      },
+      "run": {
+        "runTag": "infusion-upgrades-040-client3",
+        "smokeTest": "InfusionUpgrades",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_f5fb8e4ecd984a66ad98275335512ce1",
+        "jvmPid": 29572,
+        "jvmExitCode": 4294967295,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default"
+      },
+      "desktopEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client3-desktop.json",
+        "bytes": 478,
+        "sha256": "8c5cef752536b7b2365b8a205417750ca1bfc42635c8562a717a18c6b8d6bf71"
+      },
+      "desktop": {
+        "state": "exited",
+        "pid": 29572,
+        "desktop": "WinSta0\\ThaumcraftQA_f5fb8e4ecd984a66ad98275335512ce1",
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "logPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3-client.log",
+        "currentOwnedWindowsOnTargetDesktop": 14,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "exitCode": 4294967295
+      },
+      "ownedStopEvidence": {
+        "file": "infusion-upgrades-040-client3-owned-stop.json",
+        "bytes": 679,
+        "sha256": "51bfbf81b48625ebff4cb3d44b91629b57dd9dd8cc6aa3a4f4394e0a5090a423"
+      },
+      "ownedStop": {
+        "creationDate": "2026-10-18T18:34:15.127655+04:00",
+        "checkedDesktop": "WinSta0\\ThaumcraftQA_f5fb8e4ecd984a66ad98275335512ce1",
+        "inputDesktopAfter": "Default",
+        "inputDesktopBefore": "Default",
+        "aliveAfterStop": false,
+        "checkedExecutable": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "runTag": "infusion-upgrades-040-client3",
+        "checkedCommandLine": "\"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe\" \"@C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client3.args\"",
+        "pid": 29572
+      },
+      "sourceSnapshotEvidence": {
+        "file": "infusion-upgrades-040-client3-sources.json",
+        "bytes": 647197,
+        "sha256": "7c510600bf5c9a249d01c6bd1d3bae5e73289a9f1c45b05bda3b738725f040f6"
+      },
+      "argumentFileEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client3.args",
+        "bytes": 22264,
+        "sha256": "6e6234b649681ca030cc2de58ca9d29459f164c424c9eb26953a170b60228597"
+      },
+      "prepareLogEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client3-prepare.log",
+        "bytes": 1622,
+        "sha256": "c616ea5761b9fd22ecdda37f03985c3637b6ca8935848340c75d905fb2d50080"
+      },
+      "changedSourceHashes": [
+        {
+          "file": "src/main/java/thaumcraft/equipment/upgrades/client/InfusionUpgradesClientSmokeTest.java",
+          "stoppedClientSha256": "c53c2fb5edf77313185d3bb26bb97a58b15dcc05bfc972cc10fef7e471168da1",
+          "finalClientBuildSha256": "1bfa287cd28531114dec46aa8ab0b0cd0804fb4b4fd56ecaf8719f185d283d1a"
+        }
+      ],
+      "actualNativeScreenshotCount": 20
+    }
+  ],
+  "automaticFailedClientRuns": [
+    {
+      "runTag": "infusion-upgrades-040-client1",
+      "result": "failed without pass",
+      "manualStop": false,
+      "stateEvidence": {
+        "file": "infusion-upgrades-040-client1-state.json",
+        "bytes": 3169,
+        "sha256": "79a679fcead5d66f0abd2bfd02d99a8720a47eaf8a42f817f9f5cca095bf5b0d"
+      },
+      "state": {
+        "runTag": "infusion-upgrades-040-client1",
+        "result": "failed without pass",
+        "failureKind": "automatic driver failure",
+        "manualStop": false,
+        "nativeExitCode": 0,
+        "nativePidAlreadyExited": 28080,
+        "reason": "The ore fixture at x14 y112 z-12 replaced altar1 typed jar index5 before use. Only the opt-in driver ore grid/preflight changed; no production mechanic failed. Native client exited automatically with failure marker and no pass.",
+        "failureMarker": "THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE_FAILED",
+        "failureCauses": [
+          "Caused by: java.lang.NullPointerException: Cannot invoke \"thaumcraft.essentia.EssentiaJarBlockEntity.aspect()\" because \"jar\" is null"
+        ],
+        "lastNativeHeartbeat": "THAUMCRAFT_INFUSION_UPGRADES_HEARTBEAT: scene=4 phase=1 batch=1 launch=0 infusions=1 paidEss=180 shield=0",
+        "clientLog": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client1-client.log",
+          "bytes": 37574,
+          "sha256": "a1fb96783265156a8dcc59fe4acd0042ebdf4a0869eb22288cd7405a96c8b347"
+        },
+        "runEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client1-run.json",
+          "bytes": 1843,
+          "sha256": "19531534c47b2c1ed05b69957f8e3579052370cfe6c22dac36303bc4cfb5218f"
+        },
+        "desktopEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client1-desktop.json",
+          "bytes": 469,
+          "sha256": "66b7bc65f4cf001fc0ef17d947d1d0a69a1f1c398e2b19f2a97cc7cc1604b01c"
+        },
+        "sourceSnapshot": "infusion-upgrades-040-client1-sources.json",
+        "sourceSnapshotEvidence": {
+          "file": "infusion-upgrades-040-client1-sources.json",
+          "bytes": 647197,
+          "sha256": "8dfcfe7ded9856d10795f08675f7de7197b316564fa9c7e444f59e51233dfef1"
+        },
+        "executedDriverSha256": "43a65ecb6231878d601e43418fd129e3694cc6bc07fe24cf04d14d111cf48950",
+        "argumentFileEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client1.args",
+          "bytes": 22264,
+          "sha256": "6e6234b649681ca030cc2de58ca9d29459f164c424c9eb26953a170b60228597"
+        },
+        "prepareLogEvidence": {
+          "file": "infusion-upgrades-client-infusion-upgrades-040-client1-prepare.log",
+          "bytes": 1622,
+          "sha256": "0efa3bc73c7808154016972a96bbe75f7a51a8c5ea025f541de03344cfa35336"
+        },
+        "archivedScreenshotDirectory": "infusion-upgrades-040-client1-screenshots",
+        "archivedNativeScreenshots": [
+          {
+            "file": "tc6-infusion-upgrades-paid-enchantment-study.png",
+            "bytes": 713304,
+            "sha256": "3f828bd8a9478331040917ca7a6995461aa7d38aff9b3bc67774c62720c97922"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-runic-study.png",
+            "bytes": 702969,
+            "sha256": "637292c293d4946a821da5dcecc1cb1b02f7ef00da069250348ea2cf214a68d6"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-fortress-mask-study.png",
+            "bytes": 684317,
+            "sha256": "65455838f7e780d91efa551ea084fc0e85f03b3bc61682eaa2484a527c475844"
+          },
+          {
+            "file": "tc6-infusion-upgrades-paid-collector.png",
+            "bytes": 206283,
+            "sha256": "9e03ccf3a63b20adae5471102bd42325e6fd703bb4e5f5ec7bafd9dc0c5c8c21"
+          }
+        ],
+        "actualNativeScreenshotCount": 4
+      },
+      "clientLog": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client1-client.log",
+        "bytes": 37574,
+        "sha256": "a1fb96783265156a8dcc59fe4acd0042ebdf4a0869eb22288cd7405a96c8b347"
+      },
+      "runEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client1-run.json",
+        "bytes": 1843,
+        "sha256": "19531534c47b2c1ed05b69957f8e3579052370cfe6c22dac36303bc4cfb5218f"
+      },
+      "run": {
+        "runTag": "infusion-upgrades-040-client1",
+        "smokeTest": "InfusionUpgrades",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\infusion-upgrades-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client1-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client1-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client1.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client1-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client1-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client1-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_e732120ab5de4708ac1dba4527662771",
+        "jvmPid": 28080,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default"
+      },
+      "desktopEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client1-desktop.json",
+        "bytes": 469,
+        "sha256": "66b7bc65f4cf001fc0ef17d947d1d0a69a1f1c398e2b19f2a97cc7cc1604b01c"
+      },
+      "desktop": {
+        "state": "exited",
+        "pid": 28080,
+        "desktop": "WinSta0\\ThaumcraftQA_e732120ab5de4708ac1dba4527662771",
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "logPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\infusion-upgrades-client-infusion-upgrades-040-client1-client.log",
+        "currentOwnedWindowsOnTargetDesktop": 14,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "exitCode": 0
+      },
+      "sourceSnapshotEvidence": {
+        "file": "infusion-upgrades-040-client1-sources.json",
+        "bytes": 647197,
+        "sha256": "8dfcfe7ded9856d10795f08675f7de7197b316564fa9c7e444f59e51233dfef1"
+      },
+      "argumentFileEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client1.args",
+        "bytes": 22264,
+        "sha256": "6e6234b649681ca030cc2de58ca9d29459f164c424c9eb26953a170b60228597"
+      },
+      "prepareLogEvidence": {
+        "file": "infusion-upgrades-client-infusion-upgrades-040-client1-prepare.log",
+        "bytes": 1622,
+        "sha256": "0efa3bc73c7808154016972a96bbe75f7a51a8c5ea025f541de03344cfa35336"
+      },
+      "changedSourceHashes": [
+        {
+          "file": "src/main/java/thaumcraft/equipment/upgrades/client/InfusionUpgradesClientSmokeTest.java",
+          "failedClientSha256": "43a65ecb6231878d601e43418fd129e3694cc6bc07fe24cf04d14d111cf48950",
+          "finalClientBuildSha256": "1bfa287cd28531114dec46aa8ab0b0cd0804fb4b4fd56ecaf8719f185d283d1a"
+        }
+      ],
+      "actualNativeScreenshotCount": 4
+    }
+  ],
+  "fixtures": [
+    "Owned Survival arena, four stable40block-spaced altars,24pedestals,128candles,eightstabilizers and initial typed jars are prepared fixtures.",
+    "Strict precursor studies,128raw Infusion theory and one research amber are supplied; three actual target-study C2S payments award30XP and the Mask transition awards permanent1/normal1 Warp.",
+    "Eight unenchanted vanilla tools, raw component materials, prior-stage Fortress pieces and a mundane ring are fixtures. No target enchantments, runic charge, goggles or mask are supplied.",
+    "All14 actual native altar payments consume2180essentia and40reagents; one physical milk-bucket remainder is retained. Initial jars hold original aggregate costs plus one surplus per distinct altar/aspect pair.",
+    "Initial5000Vis/zeroFlux in49loaded arena chunks precedes active consumers. Runic shielding pays native aura; no active aura/charge/health/absorption/clock/RNG reset substitutes for gameplay.",
+    "Mining targets,32iron ores, buried sounding ores, a physically enclosed dark room and controlled no-AI vanilla actors are fixtures. Controlled zombie attacks12 and60 are actor attributes, not ordinary zombie statistics. The60attack may create at most seven actual native wounds total, only after native iframe expiry/full health, until an actual Sipping heal is observed; no health, hunger, RNG or timer setters are used.",
+    "Native pedestal pickup, armor Quick Move C2S and actual Curios inventory-button/ring-slot C2S conserve the paid physical items; camera/player teleports are positioning fixtures."
+  ],
+  "limitations": [
+    "Prepared routes are not complete Survival acquisition, natural resource exploration or a proof of earlier-stage item crafting.",
+    "Random Refining and Essence results come from bounded ordinary native actions with no forced RNG. Exact observed attempt counts are bound to the selected log.",
+    "Client checks one runic level on one armor piece and one Curios ring; dynamic higher levels, malformed data and wider compatibility are separate server contracts.",
+    "Grinning Devil is worn and its paid mutation is checked; no full WarpEvent is manufactured. Source severity-consumer contracts require separately selected native server evidence.",
+    "Screenshots supplement exact native payments and synchronization assertions; they do not alone prove all transactions or detailed visual/audio parity.",
+    "No independent multiplayer, restart/respawn, arbitrary addon/death/Curios configuration matrix, every pose/view angle or audio playback proof.",
+    "This helper performs no pixel review. Both reviewers must actually inspect all24full1600x1000frames and both complete sheets before recording pass."
+  ]
+}

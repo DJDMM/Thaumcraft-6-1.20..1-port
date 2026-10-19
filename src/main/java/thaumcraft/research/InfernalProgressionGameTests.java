@@ -50,7 +50,7 @@ public final class InfernalProgressionGameTests {
 
     @GameTest(template="empty")
     public static void twoOriginalStudiesRequireStrictParentsAndNinetySixCanonicalEntries(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==105,
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108,
                 "Preserved97 plus both original lamp studies census changed");
         for (String key:List.of("INFERNALFURNACE","BELLOWS")) {
             String parent=key.equals("BELLOWS")?"INFERNALFURNACE":"BASEARTIFICE";

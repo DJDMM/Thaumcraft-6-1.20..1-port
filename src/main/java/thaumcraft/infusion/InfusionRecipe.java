@@ -187,6 +187,9 @@ public final class InfusionRecipe implements Recipe<Container> {
     public static boolean eligibleRunic(ItemStack input) {
         if (input == null || input.isEmpty()) return false;
         if (input.getItem() instanceof ArmorItem) return true;
+        // IBauble was an interface contract, not a Thaumcraft-only ID allowlist.
+        // Actual Curios capabilities are its modern counterpart, including addon items.
+        if (top.theillusivec4.curios.api.CuriosApi.getCurio(input).isPresent()) return true;
         ResourceLocation id = BuiltInRegistries.ITEM.getKey(input.getItem());
         return id.getNamespace().equals("thaumcraft") && CatalogModule.SPECS.stream()
                 .anyMatch(spec -> spec.id().equals(id.getPath()) && BAUBLE_CLASSES.contains(spec.sourceClass()));

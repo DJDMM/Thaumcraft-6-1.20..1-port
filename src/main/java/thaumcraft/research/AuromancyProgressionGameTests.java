@@ -267,7 +267,7 @@ public final class AuromancyProgressionGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void canonicalChainOpensExactlyThirtyOneOfFiftySixRegisteredInfusions(GameTestHelper helper) {
+    public static void canonicalChainOpensExactlyFortyFourOfFiftySixRegisteredInfusions(GameTestHelper helper) {
         var state = KnowledgeStore.get(player(helper));
         for (ResearchEntry entry : ResearchCatalog.entries()) if (ResearchProgression.isImplemented(entry.key())) complete(state, entry.key());
         var recipes = helper.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get());
@@ -278,9 +278,13 @@ public final class AuromancyProgressionGameTests {
                 "infusion/focus_2", "infusion/focus_3", "infusion/mindbiothaumic", "infusion/sealharvest", "infusion/sealbutcher", "infusion/sealbreak", "infusion/jarbrain",
                 "infusion/crystalclusterair", "infusion/crystalclusterfire", "infusion/crystalclusterwater", "infusion/crystalclusterearth",
                 "infusion/crystalclusterorder", "infusion/crystalclusterentropy", "infusion/crystalclusterflux", "infusion/causalitycollapser", "infusion/arcanebore", "infusion/mirror", "infusion/mirrorhand", "infusion/mirroressentia",
-                "infusion/lampgrowth", "infusion/lampfertility", "infusion/visamulet")),
-                "Unavailable mask/late research was bypassed: " + open);
-        for (String key : new String[]{"FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING"})
+                "infusion/lampgrowth", "infusion/lampfertility", "infusion/visamulet",
+                "infusion/ieburrowing", "infusion/iecollector", "infusion/iedestructive", "infusion/ierefining",
+                "infusion/iesounding", "infusion/iearcing", "infusion/ieessence", "infusion/ielamplight",
+                "infusion/runicarmor", "infusion/helmgoggles", "infusion/maskgrinningdevil",
+                "infusion/maskangryghost", "infusion/masksippingfiend")),
+                "Current original infusion registry scope differs: " + open);
+        for (String key : new String[]{"INFUSIONANCIENT", "INFUSIONELDRITCH"})
             helper.assertTrue(!ResearchProgression.isImplemented(key), "Incomplete branch was silently advertised: " + key);
         helper.succeed();
     }

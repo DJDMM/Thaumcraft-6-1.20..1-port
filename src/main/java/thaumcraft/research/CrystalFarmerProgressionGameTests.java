@@ -93,7 +93,7 @@ public final class CrystalFarmerProgressionGameTests {
     public static void hiddenOreCannotBeStartedByEmptyBookRequestAndFarmingNeedsCompletedInfusion(GameTestHelper h) {
         var p=player(h);var k=KnowledgeStore.get(p);var ore=ResearchCatalog.get("ORE");
         h.assertTrue(ore.hasMeta("HIDDEN") && ore.parents().isEmpty() && ore.siblings().isEmpty() && ore.stages().size()==1
-                && ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==105,"Original hidden ORE/no-sibling graph or canonical census changed");
+                && ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108,"Original hidden ORE/no-sibling graph or canonical census changed");
         result(h,ResearchNetwork.processAdvance(p,"ORE",0),ResearchProgression.Result.LOCKED);
         h.assertTrue(k.researchStage("ORE")==0 && p.totalExperience==0,"Forged root request granted canonical ore research");
         var farmer=ResearchCatalog.get("CRYSTALFARMER");h.assertTrue(farmer.parents().equals(List.of("ORE","INFUSION","!ORECRYSTAL")) && farmer.siblings().isEmpty() && farmer.stages().size()==2,"Original Farmer parents/stages changed");
