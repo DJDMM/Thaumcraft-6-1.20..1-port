@@ -1,0 +1,1081 @@
+{
+  "version": "0.40.1",
+  "date": "2026-10-19",
+  "scope": "Targeted through-terrain Sounding depth correction; not a repeated paid0.40 progression route",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 108,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 44,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1673,
+  "newRequiredGameTests": 0,
+  "serverLog": {
+    "file": "sounding-0401-gametest2.log",
+    "bytes": 835436,
+    "sha256": "5d4d78944abeeaf7829135d9fba0b1f51db77ef5f69a81af8fad9f3ac14639fc"
+  },
+  "serverRunEvidence": {
+    "file": "sounding-0401-server2-run.json",
+    "bytes": 466,
+    "sha256": "da8ec52ac03533caeb1cf3109f6c033b885dc5ee0e92d1467ec6b8e2ecb5f8d9"
+  },
+  "serverRun": {
+    "failedRequiredTests": 0,
+    "nativeExitCode": 0,
+    "requiredTestCount": 1673,
+    "gradleExitCode": 0,
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-sounding-0401-server2",
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "run": "sounding-0401-server2"
+  },
+  "clientRunTag": "sounding-0401-client2",
+  "clientLog": {
+    "file": "sounding-client-sounding-0401-client2-client.log",
+    "bytes": 25616,
+    "sha256": "859252a6638ce9bbf101e96b757d0610502f5995b6edef51285bb6f8fa3352ab"
+  },
+  "client": {
+    "runTag": "sounding-0401-client2",
+    "smokeTest": "Sounding",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\sounding-client-sounding-0401-client2-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\sounding-client-sounding-0401-client2-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\sounding-client-sounding-0401-client2.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\sounding-client-sounding-0401-client2-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\sounding-client-sounding-0401-client2-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\sounding-client-sounding-0401-client2-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_03e5dbdbc4bd4827936a99bf3743ff27",
+    "jvmPid": 28020,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 8
+  },
+  "desktop": {
+    "state": "exited",
+    "pid": 28020,
+    "desktop": "WinSta0\\ThaumcraftQA_03e5dbdbc4bd4827936a99bf3743ff27",
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "logPath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\sounding-client-sounding-0401-client2-client.log",
+    "currentOwnedWindowsOnTargetDesktop": 14,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "exitCode": 0
+  },
+  "clientScenes": 8,
+  "actualNativeUses": 2,
+  "actualDurabilityPaid": 10,
+  "nativeFacts": [
+    "[17:03:06] [Server thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_FIXTURES: isolatedSurvivalWorld/rawRank1DiamondPick/opaqueStoneWallX-12to12Y112to120Z-6to0/cameraPlayer0.5,112,4.5Yaw180Pitch0Fov80/click0,113,0/rank1Cube8/coalCenter-4,114.5,-1.5/diamondCenter0.5,115,-1.5/ironCenter5,114.5,-1.5/excludedEmerald9,114,-2/noActiveEffectClockOrRenderFlagInjection/notPaidProgression",
+    "[17:03:07] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_BEFORE: graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 fov=80 solidWall=true nativeRipples0 damage=0",
+    "[17:03:07] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-before.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=0 ripples=[]",
+    "[17:03:07] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fancy-before.png",
+    "[17:03:09] [Server thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_USE: mode=FANCY/rawRank1VanillaDiamondPickaxe/actualSneakUseC2S/one5Durability/nativeS2C3Groups/coalAlpha1/additive2/noTerrainMutation/noInjectedRipples",
+    "[17:03:09] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-active-early.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=14], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=22], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=14]]",
+    "[17:03:09] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fancy-active-early.png",
+    "[17:03:09] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-active-late.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=19], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=27], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=19]]",
+    "[17:03:09] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fancy-active-late.png",
+    "[17:03:11] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-after.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[]",
+    "[17:03:11] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fancy-after.png",
+    "[17:03:13] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_BEFORE: graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 fov=80 solidWall=true nativeRipples0 damage=5",
+    "[17:03:13] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-before.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[]",
+    "[17:03:13] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fabulous-before.png",
+    "[17:03:14] [Server thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_USE: mode=FABULOUS/rawRank1VanillaDiamondPickaxe/actualSneakUseC2S/one5Durability/nativeS2C3Groups/coalAlpha1/additive2/noTerrainMutation/noInjectedRipples",
+    "[17:03:14] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-active-early.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=10 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=14], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=22], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=14]]",
+    "[17:03:14] [IO-Worker-17/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fabulous-active-early.png",
+    "[17:03:14] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-active-late.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=10 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=19], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=27], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=19]]",
+    "[17:03:15] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fabulous-active-late.png",
+    "[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_HEARTBEAT: scene=7 phase=0 uses=2 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=39], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=39]]",
+    "[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-after.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=10 ripples=[]",
+    "[17:03:16] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\sounding-smoke\\.\\screenshots\\tc6-sounding-fabulous-after.png",
+    "[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_RENDER_AUDIT_OK: 8 captures/FancyAndFabulous/threeNativeHiddenOreGroups/oneCoalAlphaTwoAdditive/closedWallBeforeActiveEarlyActiveLateAfter/readOnlyNativeFacts/actualPixelsRequireIndependentReview",
+    "[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_OK: 8 captures/2actualSneakUseC2S/nativeS2C3GroupsEach/exact10Durability/noTerrainMutation/noInjectedRipples/notPaidProgression,world=thaumcraft-sounding-smoke-1792414949135"
+  ],
+  "nativeMarkerCounts": {
+    "FIXTURES": 1,
+    "NATIVE_BEFORE": 2,
+    "NATIVE_FRAME": 8,
+    "CLIENT_SMOKE_IMAGE": 8,
+    "NATIVE_USE": 2,
+    "HEARTBEAT": 1,
+    "RENDER_AUDIT_OK": 1,
+    "CLIENT_SMOKE_OK": 1
+  },
+  "pixelAnalysisEvidence": {
+    "file": "sounding-0.40.1-client2-pixel-analysis.json",
+    "bytes": 14783,
+    "sha256": "8b94256062940102be55f767ae34d5c76f7db299da1aa3bd5b399967083f6193"
+  },
+  "pixelAnalysis": {
+    "result": "pass",
+    "clientRunTag": "sounding-0401-client2",
+    "clientLogSha256": "859252a6638ce9bbf101e96b757d0610502f5995b6edef51285bb6f8fa3352ab",
+    "screenshots": [
+      {
+        "file": "tc6-sounding-fancy-before.png",
+        "sha256": "73d16100e6b70032e24fa97fd3161cb9c37413bc8459d21c180454802c9ff2a6"
+      },
+      {
+        "file": "tc6-sounding-fancy-active-early.png",
+        "sha256": "513b71612611fa70a7ab94ed2c88a9b5b0e1e6ebfb5ae65a5a6571194c3a01e2"
+      },
+      {
+        "file": "tc6-sounding-fancy-active-late.png",
+        "sha256": "51976fc0853e831a1038d096b82008c8764f41835dfe65fa162b8b6a99e70dd5"
+      },
+      {
+        "file": "tc6-sounding-fancy-after.png",
+        "sha256": "d4c035beef6a67391814ad5aead203db69655003f6f8f5bc264430224c91ca44"
+      },
+      {
+        "file": "tc6-sounding-fabulous-before.png",
+        "sha256": "5e42c3dff289b7b977d143a5aad61b6381c99b482cd25cc9824f71a996ee17f1"
+      },
+      {
+        "file": "tc6-sounding-fabulous-active-early.png",
+        "sha256": "c0d55fb1f708d086547dd6ffa07fd8d26d4664b8a2fbb75828957b1b99655ae7"
+      },
+      {
+        "file": "tc6-sounding-fabulous-active-late.png",
+        "sha256": "5ccd4c3921bbfc3ac1a5b6f61155d8c0b4683d57acdaa1905fd71b93b7d712d5"
+      },
+      {
+        "file": "tc6-sounding-fabulous-after.png",
+        "sha256": "1a253531e046d11b5b80394a40ea8c64975906151ceff474e396200ae50b35b6"
+      }
+    ],
+    "actualNativeCameras": [
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ],
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ],
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ],
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ],
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ],
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ],
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ],
+      [
+        0.5,
+        113.26999998092651,
+        4.5,
+        180.0,
+        0.0
+      ]
+    ],
+    "verticalFov": 80,
+    "focalPixels": 595.876796297105,
+    "ranges": [
+      {
+        "name": "fancy-coal",
+        "mode": "FANCY",
+        "ore": "coal",
+        "before": "tc6-sounding-fancy-before.png",
+        "active": "tc6-sounding-fancy-active-late.png",
+        "after": "tc6-sounding-fancy-after.png",
+        "result": "pass",
+        "measurements": {
+          "worldCenter": [
+            -4,
+            114.5,
+            -1.5
+          ],
+          "projectedCenter": [
+            353,
+            378
+          ],
+          "roiXYXY": [
+            248,
+            273,
+            459,
+            484
+          ],
+          "thresholdMaximumChannelDelta": 12,
+          "beforeAfterChangedPixelsOver12": 0,
+          "beforeAfterMeanAbsoluteChannelDelta": 3.236382830574336,
+          "earlyChangedPixelsOver12": 81,
+          "lateChangedPixelsOver12": 2913,
+          "earlyMeanAbsoluteChannelDelta": 1.8849531681678309,
+          "lateMeanAbsoluteChannelDelta": 3.5944835021675163,
+          "activeChangedPixelsOver12": 2913,
+          "activeMeanAbsoluteChannelDelta": 3.5944835021675163,
+          "activeMaxAbsoluteChannelDelta": 41,
+          "activeChangedExtentWithinROI": [
+            52,
+            55,
+            157,
+            154
+          ]
+        },
+        "activeFrameComparisons": [
+          {
+            "file": "tc6-sounding-fancy-active-early.png",
+            "changedPixelsOver12": 81,
+            "meanAbsoluteChannelDelta": 1.8849531681678309,
+            "maxAbsoluteChannelDelta": 37,
+            "changedExtentWithinROI": [
+              49,
+              94,
+              71,
+              112
+            ]
+          },
+          {
+            "file": "tc6-sounding-fancy-active-late.png",
+            "changedPixelsOver12": 2913,
+            "meanAbsoluteChannelDelta": 3.5944835021675163,
+            "maxAbsoluteChannelDelta": 41,
+            "changedExtentWithinROI": [
+              52,
+              55,
+              157,
+              154
+            ]
+          }
+        ]
+      },
+      {
+        "name": "fancy-diamond",
+        "mode": "FANCY",
+        "ore": "diamond",
+        "before": "tc6-sounding-fancy-before.png",
+        "active": "tc6-sounding-fancy-active-early.png",
+        "after": "tc6-sounding-fancy-after.png",
+        "result": "pass",
+        "measurements": {
+          "worldCenter": [
+            0.5,
+            115,
+            -1.5
+          ],
+          "projectedCenter": [
+            800,
+            328
+          ],
+          "roiXYXY": [
+            695,
+            223,
+            906,
+            434
+          ],
+          "thresholdMaximumChannelDelta": 12,
+          "beforeAfterChangedPixelsOver12": 0,
+          "beforeAfterMeanAbsoluteChannelDelta": 0.4821320275824892,
+          "earlyChangedPixelsOver12": 3419,
+          "lateChangedPixelsOver12": 872,
+          "earlyMeanAbsoluteChannelDelta": 4.1752880663057885,
+          "lateMeanAbsoluteChannelDelta": 1.314712907017662,
+          "activeChangedPixelsOver12": 3419,
+          "activeMeanAbsoluteChannelDelta": 4.1752880663057885,
+          "activeMaxAbsoluteChannelDelta": 143,
+          "activeChangedExtentWithinROI": [
+            44,
+            44,
+            168,
+            152
+          ]
+        },
+        "activeFrameComparisons": [
+          {
+            "file": "tc6-sounding-fancy-active-early.png",
+            "changedPixelsOver12": 3419,
+            "meanAbsoluteChannelDelta": 4.1752880663057885,
+            "maxAbsoluteChannelDelta": 143,
+            "changedExtentWithinROI": [
+              44,
+              44,
+              168,
+              152
+            ]
+          },
+          {
+            "file": "tc6-sounding-fancy-active-late.png",
+            "changedPixelsOver12": 872,
+            "meanAbsoluteChannelDelta": 1.314712907017662,
+            "maxAbsoluteChannelDelta": 136,
+            "changedExtentWithinROI": [
+              49,
+              52,
+              154,
+              129
+            ]
+          }
+        ]
+      },
+      {
+        "name": "fancy-iron",
+        "mode": "FANCY",
+        "ore": "iron",
+        "before": "tc6-sounding-fancy-before.png",
+        "active": "tc6-sounding-fancy-active-late.png",
+        "after": "tc6-sounding-fancy-after.png",
+        "result": "pass",
+        "measurements": {
+          "worldCenter": [
+            5,
+            114.5,
+            -1.5
+          ],
+          "projectedCenter": [
+            1247,
+            378
+          ],
+          "roiXYXY": [
+            1142,
+            273,
+            1353,
+            484
+          ],
+          "thresholdMaximumChannelDelta": 12,
+          "beforeAfterChangedPixelsOver12": 0,
+          "beforeAfterMeanAbsoluteChannelDelta": 3.135329395116911,
+          "earlyChangedPixelsOver12": 139,
+          "lateChangedPixelsOver12": 4486,
+          "earlyMeanAbsoluteChannelDelta": 1.904973682831323,
+          "lateMeanAbsoluteChannelDelta": 6.416934330615515,
+          "activeChangedPixelsOver12": 4486,
+          "activeMeanAbsoluteChannelDelta": 6.416934330615515,
+          "activeMaxAbsoluteChannelDelta": 120,
+          "activeChangedExtentWithinROI": [
+            52,
+            55,
+            157,
+            154
+          ]
+        },
+        "activeFrameComparisons": [
+          {
+            "file": "tc6-sounding-fancy-active-early.png",
+            "changedPixelsOver12": 139,
+            "meanAbsoluteChannelDelta": 1.904973682831323,
+            "maxAbsoluteChannelDelta": 114,
+            "changedExtentWithinROI": [
+              49,
+              91,
+              73,
+              112
+            ]
+          },
+          {
+            "file": "tc6-sounding-fancy-active-late.png",
+            "changedPixelsOver12": 4486,
+            "meanAbsoluteChannelDelta": 6.416934330615515,
+            "maxAbsoluteChannelDelta": 120,
+            "changedExtentWithinROI": [
+              52,
+              55,
+              157,
+              154
+            ]
+          }
+        ]
+      },
+      {
+        "name": "fabulous-coal",
+        "mode": "FABULOUS",
+        "ore": "coal",
+        "before": "tc6-sounding-fabulous-before.png",
+        "active": "tc6-sounding-fabulous-active-late.png",
+        "after": "tc6-sounding-fabulous-after.png",
+        "result": "pass",
+        "measurements": {
+          "worldCenter": [
+            -4,
+            114.5,
+            -1.5
+          ],
+          "projectedCenter": [
+            353,
+            378
+          ],
+          "roiXYXY": [
+            248,
+            273,
+            459,
+            484
+          ],
+          "thresholdMaximumChannelDelta": 12,
+          "beforeAfterChangedPixelsOver12": 0,
+          "beforeAfterMeanAbsoluteChannelDelta": 1.1761640574111094,
+          "earlyChangedPixelsOver12": 105,
+          "lateChangedPixelsOver12": 3216,
+          "earlyMeanAbsoluteChannelDelta": 0.701466723568653,
+          "lateMeanAbsoluteChannelDelta": 2.5837245344893423,
+          "activeChangedPixelsOver12": 3216,
+          "activeMeanAbsoluteChannelDelta": 2.5837245344893423,
+          "activeMaxAbsoluteChannelDelta": 44,
+          "activeChangedExtentWithinROI": [
+            52,
+            55,
+            157,
+            154
+          ]
+        },
+        "activeFrameComparisons": [
+          {
+            "file": "tc6-sounding-fabulous-active-early.png",
+            "changedPixelsOver12": 105,
+            "meanAbsoluteChannelDelta": 0.701466723568653,
+            "maxAbsoluteChannelDelta": 40,
+            "changedExtentWithinROI": [
+              49,
+              91,
+              71,
+              112
+            ]
+          },
+          {
+            "file": "tc6-sounding-fabulous-active-late.png",
+            "changedPixelsOver12": 3216,
+            "meanAbsoluteChannelDelta": 2.5837245344893423,
+            "maxAbsoluteChannelDelta": 44,
+            "changedExtentWithinROI": [
+              52,
+              55,
+              157,
+              154
+            ]
+          }
+        ]
+      },
+      {
+        "name": "fabulous-diamond",
+        "mode": "FABULOUS",
+        "ore": "diamond",
+        "before": "tc6-sounding-fabulous-before.png",
+        "active": "tc6-sounding-fabulous-active-early.png",
+        "after": "tc6-sounding-fabulous-after.png",
+        "result": "pass",
+        "measurements": {
+          "worldCenter": [
+            0.5,
+            115,
+            -1.5
+          ],
+          "projectedCenter": [
+            800,
+            328
+          ],
+          "roiXYXY": [
+            695,
+            223,
+            906,
+            434
+          ],
+          "thresholdMaximumChannelDelta": 12,
+          "beforeAfterChangedPixelsOver12": 0,
+          "beforeAfterMeanAbsoluteChannelDelta": 0.1962220075919229,
+          "earlyChangedPixelsOver12": 3419,
+          "lateChangedPixelsOver12": 872,
+          "earlyMeanAbsoluteChannelDelta": 3.3495728607473625,
+          "lateMeanAbsoluteChannelDelta": 0.9368163338649177,
+          "activeChangedPixelsOver12": 3419,
+          "activeMeanAbsoluteChannelDelta": 3.3495728607473625,
+          "activeMaxAbsoluteChannelDelta": 110,
+          "activeChangedExtentWithinROI": [
+            44,
+            44,
+            168,
+            152
+          ]
+        },
+        "activeFrameComparisons": [
+          {
+            "file": "tc6-sounding-fabulous-active-early.png",
+            "changedPixelsOver12": 3419,
+            "meanAbsoluteChannelDelta": 3.3495728607473625,
+            "maxAbsoluteChannelDelta": 110,
+            "changedExtentWithinROI": [
+              44,
+              44,
+              168,
+              152
+            ]
+          },
+          {
+            "file": "tc6-sounding-fabulous-active-late.png",
+            "changedPixelsOver12": 872,
+            "meanAbsoluteChannelDelta": 0.9368163338649177,
+            "maxAbsoluteChannelDelta": 107,
+            "changedExtentWithinROI": [
+              49,
+              52,
+              154,
+              129
+            ]
+          }
+        ]
+      },
+      {
+        "name": "fabulous-iron",
+        "mode": "FABULOUS",
+        "ore": "iron",
+        "before": "tc6-sounding-fabulous-before.png",
+        "active": "tc6-sounding-fabulous-active-late.png",
+        "after": "tc6-sounding-fabulous-after.png",
+        "result": "pass",
+        "measurements": {
+          "worldCenter": [
+            5,
+            114.5,
+            -1.5
+          ],
+          "projectedCenter": [
+            1247,
+            378
+          ],
+          "roiXYXY": [
+            1142,
+            273,
+            1353,
+            484
+          ],
+          "thresholdMaximumChannelDelta": 12,
+          "beforeAfterChangedPixelsOver12": 0,
+          "beforeAfterMeanAbsoluteChannelDelta": 1.1434379281687295,
+          "earlyChangedPixelsOver12": 139,
+          "lateChangedPixelsOver12": 4486,
+          "earlyMeanAbsoluteChannelDelta": 0.7545428000269536,
+          "lateMeanAbsoluteChannelDelta": 4.562139215201815,
+          "activeChangedPixelsOver12": 4486,
+          "activeMeanAbsoluteChannelDelta": 4.562139215201815,
+          "activeMaxAbsoluteChannelDelta": 92,
+          "activeChangedExtentWithinROI": [
+            52,
+            55,
+            157,
+            154
+          ]
+        },
+        "activeFrameComparisons": [
+          {
+            "file": "tc6-sounding-fabulous-active-early.png",
+            "changedPixelsOver12": 139,
+            "meanAbsoluteChannelDelta": 0.7545428000269536,
+            "maxAbsoluteChannelDelta": 88,
+            "changedExtentWithinROI": [
+              49,
+              91,
+              73,
+              112
+            ]
+          },
+          {
+            "file": "tc6-sounding-fabulous-active-late.png",
+            "changedPixelsOver12": 4486,
+            "meanAbsoluteChannelDelta": 4.562139215201815,
+            "maxAbsoluteChannelDelta": 92,
+            "changedExtentWithinROI": [
+              52,
+              55,
+              157,
+              154
+            ]
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "ROI differences prove actual framebuffer changes in matched static views, with visual review required for ore-ring identity.",
+      "Three hidden ore groups per Fancy/Fabulous mode; excluded rank1 emerald is outside the image and checked only by native three-group facts.",
+      "Raw infused tool and controlled opaque-wall/camera fixture; no paid progression route, arbitrary shader-pack, audio or multiplayer claim."
+    ],
+    "method": "Original native RGB pixels only; per-mode fixed camera; projected world group centers; full211x211ROI; maxchannel delta>12; before/after<=30; active>=120 and>5xcontrol+120.",
+    "contactSheet": {
+      "file": "sounding-0.40.1-client2-review-sheet.png",
+      "sha256": "de0ee2f73ae1a59f92a5591d37dfa2958d4470e23fc4f8bd3341dc393ed7e6c7"
+    },
+    "preview": {
+      "file": "sounding-0.40.1-client2-preview.png",
+      "sha256": "a2fbee4538f9edb0b826a43d92a315786783512c5ace32cfbe8117f285d424fa"
+    }
+  },
+  "rootReviewEvidence": {
+    "file": "sounding-0.40.1-client2-root-review.json",
+    "bytes": 2759,
+    "sha256": "4a74c81cc6b3ac34ffde2ebd83483cccce0f1b57e00a5ebe7c71fb1da7d95c68"
+  },
+  "independentReviewEvidence": {
+    "file": "sounding-0.40.1-client2-independent-review.json",
+    "bytes": 3958,
+    "sha256": "388aa6d8a7c250b7cfe55112a5a81df25befe2b2a7e015a1496634a20d64d1d6"
+  },
+  "visualReviews": [
+    {
+      "result": "pass",
+      "reviewer": "root",
+      "clientRunTag": "sounding-0401-client2",
+      "clientLogSha256": "859252a6638ce9bbf101e96b757d0610502f5995b6edef51285bb6f8fa3352ab",
+      "screenshots": [
+        {
+          "file": "tc6-sounding-fancy-before.png",
+          "sha256": "73d16100e6b70032e24fa97fd3161cb9c37413bc8459d21c180454802c9ff2a6",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fancy-active-early.png",
+          "sha256": "513b71612611fa70a7ab94ed2c88a9b5b0e1e6ebfb5ae65a5a6571194c3a01e2",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fancy-active-late.png",
+          "sha256": "51976fc0853e831a1038d096b82008c8764f41835dfe65fa162b8b6a99e70dd5",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fancy-after.png",
+          "sha256": "d4c035beef6a67391814ad5aead203db69655003f6f8f5bc264430224c91ca44",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-before.png",
+          "sha256": "5e42c3dff289b7b977d143a5aad61b6381c99b482cd25cc9824f71a996ee17f1",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-active-early.png",
+          "sha256": "c0d55fb1f708d086547dd6ffa07fd8d26d4664b8a2fbb75828957b1b99655ae7",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-active-late.png",
+          "sha256": "5ccd4c3921bbfc3ac1a5b6f61155d8c0b4683d57acdaa1905fd71b93b7d712d5",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-after.png",
+          "sha256": "1a253531e046d11b5b80394a40ea8c64975906151ceff474e396200ae50b35b6",
+          "result": "pass"
+        }
+      ],
+      "findings": [
+        "Actually viewed all eight original1600x1000 native screenshots and both complete sheets.",
+        "Three ore signals appear through intact opaque stone in Fancy and Fabulous; static before/expired views show the closed wall.",
+        "Colored/dark rings follow the original animation; scene captions remain outside native gameplay pixels."
+      ],
+      "limits": [
+        "Prepared raw-rank1 tool, opaque wall and matched camera are visual-regression fixtures, not paid survival progression.",
+        "Single animation frames and two graphics modes do not prove arbitrary shader packs, every camera angle, multiplayer or audio.",
+        "Excluded emerald is outside the frame and its range exclusion is checked by native group facts rather than image pixels."
+      ],
+      "contactSheet": {
+        "file": "sounding-0.40.1-client2-review-sheet.png",
+        "sha256": "de0ee2f73ae1a59f92a5591d37dfa2958d4470e23fc4f8bd3341dc393ed7e6c7",
+        "result": "pass"
+      },
+      "preview": {
+        "file": "sounding-0.40.1-client2-preview.png",
+        "sha256": "a2fbee4538f9edb0b826a43d92a315786783512c5ace32cfbe8117f285d424fa",
+        "result": "pass"
+      }
+    },
+    {
+      "result": "pass",
+      "reviewer": "sounding_original_audit independent agent",
+      "clientRunTag": "sounding-0401-client2",
+      "clientLogSha256": "859252a6638ce9bbf101e96b757d0610502f5995b6edef51285bb6f8fa3352ab",
+      "contactSheet": {
+        "file": "sounding-0.40.1-client2-review-sheet.png",
+        "sha256": "de0ee2f73ae1a59f92a5591d37dfa2958d4470e23fc4f8bd3341dc393ed7e6c7",
+        "result": "pass"
+      },
+      "preview": {
+        "file": "sounding-0.40.1-client2-preview.png",
+        "sha256": "a2fbee4538f9edb0b826a43d92a315786783512c5ace32cfbe8117f285d424fa",
+        "result": "pass"
+      },
+      "screenshots": [
+        {
+          "file": "tc6-sounding-fancy-before.png",
+          "sha256": "73d16100e6b70032e24fa97fd3161cb9c37413bc8459d21c180454802c9ff2a6",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fancy-active-early.png",
+          "sha256": "513b71612611fa70a7ab94ed2c88a9b5b0e1e6ebfb5ae65a5a6571194c3a01e2",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fancy-active-late.png",
+          "sha256": "51976fc0853e831a1038d096b82008c8764f41835dfe65fa162b8b6a99e70dd5",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fancy-after.png",
+          "sha256": "d4c035beef6a67391814ad5aead203db69655003f6f8f5bc264430224c91ca44",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-before.png",
+          "sha256": "5e42c3dff289b7b977d143a5aad61b6381c99b482cd25cc9824f71a996ee17f1",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-active-early.png",
+          "sha256": "c0d55fb1f708d086547dd6ffa07fd8d26d4664b8a2fbb75828957b1b99655ae7",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-active-late.png",
+          "sha256": "5ccd4c3921bbfc3ac1a5b6f61155d8c0b4683d57acdaa1905fd71b93b7d712d5",
+          "result": "pass"
+        },
+        {
+          "file": "tc6-sounding-fabulous-after.png",
+          "sha256": "1a253531e046d11b5b80394a40ea8c64975906151ceff474e396200ae50b35b6",
+          "result": "pass"
+        }
+      ],
+      "actualReviewMethod": "Actually viewed all eight original1600x1000 native PNG via view_image(detail original), plus original1445x2049 full contact sheet and1445x1063 compact preview. Full sheet was reopened with explicit original emission after an automatic display resize. No inferred image review from counters or hashes.",
+      "findings": [
+        "Fancy and Fabulous before/after views show the unchanged opaque stone wall without ore indicators.",
+        "Early native frames show the cyan diamond ring clearly through the wall; coal and iron are small original atlas-phase fragments at their separate projected positions.",
+        "Late native frames show clear dark coal rings on the left and light warm iron rings on the right through the same opaque wall. The central cyan fragments are a different original animation phase, rather than disappearance due to depth occlusion.",
+        "Ring positions agree across Fancy and Fabulous; all three native ore-group regions have actual visible pixel changes. No missing textures, developer labels or overlaid synthetic gameplay annotations observed.",
+        "Both contact sheets preserve uncropped full frames, with captions outside native pixels; text remains readable and the before/active/after sequence is clear."
+      ],
+      "limits": [
+        "Prepared raw rank1 infused tool, static wall and matched camera; not a repeated paid research/altar route or full survival progression.",
+        "One camera and terrain fixture in standard Fancy/Fabulous only; no Fast graphics, third-party shader-pack, multiplayer, audio or every-angle claim.",
+        "Outside-range emerald is outside the camera view; exclusion is established by native three-group facts, not a screenshot pixel claim.",
+        "Two static active phases demonstrate the relevant original atlas animation and through-terrain visibility, not a frame-by-frame visual parity proof for all44 ticks against a launched1.12.2 client."
+      ]
+    }
+  ],
+  "localJsonCount": 2882,
+  "jarResourceByteParityChecks": 3720,
+  "originalMediaByteParity": {
+    ".ogg": 60,
+    ".png": 674,
+    ".jpg": 7
+  },
+  "buildLog": {
+    "file": "build-0.40.1-final.log",
+    "bytes": 1212,
+    "sha256": "6e36dc85d9cef7cd5391e00e39ffa16d90b5d13a632b4048866d574f9b92fd35"
+  },
+  "resourceLog": {
+    "file": "resources-0.40.1-final.log",
+    "bytes": 188,
+    "sha256": "b5413b98fd30889c932d813f51960605a5e5d8452ab945c015884c7ce85cc4ec"
+  },
+  "executedSourceSnapshots": [
+    {
+      "file": "sounding-0401-server2-sources.json",
+      "bytes": 647348,
+      "sha256": "89226f1bc902bbc5f938666ae24c342ae37dcfff7c40f55157a9d0d35f9e3715"
+    },
+    {
+      "file": "sounding-0401-client2-sources.json",
+      "bytes": 647348,
+      "sha256": "89226f1bc902bbc5f938666ae24c342ae37dcfff7c40f55157a9d0d35f9e3715"
+    },
+    {
+      "file": "sounding-0401-build-sources.json",
+      "bytes": 647348,
+      "sha256": "89226f1bc902bbc5f938666ae24c342ae37dcfff7c40f55157a9d0d35f9e3715"
+    }
+  ],
+  "serverSourceFreshness": {
+    "allSourceResourceHelperFingerprintsMatch": true,
+    "allServerRelevantFingerprintsMatch": true,
+    "fileCount": 4492,
+    "finalClientBuildAllFingerprintsMatch": true,
+    "clientOnlyExceptions": []
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.40.1.jar",
+      "bytes": 12426483,
+      "sha256": "05569d35d0eb53b5de13379e4bf6dc19199f0389d526643a8e59e8eb60fab007"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.40.1-mods.zip",
+      "bytes": 11859677,
+      "sha256": "72b7a092bbde71ba4e4595b2cf1ac0f35bb63c92e26f3d578c48c67305d30936"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.40.1-screenshots.zip",
+      "bytes": 1342869,
+      "sha256": "b616d1d666f0fafa708518d999d30129386c30af83058a75e2ae73cdbc141983"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.40.1-preview.png",
+      "bytes": 434052,
+      "sha256": "a2fbee4538f9edb0b826a43d92a315786783512c5ace32cfbe8117f285d424fa"
+    }
+  ],
+  "terraBlender": {
+    "file": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "bytes": 107535,
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "curios": {
+    "file": "curios-forge-5.14.1+1.20.1.jar",
+    "bytes": 398066,
+    "sha256": "6d77ae8ad532fdf303390f404b0081b3b4ac4f61e7f1f4b4d4a9077e132dae4f"
+  },
+  "changedSources": [
+    {
+      "file": "build.gradle",
+      "sha256": "f9a549f312b9aeb7f62a4cfa7020eed95e99141b0ac404dd2d4d9f8954dd7e88"
+    },
+    {
+      "file": "scripts/run_client_smoke_isolated.ps1",
+      "sha256": "9c465a5c8f765be0700b83bc7b85898b274fad7d935e48deda48ebb170788744"
+    },
+    {
+      "file": "scripts/windows-desktop/capture-javaexec.init.gradle",
+      "sha256": "4a2cd2a66f19b1b811903a8ace23d1f4029bffdd037ffb757dd8b03b37ab1f14"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/tools/ToolRenderTypes.java",
+      "sha256": "8afd1e8c9c6948052aa06ae864c9ab50b3f689e7338997005b4082647bcda635"
+    },
+    {
+      "file": "src/main/java/thaumcraft/equipment/tools/client/SoundingClientSmokeTest.java",
+      "sha256": "6248e8b951ee5c99b5fafaafb648b3a0ccc4e83df9887c9b661c545b2ac83702"
+    },
+    {
+      "file": "src/main/java/thaumcraft/research/InfusionUpgradesProgressionGameTests.java",
+      "sha256": "9b4e1c4409b1b87d1a6bfd4e90ce08315a196e021a808801170cdd5dc5b2465a"
+    },
+    {
+      "file": "src/main/resources/META-INF/mods.toml",
+      "sha256": "1504237f5dad35f18055eea7dc3643ba86f0742f749241608ff32785080d8b43"
+    }
+  ],
+  "earlierTargetedEvidence": [
+    {
+      "file": "sounding-0401-gametest1.log",
+      "bytes": 832649,
+      "sha256": "bdb506baf27664b4f3f41ea4b5c49d8df60b97a7270637ec07128de56e1d89b9"
+    },
+    {
+      "file": "sounding-0401-server1-run.json",
+      "bytes": 466,
+      "sha256": "abb0e5552f33811e5ceef93b9ca232c5de30e2d199441133e5409ea55a0d7954"
+    },
+    {
+      "file": "sounding-client-sounding-0401-client1-client.log",
+      "bytes": 31298,
+      "sha256": "45509dd054459ffea15b2034e2e38867b85690e87845dbeea2f7a87639d9cacd"
+    },
+    {
+      "file": "sounding-0401-client1-state.json",
+      "bytes": 3671,
+      "sha256": "3655d586069315ddc27e7f2a0ec9956c552232f54599189b2c11eaec8156b30c"
+    }
+  ],
+  "earlierServerRuns": [
+    {
+      "runTag": "sounding-0401-server1",
+      "result": "failed earlier native server run; not a final pass",
+      "run": {
+        "gradleExitCode": 1,
+        "failedRequiredTests": 1,
+        "nativeExitCode": 1,
+        "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-sounding-0401-server1",
+        "run": "sounding-0401-server1",
+        "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+        "requiredTestCount": 1673
+      },
+      "runEvidence": {
+        "file": "sounding-0401-server1-run.json",
+        "bytes": 466,
+        "sha256": "abb0e5552f33811e5ceef93b9ca232c5de30e2d199441133e5409ea55a0d7954"
+      },
+      "serverLog": {
+        "file": "sounding-0401-gametest1.log",
+        "bytes": 832649,
+        "sha256": "bdb506baf27664b4f3f41ea4b5c49d8df60b97a7270637ec07128de56e1d89b9"
+      },
+      "sourceSnapshotEvidence": {
+        "file": "sounding-0401-server1-sources.json",
+        "bytes": 647348,
+        "sha256": "9d3113c01c9076c96c937a9bfdfe5742a4bfde290284d6928839bbe1ee62d6f1"
+      },
+      "failureLines": [
+        "[16:54:21] [Server thread/ERROR] [minecraft/LogTestReporter]: fournativehelmmutationspreservesamephysicalhelmandactivatealloriginalconsumers failed! Actual paid Angry mask did not wither attacker80ticks",
+        "[17:00:46] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :("
+      ],
+      "changedSourceHashes": [
+        {
+          "file": "src/main/java/thaumcraft/research/InfusionUpgradesProgressionGameTests.java",
+          "earlierExecutedSha256": "f8681eda725d457a7e8dd9814c33f35384b97b450165dc1d9a1b19a811a2d195",
+          "finalExecutedSha256": "9b4e1c4409b1b87d1a6bfd4e90ce08315a196e021a808801170cdd5dc5b2465a"
+        }
+      ],
+      "scope": "Historical execution and source differences are preserved; they are not final-server freshness exceptions or evidence that production mechanics changed."
+    }
+  ],
+  "presentationSupersededClientRuns": [
+    {
+      "stateEvidence": {
+        "file": "sounding-0401-client1-state.json",
+        "bytes": 3671,
+        "sha256": "3655d586069315ddc27e7f2a0ec9956c552232f54599189b2c11eaec8156b30c"
+      },
+      "state": {
+        "runTag": "sounding-0401-client1",
+        "result": "successful native pass; presentation superseded",
+        "nativeExitCode": 0,
+        "nativePidAlreadyExited": 2276,
+        "manualStop": false,
+        "failure": false,
+        "reason": "Original frame14/13 ore-atlas phases show coal/iron fragments; final client2 uses a different ordinary capture phase for clearer presentation. No gameplay effect or production timing changed.",
+        "clientLog": {
+          "file": "sounding-client-sounding-0401-client1-client.log",
+          "bytes": 31298,
+          "sha256": "45509dd054459ffea15b2034e2e38867b85690e87845dbeea2f7a87639d9cacd"
+        },
+        "runEvidence": {
+          "file": "sounding-client-sounding-0401-client1-run.json",
+          "bytes": 1736,
+          "sha256": "cacb3bd9ba40b618691e967a12a427145101fe17551e07c157ff2c41451441fa"
+        },
+        "desktopEvidence": {
+          "file": "sounding-client-sounding-0401-client1-desktop.json",
+          "bytes": 451,
+          "sha256": "3fdd24ed718ea57d65b495f9ece2eba06eea786bf949c13886734cc495dde673"
+        },
+        "sourceSnapshot": "sounding-0401-client1-sources.json",
+        "sourceSnapshotEvidence": {
+          "file": "sounding-0401-client1-sources.json",
+          "bytes": 647348,
+          "sha256": "dfaa918dd4614d7f6bb3831f3cf87a91af81001a1ba744c64916f667a67a582b"
+        },
+        "executedDriverSha256": "baf40d35bd263f375332f117e8a13e5a2c9e265528b042f96b98556dbc1455e4",
+        "actualNativeScreenshotCount": 8,
+        "archivedScreenshotDirectory": "sounding-0401-client1-screenshots",
+        "archivedNativeScreenshots": [
+          {
+            "file": "tc6-sounding-fancy-before.png",
+            "bytes": 238465,
+            "sha256": "ddc55aacba8c11bd88950604cc1b2928a551f3357bc0e7abbdbe441b9f4ad811"
+          },
+          {
+            "file": "tc6-sounding-fancy-active-early.png",
+            "bytes": 211266,
+            "sha256": "1eafa054487bd5ad104e2bc21f4b422f0aab99e86f2e48343767fb4341e1fa1b"
+          },
+          {
+            "file": "tc6-sounding-fancy-active-late.png",
+            "bytes": 200097,
+            "sha256": "5af6c80cdc40b2a8e2c488fd6651d29dfee346fa927ee51f03b2604c20004c8d"
+          },
+          {
+            "file": "tc6-sounding-fancy-after.png",
+            "bytes": 178608,
+            "sha256": "6b2bd3596924414fd006be4d86e82bb5d86e4f81c220a65644a3a005eb043130"
+          },
+          {
+            "file": "tc6-sounding-fabulous-before.png",
+            "bytes": 160201,
+            "sha256": "6777192aaf44c6ec0fd03a5530967b28e6653d7be00b880ddb3dab2e8c6fee52"
+          },
+          {
+            "file": "tc6-sounding-fabulous-active-early.png",
+            "bytes": 151138,
+            "sha256": "613387fb37ee2bbbd6eebb90462b017ec2f350700beb0c50d7b989c589cb86d5"
+          },
+          {
+            "file": "tc6-sounding-fabulous-active-late.png",
+            "bytes": 145926,
+            "sha256": "db6ea0af3e1e5f45a961645e217c95c4b9120ac9421286814e3290c6bcb0d90f"
+          },
+          {
+            "file": "tc6-sounding-fabulous-after.png",
+            "bytes": 137113,
+            "sha256": "dde047b43e0993303c579c22b5a67a3e02ab87808ea0fa31f2bcfece684ec19b"
+          }
+        ],
+        "originalAnalysisAndSheets": [
+          {
+            "file": "sounding-0.40.1-pixel-analysis.json",
+            "bytes": 14761,
+            "sha256": "0098e958c5dc1eecd0606bd87eabb565eb200b6686dabe29061c051f9d1480f1"
+          },
+          {
+            "file": "sounding-0.40.1-review-sheet.png",
+            "bytes": 879682,
+            "sha256": "1c2fa9d6d0f1b6b101f63631f5d1ac11534321e5f391fc7ce1ed877f487a16fc"
+          },
+          {
+            "file": "sounding-0.40.1-preview.png",
+            "bytes": 438873,
+            "sha256": "b4f19b8dd51d8be32bc304ecd5d4ddbd27e3af98458c07fe3f51a60ccca82202"
+          }
+        ],
+        "archiveAction": "All eight copied and byte-verified before unlinking only the eight exact logged PNG under run/sounding-smoke/screenshots. Already-exited PID checked twice; no stop, desktop switch or input action."
+      },
+      "scope": "Successful native8 pass retained; final presentation uses a later naturally captured atlas phase, not a gameplay repair or failed/stopped run"
+    }
+  ],
+  "historical040Report": {
+    "file": "artifact-report-0.40.json",
+    "bytes": 115279,
+    "sha256": "43a587fb84e89705d5bc394ea9010f03905401283856d07aacdf390a56197edf"
+  },
+  "historical040VisualLimitation": "The old Sounding age/delay check passed effect creation without proving visible pixels; its visual review was a false positive for through-terrain behavior. Other original0.40 actions retain their own report scope.",
+  "fixtures": [
+    "Raw rank1 infused vanilla pick; not a paid research/altar progression route",
+    "Static opaque wall, three buried ore groups, excluded rank1 control and matched camera",
+    "Fancy/Fabulous selected in owned hidden QA world; no injected effect, age or render state"
+  ],
+  "limitations": [
+    "Native development client, not a standalone production installation launch",
+    "No fresh claim of fourteen paid altar routes, full survival, multiplayer, arbitrary shader packs, audio or full WarpEvents",
+    "ROI differences prove actual framebuffer changes in matched static views, with visual review required for ore-ring identity.",
+    "Three hidden ore groups per Fancy/Fabulous mode; excluded rank1 emerald is outside the image and checked only by native three-group facts.",
+    "Raw infused tool and controlled opaque-wall/camera fixture; no paid progression route, arbitrary shader-pack, audio or multiplayer claim."
+  ]
+}

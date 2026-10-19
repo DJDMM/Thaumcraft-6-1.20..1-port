@@ -1,3 +1,81 @@
+# Исправление отрисовки Сонара0.40.1
+
+Дата: **2026-10-19**. TC6.1.BETA26 / Minecraft1.20.1 / Forge47.4.10 / Java17.
+
+Пользователь обнаружил верную проблему на снимке0.40: сигнала за камнем
+не было. Прежний `visibleRipples()` проверял только возраст/задержку
+объектов эффекта. Визуальный просмотр не выявил дефект, поэтому его вывод
+о корректной видимости Сонара был ошибочным. Сами старые журналы/снимки
+сохранены; успешные оплаты и остальные действия остаются в своём исходном
+объёме проверки. Новый отчёт не объявляет повторное полное прохождение0.40.
+
+Причина установлена по точному Forge47.4.10 bytecode: `NO_DEPTH_TEST`
+приGL_ALWAYS519 ничего не меняет, а ParticleEngine включает depth перед
+AFTER_PARTICLES. Теперь оба исходных слоя имеют собственный shard с явными
+disable/enable; атлас, группировка, цвета, дальность и время жизни прежние.
+[Технический аудит](docs/tc6/SOUNDING-DEPTH-BETA26-AUDIT.md).
+
+Свежий `sounding-0401-server2` прошёл1673/1673, native0/Gradle0. Целевой клиент
+`sounding-0401-client2` прошёл8/8, native0, PID28020,
+16 собственных скрытых окон,
+входной столDefault→Default.
+Все8полных1600×1000PNG и оба листа просмотрены двумя проверяющими.
+
+В каждом режиме Fancy/Fabulous настоящий Shift+ПКМ по сплошной стене
+создаёт три S2C-группы скрытой угольной, алмазной и железной руды. Два
+действия оплачивают ровно10прочности. Подготовлены сырой зачарованный
+инструмент, неподвижная камера и стена; это не повтор платной прогрессии.
+Кадры до/после не содержат эффекта; активные кадры дают реальное изменение
+пикселей в проекциях всех трёх скрытых групп:
+
+- fancy-coal: 2913 изменённых пикселей; контроль до/после 0.
+- fancy-diamond: 3419 изменённых пикселей; контроль до/после 0.
+- fancy-iron: 4486 изменённых пикселей; контроль до/после 0.
+- fabulous-coal: 3216 изменённых пикселей; контроль до/после 0.
+- fabulous-diamond: 3419 изменённых пикселей; контроль до/после 0.
+- fabulous-iron: 4486 изменённых пикселей; контроль до/после 0.
+
+Это сравнение настоящих PNG, без перерисовки игровых пикселей. Уголь имеет
+исходный тёмный alpha-сигнал, две другие группы — additive. Контрольная
+изумрудная руда вне кубаrank1 исключена по фактическому числу групп;
+она вне кадра, поэтому её исключение не выдаётся за пиксельную проверку.
+Произвольные шейдерпаки, независимый multiplayer, звук, production launch
+и полный survival не проверялись. Полные события искажения ещё не перенесены.
+
+Native markers:
+
+- `[17:03:06] [Server thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_FIXTURES: isolatedSurvivalWorld/rawRank1DiamondPick/opaqueStoneWallX-12to12Y112to120Z-6to0/cameraPlayer0.5,112,4.5Yaw180Pitch0Fov80/click0,113,0/rank1Cube8/coalCenter-4,114.5,-1.5/diamondCenter0.5,115,-1.5/ironCenter5,114.5,-1.5/excludedEmerald9,114,-2/noActiveEffectClockOrRenderFlagInjection/notPaidProgression`
+- `[17:03:07] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_BEFORE: graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 fov=80 solidWall=true nativeRipples0 damage=0`
+- `[17:03:07] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-before.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=0 ripples=[]`
+- `[17:03:07] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fancy-before.png`
+- `[17:03:09] [Server thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_USE: mode=FANCY/rawRank1VanillaDiamondPickaxe/actualSneakUseC2S/one5Durability/nativeS2C3Groups/coalAlpha1/additive2/noTerrainMutation/noInjectedRipples`
+- `[17:03:09] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-active-early.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=14], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=22], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=14]]`
+- `[17:03:09] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fancy-active-early.png`
+- `[17:03:09] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-active-late.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=19], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=27], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=19]]`
+- `[17:03:09] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fancy-active-late.png`
+- `[17:03:11] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fancy-after.png graphics=fancy camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[]`
+- `[17:03:11] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fancy-after.png`
+- `[17:03:13] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_BEFORE: graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 fov=80 solidWall=true nativeRipples0 damage=5`
+- `[17:03:13] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-before.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=5 ripples=[]`
+- `[17:03:13] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fabulous-before.png`
+- `[17:03:14] [Server thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_USE: mode=FABULOUS/rawRank1VanillaDiamondPickaxe/actualSneakUseC2S/one5Durability/nativeS2C3Groups/coalAlpha1/additive2/noTerrainMutation/noInjectedRipples`
+- `[17:03:14] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-active-early.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=10 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=14], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=22], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=14]]`
+- `[17:03:14] [IO-Worker-17/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fabulous-active-early.png`
+- `[17:03:14] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-active-late.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=10 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=19], ReadOnlyRipple[position=(0.5, 115.0, -1.5), color=6155509, dark=false, delay=0, age=27], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=19]]`
+- `[17:03:15] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fabulous-active-late.png`
+- `[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_HEARTBEAT: scene=7 phase=0 uses=2 ripples=[ReadOnlyRipple[position=(-4.0, 114.5, -1.5), color=1052688, dark=true, delay=0, age=39], ReadOnlyRipple[position=(5.0, 114.5, -1.5), color=14200723, dark=false, delay=0, age=39]]`
+- `[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_NATIVE_FRAME: name=tc6-sounding-fabulous-after.png graphics=fabulous camera=(0.5, 113.26999998092651, 4.5) yaw=180.0 pitch=0.0 damage=10 ripples=[]`
+- `[17:03:16] [IO-Worker-16/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_IMAGE: C:\Users\user\Documents\Codex\2026-09-29\thaumcraft-1-12-2\outputs\thaumcraft-1.20.1\run\sounding-smoke\.\screenshots\tc6-sounding-fabulous-after.png`
+- `[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_RENDER_AUDIT_OK: 8 captures/FancyAndFabulous/threeNativeHiddenOreGroups/oneCoalAlphaTwoAdditive/closedWallBeforeActiveEarlyActiveLateAfter/readOnlyNativeFacts/actualPixelsRequireIndependentReview`
+- `[17:03:16] [Render thread/INFO] [th.eq.to.cl.SoundingClientSmokeTest/]: THAUMCRAFT_SOUNDING_CLIENT_SMOKE_OK: 8 captures/2actualSneakUseC2S/nativeS2C3GroupsEach/exact10Durability/noTerrainMutation/noInjectedRipples/notPaidProgression,world=thaumcraft-sounding-smoke-1792414949135`
+
+Сборка: 2882JSON, 3720ресурсных
+проверок; оригинальные674PNG/7JPG/60OGG сохранены. Версия, CRC, три JAR
+с зависимостями, SHA исходников/кадров и ранний успешный демонстрационный
+прогон1 связаны с [artifact-report0.40.1](validation/artifact-report-0.40.1.json).
+
+---
+
 # Проверка улучшений наполнением0.40.0
 
 Дата: **2026-10-18**. Minecraft1.20.1 / Forge47.4.10 / Java17.
