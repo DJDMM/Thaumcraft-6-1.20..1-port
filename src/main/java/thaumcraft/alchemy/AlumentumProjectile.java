@@ -23,8 +23,7 @@ public final class AlumentumProjectile extends ThrowableItemProjectile {
     @Override public void tick() {
         super.tick();
         if (level().isClientSide) {
-            level().addParticle(ParticleTypes.FLAME, getX(), getY(), getZ(), 0, 0.01, 0);
-            level().addParticle(ParticleTypes.SMOKE, getX(), getY(), getZ(), 0, 0.01, 0);
+            thaumcraft.fx.emitters.MachineFxPrograms.throwable(this,false);
         }
         if (!level().isClientSide && tickCount > 1200) discard();
     }

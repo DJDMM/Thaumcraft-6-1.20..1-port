@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 final class ThaumometerRenderTypes extends RenderType {
     static final RenderType SPARKLE = create("thaumcraft_scan_sparkle", DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP,
             VertexFormat.Mode.QUADS, 1024, false, true,
-            CompositeState.builder().setShaderState(RENDERTYPE_TEXT_SEE_THROUGH_SHADER)
+            CompositeState.builder().setShaderState(new ShaderStateShard(()->thaumcraft.fx.client.FxShaders.particle(true)))
                     .setTextureState(new TextureStateShard(ResourceLocation.fromNamespaceAndPath("thaumcraft", "textures/misc/particles.png"), false, false))
                     .setTransparencyState(LIGHTNING_TRANSPARENCY).setDepthTestState(LEQUAL_DEPTH_TEST)
                     .setCullState(NO_CULL).setLightmapState(LIGHTMAP).setWriteMaskState(COLOR_WRITE)

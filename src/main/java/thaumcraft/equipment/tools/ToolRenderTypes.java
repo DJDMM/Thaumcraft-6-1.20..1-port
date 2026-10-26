@@ -18,7 +18,7 @@ final class ToolRenderTypes extends RenderType {
     static final RenderType ALPHA = type("thaumcraft_ore_ripple_alpha", false);
     private static RenderType type(String name, boolean additive) {
         return create(name, DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP, VertexFormat.Mode.QUADS, 4096, false, true,
-                CompositeState.builder().setShaderState(RENDERTYPE_TEXT_SEE_THROUGH_SHADER)
+                CompositeState.builder().setShaderState(new ShaderStateShard(()->thaumcraft.fx.client.FxShaders.particle(additive)))
                         .setTextureState(new TextureStateShard(ATLAS, false, false))
                         .setTransparencyState(additive ? LIGHTNING_TRANSPARENCY : TRANSLUCENT_TRANSPARENCY)
                         .setDepthTestState(THROUGH_TERRAIN).setCullState(NO_CULL).setLightmapState(LIGHTMAP)

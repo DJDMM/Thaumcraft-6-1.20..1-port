@@ -58,6 +58,7 @@ public final class CrucibleBlockEntity extends BlockEntity {
     public void empty() {
         discardContents();
         changed();
+        if(level instanceof ServerLevel)level.blockEvent(worldPosition,getBlockState().getBlock(),2,5);
     }
     public void discardContents() {
         if (level instanceof ServerLevel server) AuraManager.addFlux(server, worldPosition, aspects.visSize() * 0.25F + aspects.getAmount(Aspect.FLUX) * 0.75F);
@@ -84,14 +85,17 @@ public final class CrucibleBlockEntity extends BlockEntity {
             if (!server.addFreshEntity(result)) return false;
             aspects.remove(recipe.cost()); water = Math.max(0, water - 50); input.shrink(1); idle = -250;
             ResearchEvents.recordCraft(player, recipe.output());
+            server.blockEvent(worldPosition,getBlockState().getBlock(),99,0);
         } else {
             AspectList dissolved = AspectRegistry.getAspects(input);
             if (dissolved == null || dissolved.visSize() <= 0) return false;
             aspects.add(dissolved); input.shrink(1); idle = -150;
+            server.blockEvent(worldPosition,getBlockState().getBlock(),2,1);
         }
         changed(); return true;
     }
     public static void tick(Level level, BlockPos pos, BlockState state, CrucibleBlockEntity crucible) {
+        if(level.isClientSide){thaumcraft.fx.emitters.MachineFxPrograms.crucibleTick(level,pos,crucible.water,crucible.heat,crucible.aspects);return;}
         if (!(level instanceof ServerLevel server)) return;
         BlockState below = level.getBlockState(pos.below());
         boolean hot = below.is(Blocks.LAVA) || below.is(Blocks.FIRE) || below.is(Blocks.SOUL_FIRE) || below.is(Blocks.MAGMA_BLOCK) || below.is(AlchemyModule.NITOR.get());
@@ -132,6 +136,15 @@ public final class CrucibleBlockEntity extends BlockEntity {
         super.load(tag); water = Math.max(0, Math.min(1000, tag.getInt("Water"))); heat = Math.max(0, Math.min(200, tag.getInt("Heat"))); idle = tag.getInt("Idle"); aspects.readFromNBT(tag);
     }
     @Override public CompoundTag getUpdateTag() { return saveWithoutMetadata(); }
+    @Override public boolean triggerEvent(int id,int data){
+        if(id!=99&&id!=1&&id!=2)return super.triggerEvent(id,data);
+        if(level!=null&&level.isClientSide){
+            if(id==2)for(int i=0;i<10;i++)thaumcraft.fx.emitters.MachineFxPrograms.boil(level,worldPosition,water,aspects,data);
+            else thaumcraft.fx.FxDispatcher.emit(level,"bamf",new net.minecraft.world.phys.Vec3(worldPosition.getX()+.5,worldPosition.getY()+(id==99?1.25:1.5),worldPosition.getZ()+.5),
+                    new net.minecraft.world.phys.Vec3(0,1,0),0x801A99,1,3);
+        }
+        return true;
+    }
     @Override public ClientboundBlockEntityDataPacket getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
     @Override public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction side) {
         return capability == ForgeCapabilities.FLUID_HANDLER ? fluid.cast() : super.getCapability(capability, side);

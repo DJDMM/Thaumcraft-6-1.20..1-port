@@ -111,7 +111,7 @@ public final class FocusCasting {
     public static boolean applyFire(ServerLevel level, ServerPlayer caster, HitResult target, int power, int duration,float finalPower) {
         if (!Float.isFinite(finalPower)||finalPower<=0||finalPower>16||!level.getServer().isSameThread() || power < 1 || power > 5 || duration < 0 || duration > 5) return false;
         Vec3 point = target.getLocation();
-        level.sendParticles(ParticleTypes.FLAME, point.x, point.y, point.z, 12, .15, .15, .15, .04);
+        thaumcraft.fx.emitters.FocusFxPrograms.impact(level,point,thaumcraft.auromancy.focus.FocusNodeRegistry.FIRE);
         if (target instanceof EntityHitResult entityHit) {
             Entity entity = entityHit.getEntity();
             if (entity.fireImmune()) return false;

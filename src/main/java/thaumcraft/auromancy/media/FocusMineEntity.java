@@ -16,11 +16,13 @@ import thaumcraft.auromancy.focus.FocusPlan;
 /** Gravity-placed mine: forty armed ticks, friendly/hostile cube, one delayed paid detonation. */
 public final class FocusMineEntity extends net.minecraft.world.entity.projectile.Projectile {
     private static final EntityDataAccessor<Boolean> ARMED=SynchedEntityData.defineId(FocusMineEntity.class,EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<String> EFFECTS=SynchedEntityData.defineId(FocusMineEntity.class,EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Integer> COUNTER=SynchedEntityData.defineId(FocusMineEntity.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> COLOR=SynchedEntityData.defineId(FocusMineEntity.class,EntityDataSerializers.INT);
     private PaidFocusContinuation continuation;private boolean friendly;
     public FocusMineEntity(EntityType<? extends FocusMineEntity> type,Level level){super(type,level);}
-    @Override protected void defineSynchedData(){entityData.define(ARMED,false);entityData.define(COUNTER,40);entityData.define(COLOR,0xFFFFFFFF);}
+    @Override protected void defineSynchedData(){entityData.define(ARMED,false);entityData.define(COUNTER,40);entityData.define(COLOR,0xFFFFFFFF);entityData.define(EFFECTS,"");}
+    public String visualEffects(){return entityData.get(EFFECTS);}
     public boolean armed(){return entityData.get(ARMED);}public int counter(){return entityData.get(COUNTER);}public int color(){return entityData.get(COLOR);}
     public boolean friendly(){return friendly;}public FocusPlan paidPlan(){return continuation==null?null:continuation.plan;}
     public boolean bindOwner(ServerPlayer caster){return continuation!=null&&continuation.bind(caster);}
@@ -32,11 +34,13 @@ public final class FocusMineEntity extends net.minecraft.world.entity.projectile
         var entity=FocusMediaModule.MINE.get().create(caster.serverLevel());if(entity==null)return false;
         entity.continuation=new PaidFocusContinuation(caster,plan,index,power,ordinal);entity.friendly=friendly;entity.setOwner(caster);entity.setPos(source);
         entity.entityData.set(COLOR,plan.color());entity.setDeltaMovement(Vec3.ZERO);
+        entity.entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(plan));
         return caster.serverLevel().addFreshEntity(entity);
     }
     public void arm(){entityData.set(ARMED,true);}
     @Override public void tick(){
         super.tick();
+        if(level().isClientSide)thaumcraft.fx.emitters.FocusMediaFx.mine(this,visualEffects(),armed(),counter());
         ServerLevel server=level() instanceof ServerLevel s?s:null;
         if(server!=null&&(continuation==null||continuation.caster(server)==null||tickCount>1200||!PaidFocusContinuation.loaded(server,position()))){discard();return;}
         {
@@ -87,6 +91,7 @@ public final class FocusMineEntity extends net.minecraft.world.entity.projectile
         continuation=paid;this.friendly=friendly;tickCount=age;entityData.set(ARMED,tag.getBoolean("Armed"));
         // Original BETA26 deliberately makes a saved armed mine immediately live after reload.
         entityData.set(COUNTER,armed()?0:40);entityData.set(COLOR,paid.plan.color());
+        entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(paid.plan));
     }
     @Override public Packet<ClientGamePacketListener> getAddEntityPacket(){return NetworkHooks.getEntitySpawningPacket(this);}
 }

@@ -69,9 +69,7 @@ public final class AdvancedFocusEffects {
     }
 
     private static void particles(ServerLevel level, Vec3 point, String key) {
-        var particle = new DustParticleOptions(FLUX.equals(key) ? new Vector3f(.5F, 0, .5F) : new Vector3f(1, 1, 1), 1);
-        for (ServerPlayer player : level.players()) if (player.distanceToSqr(point) <= 64 * 64)
-            level.sendParticles(player, particle, true, point.x, point.y, point.z, 12, .15, .15, .15, .04);
+        thaumcraft.fx.emitters.FocusFxPrograms.impact(level,point,key);
     }
 
     public static void playCastSound(ServerLevel level, ServerPlayer caster, String key) {

@@ -21,10 +21,12 @@ import java.util.Comparator;
 /** Original manual bat flight and five one-health paid attacks, not a visual/NoAI catalogue mob. */
 public final class SpellBatEntity extends FlyingMob {
     private static final EntityDataAccessor<Boolean> FRIENDLY=SynchedEntityData.defineId(SpellBatEntity.class,EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<String> EFFECTS=SynchedEntityData.defineId(SpellBatEntity.class,EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Integer> COLOR=SynchedEntityData.defineId(SpellBatEntity.class,EntityDataSerializers.INT);
     private PaidFocusContinuation continuation;private int attackTime;private BlockPos flightTarget;
     public SpellBatEntity(EntityType<? extends SpellBatEntity> type,Level level){super(type,level);setNoGravity(true);setPersistenceRequired();}
-    @Override protected void defineSynchedData(){super.defineSynchedData();entityData.define(FRIENDLY,false);entityData.define(COLOR,0xFFFFFFFF);}
+    @Override protected void defineSynchedData(){super.defineSynchedData();entityData.define(FRIENDLY,false);entityData.define(COLOR,0xFFFFFFFF);entityData.define(EFFECTS,"");}
+    public String visualEffects(){return entityData.get(EFFECTS);}
     public boolean friendly(){return entityData.get(FRIENDLY);}public int color(){return entityData.get(COLOR);}public int attackTime(){return attackTime;}
     public FocusPlan paidPlan(){return continuation==null?null:continuation.plan;}
     public boolean bindOwner(ServerPlayer caster){return continuation!=null&&continuation.bind(caster);}
@@ -36,11 +38,13 @@ public final class SpellBatEntity extends FlyingMob {
         if((PaidFocusContinuation.medium(plan,index,"thaumcraft.SPELLBAT").settings().get("target")==1)!=friendly)return false;
         var entity=FocusMediaModule.SPELL_BAT.get().create(caster.serverLevel());if(entity==null)return false;
         entity.continuation=new PaidFocusContinuation(caster,plan,index,power,ordinal);entity.entityData.set(FRIENDLY,friendly);entity.entityData.set(COLOR,plan.color());
+        entity.entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(plan));
         entity.setPos(source);entity.setHealth(5);return caster.serverLevel().addFreshEntity(entity);
     }
     @Override public void tick(){
         if(!level().isClientSide&&(continuation==null||owner()==null||tickCount>600||!PaidFocusContinuation.loaded((ServerLevel)level(),position()))){discard();return;}
         super.tick();setDeltaMovement(getDeltaMovement().multiply(1,.6000000238418579,1));
+        if(level().isClientSide)thaumcraft.fx.emitters.FocusMediaFx.bat(this,visualEffects());
     }
     @Override protected void registerGoals(){} // BETA26 bat has custom updateAITasks, no vanilla hostile/pathfinding goals.
     @Override protected void customServerAiStep(){
@@ -96,6 +100,7 @@ public final class SpellBatEntity extends FlyingMob {
         var paid=PaidFocusContinuation.read(tag.getCompound("Paid"),"thaumcraft.SPELLBAT");if(paid==null)return;
         boolean friendly=tag.getBoolean("Friendly");if((PaidFocusContinuation.medium(paid.plan,paid.nextIndex,"thaumcraft.SPELLBAT").settings().get("target")==1)!=friendly)return;
         continuation=paid;tickCount=age;entityData.set(FRIENDLY,friendly);entityData.set(COLOR,paid.plan.color());
+        entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(paid.plan));
     }
     @Override public Packet<ClientGamePacketListener> getAddEntityPacket(){return NetworkHooks.getEntitySpawningPacket(this);}
 }

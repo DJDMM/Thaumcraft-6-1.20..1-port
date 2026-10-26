@@ -20,6 +20,7 @@ import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -70,6 +71,33 @@ public final class TaintSeedGameTests {
     // Entity.tick directly leaves the original20/1200tick boundaries unvisited.
     private static void nativeTick(Entity entity) { ((ServerLevel)entity.level()).tickNonPassenger(entity); }
     private static void pulse(TaintSeedEntity seed) { seed.tickCount = 19; nativeTick(seed); }
+    private record BodyCell(BlockState state, CompoundTag blockEntityData) {}
+    private static void clearBody(GameTestHelper h, Entity entity, Map<BlockPos,BodyCell> saved) {
+        // Relative Y180 is absolute Y120 on the native GameTest grid, which can
+        // still be underground. Prepare only the occupied body/eye cells: native
+        // LivingEntity suffocation must not contaminate the boost/lifetime trial.
+        AABB bounds=entity.getBoundingBox();
+        for(BlockPos cursor:BlockPos.betweenClosed(BlockPos.containing(bounds.minX,bounds.minY,bounds.minZ),
+                BlockPos.containing(Math.nextDown(bounds.maxX),Math.nextDown(bounds.maxY),Math.nextDown(bounds.maxZ)))) {
+            BlockPos pos=cursor.immutable();var tile=h.getLevel().getBlockEntity(pos);
+            saved.put(pos,new BodyCell(h.getLevel().getBlockState(pos),tile==null?null:tile.saveWithFullMetadata()));
+        }
+        for(BlockPos pos:saved.keySet()) {
+            net.minecraft.world.Clearable.tryClear(h.getLevel().getBlockEntity(pos));
+            h.getLevel().setBlockAndUpdate(pos,Blocks.AIR.defaultBlockState());
+        }
+        h.assertTrue(h.getLevel().noCollision(entity)&&!entity.isInWall(),"Native body/eye fixture remains obstructed: "+bounds);
+    }
+    private static void restoreBody(GameTestHelper h, Map<BlockPos,BodyCell> saved) {
+        saved.forEach((pos,cell)->h.getLevel().setBlockAndUpdate(pos,cell.state()));
+        saved.forEach((pos,cell)->{
+            if(cell.blockEntityData()!=null) {
+                var tile=h.getLevel().getBlockEntity(pos);
+                if(tile==null)throw new IllegalStateException("Cannot restore fixture block entity at "+pos);
+                tile.load(cell.blockEntityData());tile.setChanged();
+            }
+        });
+    }
     private static Set<BlockPos> positions(GameTestHelper h) {
         try {
             var field = TaintHelper.class.getDeclaredField("SEEDS"); field.setAccessible(true);
@@ -174,12 +202,15 @@ public final class TaintSeedGameTests {
         h.startSequence().thenWaitUntil(()->h.assertTrue(TaintedStationaryMob.loaded(h.getLevel(),bounds),"Boost fixture entity bounds are not natively loaded"))
                 .thenExecute(()->{
                     var seed=seed(h,false);seed.setBoost(2);
+                    var saved=new java.util.LinkedHashMap<BlockPos,BodyCell>();
                     try {
+                        clearBody(h,seed,saved);
                         h.assertTrue(TaintedStationaryMob.loaded(h.getLevel(),seed.getBoundingBox()),"Actual seed fixture bounds differ from ready chunks");
+                        h.assertTrue(seed.tickCount==0&&seed.getHealth()==75&&seed.invulnerableTime==0&&seed.getActiveEffects().isEmpty(),"Boost fixture is not a fresh, unharmed seed");
                         nativeTick(seed); h.assertTrue(seed.tickCount==1&&seed.getBoost()==1&&seed.getHealth()==75,"First boosted tick differs: tick="+seed.tickCount+", boost="+seed.getBoost()+", health="+seed.getHealth());
                         nativeTick(seed); h.assertTrue(seed.tickCount==2&&seed.getBoost()==0&&seed.getHealth()==75,"Second boosted tick did not consume exactly one boost");
                         nativeTick(seed); h.assertTrue(seed.tickCount==3&&seed.getBoost()==0&&seed.getHealth()==75,"Unboosted nonpulse tick changed health/boost");
-                    } finally { seed.discard(); }
+                    } finally { seed.discard();restoreBody(h,saved); }
                 }).thenSucceed();
     }
     @GameTest(template="empty") public static void boostTagRetainsOriginalNameAndValueWhileOldGalleryNoAiIsMigrated(GameTestHelper h) {
@@ -272,15 +303,26 @@ public final class TaintSeedGameTests {
             h.assertTrue(h.getLevel().getEntitiesOfClass(TaintacleSmallEntity.class,box).isEmpty(),"Ordinary terrain unexpectedly spawned a taint tentacle");
         } finally { seed.discard();target.discard();h.getLevel().setBlockAndUpdate(pos,saved);h.getLevel().setBlockAndUpdate(pos.below(),floor); }h.succeed();
     }
-    @GameTest(template="empty") public static void smallTentacleLivesTwoHundredTicksAndExpiresOnReleasedPostfixBoundary(GameTestHelper h) {
-        var tiny=tiny(h);var pos=tiny.blockPosition().below();var saved=h.getLevel().getBlockState(pos);
-        var box=tiny.getBoundingBox().inflate(2);var oldItems=h.getLevel().getEntitiesOfClass(ItemEntity.class,box).stream().map(Entity::getUUID).collect(java.util.stream.Collectors.toSet());
-        try {
-            h.getLevel().setBlockAndUpdate(pos,TaintModule.block("taint_rock").defaultBlockState());
-            for(int i=0;i<200;i++)nativeTick(tiny);
-            h.assertTrue(tiny.tickCount==200&&tiny.isAlive()&&tiny.getHealth()==5&&tiny.remainingLifetime()==0,"Tentacle expired before released lifetime--<=0 boundary");
-            nativeTick(tiny);h.assertTrue(tiny.tickCount==201&&!tiny.isAlive()&&tiny.remainingLifetime()==-1&&h.getLevel().getEntitiesOfClass(ItemEntity.class,box,e->!oldItems.contains(e.getUUID())).isEmpty(),"Tentacle failed to expire or invented death loot");
-        } finally { tiny.discard();h.getLevel().setBlockAndUpdate(pos,saved);h.getLevel().getEntitiesOfClass(ItemEntity.class,box,e->!oldItems.contains(e.getUUID())).forEach(Entity::discard); }h.succeed();
+    @GameTest(template="empty",timeoutTicks=240) public static void smallTentacleLivesTwoHundredTicksAndExpiresOnReleasedPostfixBoundary(GameTestHelper h) {
+        Vec3 origin=centre(h);
+        AABB bounds=new AABB(origin.x-.11,origin.y,origin.z-.11,origin.x+.11,origin.y+1,origin.z+.11);
+        for(int x=net.minecraft.util.Mth.floor(bounds.minX)>>4;x<=net.minecraft.util.Mth.floor(bounds.maxX)>>4;x++)
+            for(int z=net.minecraft.util.Mth.floor(bounds.minZ)>>4;z<=net.minecraft.util.Mth.floor(bounds.maxZ)>>4;z++)
+                h.getLevel().getChunk(x,z);
+        h.startSequence().thenWaitUntil(()->h.assertTrue(TaintedStationaryMob.loaded(h.getLevel(),bounds),"Lifetime fixture entity bounds are not natively loaded"))
+                .thenExecute(()->{
+                    var tiny=tiny(h);var pos=tiny.blockPosition().below();var saved=h.getLevel().getBlockState(pos);
+                    var body=new java.util.LinkedHashMap<BlockPos,BodyCell>();
+                    var box=tiny.getBoundingBox().inflate(2);var oldItems=h.getLevel().getEntitiesOfClass(ItemEntity.class,box).stream().map(Entity::getUUID).collect(java.util.stream.Collectors.toSet());
+                    try {
+                        clearBody(h,tiny,body);
+                        h.getLevel().setBlockAndUpdate(pos,TaintModule.block("taint_rock").defaultBlockState());
+                        h.assertTrue(TaintedStationaryMob.loaded(h.getLevel(),tiny.getBoundingBox())&&tiny.tickCount==0&&tiny.getHealth()==5&&tiny.remainingLifetime()==200&&tiny.invulnerableTime==0&&tiny.getActiveEffects().isEmpty(),"Lifetime fixture is not a fresh, loaded and unharmed tentacle");
+                        for(int i=0;i<200;i++)nativeTick(tiny);
+                        h.assertTrue(tiny.tickCount==200&&tiny.isAlive()&&tiny.getHealth()==5&&tiny.remainingLifetime()==0,"Tentacle expired before released lifetime--<=0 boundary");
+                        nativeTick(tiny);h.assertTrue(tiny.tickCount==201&&!tiny.isAlive()&&tiny.remainingLifetime()==-1&&h.getLevel().getEntitiesOfClass(ItemEntity.class,box,e->!oldItems.contains(e.getUUID())).isEmpty(),"Tentacle failed to expire or invented death loot");
+                    } finally { tiny.discard();h.getLevel().setBlockAndUpdate(pos,saved);restoreBody(h,body);h.getLevel().getEntitiesOfClass(ItemEntity.class,box,e->!oldItems.contains(e.getUUID())).forEach(Entity::discard); }
+                }).thenSucceed();
     }
     @GameTest(template="empty") public static void smallTentacleOffTaintStarvesOnePointEveryTwentyTicksEvenDuringHurtFrames(GameTestHelper h) {
         var tiny=tiny(h);var pos=tiny.blockPosition();var floor=h.getLevel().getBlockState(pos.below());var old=h.getLevel().getBlockState(pos);

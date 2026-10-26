@@ -130,7 +130,7 @@ public final class GolemPressBlockEntity extends BlockEntity implements WorldlyC
         }
         return false;
     }
-    /** Root renderer reads pressAngle; native smoke is the modern vent-particle adaptation. */
+    /** The original press cadence emits custom TC6 vent sprites. */
     public void clientAnimationTick() {
         if (level == null || !level.isClientSide) return;
         // Preserve the pinned >0 check: the all-zero wood design does not animate its press.
@@ -149,9 +149,9 @@ public final class GolemPressBlockEntity extends BlockEntity implements WorldlyC
                 SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, volume, 1F + level.random.nextFloat() * .1F, false);
     }
     private void vents(int count) {
-        for (int index = 0; index < count; index++) level.addParticle(ParticleTypes.SMOKE,
-                worldPosition.getX() + .5, worldPosition.getY() + 1, worldPosition.getZ() + .5,
-                level.random.nextGaussian() * .1, 0, level.random.nextGaussian() * .1);
+        for(int index=0;index<count;index++)thaumcraft.fx.FxDispatcher.emit(level,"vent",
+                new net.minecraft.world.phys.Vec3(worldPosition.getX()+.5,worldPosition.getY()+1,worldPosition.getZ()+.5),
+                new net.minecraft.world.phys.Vec3(level.random.nextGaussian()*.1,0,level.random.nextGaussian()*.1),11184810,1,0);
     }
     private static void playWand(Level level, BlockPos pos, float volume) {
         var sound = ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.fromNamespaceAndPath("thaumcraft", "wand"));

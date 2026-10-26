@@ -75,7 +75,7 @@ public final class ElementalShovelItem extends ToolItems.Shovel {
             ToolSupport.damage(stack, player, context.getHand(), 1);
             level.playSound(null, pos, state.getSoundType(level, pos, player).getBreakSound(), SoundSource.BLOCKS,
                     .6F, .9F + player.getRandom().nextFloat() * .2F);
-            ToolSupport.particles(level, pos);
+            ToolSupport.particles(level, pos,context.getClickedFace());
             placed = true;
         }
         if (placed) { player.getInventory().setChanged(); player.inventoryMenu.broadcastChanges(); player.swing(context.getHand(), true); }

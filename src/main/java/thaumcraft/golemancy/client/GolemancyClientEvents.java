@@ -9,6 +9,7 @@ import thaumcraft.golemancy.seals.core.SealRegistry;
 
 @Mod.EventBusSubscriber(modid="thaumcraft",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
 public final class GolemancyClientEvents {
+    @SubscribeEvent public static void shaders(net.minecraftforge.client.event.RegisterShadersEvent event)throws java.io.IOException{GolemancyRenderTypes.register(event);}
     @SubscribeEvent public static void setup(FMLClientSetupEvent event){event.enqueueWork(()->{MenuScreens.register(SealRegistry.MENU.get(),SealScreen::new);MenuScreens.register(SealRegistry.LOGISTICS_MENU.get(),SealLogisticsScreen::new);});}
     private GolemancyClientEvents(){}
 }

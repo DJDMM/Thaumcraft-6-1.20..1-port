@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser', 'Lamps', 'Pattern', 'Generator', 'Grapple', 'Accessories', 'InfusionUpgrades', 'Sounding')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser', 'Lamps', 'Pattern', 'Generator', 'Grapple', 'Accessories', 'InfusionUpgrades', 'Sounding', 'VisualFx', 'WorldVisual', 'ArmorVisual')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,9 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    VisualFx = @{ property = 'visualFxSmokeTest'; directory = 'visual-fx-smoke'; prefix = 'visual-fx-client'; marker = 'THAUMCRAFT_VISUAL_FX_CLIENT_SMOKE'; audit = 'THAUMCRAFT_VISUAL_FX_RENDER_AUDIT_OK' }
+    WorldVisual = @{ property = 'worldVisualSmokeTest'; directory = 'world-visual-smoke'; prefix = 'world-visual-client'; marker = 'THAUMCRAFT_WORLD_VISUAL_CLIENT_SMOKE'; audit = 'THAUMCRAFT_WORLD_VISUAL_RENDER_AUDIT_OK' }
+    ArmorVisual = @{ property = 'armorVisualSmokeTest'; directory = 'armor-visual-smoke'; prefix = 'armor-visual-client'; marker = 'THAUMCRAFT_ARMOR_VISUAL_CLIENT_SMOKE'; audit = 'THAUMCRAFT_ARMOR_VISUAL_RENDER_AUDIT_OK' }
     Sounding = @{ property = 'soundingSmokeTest'; directory = 'sounding-smoke'; prefix = 'sounding-client'; marker = 'THAUMCRAFT_SOUNDING_CLIENT_SMOKE'; audit = 'THAUMCRAFT_SOUNDING_RENDER_AUDIT_OK' }
     InfusionUpgrades = @{ property = 'infusionUpgradesSmokeTest'; directory = 'infusion-upgrades-smoke'; prefix = 'infusion-upgrades-client'; marker = 'THAUMCRAFT_INFUSION_UPGRADES_CLIENT_SMOKE'; audit = 'THAUMCRAFT_INFUSION_UPGRADES_RENDER_AUDIT_OK' }
     Accessories = @{ property = 'accessoriesSmokeTest'; directory = 'accessories-smoke'; prefix = 'accessories-client'; marker = 'THAUMCRAFT_ACCESSORIES_CLIENT_SMOKE'; audit = 'THAUMCRAFT_ACCESSORIES_RENDER_AUDIT_OK' }

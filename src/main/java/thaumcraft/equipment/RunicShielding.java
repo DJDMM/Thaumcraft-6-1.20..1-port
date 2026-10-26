@@ -23,6 +23,15 @@ public final class RunicShielding {
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent event) {
         if(event.phase==TickEvent.Phase.END && event.player instanceof ServerPlayer player) update(player,System.currentTimeMillis());
     }
+    /** Original EntityEvents.livingHurt publishes the hit hemisphere before absorption is consumed. */
+    @SubscribeEvent public static void hurt(net.minecraftforge.event.entity.living.LivingHurtEvent event) {
+        if(!(event.getEntity() instanceof ServerPlayer player)||(int)player.getAbsorptionAmount()<=0)return;
+        State state=STATES.get(player);if(state==null||state.max<=0)return;
+        int attacker=event.getSource().getEntity()==null?-1:event.getSource().getEntity().getId();
+        if(event.getSource().is(net.minecraft.world.damagesource.DamageTypes.FALL))attacker=-2;
+        else if(event.getSource().is(net.minecraft.world.damagesource.DamageTypes.FALLING_BLOCK)||event.getSource().is(net.minecraft.world.damagesource.DamageTypes.FALLING_ANVIL))attacker=-3;
+        thaumcraft.fx.FxDispatcher.emitWithin(player.serverLevel(),32,"shield",player.position(),net.minecraft.world.phys.Vec3.ZERO,0xFFFFFF,1,attacker,player.getId(),ItemStack.EMPTY);
+    }
     /** Time is injectable for deterministic acceptance; production retains BETA26 wall-clock intervals. */
     public static void update(ServerPlayer player,long time) {
         if(!player.isAlive() || player.isSpectator()) return;

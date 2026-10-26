@@ -205,9 +205,7 @@ public final class FocalManipulatorBlockEntity extends BlockEntity implements Wo
     }
     public static void tick(Level level, BlockPos pos, BlockState state, FocalManipulatorBlockEntity table) {
         if (level.isClientSide) {
-            if (table.crafting() && level.random.nextInt(3) == 0)
-                level.addParticle(ParticleTypes.ENCHANT, pos.getX() + .5, pos.getY() + 1.4, pos.getZ() + .5,
-                        (level.random.nextFloat() - .5) * .3, .05, (level.random.nextFloat() - .5) * .3);
+            if(table.crafting())thaumcraft.fx.emitters.MachineFxPrograms.focalTick(level,pos);
             return;
         }
         if (!(level instanceof ServerLevel server) || !server.getServer().isSameThread()) return;
@@ -235,9 +233,7 @@ public final class FocalManipulatorBlockEntity extends BlockEntity implements Wo
     }
     @Override public boolean triggerEvent(int id, int value) {
         if (id == 5) {
-            if (level != null && level.isClientSide) for (int i = 0; i < 8; i++)
-                level.addParticle(ParticleTypes.ENCHANT, worldPosition.getX() + .5, worldPosition.getY() + 1.05, worldPosition.getZ() + .5,
-                        (level.random.nextFloat() - .5) * 1.5, level.random.nextFloat(), (level.random.nextFloat() - .5) * 1.5);
+            if(level!=null&&level.isClientSide)thaumcraft.fx.emitters.MachineFxPrograms.focalSparkle(level,worldPosition,value);
             return true;
         }
         return super.triggerEvent(id, value);

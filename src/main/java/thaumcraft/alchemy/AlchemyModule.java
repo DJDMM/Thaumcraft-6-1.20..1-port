@@ -19,11 +19,16 @@ public final class AlchemyModule {
     public static final RegistryObject<net.minecraft.world.entity.EntityType<AlumentumProjectile>> ALUMENTUM_ENTITY = ENTITIES.register("alumentum", () -> net.minecraft.world.entity.EntityType.Builder.<AlumentumProjectile>of(AlumentumProjectile::new, net.minecraft.world.entity.MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("thaumcraft:alumentum"));
     public static final RegistryObject<Item> ALUMENTUM = ITEMS.register("alumentum", AlumentumItem::new);
     public static final RegistryObject<Block> CRUCIBLE = BLOCKS.register("crucible", CrucibleBlock::new);
-    public static final RegistryObject<Block> NITOR = BLOCKS.register("nitor", () -> new Block(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).strength(0.2F).noCollission().noOcclusion().lightLevel(state -> 15)));
+    public static final RegistryObject<Block> NITOR = BLOCKS.register("nitor", () -> new thaumcraft.fx.nitor.NitorBlock(DyeColor.YELLOW));
     public static final RegistryObject<Item> CRUCIBLE_ITEM = ITEMS.register("crucible", () -> new BlockItem(CRUCIBLE.get(), new Item.Properties()));
     public static final RegistryObject<Item> NITOR_ITEM = ITEMS.register("nitor", () -> new BlockItem(NITOR.get(), new Item.Properties()));
     public static final RegistryObject<Item> SALIS_MUNDUS = ITEMS.register("salis_mundus", () -> new SalisMundusItem(new Item.Properties()));
     public static final RegistryObject<BlockEntityType<CrucibleBlockEntity>> CRUCIBLE_TILE = TILES.register("crucible", () -> BlockEntityType.Builder.of(CrucibleBlockEntity::new, CRUCIBLE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<thaumcraft.fx.nitor.NitorBlockEntity>> NITOR_TILE = TILES.register("nitor", () -> {
+        var blocks=new java.util.ArrayList<Block>();blocks.add(NITOR.get());
+        thaumcraft.catalog.blocks.CatalogBlocks.ENTRIES.forEach((id,entry)->{if(id.startsWith("nitor_"))blocks.add(entry.get());});
+        return BlockEntityType.Builder.of(thaumcraft.fx.nitor.NitorBlockEntity::new,blocks.toArray(Block[]::new)).build(null);
+    });
     public static final RegistryObject<RecipeSerializer<SalisMundusRecipe>> SALIS_RECIPE = RECIPES.register("salis_mundus", () -> new SimpleCraftingRecipeSerializer<>(SalisMundusRecipe::new));
     public static final RegistryObject<RecipeSerializer<TripleMeatTreatRecipe>> TRIPLE_MEAT_RECIPE = RECIPES.register("triplemeattreat", () -> new SimpleCraftingRecipeSerializer<>(TripleMeatTreatRecipe::new));
     public static void register(IEventBus bus) {

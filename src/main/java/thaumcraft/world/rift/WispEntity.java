@@ -1,7 +1,6 @@
 package thaumcraft.world.rift;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -25,7 +24,6 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.joml.Vector3f;
 import thaumcraft.alchemy.AspectCrystalItem;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.catalog.entities.VisualMobEntity;
@@ -54,10 +52,23 @@ public final class WispEntity extends VisualMobEntity implements Enemy {
     public void setAspectType(String aspect) { entityData.set(ASPECT, aspect == null ? "" : aspect); }
     public int attackCounter() { return attackCounter; }
     public int previousAttackCounter() { return previousAttackCounter; }
-    @Override public int color() { Aspect aspect = Aspect.getAspect(aspectType()); return aspect == null ? 0xFFFF7E : aspect.getColor(); }
+    @Override public int color() { Aspect aspect = Aspect.getAspect(aspectType()); return aspect == null ? 0 : aspect.getColor(); }
     @Override public void tick() {
         super.tick();
+        if(level().isClientSide) {
+            if(tickCount<=1) thaumcraft.fx.FxDispatcher.emit(level(),"wispBurst",position(),Vec3.ZERO,0xFFFFFF,10,0);
+            if(random.nextBoolean()&&Aspect.getAspect(aspectType())!=null) {
+                Vec3 point=position().add((random.nextFloat()-random.nextFloat())*.7F,
+                        (random.nextFloat()-random.nextFloat())*.7F,(random.nextFloat()-random.nextFloat())*.7F);
+                thaumcraft.fx.FxDispatcher.emit(level(),"wispParticles",point,Vec3.ZERO,color(),1,0);
+            }
+        }
         setDeltaMovement(getDeltaMovement().multiply(1, .6000000238418579, 1));
+    }
+    @Override public void handleEntityEvent(byte event) {
+        super.handleEntityEvent(event);
+        if(event==3&&level().isClientSide)
+            thaumcraft.fx.FxDispatcher.emit(level(),"wispBurst",position().add(0,.44999998807907104,0),Vec3.ZERO,0xFFFFFF,1,0);
     }
     @Override public boolean hurt(DamageSource source, float amount) {
         if (source.getEntity() instanceof LivingEntity attacker && attacker != this) {
@@ -132,14 +143,7 @@ public final class WispEntity extends VisualMobEntity implements Enemy {
     }
     private void zap(ServerLevel server, LivingEntity target) {
         playSound(sound("zap"), 1, 1.1F);
-        Vec3 end = target.getBoundingBox().getCenter(), delta = end.subtract(position());
-        var dust = new DustParticleOptions(new Vector3f(((color() >> 16) & 255) / 255F,
-                ((color() >> 8) & 255) / 255F, (color() & 255) / 255F), .7F);
-        // Native colored particles replace the original custom lightning packet; server attack is unchanged.
-        for (int i = 0; i < 16; i++) {
-            Vec3 point = position().add(delta.scale(i / 15D));
-            server.sendParticles(dust, point.x, point.y, point.z, 1, 0, 0, 0, 0);
-        }
+        thaumcraft.fx.FxDispatcher.emitWithin(server,32,"arcBolt",position(),target.position(),color(),.6F,0,target.getId(),net.minecraft.world.item.ItemStack.EMPTY);
         Vec3 motion = target.getDeltaMovement();
         float damage = (float)getAttributeValue(Attributes.ATTACK_DAMAGE);
         boolean moving = Math.abs(motion.x) > .10000000149011612 || Math.abs(motion.y) > .10000000149011612

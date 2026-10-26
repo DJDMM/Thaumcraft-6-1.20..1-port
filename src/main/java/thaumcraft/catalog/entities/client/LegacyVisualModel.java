@@ -109,6 +109,8 @@ public abstract class LegacyVisualModel extends EntityModel<VisualMobEntity> {
     }
 
     @Override public void renderToBuffer(PoseStack pose, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
+        if(currentEntity!=null&&currentEntity.spec().id().equals("eldritch_guardian"))
+            alpha*=guardianAlpha(currentEntity);
         pose.pushPose();
         if (currentEntity != null && this instanceof LegacyTaintacleModel) {
             pose.translate(0, (currentEntity.getBbHeight() == 3 ? .6 : 1.2)+emergenceHeight(), 0);
@@ -130,6 +132,14 @@ public abstract class LegacyVisualModel extends EntityModel<VisualMobEntity> {
             } else node.part.render(pose, vertices, light, overlay, red, green, blue, alpha);
         }
         pose.popPose();
+    }
+    /** Released RenderEldritchGuardian distance-squared fade, including Outer Lands exception. */
+    public static float guardianAlpha(VisualMobEntity guardian) {
+        var view=net.minecraft.client.Minecraft.getInstance().getCameraEntity();
+        if(view==null||guardian.level().dimension().location().equals(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thaumcraft","outer_lands")))return 1;
+        float far=guardian.level().getDifficulty()==net.minecraft.world.Difficulty.HARD?576:1024;
+        double distance=guardian.distanceToSqr(view);
+        return distance<256?.6F:(float)(1-Math.min(far-256,distance-256)/(far-256))*.6F;
     }
     private float emergenceHeight() {
         float height=currentEntity.getBbHeight(),duration=height*10;

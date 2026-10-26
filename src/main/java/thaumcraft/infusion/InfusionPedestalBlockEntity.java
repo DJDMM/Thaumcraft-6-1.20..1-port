@@ -162,18 +162,11 @@ public final class InfusionPedestalBlockEntity extends BlockEntity implements Wo
     @Override public boolean triggerEvent(int id, int data) {
         if (id != 11 && id != 12 && id != 5) return super.triggerEvent(id, data);
         if (level != null && level.isClientSide) {
-            // Native particle equivalents retain server event routing; the custom BETA26 FX is separate.
             double x = worldPosition.getX() + .5, y = worldPosition.getY() + 1, z = worldPosition.getZ() + .5;
             if (id == 5) {
-                var dust = new DustParticleOptions(new Vector3f(1, .3F, .1F), .8F);
-                for (int n = 0; n < 16; n++) {
-                    double angle = n * Math.PI / 8;
-                    level.addParticle(dust, x + Math.cos(angle) * .6, y - .5, z + Math.sin(angle) * .6, 0, .01, 0);
-                }
+                thaumcraft.fx.FxDispatcher.emit(level,"pedestalShield",new net.minecraft.world.phys.Vec3(x,y,z),net.minecraft.world.phys.Vec3.ZERO,0xFFFFFF,1,8);
             } else {
-                for (int n = 0; n < 12; n++)
-                    level.addParticle(id == 11 ? ParticleTypes.WITCH : ParticleTypes.POOF,
-                            x, y, z, level.random.nextGaussian() * .04, .02, level.random.nextGaussian() * .04);
+                thaumcraft.fx.FxDispatcher.emit(level,"bamf",new net.minecraft.world.phys.Vec3(x,y,z),new net.minecraft.world.phys.Vec3(0,1,0),0x801A99,1,id==11?3:0);
             }
         }
         return true;

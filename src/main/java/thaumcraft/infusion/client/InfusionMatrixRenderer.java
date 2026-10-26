@@ -46,7 +46,7 @@ public final class InfusionMatrixRenderer implements BlockEntityRenderer<Infusio
         if (tile.crafting()) halo(pose, buffers, tile.craftCount());
     }
     private static void halo(PoseStack pose, MultiBufferSource buffers, int count) {
-        Random random = new Random(245); var vertices = buffers.getBuffer(RenderType.lightning());
+        Random random = new Random(245); var vertices = buffers.getBuffer(thaumcraft.fx.client.FxRenderTypes.rayFan(true));
         pose.pushPose(); pose.translate(.5, .5, .5); float scale = Math.min(count, 50) / 1000F;
         for (int i = 0; i < 20; i++) {
             for (int rotation = 0; rotation < 2; rotation++) { pose.mulPose(Axis.XP.rotationDegrees(random.nextFloat() * 360)); pose.mulPose(Axis.YP.rotationDegrees(random.nextFloat() * 360)); pose.mulPose(Axis.ZP.rotationDegrees(random.nextFloat() * 360 + (rotation == 1 ? count / 500F * 360 : 0))); }

@@ -17,12 +17,14 @@ import java.util.*;
 /** Stationary spherical BETA26 cloud; its paid suffix is copied for every pulse target. */
 public final class FocusCloudEntity extends Entity {
     private static final EntityDataAccessor<Float> RADIUS=SynchedEntityData.defineId(FocusCloudEntity.class,EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<String> EFFECTS=SynchedEntityData.defineId(FocusCloudEntity.class,EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Integer> COLOR=SynchedEntityData.defineId(FocusCloudEntity.class,EntityDataSerializers.INT);
     private static final Map<ServerLevel,Map<Long,Long>> COOLDOWNS=new IdentityHashMap<>();
     private PaidFocusContinuation continuation;
     private int duration=5;
     public FocusCloudEntity(EntityType<? extends FocusCloudEntity> type,Level level){super(type,level);setNoGravity(true);}
-    @Override protected void defineSynchedData(){entityData.define(RADIUS,.5F);entityData.define(COLOR,0xFFFFFFFF);}
+    @Override protected void defineSynchedData(){entityData.define(RADIUS,.5F);entityData.define(COLOR,0xFFFFFFFF);entityData.define(EFFECTS,"");}
+    public String visualEffects(){return entityData.get(EFFECTS);}
     public float radius(){return entityData.get(RADIUS);}public int color(){return entityData.get(COLOR);}public int duration(){return duration;}
     public FocusPlan paidPlan(){return continuation==null?null:continuation.plan;}
     public boolean bindOwner(ServerPlayer caster){return continuation!=null&&continuation.bind(caster);}
@@ -36,11 +38,12 @@ public final class FocusCloudEntity extends Entity {
         var entity=FocusMediaModule.CLOUD.get().create(caster.serverLevel());if(entity==null)return false;
         entity.continuation=new PaidFocusContinuation(caster,plan,nextIndex,power,ordinal);entity.duration=duration;
         entity.entityData.set(RADIUS,(float)radius);entity.entityData.set(COLOR,plan.color());entity.refreshDimensions();entity.setPos(source);
+        entity.entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(plan));
         return caster.serverLevel().addFreshEntity(entity);
     }
     @Override public void tick(){
         super.tick();
-        if(level().isClientSide)return;
+        if(level().isClientSide){thaumcraft.fx.emitters.FocusMediaFx.cloud(this,visualEffects(),radius());return;}
         var server=(ServerLevel)level();
         if(continuation==null||continuation.caster(server)==null||!PaidFocusContinuation.loaded(server,position())||tickCount>duration*20){discard();return;}
         if(tickCount%5!=0)return;
@@ -80,6 +83,7 @@ public final class FocusCloudEntity extends Entity {
         var medium=PaidFocusContinuation.medium(paid.plan,paid.nextIndex,"thaumcraft.CLOUD");
         if(medium.settings().get("radius")!=radius||medium.settings().get("duration")!=duration)return;
         continuation=paid;this.duration=duration;tickCount=age;entityData.set(RADIUS,radius);entityData.set(COLOR,paid.plan.color());refreshDimensions();
+        entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(paid.plan));
     }
     @Override public Packet<ClientGamePacketListener> getAddEntityPacket(){return NetworkHooks.getEntitySpawningPacket(this);}
 }

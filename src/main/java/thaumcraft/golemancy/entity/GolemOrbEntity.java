@@ -8,7 +8,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 
@@ -36,7 +35,6 @@ public final class GolemOrbEntity extends ThrowableProjectile {
                 setDeltaMovement(Mth.clamp((float)velocity.x, -.25F, .25F), Mth.clamp((float)velocity.y, -.25F, .25F), Mth.clamp((float)velocity.z, -.25F, .25F));
             }
         }
-        if (level().isClientSide) level().addParticle(red() ? ParticleTypes.FLAME : ParticleTypes.END_ROD, getX(), getY(), getZ(), 0, 0, 0);
     }
     @Override protected void onHit(HitResult hit) {
         super.onHit(hit);
@@ -45,7 +43,9 @@ public final class GolemOrbEntity extends ThrowableProjectile {
             if (Double.isFinite(damage) && damage > 0) entityHit.getEntity().hurt(damageSources().indirectMagic(this, owner), (float)damage);
         }
         playSound(GolemEntitySounds.SHOCK.get(), 1, 1 + (random.nextFloat() - random.nextFloat()) * .2F);
-        if (level().isClientSide) for (int particle = 0; particle < 12; particle++) level().addParticle(ParticleTypes.ENCHANT, getX(), getY(), getZ(), random.nextGaussian() * .05, random.nextGaussian() * .05, random.nextGaussian() * .05);
+        // Modern removal can reach the client before its predicted impact. Publish the
+        // original burst from the authoritative impact once, rather than losing it.
+        if (!level().isClientSide) thaumcraft.fx.FxDispatcher.emit(level(),"burst",position(),Vec3.ZERO,0xFFFFFF,1,0);
         discard();
     }
     @Override public boolean hurt(DamageSource source, float damage) {

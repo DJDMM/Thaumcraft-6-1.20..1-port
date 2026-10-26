@@ -233,7 +233,8 @@ public final class ThaumcraftGolemEntity extends PathfinderMob implements Ranged
                 if (wheelRotation > 360) wheelRotation -= 360;
             }
             if (design.hasTrait(GolemDesign.Trait.FLYER) && (!onGround() || tickCount % 5 == 0))
-                level().addParticle(ParticleTypes.END_ROD, getX(), getY() + .1, getZ(), random.nextGaussian() / 100, -.1, random.nextGaussian() / 100);
+                thaumcraft.fx.FxDispatcher.emit(level(),"golemFlyer",position().add(0,.1,0),
+                        new Vec3(random.nextGaussian()/100,-.1,random.nextGaussian()/100),0xFFFFFF,1,0);
         }
     }
     /** Pinned upward search is retained, bounded to loaded cells and build height. */
@@ -434,8 +435,7 @@ public final class ThaumcraftGolemEntity extends PathfinderMob implements Ranged
     }
     @Override public void handleEntityEvent(byte event) {
         if (event >= 5 && event <= 9) {
-            for (int count = 0; count < (event == 9 ? 5 : 1); count++) level().addParticle(event == 9 ? ParticleTypes.HAPPY_VILLAGER : ParticleTypes.ENCHANT,
-                    getX(), getY() + getBbHeight() + .1, getZ(), 0, .02, 0);
+            thaumcraft.fx.FxDispatcher.emit(level(),"golemStatus",position().add(0,getBbHeight()+(event==9?0:.1),0),Vec3.ZERO,0xFFFFFF,1,event);
         } else super.handleEntityEvent(event);
     }
 

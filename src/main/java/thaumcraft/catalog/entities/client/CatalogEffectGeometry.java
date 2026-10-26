@@ -11,7 +11,7 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.TheEndPortalRenderer;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -26,8 +26,8 @@ import net.minecraft.world.phys.Vec3;
  * projectile/RenderEldritchOrb.renderEntityAt for its twelve ray fans.
  *
  * Rift spine, radius animation, six-sided contour and angle joins preserve the original math.
- * The 1.20 end-portal shader is the explicit material adaptation; BETA26's GLSL 1.20
- * ender.frag, camera uniforms and goggles depth override are not recreated by this helper.
+ * Original ender.frag equations are exposed as a modern core shader; pass zero
+ * explicitly disables depth while wearing goggles, then restores it on flush.
  */
 public final class CatalogEffectGeometry {
     public static final ResourceLocation DART_TEXTURE =
@@ -57,6 +57,12 @@ public final class CatalogEffectGeometry {
 
     public static void fluxRift(PoseStack pose, MultiBufferSource buffers, int seed, int size,
                                 float age, float stability) {
+        fluxRift(pose,buffers,seed,size,age,stability,
+                thaumcraft.equipment.armor.GogglesArmorSupport.hasGoggles(Minecraft.getInstance().player));
+    }
+
+    public static void fluxRift(PoseStack pose, MultiBufferSource buffers, int seed, int size,
+                                float age, float stability,boolean goggles) {
         RiftPath path = riftPath(seed, size);
         if (path.points().size() <= 2) return;
         float stab = Mth.clamp(1.0F - stability / 50.0F, 0.0F, 1.5F);
@@ -74,7 +80,11 @@ public final class CatalogEffectGeometry {
                 double pulse = 1.0 - Math.sin(phase / 8.0F) * 0.10000000149011612 * stab;
                 radii[index] = path.widths().get(index) * pulse * (pass < 3 ? 1.25F + .5F * pass : 1.0F);
             }
-            polycone(pose, buffers.getBuffer(EffectRenderTypes.RIFT[pass]), points, radii);
+            RenderType type=pass==0&&goggles?EffectRenderTypes.RIFT_THROUGH:EffectRenderTypes.RIFT[pass];
+            polycone(pose, buffers.getBuffer(type), points, radii);
+            // Preserve the release pass ordering: do not let shared buffer sorting
+            // move the opaque core in front of its three additive shells.
+            if(buffers instanceof MultiBufferSource.BufferSource source)source.endBatch(type);
         }
     }
 
@@ -358,8 +368,13 @@ public final class CatalogEffectGeometry {
                     256, false, false, () -> {}, () -> {});
         }
         private static final RenderType[] RIFT = {
-                rift(0), rift(1), rift(2), rift(3)
+                rift(0,false), rift(1,false), rift(2,false), rift(3,false)
         };
+        private static final DepthTestStateShard THROUGH = new DepthTestStateShard("tc_rift_through",519) {
+            @Override public void setupRenderState(){RenderSystem.disableDepthTest();}
+            @Override public void clearRenderState(){RenderSystem.enableDepthTest();}
+        };
+        private static final RenderType RIFT_THROUGH=rift(0,true);
         private static final RenderType SWARM = create("tc_catalog_swarm", DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP,
                 VertexFormat.Mode.QUADS, 4096, false, true, CompositeState.builder()
                         .setShaderState(POSITION_COLOR_TEX_LIGHTMAP_SHADER)
@@ -371,13 +386,12 @@ public final class CatalogEffectGeometry {
                         .setShaderState(POSITION_COLOR_SHADER).setTransparencyState(LIGHTNING_TRANSPARENCY)
                         .setCullState(CULL).setWriteMaskState(COLOR_WRITE).createCompositeState(false));
 
-        private static RenderType rift(int pass) {
-            return create("tc_catalog_flux_rift_" + pass, DefaultVertexFormat.POSITION,
+        private static RenderType rift(int pass,boolean through) {
+            return create("tc_flux_rift_" + pass+(through?"_goggles":""), DefaultVertexFormat.POSITION,
                     VertexFormat.Mode.TRIANGLES, 8192, false, false, CompositeState.builder()
-                            .setShaderState(RENDERTYPE_END_PORTAL_SHADER)
-                            .setTextureState(MultiTextureStateShard.builder()
-                                    .add(TheEndPortalRenderer.END_SKY_LOCATION, false, false)
-                                    .add(TheEndPortalRenderer.END_PORTAL_LOCATION, false, false).build())
+                            .setShaderState(new ShaderStateShard(()->thaumcraft.world.rift.client.FluxRiftShader.shader(pass<3)))
+                            .setTextureState(new TextureStateShard(ResourceLocation.fromNamespaceAndPath("minecraft","textures/entity/end_portal.png"),false,false))
+                            .setDepthTestState(through?THROUGH:LEQUAL_DEPTH_TEST)
                             .setTransparencyState(pass < 3 ? LIGHTNING_TRANSPARENCY : TRANSLUCENT_TRANSPARENCY)
                             .setCullState(NO_CULL).setWriteMaskState(pass < 3 ? COLOR_WRITE : COLOR_DEPTH_WRITE)
                             .createCompositeState(false));

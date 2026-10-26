@@ -100,7 +100,13 @@ public final class ThaumatoriumBlockEntity extends BlockEntity implements Worldl
     public static void tick(Level level,BlockPos pos,BlockState state,ThaumatoriumBlockEntity tile) {
         if(tile.isRemoved()||level.getBlockEntity(pos)!=tile)return;
         if(level.isClientSide) {
-            if(tile.venting>0) {tile.venting--;Direction side=tile.facing();level.addParticle(net.minecraft.core.particles.ParticleTypes.SMOKE,pos.getX()+.5+side.getStepX()*.5,pos.getY()+.5,pos.getZ()+.5+side.getStepZ()*.5,side.getStepX()*.25,.01,side.getStepZ()*.25);}
+            if(tile.venting>0){
+                tile.venting--;Direction side=tile.facing();var r=level.random;
+                float x=.1F-r.nextFloat()*.2F,z=.1F-r.nextFloat()*.2F,y=.1F-r.nextFloat()*.2F;
+                float vx=.1F-r.nextFloat()*.2F,vz=.1F-r.nextFloat()*.2F,vy=.1F-r.nextFloat()*.2F;
+                thaumcraft.fx.FxDispatcher.emit(level,"vent",new net.minecraft.world.phys.Vec3(pos.getX()+.5F+x+side.getStepX()/2F,pos.getY()+.5F+y,pos.getZ()+.5F+z+side.getStepZ()/2F),
+                        new net.minecraft.world.phys.Vec3(side.getStepX()/4F+vx,vy,side.getStepZ()/4F+vz),0xFFFFFF,1,0);
+            }
             return;
         }
         if(tile.counter==0||tile.counter%40==0) {tile.heated=tile.checkHeat();tile.getUpgrades();}

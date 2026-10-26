@@ -115,7 +115,9 @@ public final class InfusionMatrixBlockEntity extends BlockEntity implements IAsp
                 for (BlockPos pos : pedestals) {
                     var tile = pedestal(pos);
                     if (tile == null || !InfusionRecipes.sameForCrafting(tile.getItem(0), ingredients.get(i))) continue;
-                    if (itemCount == 0) { itemCount = 5; trail(server, pos.above(), worldPosition.below(), 0xAA66FF); }
+                    if (itemCount == 0) { itemCount = 5;
+                        thaumcraft.fx.FxDispatcher.emit(server,"infusionSource",worldPosition.getCenter(),pos.getCenter(),0xFFFFFF,1,0);
+                    }
                     else if (itemCount-- <= 1) {
                         ItemStack remainder = tile.getItem(0).getCraftingRemainingItem();
                         tile.setItemFromInfusion(remainder); ingredients.remove(i);
@@ -174,7 +176,7 @@ public final class InfusionMatrixBlockEntity extends BlockEntity implements IAsp
     private void zap(boolean all) {
         for (LivingEntity target : targets()) {
             target.hurt(level.damageSources().magic(), 4 + level.random.nextInt(4));
-            trail((ServerLevel)level, worldPosition, target.blockPosition(), 0x660066); if (!all) break;
+            thaumcraft.fx.FxDispatcher.emit(level,"infusionSource",worldPosition.getCenter(),worldPosition.getCenter(),target.getId(),1,target.getId());if(!all)break;
         }
     }
     private void harm(boolean all) {
@@ -204,14 +206,19 @@ public final class InfusionMatrixBlockEntity extends BlockEntity implements IAsp
             if (craftCount == 0) localSound(InfusionModule.INFUSER_START.get());
             else if (craftCount % 65 == 0) localSound(InfusionModule.LOOP.get());
             craftCount++;
-            if (level.random.nextBoolean()) level.addParticle(ParticleTypes.ENCHANT, worldPosition.getX() + .5, worldPosition.getY() - 1, worldPosition.getZ() + .5,
-                    level.random.nextGaussian() * .4, level.random.nextDouble() * .4, level.random.nextGaussian() * .4);
+            int color=((int)((.5F+level.random.nextFloat()*.2F)*255)<<16)|(26<<8)|(int)((.7F+level.random.nextFloat()*.3F)*255);
+            thaumcraft.fx.FxDispatcher.emit(level,"blockRunes",worldPosition.getCenter().add(0,-2,0),new net.minecraft.world.phys.Vec3(0,-.03,0),color,1,25);
         } else craftCount = Math.max(0, Math.min(50, craftCount - 2));
+        var r=level.random;
+        if(crafting&&stability<0&&r.nextInt(250)<=Math.abs(stability))
+            thaumcraft.fx.emitters.MachineFxPrograms.spark(level,new net.minecraft.world.phys.Vec3(worldPosition.getX()+r.nextFloat(),worldPosition.getY()+r.nextFloat(),worldPosition.getZ()+r.nextFloat()),3+r.nextFloat()*2,.7F+r.nextFloat()*.1F,.1F,.65F+r.nextFloat()*.1F,.8F);
+        if(active&&!problems.isEmpty()&&r.nextInt(25)==0){
+            BlockPos p=problems.get(r.nextInt(problems.size()));
+            thaumcraft.fx.emitters.MachineFxPrograms.spark(level,new net.minecraft.world.phys.Vec3(p.getX()+r.nextFloat(),p.getY()+r.nextFloat(),p.getZ()+r.nextFloat()),2+r.nextFloat(),.7F+r.nextFloat()*.1F,.1F,.65F+r.nextFloat()*.1F,.8F);
+        }
     }
     public static void trail(ServerLevel level, BlockPos from, BlockPos to, int color) {
-        var dust = new DustParticleOptions(new Vector3f(((color >> 16) & 255) / 255F, ((color >> 8) & 255) / 255F, (color & 255) / 255F), .7F);
-        for (int i = 0; i <= 12; i++) { double t = i / 12.; var point = from.getCenter().lerp(to.getCenter(), t);
-            level.sendParticles(dust, point.x, point.y, point.z, 1, .015, .015, .015, 0); }
+        thaumcraft.fx.FxDispatcher.emit(level,"infusionSparkle",from.getCenter(),to.getCenter(),color,1,3);
     }
     @Override public void setRemoved() { super.setRemoved(); if (level instanceof ServerLevel) AirborneEssentiaManager.forgetConsumer(this); }
     @Override public AspectList getAspects() { return needed.copy(); }
@@ -225,7 +232,8 @@ public final class InfusionMatrixBlockEntity extends BlockEntity implements IAsp
     @Override public int containerContains(Aspect aspect) { return 0; }
     private CompoundTag syncTag() {
         CompoundTag tag = new CompoundTag(); tag.putBoolean("active", active); tag.putBoolean("crafting", crafting); tag.putFloat("stability", stability);
-        tag.putFloat("gain", gain); tag.putFloat("cost", cost); tag.putInt("delay", delay); tag.putInt("recipeinst", instability); needed.writeToNBT(tag); return tag;
+        tag.putFloat("gain", gain); tag.putFloat("cost", cost); tag.putInt("delay", delay); tag.putInt("recipeinst", instability); needed.writeToNBT(tag);
+        tag.putLongArray("VisualProblems",problems.stream().mapToLong(BlockPos::asLong).toArray());return tag;
     }
     @Override protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag); tag.merge(syncTag()); tag.putInt("count", count); tag.putInt("itemCount", itemCount);
@@ -238,6 +246,7 @@ public final class InfusionMatrixBlockEntity extends BlockEntity implements IAsp
         stability = finite(tag.getFloat("stability"), -100, 25); gain = finite(tag.getFloat("gain"), -10000, 10000); cost = finite(tag.getFloat("cost"), .5F, 10);
         delay = Mth.clamp(tag.getInt("delay"), 1, 100); instability = Mth.clamp(tag.getInt("recipeinst"), 0, 10000);
         needed.readFromNBT(tag); for (Aspect aspect : needed.getAspects()) if (needed.getAmount(aspect) < 0) needed.remove(aspect);
+        problems=Arrays.stream(tag.getLongArray("VisualProblems")).limit(4096).mapToObj(BlockPos::of).toList();
         // The small sync tag does not overwrite the server's detached plan when sent to clients.
         if (tag.contains("ingredients", Tag.TAG_LIST)) {
             count = Math.max(0, tag.getInt("count")); itemCount = Mth.clamp(tag.getInt("itemCount"), 0, 5);

@@ -79,6 +79,14 @@ public final class VisualEntityRenderers {
     private static final class Mob extends MobRenderer<VisualMobEntity,EntityModel<VisualMobEntity>> {
         Mob(EntityRendererProvider.Context context,VisualEntitySpec spec) {
             super(context,model(context,spec),.35f);
+            if(spec.id().equals("pech")) addLayer(new net.minecraft.client.renderer.entity.layers.RenderLayer<VisualMobEntity,EntityModel<VisualMobEntity>>(this) {
+                @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,VisualMobEntity entity,float swing,float amount,float partial,float age,float yaw,float pitch) {
+                    if(!(getParentModel() instanceof LegacyPechModel pech))return;
+                    boolean right=entity.getMainArm()==net.minecraft.world.entity.HumanoidArm.RIGHT;
+                    held(entity,right?entity.getMainHandItem():entity.getOffhandItem(),false,pech,pose,buffers,light);
+                    held(entity,right?entity.getOffhandItem():entity.getMainHandItem(),true,pech,pose,buffers,light);
+                }
+            });
             if(spec.model().equals("slime")) addLayer(new net.minecraft.client.renderer.entity.layers.RenderLayer<VisualMobEntity,EntityModel<VisualMobEntity>>(this) {
                 final SlimeModel<VisualMobEntity> shell=new SlimeModel<>(context.bakeLayer(ModelLayers.SLIME_OUTER));
                 @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,VisualMobEntity entity,float swing,float amount,float partial,float age,float yaw,float pitch) {
@@ -87,11 +95,34 @@ public final class VisualEntityRenderers {
                 }
             });
         }
+        @Override protected RenderType getRenderType(VisualMobEntity entity,boolean bodyVisible,boolean translucent,boolean glowing) {
+            if(entity.spec().model().equals("EldritchGuardian")&&bodyVisible)
+                return WorldVisualRenderTypes.guardian(getTextureLocation(entity));
+            return super.getRenderType(entity,bodyVisible,translucent,glowing);
+        }
+        private static void held(VisualMobEntity entity,net.minecraft.world.item.ItemStack stack,boolean left,LegacyPechModel pech,
+                                 PoseStack pose,MultiBufferSource buffers,int light) {
+            if(stack.isEmpty())return;
+            pose.pushPose();
+            (left?pech.bipedLeftArm:pech.bipedRightArm).part.translateAndRotate(pose);
+            pose.translate(0,-.1,.0625);
+            if(stack.getItem() instanceof net.minecraft.world.item.BowItem)pose.translate(-.07500000298023224,-.1,0);
+            if(entity.isCrouching())pose.translate(0,.2,0);
+            pose.mulPose(Axis.XP.rotationDegrees(-90));pose.mulPose(Axis.YP.rotationDegrees(180));
+            pose.translate(left?-.0625:.0625,.125,-.625);
+            net.minecraft.client.Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer().renderItem(entity,stack,
+                    left?ItemDisplayContext.THIRD_PERSON_LEFT_HAND:ItemDisplayContext.THIRD_PERSON_RIGHT_HAND,left,pose,buffers,light);
+            pose.popPose();
+        }
         @Override public ResourceLocation getTextureLocation(VisualMobEntity entity) {
             if(entity.spec().id().equals("pech")) return texture("textures/entity/pech_"+new String[]{"forage","thaum","stalker"}[Math.floorMod(entity.variant(),3)]+".png");
             return texture(entity.spec().texture());
         }
         @Override protected void scale(VisualMobEntity entity,PoseStack pose,float partial) {
+            if(entity.spec().id().equals("eldritch_warden"))
+                // LivingEntityRenderer has already inverted model Y here. The
+                // released negative world-Y emergence offset is positive locally.
+                pose.translate(0,entity.getBbHeight()*entity.presentationSpawnTimer()/150F,0);
             float scale=switch(entity.spec().id()) {case "eldritch_golem" -> 1.7f;case "eldritch_crab" -> .8f;case "mind_spider" -> .6f;case "taint_crawler" -> .7f;case "fire_bat","spell_bat" -> .35f;case "thaumic_slime" -> 2;default -> 1; };
             pose.scale(scale,scale,scale);
         }
@@ -141,6 +172,8 @@ public final class VisualEntityRenderers {
         @Override public void render(T entity,float yaw,float partial,PoseStack pose,MultiBufferSource buffers,int light) {
             var spec=entity instanceof VisualMobEntity m?m.spec():((VisualEffectEntity)entity).spec();String model=spec.model();
             if(model.equals("none") || model.equals("cloud")) return; // Original renderers have no geometry; spell particles belong to mechanics.
+            if(model.equals("wisp")&&entity instanceof net.minecraft.world.entity.LivingEntity living&&living.getHealth()<=0)return;
+            if(model.equals("portal")&&spec.id().endsWith("lesser")&&entity instanceof VisualMobEntity mob&&!mob.portalActive())return;
             pose.pushPose();
             if(entity instanceof VisualEffectEntity effect && java.util.List.of("item","bottle").contains(model)) {
                 pose.translate(0,.2,0);pose.scale(.5f,.5f,.5f);
@@ -166,13 +199,11 @@ public final class VisualEntityRenderers {
                 pose.mulPose(entityRenderDispatcher.cameraOrientation());pose.mulPose(Axis.YP.rotationDegrees(180));
                 int color=entity instanceof VisualMobEntity m?m.color():((VisualEffectEntity)entity).color();
                 if(model.equals("wisp")) {
-                    frame(pose,buffers,"textures/misc/particles.png",64,512+entity.tickCount%16,.4f,0xFFFFFF,1);
-                    frame(pose,buffers,"textures/misc/particles.png",64,320+entity.tickCount%16,.75f,0xFFFFFF,.25f);
-                    frame(pose,buffers,"textures/misc/auranodes.png",32,800+entity.tickCount%16,.75f,color,.5f);
+                    glowFrame(pose,buffers,"textures/misc/particles.png",64,512+entity.tickCount%16,.4f,0xFFFFFF,1);
+                    glowFrame(pose,buffers,"textures/misc/particles.png",64,320+entity.tickCount%16,.75f,0xFFFFFF,.25f);
+                    glowFrame(pose,buffers,"textures/misc/auranodes.png",32,800+entity.tickCount%16,.75f,color,.5f);
                 } else if(model.equals("portal")) {
-                    float u=(15-entity.tickCount%16)/16f;
-                    float sx=spec.id().endsWith("greater")?1.3f:1.25f;
-                    quad(buffers.getBuffer(RenderType.entityTranslucent(getTextureLocation(entity))),pose.last(),sx,1.4f,u,0,u+1/16f,1,0xFFFFFF,1);
+                    renderPortal((VisualMobEntity)entity,partial,pose,buffers,getTextureLocation(entity));
                 } else if(model.equals("eldritch_orb")) {
                     frame(pose,buffers,"textures/misc/particles.png",64,192+entity.tickCount%13,.375f,0xFFFFFF,1);
                 } else if(model.equals("golem_orb")) {
@@ -182,6 +213,29 @@ public final class VisualEntityRenderers {
             }
             pose.popPose();super.render(entity,yaw,partial,pose,buffers,light);
         }
+        private static void renderPortal(VisualMobEntity entity,float partial,PoseStack pose,MultiBufferSource buffers,ResourceLocation texture) {
+            boolean greater=entity.spec().id().endsWith("greater");
+            int age=greater?entity.tickCount:entity.portalTicks();
+            float sy=greater?1.5F:1.4F;
+            int growth=(int)Math.min(50,age+partial);
+            if(entity.hurtTime>0) {double d=Math.sin(Math.toRadians(entity.hurtTime*72));sy-=d/4;growth+=(int)(6*d);}
+            if(entity.presentationPulse()>0) {double d=Math.sin(Math.toRadians(entity.presentationPulse()*36));sy+=d/4;growth+=(int)(12*d);}
+            float sx=growth/50F*(greater?1.3F:1.25F);
+            float missing=(1-entity.getHealth()/entity.getMaxHealth())/3F;
+            float bob=net.minecraft.util.Mth.sin(age/(5-12*missing))*missing+missing;
+            float bob2=net.minecraft.util.Mth.sin(age/(6-15*missing))*missing+missing;
+            sy-=bob/4;sx-=bob2/3;
+            float u=(15-(int)((System.nanoTime()/50_000_000L)%16))/16F;
+            RenderType type=WorldVisualRenderTypes.sprite(texture,false);
+            quad(buffers.getBuffer(type),pose.last(),sx,sy,u+1/16F,1,u,0,0xFFFFFF,1-bob);
+            if(buffers instanceof MultiBufferSource.BufferSource source)source.endBatch(type);
+        }
+        private static void glowFrame(PoseStack pose,MultiBufferSource buffers,String tex,int grid,int frame,float size,int color,float alpha) {
+            float u=(frame%grid)/(float)grid,v=(frame/grid)/(float)grid;
+            RenderType type=WorldVisualRenderTypes.sprite(texture(tex),true);
+            quad(buffers.getBuffer(type),pose.last(),size,size,u+1F/grid,v,u,v+1F/grid,color,alpha);
+            if(buffers instanceof MultiBufferSource.BufferSource source)source.endBatch(type);
+        }
         private static void frame(PoseStack pose,MultiBufferSource buffers,String tex,int grid,int frame,float size,int color,float alpha) {
             float u=(frame%grid)/(float)grid,v=(frame/grid)/(float)grid;
             quad(buffers.getBuffer(RenderType.entityTranslucent(texture(tex))),pose.last(),size,size,u,v,u+1f/grid,v+1f/grid,color,alpha);
@@ -189,6 +243,6 @@ public final class VisualEntityRenderers {
         private static void quad(VertexConsumer v,PoseStack.Pose p,float sx,float sy,float u0,float v0,float u1,float v1,int color,float alpha) {
             point(v,p,-sx,-sy,u0,v1,color,alpha);point(v,p,sx,-sy,u1,v1,color,alpha);point(v,p,sx,sy,u1,v0,color,alpha);point(v,p,-sx,sy,u0,v0,color,alpha);
         }
-        private static void point(VertexConsumer v,PoseStack.Pose p,float x,float y,float u,float w,int color,float alpha) { v.vertex(p.pose(),x,y,0).color((color>>16)&255,(color>>8)&255,color&255,(int)(alpha*255)).uv(u,w).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(15728880).normal(p.normal(),0,0,1).endVertex(); }
+        private static void point(VertexConsumer v,PoseStack.Pose p,float x,float y,float u,float w,int color,float alpha) { v.vertex(p.pose(),x,y,0).color((color>>16)&255,(color>>8)&255,color&255,(int)(alpha*255)).uv(u,w).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(220).normal(p.normal(),0,0,1).endVertex(); }
     }
 }

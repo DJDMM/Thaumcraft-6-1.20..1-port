@@ -31,6 +31,7 @@ public final class FocusProjectileEntity extends Projectile {
     private static final EntityDataAccessor<Integer> OWNER_ID = SynchedEntityData.defineId(FocusProjectileEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(FocusProjectileEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<String> EFFECT = SynchedEntityData.defineId(FocusProjectileEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<String> EFFECTS = SynchedEntityData.defineId(FocusProjectileEntity.class, EntityDataSerializers.STRING);
     private FocusPlan plan;
     private int nextIndex,ordinal;
     private float power=1F;
@@ -43,11 +44,13 @@ public final class FocusProjectileEntity extends Projectile {
     @Override protected void defineSynchedData() {
         entityData.define(SPECIAL, 0); entityData.define(OWNER_ID, 0);
         entityData.define(COLOR, 0xFFFFFFFF); entityData.define(EFFECT, "");
+        entityData.define(EFFECTS, "");
     }
     public int special() { return entityData.get(SPECIAL); }
     public int color() { return entityData.get(COLOR); }
     public int ownerEntityId() { return entityData.get(OWNER_ID); }
     public String effectKey() { return entityData.get(EFFECT); }
+    public String visualEffects() { return entityData.get(EFFECTS); }
     public FocusPlan paidPlan() { return plan; }
     public int nextIndex() { return nextIndex; }
     LivingEntity seekingTarget() { return target; }
@@ -79,6 +82,7 @@ public final class FocusProjectileEntity extends Projectile {
         entity.plan = plan; entity.nextIndex = nextIndex;entity.power=power;entity.ordinal=0;
         entity.entityData.set(SPECIAL, option); entity.entityData.set(COLOR, plan.color());
         entity.entityData.set(EFFECT, plan.effect().key()); entity.setOwner(caster); entity.ignoredEntity = caster;
+        entity.entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(plan));
         entity.setPos(position);
         // EntityThrowable used a float square root and direct shoot, with no inherited caster velocity.
         float length = (float)Math.sqrt(unit.lengthSqr());
@@ -237,6 +241,7 @@ public final class FocusProjectileEntity extends Projectile {
             int speed=restored.node(restored.graph().nodes().get(index).parent()).settings().getOrDefault("speed",0);
             if (!validContinuation(restored,index,speed,option)) return;
             plan=restored; nextIndex=index; entityData.set(SPECIAL,option); entityData.set(COLOR,plan.color()); entityData.set(EFFECT,plan.effect().key());
+            entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(plan));
         } catch (IllegalArgumentException ignored) { /* Invalid and old appearances remain harmless. */ }
     }
     @Override public Packet<ClientGamePacketListener> getAddEntityPacket() { return NetworkHooks.getEntitySpawningPacket(this); }

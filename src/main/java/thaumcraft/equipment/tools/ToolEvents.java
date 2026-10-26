@@ -83,8 +83,8 @@ public final class ToolEvents {
             double yaw = Math.toRadians(player.getYRot());
             target.push(-Math.sin(yaw) * .5, .1, Math.cos(yaw) * .5);
             target.hurtMarked = true;
-            ((ServerLevel)player.level()).sendParticles(ParticleTypes.SWEEP_ATTACK, target.getX(), target.getY() + target.getBbHeight() / 2,
-                    target.getZ(), 1, 0, 0, 0, 0);
+            thaumcraft.fx.FxDispatcher.emit(player.level(),"slash",player.position().add(0,player.getBbHeight()/2,0),
+                    target.position().add(0,target.getBbHeight()/2,0),0xFFFFFF,1,8);
             if (++count >= rank) break;
         }
         if (count > 0) ToolSupport.wind(player, 1F);
@@ -128,9 +128,8 @@ public final class ToolEvents {
             if (offset.length() > .5) drop.setDeltaMovement(offset.scale(1 / (offset.length() * following.age)));
             else { drop.setDeltaMovement(drop.getDeltaMovement().scale(.10000000149)); following.restore(); iterator.remove(); }
             drop.hurtMarked = true;
-            if (following.ticks % 2 == 0 && drop.level() instanceof ServerLevel level)
-                level.sendParticles(new DustParticleOptions(new org.joml.Vector3f(.33F, .33F, 1F), .5F),
-                        drop.getX(), drop.getY() + .15, drop.getZ(), 1, .03, .03, .03, 0);
+            if(drop.level() instanceof ServerLevel level)
+                thaumcraft.fx.FxDispatcher.emit(level,"itemFollowing",drop.position(),Vec3.ZERO,0x5454FF,1,10,drop.getId(),net.minecraft.world.item.ItemStack.EMPTY);
         }
     }
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {

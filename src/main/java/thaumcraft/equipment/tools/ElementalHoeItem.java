@@ -48,7 +48,7 @@ public final class ElementalHoeItem extends ToolItems.Hoe {
                 if (ForgeEventFactory.onBlockPlace(player, previous, context.getClickedFace())) { previous.restore(true, false); continue; }
                 ToolSupport.damage(stack, player, context.getHand(), 1);
                 level.playSound(null, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1F, 1F);
-                ToolSupport.particles(level, pos);
+                thaumcraft.fx.FxDispatcher.emit(level,"bamf",new Vec3(pos.getX()+.5,pos.getY()+1.01,pos.getZ()+.5),new Vec3(0,1,0),0x4C1E19,1,x==0&&z==0?1:0);
                 did = true;
             }
         }

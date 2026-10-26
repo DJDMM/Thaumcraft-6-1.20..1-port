@@ -30,7 +30,7 @@ public final class CrucibleBlock extends BaseEntityBlock {
     @Override public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return SHAPE; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CrucibleBlockEntity(pos, state); }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return level.isClientSide ? null : createTickerHelper(type, AlchemyModule.CRUCIBLE_TILE.get(), CrucibleBlockEntity::tick);
+        return createTickerHelper(type, AlchemyModule.CRUCIBLE_TILE.get(), CrucibleBlockEntity::tick);
     }
     @Override public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!(level.getBlockEntity(pos) instanceof CrucibleBlockEntity crucible)) return InteractionResult.PASS;
@@ -53,6 +53,6 @@ public final class CrucibleBlock extends BaseEntityBlock {
         super.onRemove(state, level, pos, newState, moving);
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (state.getValue(BOILING)) level.addParticle(ParticleTypes.BUBBLE_POP, pos.getX() + 0.2 + random.nextDouble() * 0.6, pos.getY() + 0.8, pos.getZ() + 0.2 + random.nextDouble() * 0.6, 0, 0.02, 0);
+        // TileCrucible owns the original per-client-tick froth and colored bubbles.
     }
 }

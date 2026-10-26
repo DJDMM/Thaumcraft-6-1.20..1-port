@@ -45,9 +45,9 @@ final class ToolSupport {
         if (!wearer.level().isClientSide) stack.hurtAndBreak(amount, wearer, entity -> entity.broadcastBreakEvent(hand));
     }
 
-    static void particles(ServerLevel level, BlockPos pos) {
-        level.sendParticles(ParticleTypes.POOF, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5,
-                4, .15, .15, .15, .015);
+    static void particles(ServerLevel level, BlockPos pos,net.minecraft.core.Direction face) {
+        var vector=face==null?net.minecraft.world.phys.Vec3.ZERO:new net.minecraft.world.phys.Vec3(face.getStepX(),face.getStepY(),face.getStepZ());
+        thaumcraft.fx.FxDispatcher.emit(level,"bamf",pos.getCenter(),vector,8401408,1,0);
     }
 
     static void wind(LivingEntity entity, float volume) {

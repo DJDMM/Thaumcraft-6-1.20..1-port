@@ -23,6 +23,8 @@ public class VisualMobEntity extends PathfinderMob {
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(VisualMobEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> HELM = SynchedEntityData.defineId(VisualMobEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> HEADLESS = SynchedEntityData.defineId(VisualMobEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> PORTAL_ACTIVE = SynchedEntityData.defineId(VisualMobEntity.class, EntityDataSerializers.BOOLEAN);
+    private int portalTicks, presentationPulse, presentationSpawnTimer;
 
     public VisualMobEntity(EntityType<? extends VisualMobEntity> type, Level level) {
         super(type, level);
@@ -52,6 +54,7 @@ public class VisualMobEntity extends PathfinderMob {
         entityData.define(COLOR, 0xFFFF7E);
         entityData.define(HELM, true);
         entityData.define(HEADLESS, false);
+        entityData.define(PORTAL_ACTIVE, false);
     }
     public int variant() { return entityData.get(VARIANT); }
     private void equipVisualArmor() {
@@ -72,6 +75,36 @@ public class VisualMobEntity extends PathfinderMob {
     public int color() { return entityData.get(COLOR); }
     public boolean hasHelm() { return entityData.get(HELM); }
     public boolean headless() { return entityData.get(HEADLESS); }
+    public boolean portalActive() { return entityData.get(PORTAL_ACTIVE); }
+    public void setPortalActive(boolean active) { entityData.set(PORTAL_ACTIVE,active); }
+    public int portalTicks() { return portalTicks; }
+    public int presentationPulse() { return presentationPulse; }
+    public int presentationSpawnTimer() { return presentationSpawnTimer; }
+    @Override public void tick() {
+        super.tick();
+        if(portalActive())portalTicks++;
+        if(presentationPulse>0)presentationPulse--;
+        if(presentationSpawnTimer>0)presentationSpawnTimer--;
+        if(level().isClientSide&&spec().model().equals("EldritchGuardian")) {
+            boolean warden=spec().id().equals("eldritch_warden");
+            var point=position().add((random.nextFloat()-random.nextFloat())*.2F,getBbHeight()*(warden?.25:.22),
+                    (random.nextFloat()-random.nextFloat())*.2F);
+            thaumcraft.fx.FxDispatcher.emit(level(),"wispEG",point,net.minecraft.world.phys.Vec3.ZERO,0xFFFFFF,1,0,getId(),net.minecraft.world.item.ItemStack.EMPTY);
+            if(warden&&presentationSpawnTimer>0) {
+                float height=Math.max(1,getBbHeight()*(150-presentationSpawnTimer)/150F);
+                for(int particle=0;particle<33;particle++)
+                    thaumcraft.fx.FxDispatcher.emit(level(),"smokeSpiral",
+                            new net.minecraft.world.phys.Vec3(getX(),getBoundingBox().minY+height/2,getZ()),net.minecraft.world.phys.Vec3.ZERO,
+                            2232623,height,random.nextInt(360),net.minecraft.util.Mth.floor(getBoundingBox().minY)-1,net.minecraft.world.item.ItemStack.EMPTY);
+            }
+        }
+    }
+    @Override public void handleEntityEvent(byte event) {
+        // These are the original presentation messages, not reconstructed boss AI.
+        if(event==16&&spec().model().equals("portal"))presentationPulse=10;
+        else if(event==18&&spec().id().equals("eldritch_warden"))presentationSpawnTimer=150;
+        else super.handleEntityEvent(event);
+    }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("Variant", variant());
@@ -83,6 +116,7 @@ public class VisualMobEntity extends PathfinderMob {
         tag.putInt("Color", color());
         tag.putBoolean("Helm", hasHelm());
         tag.putBoolean("Headless", headless());
+        if(spec().id().equals("cultist_portal_lesser"))tag.putBoolean("active",portalActive());
         tag.putBoolean("VisualOnly", true);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
@@ -96,6 +130,8 @@ public class VisualMobEntity extends PathfinderMob {
         if (tag.contains("Color")) entityData.set(COLOR, tag.getInt("Color") & 0xFFFFFF);
         if (tag.contains("Helm")) entityData.set(HELM, tag.getBoolean("Helm"));
         entityData.set(HEADLESS, tag.getBoolean("Headless"));
+        if(spec().id().equals("cultist_portal_lesser"))setPortalActive(tag.getBoolean("active"));
+        portalTicks=presentationPulse=presentationSpawnTimer=0;
         if (!spec().id().equals("wisp")) {
             setNoAi(true);
             setPersistenceRequired();

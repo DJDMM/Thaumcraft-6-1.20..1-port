@@ -38,17 +38,7 @@ public final class CausalityCollapserEntity extends ThrowableItemProjectile {
     @Override public void tick() {
         super.tick();
         if (level().isClientSide && !isRemoved()) {
-            // Native particles replace the two legacy FXDispatcher emitters; original renderer had no mesh.
-            for (int index = 0; index < 3; index++) {
-                double coefficient = index / 3.;
-                double x = xo + (getX() - xo) * coefficient;
-                double y = yo + (getY() - yo) * coefficient + getBbHeight() / 2;
-                double z = zo + (getZ() - zo) * coefficient;
-                level().addParticle(ParticleTypes.FLAME, x, y, z, .0125 * (random.nextFloat() - .5),
-                        .0125 * (random.nextFloat() - .5), .0125 * (random.nextFloat() - .5));
-                level().addParticle(ParticleTypes.END_ROD, getX() + random.nextGaussian() * .2,
-                        getY() + random.nextGaussian() * .2, getZ() + random.nextGaussian() * .2, 0, 0, 0);
-            }
+            thaumcraft.fx.emitters.MachineFxPrograms.throwable(this,true);
         }
     }
     @Override public Packet<ClientGamePacketListener> getAddEntityPacket() { return NetworkHooks.getEntitySpawningPacket(this); }

@@ -75,6 +75,7 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if(id.startsWith("nitor_"))return new thaumcraft.fx.nitor.NitorBlock(thaumcraft.fx.nitor.NitorBlock.dye(id));
         if (thaumcraft.artifice.generator.VisGeneratorModule.handlesBlock(id)) return thaumcraft.artifice.generator.VisGeneratorModule.createBlock(id);
         if (thaumcraft.artifice.pattern.PatternCrafterModule.handlesBlock(id)) return thaumcraft.artifice.pattern.PatternCrafterModule.createBlock(id);
         if (id.equals("dioptra")) return new thaumcraft.artifice.dioptra.DioptraBlock();

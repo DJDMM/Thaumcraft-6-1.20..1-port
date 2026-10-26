@@ -28,6 +28,17 @@ public final class ElementalSwordItem extends ToolItems.Sword {
         player.startUsingItem(hand); return InteractionResultHolder.consume(player.getItemInHand(hand));
     }
     @Override public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remaining) {
+        if(level.isClientSide){
+            int minY=user.onGround()?(int)Math.floor(user.getBoundingBox().minY):(int)(user.getBoundingBox().minY-2);
+            for(int n=0;n<5;n++)thaumcraft.fx.FxDispatcher.emit(level,"smokeSpiral",user.position().add(0,user.getBbHeight()/2,0),
+                    Vec3.ZERO,14540253,1.5F,level.random.nextInt(360),minY,ItemStack.EMPTY);
+            if(user.onGround()){
+                float angle=level.random.nextFloat()*360F;
+                level.addParticle(ParticleTypes.SMOKE,user.getX(),user.getBoundingBox().minY+.10000000149011612,user.getZ(),
+                        -net.minecraft.util.Mth.sin(angle/180F*(float)Math.PI)/5F,0,net.minecraft.util.Mth.cos(angle/180F*(float)Math.PI)/5F);
+            }
+            return;
+        }
         if (!(level instanceof ServerLevel server)) return;
         Vec3 movement = user.getDeltaMovement();
         double y = movement.y;
@@ -53,6 +64,5 @@ public final class ElementalSwordItem extends ToolItems.Sword {
             ToolSupport.wind(user, .5F);
             ToolSupport.damage(stack, user, user.getUsedItemHand(), 1);
         }
-        server.sendParticles(ParticleTypes.SMOKE, user.getX(), user.getY() + .1, user.getZ(), 5, .5, .05, .5, .015);
     }
 }

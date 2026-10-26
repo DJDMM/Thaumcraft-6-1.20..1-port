@@ -63,6 +63,9 @@ public final class AuromancyClientSmokeTest {
     private static long boltReceived,boltRendered;
     private static boolean beamCaptured;
     private static volatile boolean legacyReady;
+    private static volatile boolean auraFixtureReady;
+    private static long auraFixtureChangedAt;
+    private static Set<Long> loadingAuraChunks=Set.of();
     private AuromancyClientSmokeTest(){}
     private static void require(boolean ok,String why){if(!ok)throw new AssertionError(why);}
     private static ServerPlayer player(Minecraft mc){var p=mc.getSingleplayerServer().getPlayerList().getPlayer(mc.player.getUUID());require(p!=null,"Missing QA player");return p;}
@@ -77,6 +80,7 @@ public final class AuromancyClientSmokeTest {
             require(mc.getSingleplayerServer()!=null && mc.getSingleplayerServer().getWorldData().getLevelName().equals(WORLD),"Wrong QA world");
             mc.getToasts().clear();if(work!=null){if(!work.isDone())return;work.join();work=null;}
             if(!setup){setup=true;submit(mc,()->prepare(mc));return;}
+            if(!auraFixtureReady){submit(mc,()->settleAuraFixture(mc));return;}
             // A transient projectile can disappear after Screenshot.grab finishes. Advance
             // before reevaluating that scene's live-entity predicate on the following tick.
             if(captured&&saved.get()>scene){scene++;phase=0;stableTicks=0;prepared=false;captured=false;captureRequested=false;}
@@ -114,22 +118,22 @@ public final class AuromancyClientSmokeTest {
                     require(Math.abs(craftAura-AuraManager.getVis(p.serverLevel(),TABLE)-43)<.01,"Wrong table total aura debit");
                     p.getInventory().selected=0;p.setItemInHand(InteractionHand.MAIN_HAND,CatalogModule.stack("caster_basic"));p.inventoryMenu.broadcastChanges();});mc.setScreen(new Gallery());return;}
             }else if(scene==6){
-                if(!prepared){prepared=true;mc.setScreen(null);mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(TABLE.getCenter(),Direction.NORTH,TABLE,false));return;}
+                if(!prepared){prepared=true;closeMenu(mc);mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(TABLE.getCenter(),Direction.NORTH,TABLE,false));return;}
                 if(phase==0){if(!(mc.screen instanceof FocalManipulatorScreen screen))return;phase=1;
                     mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.QUICK_MOVE,mc.player);return;}
-                if(phase==1){int slot=focusSlot(mc.player);if(slot<0)return;phase=2;mc.setScreen(new FocusSelectionScreen(InteractionHand.MAIN_HAND));return;}
+                if(phase==1){int slot=focusSlot(mc.player);if(slot<0)return;phase=2;closeMenu(mc);mc.setScreen(new FocusSelectionScreen(InteractionHand.MAIN_HAND));return;}
                 if(!(mc.screen instanceof FocusSelectionScreen))return;
             }else if(scene==7){
                 if(!prepared){prepared=true;int slot=focusSlot(mc.player);require(slot>=0,"No completed focus returned by menu");
                     FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
                 if(FocusSelection.installed(mc.player.getMainHandItem()).isEmpty())return;
-                if(phase==0){phase=1;mc.setScreen(null);submit(mc,()->{var p=player(mc);p.connection.teleport(.5,112,3.5,180,0);castAura=AuraManager.getVis(p.serverLevel(),p.blockPosition());});return;}
+                if(phase==0){phase=1;closeMenu(mc);submit(mc,()->{var p=player(mc);p.connection.teleport(.5,112,3.5,180,0);castAura=AuraManager.getVis(p.serverLevel(),p.blockPosition());});return;}
                 if(phase==1){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;phase=2;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
                 if(phase==2){phase=3;submit(mc,()->{var p=player(mc);var cow=(Cow)p.serverLevel().getEntity(cowId);require(cow!=null && cow.getHealth()==96,"Actual spell did not hurt server cow by4");
                     require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),p.blockPosition())-.8)<.01,"Actual spell did not pay .8 aura");
                     require(p.experienceLevel==8,"Casting took XP");LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_REAL_FLOW: actual menu insert/edit/start ->2XP+2crystals+43vis -> completed focus -> physical selection packet ->.8vis+4fire damage");});return;}
             }else if(scene==8){
-                if(!prepared){prepared=true;mc.setScreen(null);submit(mc,()->{
+                if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->{
                     var p=player(mc);var level=p.serverLevel();
                     p.getInventory().setItem(9,CatalogModule.stack("focus_1"));
                     p.getInventory().setItem(10,AspectCrystalItem.create(Aspect.MOTION,2));p.getInventory().setItem(11,AspectCrystalItem.create(Aspect.COLD,2));p.experienceLevel=10;
@@ -157,7 +161,7 @@ public final class AuromancyClientSmokeTest {
                 if(phase==0){if(!(mc.screen instanceof FocalManipulatorScreen screen))return;phase=1;
                     submit(mc,()->{var p=player(mc);require(p.experienceLevel==7&&p.getInventory().getItem(10).getCount()==1&&p.getInventory().getItem(11).getCount()==1,"Projectile table materials/XP");require(Math.abs(craftAura-AuraManager.getVis(p.serverLevel(),TABLE)-83)<.01,"Projectile table aura");});
                     mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.QUICK_MOVE,mc.player);return;}
-                if(phase==1){int slot=focusSlot(mc.player,FocusNodeRegistry.FROST);if(slot<0)return;phase=2;mc.setScreen(null);FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
+                if(phase==1){int slot=focusSlot(mc.player,FocusNodeRegistry.FROST);if(slot<0)return;phase=2;closeMenu(mc);FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
                 if(FocusStacks.readPlan(FocusSelection.installed(mc.player.getMainHandItem())).map(p->!p.effect().key().equals(FocusNodeRegistry.FROST)).orElse(true))return;
                 if(phase==2){phase=3;submit(mc,()->{var p=player(mc);var cow=(Cow)p.serverLevel().getEntity(cowId);cow.clearFire();cow.removeAllEffects();cow.setHealth(100);cow.setPos(.5,112,-2.5);cow.setDeltaMovement(Vec3.ZERO);
                     for(int z=-5;z<=4;z++)p.serverLevel().setBlockAndUpdate(new BlockPos(0,111,z),Blocks.STONE.defaultBlockState());
@@ -201,11 +205,12 @@ public final class AuromancyClientSmokeTest {
                     p.setItemInHand(InteractionHand.MAIN_HAND,CatalogModule.stack("caster_basic"));
                     p.getInventory().setItem(9,CatalogModule.stack("focus_1"));
                     p.getInventory().setItem(10,AspectCrystalItem.create(Aspect.ENERGY,2));p.getInventory().setItem(11,AspectCrystalItem.create(Aspect.LIFE,2));
-                    p.experienceLevel=10;AuraManager.drainVis(level,TABLE,Float.MAX_VALUE,false);AuraManager.addVis(level,TABLE,300);craftAura=300;
+                    // Initial reserve pays93 without crossing this world's lunar pollution cap.
+                    p.experienceLevel=10;AuraManager.drainVis(level,TABLE,Float.MAX_VALUE,false);AuraManager.addVis(level,TABLE,200);craftAura=200;
                     level.setBlockAndUpdate(new BlockPos(0,113,0),Blocks.AIR.defaultBlockState());
                     var cow=(Cow)level.getEntity(cowId);cow.clearFire();cow.removeAllEffects();cow.invulnerableTime=0;cow.setHealth(60);cow.setPos(.5,112,-8.5);cow.setDeltaMovement(Vec3.ZERO);
                     level.setBlockAndUpdate(new BlockPos(0,111,-9),Blocks.STONE.defaultBlockState());
-                    p.connection.teleport(.5,112,3.5,180,0);p.inventoryMenu.broadcastChanges();});mc.setScreen(null);return;}
+                    p.connection.teleport(.5,112,3.5,180,0);p.inventoryMenu.broadcastChanges();});closeMenu(mc);return;}
                 if(phase==1){phase=2;mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(TABLE.getCenter(),Direction.NORTH,TABLE,false));return;}
                 if(!(mc.screen instanceof FocalManipulatorScreen screen))return;
                 if(phase==2){phase=3;mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,1,0,ClickType.PICKUP,mc.player);
@@ -225,7 +230,7 @@ public final class AuromancyClientSmokeTest {
                     submit(mc,()->{var p=player(mc);require(p.experienceLevel==7&&p.getInventory().getItem(10).getCount()==1&&p.getInventory().getItem(11).getCount()==1,"Bolt Heal table XP/crystals");
                         require(Math.abs(craftAura-AuraManager.getVis(p.serverLevel(),TABLE)-93)<.01,"Bolt Heal total table aura");castAura=AuraManager.getVis(p.serverLevel(),TABLE);});
                     mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.QUICK_MOVE,mc.player);return;}
-                if(phase==1){int slot=focusSlot(mc.player,FocusNodeRegistry.HEAL);if(slot<0)return;phase=2;mc.setScreen(null);
+                if(phase==1){int slot=focusSlot(mc.player,FocusNodeRegistry.HEAL);if(slot<0)return;phase=2;closeMenu(mc);
                     FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
                 if(!installedEffect(mc,FocusNodeRegistry.HEAL))return;
                 if(phase==2){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;
@@ -260,7 +265,7 @@ public final class AuromancyClientSmokeTest {
                     var p=player(mc);grant(p,"FOCUSSPLIT");grant(p,"FOCUSFLUX");
                     serverTable(mc).setItem(0,ItemStack.EMPTY);p.getInventory().setItem(9,CatalogModule.stack("focus_2"));
                     p.getInventory().setItem(10,AspectCrystalItem.create(Aspect.AVERSION,2));p.getInventory().setItem(11,AspectCrystalItem.create(Aspect.FIRE,2));p.getInventory().setItem(12,AspectCrystalItem.create(Aspect.FLUX,2));p.experienceLevel=20;
-                    AuraManager.addVis(p.serverLevel(),TABLE,250);p.connection.teleport(.5,112,3.5,180,0);p.inventoryMenu.broadcastChanges();});mc.setScreen(null);return;}
+                    AuraManager.addVis(p.serverLevel(),TABLE,250);p.connection.teleport(.5,112,3.5,180,0);p.inventoryMenu.broadcastChanges();});closeMenu(mc);return;}
                 if(!(mc.screen instanceof FocalManipulatorScreen screen)){mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(TABLE.getCenter(),Direction.NORTH,TABLE,false));return;}
                 if(phase==0){phase=1;mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,1,0,ClickType.PICKUP,mc.player);mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.PICKUP,mc.player);return;}
                 if(screen.getMenu().pending()||screen.getMenu().focus().isEmpty()||screen.getMenu().graph().nodes().isEmpty())return;
@@ -274,7 +279,7 @@ public final class AuromancyClientSmokeTest {
                 if(table.crafting()||FocusStacks.readPlan(table.getItem(0)).isEmpty())return;
                 if(!prepared){prepared=true;submit(mc,()->{var plan=FocusStacks.readPlan(serverTable(mc).getItem(0)).orElseThrow();require(plan.effects().size()==2&&plan.maxComplexity()==25,"Table lost completed Advanced branched package");});return;}
             }else if(scene==24){
-                if(!prepared){prepared=true;mc.setScreen(null);submit(mc,()->setupNewSpell(mc,ElementalFocusGraphGameTests.graph(FocusNodeRegistry.TOUCH,FocusNodeRegistry.CURSE,Map.of(),Map.of())));return;}
+                if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->setupNewSpell(mc,ElementalFocusGraphGameTests.graph(FocusNodeRegistry.TOUCH,FocusNodeRegistry.CURSE,Map.of(),Map.of())));return;}
                 if(!installedEffect(mc,FocusNodeRegistry.CURSE))return;
                 if(phase==0){phase=1;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
                 if(phase==1){phase=2;submit(mc,()->{var cow=(Cow)player(mc).serverLevel().getEntity(cowId);require(cow.hasEffect(net.minecraft.world.effect.MobEffects.POISON)&&cow.getHealth()<=98,"Curse missing actual damage/poison");});return;}
@@ -333,6 +338,12 @@ public final class AuromancyClientSmokeTest {
             if(!captureRequested && !captured && ++stableTicks>=(scene==10||scene==31?1:scene==19?6:12))captureRequested=true;
         }catch(Throwable error){fail(mc,error);}
     }
+    private static void closeMenu(Minecraft mc){
+        // Replacing a Screen does not send vanilla's container-close packet. Physical
+        // focus installation requires the ordinary inventory menu on both peers.
+        if(mc.player.containerMenu!=mc.player.inventoryMenu)mc.player.closeContainer();
+        mc.setScreen(null);
+    }
     private static int focusSlot(net.minecraft.world.entity.player.Player player){for(int i=0;i<36;i++)if(FocusStacks.readPlan(player.getInventory().getItem(i)).isPresent())return i;return -1;}
     private static int focusSlot(net.minecraft.world.entity.player.Player player,String effect){for(int i=0;i<36;i++)if(FocusStacks.readPlan(player.getInventory().getItem(i)).map(p->p.effect().key().equals(effect)).orElse(false))return i;return -1;}
     private static boolean installedEffect(Minecraft mc,String key){return FocusStacks.readPlan(FocusSelection.installed(mc.player.getMainHandItem())).map(p->p.effect().key().equals(key)).orElse(false);}
@@ -365,6 +376,8 @@ public final class AuromancyClientSmokeTest {
         if(scene==17&&phase>=3&&!beamCaptured&&FocusBoltClient.renderedCount()>boltRendered){
             beamCaptured=true;var mc=Minecraft.getInstance();try{
                 String name="tc6-auromancy-bolt-beam.png";File file=new File(new File(mc.gameDirectory,"screenshots"),name);Files.deleteIfExists(file.toPath());
+                String geometry=FocusBoltClient.lastRenderedGeometryForSmoke();require(geometry!=null,"Missing actual rendered Bolt geometry");
+                LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_BOLT_GEOMETRY: image={} geometry={}",name,geometry);
                 Screenshot.grab(mc.gameDirectory,name,mc.getMainRenderTarget(),message->{if(file.isFile()&&file.length()>0){beamSaved.incrementAndGet();LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_BOLT_IMAGE: {}",file.getAbsolutePath());}else mc.execute(()->fail(mc,new AssertionError("Missing transient Bolt screenshot")));});
             }catch(Throwable error){fail(mc,error);}return;
         }
@@ -380,6 +393,8 @@ public final class AuromancyClientSmokeTest {
         started=true;previousTutorial=mc.options.tutorialStep;mc.options.tutorialStep=TutorialSteps.NONE;mc.getTutorial().stop();mc.options.pauseOnLostFocus=false;
         mc.options.renderDistance().set(3);mc.options.simulationDistance().set(5);mc.options.guiScale().set(2);mc.resizeDisplay();
         var rules=new GameRules();rules.getRule(GameRules.RULE_DOMOBSPAWNING).set(false,null);rules.getRule(GameRules.RULE_DAYLIGHT).set(false,null);rules.getRule(GameRules.RULE_WEATHER_CYCLE).set(false,null);
+        // Initial payment fixture excludes unrelated naturally generated crystal/tree consumers.
+        rules.getRule(GameRules.RULE_RANDOMTICKING).set(0,null);
         mc.createWorldOpenFlows().createFreshLevel(WORLD,new LevelSettings(WORLD,GameType.SURVIVAL,false,Difficulty.PEACEFUL,true,rules,WorldDataConfiguration.DEFAULT),new WorldOptions(0x54433616L,false,false),WorldPresets::createNormalWorldDimensions);
     }
     private static void prepare(Minecraft mc){
@@ -390,15 +405,37 @@ public final class AuromancyClientSmokeTest {
         p.getInventory().setItem(10,AspectCrystalItem.create(Aspect.AVERSION,2));p.getInventory().setItem(11,AspectCrystalItem.create(Aspect.FIRE,2));p.experienceLevel=10;
         // Fixture isolates device behavior. Canonical progression is exercised separately in server tests.
         try{var method=PlayerKnowledge.class.getDeclaredMethod("setResearchStage",String.class,int.class);method.setAccessible(true);method.invoke(KnowledgeStore.get(p),"BASEAUROMANCY",ResearchCatalog.get("BASEAUROMANCY").stages().size()+1);}catch(ReflectiveOperationException e){throw new IllegalStateException(e);}
-        AuraManager.drainVis(level,TABLE,Float.MAX_VALUE,false);AuraManager.addVis(level,TABLE,80);craftAura=80;
-        // Exact payment fixture: only the owned centre chunk participates in aura diffusion.
-        // This does not change production APIs or algorithms; phase4 has zero lunar regeneration.
-        try{var field=thaumcraft.world.aura.AuraSavedData.class.getDeclaredField("activeChunks");field.setAccessible(true);
-            @SuppressWarnings("unchecked") var active=(Set<Long>)field.get(thaumcraft.world.aura.AuraSavedData.get(level));
-            active.clear();active.add(new ChunkPos(TABLE).toLong());
-        }catch(ReflectiveOperationException error){throw new IllegalStateException(error);}
+        // Load the only four chunks that can diffuse directly into the centre before
+        // isolating it. ChunkEvent.Load schedules aura activation asynchronously.
+        var centre=new ChunkPos(TABLE);level.getChunk(centre.x,centre.z);
+        for(var direction:Direction.Plane.HORIZONTAL)level.getChunk(centre.x+direction.getStepX(),centre.z+direction.getStepZ());
+        auraFixtureChangedAt=level.getGameTime();
         p.connection.teleport(.5,112,3.5,180,0);p.inventoryMenu.broadcastChanges();
         Cow cow=EntityType.COW.create(level);cow.setNoAi(true);cow.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);cow.setHealth(100);cow.setPos(.5,112,.5);level.addFreshEntity(cow);cowId=cow.getId();
+    }
+    private static Set<Long> activeAuraChunks(net.minecraft.server.level.ServerLevel level){
+        try{var field=thaumcraft.world.aura.AuraSavedData.class.getDeclaredField("activeChunks");field.setAccessible(true);
+            @SuppressWarnings("unchecked") var active=(Set<Long>)field.get(thaumcraft.world.aura.AuraSavedData.get(level));return active;
+        }catch(ReflectiveOperationException error){throw new IllegalStateException(error);}
+    }
+    private static void settleAuraFixture(Minecraft mc){
+        require(!auraFixtureReady,"Aura fixture initialized twice");
+        var p=player(mc);var level=p.serverLevel();var centre=new ChunkPos(TABLE);
+        require(!serverTable(mc).crafting()&&serverTable(mc).getItem(0).isEmpty(),"Payment consumer started before fixture settled");
+        var active=activeAuraChunks(level);var observed=Set.copyOf(active);long now=level.getGameTime();
+        boolean cardinalsLoaded=level.getChunkSource().getChunkNow(centre.x,centre.z)!=null&&active.contains(centre.toLong());
+        for(var direction:Direction.Plane.HORIZONTAL){var neighbor=new ChunkPos(centre.x+direction.getStepX(),centre.z+direction.getStepZ());
+            cardinalsLoaded&=level.getChunkSource().getChunkNow(neighbor.x,neighbor.z)!=null&&active.contains(neighbor.toLong());
+        }
+        if(!cardinalsLoaded||p.position().distanceToSqr(new Vec3(.5,112,3.5))>.25){loadingAuraChunks=observed;auraFixtureChangedAt=now;return;}
+        if(!observed.equals(loadingAuraChunks)){loadingAuraChunks=observed;auraFixtureChangedAt=now;return;}
+        if(now-auraFixtureChangedAt<40)return;
+        // Exactly once, before menu insertion/START: no active recipe clocks, RNG,
+        // aura or costs are reset. The fixed phase4 date has zero lunar regeneration.
+        int loaded=active.size();active.clear();active.add(centre.toLong());
+        AuraManager.drainVis(level,TABLE,Float.MAX_VALUE,false);AuraManager.addVis(level,TABLE,80);craftAura=80;
+        auraFixtureReady=true;
+        LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_INITIAL_AURA_FIXTURE: nativeStableTicks={} loadedAuraChunks={} cardinalLoaded=5 activeChunks=1 initialVis=80 randomTickSpeed=0 beforeConsumer=true",now-auraFixtureChangedAt,loaded);
     }
     private static void audit(Minecraft mc){
         require(mc.getResourceManager().getResource(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thaumcraft","textures/misc/essentia.png")).isPresent(),"Missing original Bolt beam texture");

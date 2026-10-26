@@ -182,8 +182,14 @@ public final class SmelterBlockEntity extends BlockEntity implements WorldlyCont
         if (id == 1 && level != null && level.isClientSide) {
             Direction direction = Direction.from3DDataValue(value).getOpposite();
             double x = worldPosition.getX() + .5 + direction.getStepX(), z = worldPosition.getZ() + .5 + direction.getStepZ();
-            level.playLocalSound(x, worldPosition.getY() + .5, z, net.minecraft.sounds.SoundEvents.LAVA_EXTINGUISH, net.minecraft.sounds.SoundSource.BLOCKS, .25F, 2.6F, false);
-            for (int i = 0; i < 4; i++) level.addParticle(net.minecraft.core.particles.ParticleTypes.SMOKE, x, worldPosition.getY() + .5, z, direction.getStepX() / 4D, .05, direction.getStepZ() / 4D);
+            var r=level.random;
+            level.playLocalSound(x, worldPosition.getY() + .5, z, net.minecraft.sounds.SoundEvents.LAVA_EXTINGUISH, net.minecraft.sounds.SoundSource.BLOCKS, .25F, 2.6F+(r.nextFloat()-r.nextFloat())*.8F, true);
+            for(int i=0;i<4;i++){
+                float fx=.1F-r.nextFloat()*.2F,fz=.1F-r.nextFloat()*.2F,fy=.1F-r.nextFloat()*.2F;
+                float vx=.1F-r.nextFloat()*.2F,vz=.1F-r.nextFloat()*.2F,vy=.1F-r.nextFloat()*.2F;
+                thaumcraft.fx.FxDispatcher.emit(level,"vent",new net.minecraft.world.phys.Vec3(x+fx,worldPosition.getY()+.5F+fy,z+fz),
+                        new net.minecraft.world.phys.Vec3(direction.getStepX()/4F+vx,direction.getStepY()/4F+vy,direction.getStepZ()/4F+vz),11184810,1,0);
+            }
             return true;
         }
         return super.triggerEvent(id, value);

@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.54'
 }
-version = '0.40.1'
+version = '0.41.0'
 group = 'thaumcraft.port'
 base { archivesName = 'thaumcraft-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -20,7 +20,19 @@ minecraft {
             mods { thaumcraft { source sourceSets.main } }
         }
         client {
-            if (project.hasProperty('soundingSmokeTest')) {
+            if (project.hasProperty('visualFxSmokeTest')) {
+                workingDirectory project.file('run/visual-fx-smoke')
+                property 'thaumcraft.visualFxSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('worldVisualSmokeTest')) {
+                workingDirectory project.file('run/world-visual-smoke')
+                property 'thaumcraft.worldVisualSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('armorVisualSmokeTest')) {
+                workingDirectory project.file('run/armor-visual-smoke')
+                property 'thaumcraft.armorVisualSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('soundingSmokeTest')) {
                 workingDirectory project.file('run/sounding-smoke')
                 property 'thaumcraft.soundingSmokeTest', 'true'
                 args '--width', '1600', '--height', '1000'

@@ -49,7 +49,7 @@ public final class FocusEffects {
                 || node.settings().keySet().stream().anyMatch(setting -> !setting.equals("power")
                     && !(key.equals(FocusNodeRegistry.FROST) && setting.equals("duration")))) return false;
         if (target instanceof EntityHitResult hit && (hit.getEntity().level() != level || hit.getEntity().isRemoved())) return false;
-        // Impact particles are native approximations; the original effect packet covered 64 blocks.
+        // The client evaluates the original atlas/lifecycle after the authoritative impact.
         particles(level, target.getLocation(), key);
         if (key.equals(FocusNodeRegistry.AIR)) {
             Vec3 point = target.getLocation();
@@ -119,11 +119,7 @@ public final class FocusEffects {
     private static boolean finite(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
 
     private static void particles(ServerLevel level, Vec3 point, String key) {
-        ParticleOptions particle = key.equals(FocusNodeRegistry.AIR) ? ParticleTypes.CLOUD
-                : key.equals(FocusNodeRegistry.FROST) ? ParticleTypes.SNOWFLAKE
-                : new DustParticleOptions(new Vector3f(86 / 255F, 192 / 255F, 0), 1);
-        for (ServerPlayer player : level.players()) if (player.distanceToSqr(point) <= 64 * 64)
-            level.sendParticles(player, particle, true, point.x, point.y, point.z, 12, .15, .15, .15, .04);
+        thaumcraft.fx.emitters.FocusFxPrograms.impact(level,point,key);
     }
 
     public static void playCastSound(ServerLevel level, ServerPlayer caster, String key) {

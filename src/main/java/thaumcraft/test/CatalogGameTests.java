@@ -53,6 +53,9 @@ public final class CatalogGameTests {
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity
                     : entry.getKey().equals("pattern_crafter")
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.pattern.PatternCrafterBlockEntity
+                    : block instanceof thaumcraft.fx.nitor.NitorBlock
+                    ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.fx.nitor.NitorBlockEntity
+                        && helper.getLevel().getBlockEntity(pos).getType()==thaumcraft.alchemy.AlchemyModule.NITOR_TILE.get()
                     : helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
             if(entry.getKey().equals("dioptra")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.dioptra.DioptraBlockEntity,"Dioptra lost native aura grid ticker");
             if(entry.getKey().equals("vis_generator")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.generator.VisGeneratorBlockEntity,"Vis Generator lost native directed Forge Energy ticker");

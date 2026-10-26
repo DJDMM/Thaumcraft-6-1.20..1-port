@@ -85,6 +85,10 @@ public final class ThaumometerClientSmokeTest {
     private static volatile int hoverExperience;
     private static ItemStack[] containerContents;
     private static CompletableFuture<Void> work;
+    private static com.electronwill.nightconfig.core.CommentedConfig previousRiftConfig;
+    private static java.nio.file.Path riftConfigPath;
+    private static byte[] riftConfigBytes;
+    private static boolean previousWussMode;
 
     private ThaumometerClientSmokeTest() {}
 
@@ -124,6 +128,7 @@ public final class ThaumometerClientSmokeTest {
                 rules.getRule(GameRules.RULE_DAYLIGHT).set(false, null);
                 var settings = new LevelSettings(WORLD, GameType.CREATIVE, false, Difficulty.PEACEFUL, true, rules, WorldDataConfiguration.DEFAULT);
                 LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_SMOKE_WORLD: {}", WORLD);
+                prepareRiftFixture(mc);
                 mc.createWorldOpenFlows().createFreshLevel(WORLD, settings, new WorldOptions(0x544336L, false, false), WorldPresets::createNormalWorldDimensions);
                 return;
             }
@@ -229,6 +234,46 @@ public final class ThaumometerClientSmokeTest {
         if (stage == 8 && (ThaumometerClient.scanResultForSmokeTest() == null
                 || ThaumometerClient.scanResultForSmokeTest().discovered())) return false;
         return true;
+    }
+
+    /** Initial process-owned ecology fixture: preserve overflow and every discovery guard. */
+    private static void prepareRiftFixture(Minecraft mc) throws java.io.IOException {
+        require(mc.getSingleplayerServer() == null && previousRiftConfig == null,
+                "Rift fixture must precede the owned world");
+        var actual = net.minecraftforge.fml.config.ConfigTracker.INSTANCE.configSets()
+                .get(net.minecraftforge.fml.config.ModConfig.Type.COMMON).stream()
+                .filter(config -> config.getSpec() == thaumcraft.world.rift.RiftModule.CONFIG)
+                .findFirst().orElseThrow();
+        riftConfigPath = actual.getFullPath().toRealPath();
+        var expected = mc.gameDirectory.toPath().toRealPath().resolve("config/thaumcraft-common.toml").toRealPath();
+        require(riftConfigPath.equals(expected), "Rift fixture config is outside its owned QA directory");
+        riftConfigBytes = Files.readAllBytes(riftConfigPath);
+        previousWussMode = thaumcraft.world.rift.RiftModule.WUSS_MODE.get();
+        previousRiftConfig = actual.getConfigData();
+        require(thaumcraft.world.rift.RiftModule.CONFIG.isCorrect(previousRiftConfig),
+                "Original rift config is invalid; refuse a possible correction write");
+        // Forge's ordinary file config autosaves on set(). A detached CommentedConfig
+        // keeps this original option in memory; setConfig/afterReload clears caches.
+        var memory = com.electronwill.nightconfig.core.CommentedConfig.copy(previousRiftConfig);
+        require(!(memory instanceof com.electronwill.nightconfig.core.file.FileConfig), "Rift fixture is file-backed");
+        thaumcraft.world.rift.RiftModule.CONFIG.setConfig(memory);
+        thaumcraft.world.rift.RiftModule.WUSS_MODE.set(true);
+        require(thaumcraft.world.rift.RiftModule.WUSS_MODE.get()
+                && java.util.Arrays.equals(riftConfigBytes, Files.readAllBytes(riftConfigPath)),
+                "Rift fixture did not remain in memory");
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_INITIAL_RIFT_FIXTURE: wussMode=true detachedMemory=true beforeWorld=true configBytesUnchanged=true; raw450vis350flux/nativeFLUX/+5XP/fullNBTguards retained; no natural-rift-generation claim");
+    }
+
+    private static void restoreRiftFixture() throws java.io.IOException {
+        if (previousRiftConfig == null) return;
+        require(thaumcraft.world.rift.RiftModule.CONFIG.isCorrect(previousRiftConfig),
+                "Original rift config changed; refuse a possible correction write");
+        thaumcraft.world.rift.RiftModule.CONFIG.setConfig(previousRiftConfig);
+        require(thaumcraft.world.rift.RiftModule.WUSS_MODE.get() == previousWussMode
+                && java.util.Arrays.equals(riftConfigBytes, Files.readAllBytes(riftConfigPath)),
+                "Original rift config was not restored without disk writes");
+        previousRiftConfig = null;
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_RIFT_FIXTURE_RESTORED: originalOption={} configBytesUnchanged=true", previousWussMode);
     }
 
     private static void prepareWorld(Minecraft mc) {
@@ -622,8 +667,9 @@ public final class ThaumometerClientSmokeTest {
                 "Latest native render used the wrong physical hand, grip or skin arms in " + scene.name());
     }
 
-    private static void completeSmoke(Minecraft mc) {
+    private static void completeSmoke(Minecraft mc) throws java.io.IOException {
         require(SAVED.get() == EXPECTED_IMAGES, "Not all first-person screenshots were saved");
+        restoreRiftFixture();
         stopped = true;
         mc.options.tutorialStep = previousTutorial;
         mc.options.mainHand().set(previousMainArm);
@@ -687,6 +733,8 @@ public final class ThaumometerClientSmokeTest {
             mc.options.mainHand().set(previousMainArm);
             if (mc.getConnection() != null) mc.options.broadcastOptions();
         }
+        try { restoreRiftFixture(); }
+        catch (Throwable restoreFailure) { failure.addSuppressed(restoreFailure); }
         LogUtils.getLogger().error("THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE_FAILED", failure);
         mc.stop();
     }

@@ -64,8 +64,6 @@ public final class FocusBreakEffect {
         return Double.isFinite(point.x) && Double.isFinite(point.y) && Double.isFinite(point.z);
     }
     private static void particles(ServerLevel level, Vec3 point) {
-        var particle = new DustParticleOptions(new Vector3f(138 / 255F, 75 / 255F, 8 / 255F), 1);
-        for (ServerPlayer player : level.players()) if (player.distanceToSqr(point) <= 64 * 64)
-            level.sendParticles(player, particle, true, point.x, point.y, point.z, 12, .15, .15, .15, .04);
+        thaumcraft.fx.emitters.FocusFxPrograms.impact(level,point,"thaumcraft.BREAK");
     }
 }

@@ -23,9 +23,10 @@ public final class FocusBoltClient {
     private static final MultiBufferSource.BufferSource BUFFERS=MultiBufferSource.immediate(new BufferBuilder(4096));
     private static ClientLevel world;
     private static long received,rendered;
+    private static String lastSmokeGeometry;
     private FocusBoltClient() {}
     private static boolean select(ClientLevel level) {
-        if(world!=level){BOLTS.clear();world=level;received=rendered=0;}return level!=null;
+        if(world!=level){BOLTS.clear();world=level;received=rendered=0;lastSmokeGeometry=null;}return level!=null;
     }
     public static void receive(FocusBoltNetwork.Zap p) {
         var level=Minecraft.getInstance().level;
@@ -35,6 +36,7 @@ public final class FocusBoltClient {
     }
     public static long receivedCount(){return received;}
     public static long renderedCount(){return rendered;}
+    public static String lastRenderedGeometryForSmoke(){return lastSmokeGeometry;}
     @SubscribeEvent public static void tick(TickEvent.ClientTickEvent e) {
         var mc=Minecraft.getInstance();if(e.phase!=TickEvent.Phase.END||!select(mc.level)||mc.isPaused())return;
         BOLTS.removeIf(b->++b.age>3);
@@ -62,22 +64,30 @@ public final class FocusBoltClient {
                 widths.add((rng.nextInt(4)==0?1-age*.25F:1)*p.width());
             }
             points.add(delta);widths.add(p.width());float alpha=Mth.clamp(1-age/3F,.1F,1);
-            // GLE join tessellation is replaced by continuous indexed five-sided rings.
-            for(float scale:new float[]{.1F,.1F/3})for(int i=0;i<points.size()-1;i++) {
-                Vec3 tangent=points.get(i+1).subtract(points.get(i)).normalize();
-                Vec3 axis=tangent.cross(Math.abs(tangent.y)>.9?new Vec3(1,0,0):new Vec3(0,1,0)).normalize();
-                Vec3 other=tangent.cross(axis).normalize();
-                Vec3 start=p.source().add(points.get(i)).subtract(eye),end=p.source().add(points.get(i+1)).subtract(eye);
-                for(int side=0;side<5;side++) {
-                    Vec3 r0=axis.scale(Math.cos(side*Math.PI*2/5)).add(other.scale(Math.sin(side*Math.PI*2/5)));
-                    Vec3 r1=axis.scale(Math.cos((side+1)*Math.PI*2/5)).add(other.scale(Math.sin((side+1)*Math.PI*2/5)));
-                    vertex(vertices,pose,start.add(r0.scale(widths.get(i)*scale)),side/5F,i/(float)steps,alpha);
-                    vertex(vertices,pose,start.add(r1.scale(widths.get(i)*scale)),(side+1)/5F,i/(float)steps,alpha);
-                    vertex(vertices,pose,end.add(r1.scale(widths.get(i+1)*scale)),(side+1)/5F,(i+1)/(float)steps,alpha);
-                    vertex(vertices,pose,end.add(r0.scale(widths.get(i+1)*scale)),side/5F,(i+1)/(float)steps,alpha);
-                }
+            double[][] path=new double[points.size()][3];double[] radii=new double[points.size()];
+            for(int i=0;i<points.size();i++) {
+                Vec3 point=points.get(i);path[i]=new double[]{point.x,point.y,point.z};radii[i]=widths.get(i)/10F;
             }
+            boolean smoke=Boolean.getBoolean("thaumcraft.auromancySmokeTest");String geometry=null;
+            if(smoke)geometry=
+                    "{\"source\":"+vector(p.source())+",\"target\":"+vector(p.target())+",\"eye\":"+vector(eye)
+                    +",\"phase\":"+phase+",\"seed\":"+seed+",\"age\":"+age+",\"partial\":"+partial
+                    +",\"color\":"+p.color()+",\"alpha\":"+alpha+",\"width\":"+p.width()
+                    +",\"points\":"+Arrays.deepToString(path)+",\"baseRadii\":"+Arrays.toString(radii)
+                    +",\"pose\":"+Arrays.toString(pose.get(new float[16]))
+                    +",\"modelView\":"+Arrays.toString(com.mojang.blaze3d.systems.RenderSystem.getModelViewMatrix().get(new float[16]))
+                    +",\"projection\":"+Arrays.toString(com.mojang.blaze3d.systems.RenderSystem.getProjectionMatrix().get(new float[16]));
+            int[] vertexCount=smoke?new int[1]:null;
+            OriginalBoltGeometry.Sink sink=(x,y,z,u,v)->{
+                if(vertexCount!=null)vertexCount[0]++;
+                vertex(vertices,pose,p.source().add(x,y,z).subtract(eye),(float)u,(float)v,alpha);
+            };
+            OriginalBoltGeometry.emit(path,radii,sink);
+            for(int i=0;i<radii.length;i++)radii[i]/=3.0;
+            OriginalBoltGeometry.emit(path,radii,sink);
+            if(smoke)lastSmokeGeometry=geometry+",\"vertexCount\":"+vertexCount[0]+",\"renderSequence\":"+(rendered+1)+"}";
         }
+        private static String vector(Vec3 vector){return "["+vector.x+","+vector.y+","+vector.z+"]";}
         void vertex(VertexConsumer v,Matrix4f pose,Vec3 point,float u,float t,float alpha) {
             v.vertex(pose,(float)point.x,(float)point.y,(float)point.z)
                     .color((p.color()>>16&255)/255F,(p.color()>>8&255)/255F,(p.color()&255)/255F,alpha).uv(u,t).uv2(15728880).endVertex();

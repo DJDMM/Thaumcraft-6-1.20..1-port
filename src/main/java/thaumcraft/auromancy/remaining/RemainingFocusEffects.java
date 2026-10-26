@@ -131,9 +131,7 @@ public final class RemainingFocusEffects {
                 SoundSource.PLAYERS, .2F, .7F);
     }
     static void particles(ServerLevel level, Vec3 pos, int color, int range) {
-        var particle = new DustParticleOptions(new Vector3f((color >> 16 & 255) / 255F, (color >> 8 & 255) / 255F, (color & 255) / 255F), 1);
-        for (var player : level.players()) if (player.distanceToSqr(pos) <= range * range)
-            level.sendParticles(player, particle, true, pos.x, pos.y, pos.z, 12, .15, .15, .15, .025);
+        thaumcraft.fx.emitters.FocusFxPrograms.impact(level,pos,FocusNodeRegistry.CURSE);
     }
     private static boolean finite(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
 }

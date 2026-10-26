@@ -12,3 +12,7 @@ gradlew text eol=lf
 *.jar binary
 # Preserve the pinned original mesh byte-for-byte, including source whitespace.
 src/main/resources/assets/thaumcraft/models/obj/crystal.obj binary
+src/main/resources/assets/thaumcraft/models/obj/hemis.obj binary
+# Retain the released ender shader's whitespace in its source and modern adaptation.
+src/main/resources/assets/thaumcraft/shader/ender.frag -whitespace
+src/main/resources/assets/thaumcraft/shaders/core/flux_rift.fsh -whitespace

@@ -44,6 +44,7 @@ public final class TheorySession {
     private final Map<String, Integer> totals = new TreeMap<>();
     private final Set<String> blocked = new LinkedHashSet<>();
     private final List<TheoryCard> choices = new ArrayList<>();
+    private final List<Long> savedCardSeeds = new ArrayList<>();
     private TheoryCard lastCard;
 
     private TheorySession(UUID owner) { this.owner = owner; }
@@ -91,6 +92,7 @@ public final class TheorySession {
     public List<String> aidCardsRemaining() { return Collections.unmodifiableList(aidCards); }
     public List<TheoryCard> choices() { return Collections.unmodifiableList(choices); }
     public TheoryCard lastCard() { return lastCard; }
+    public List<Long> savedCardSeeds() { return Collections.unmodifiableList(savedCardSeeds); }
     public boolean complete() { return inspiration <= 0; }
 
     List<String> availableCategories(PlayerKnowledge knowledge) {
@@ -325,6 +327,7 @@ public final class TheorySession {
         // Card refunds happen before the container charges its cost in BETA26.
         inspiration = Math.min(inspirationStart, Math.min(inspirationStart, inspiration + inspirationRefund) - card.cost());
         placedCards++;
+        if(lastCard!=null)savedCardSeeds.add(lastCard.seed());
         lastCard = card;
         choices.clear();
         randomSeed = random.nextLong();
@@ -370,6 +373,7 @@ public final class TheorySession {
         tag.putInt("BonusDraws", bonusDraws);
         tag.putInt("PenaltyStart", penaltyStart);
         tag.putInt("PlacedCards", placedCards);
+        tag.putLongArray("SavedCards",savedCardSeeds.stream().mapToLong(Long::longValue).toArray());
         tag.putLong("RandomSeed", randomSeed);
         tag.put("Aids", writeStrings(aids));
         tag.put("AidCards", writeStrings(aidCards));
@@ -435,6 +439,13 @@ public final class TheorySession {
             session.lastCard = TheoryCard.load(tag.getCompound("LastCard"));
             if (session.lastCard == null) return null;
         }
+        if(tag.contains("SavedCards")) {
+            if(!tag.contains("SavedCards",Tag.TAG_LONG_ARRAY))return null;
+            long[] seeds=tag.getLongArray("SavedCards");
+            for(long seed:seeds)session.savedCardSeeds.add(seed);
+        }
+        // Older port saves did not retain the historical seeds. Keep their last
+        // actual card; never invent identities for the missing cosmetic sheets.
         return session;
     }
 

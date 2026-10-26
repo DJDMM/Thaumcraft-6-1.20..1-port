@@ -61,6 +61,8 @@ public final class Thaumcraft {
 
     public Thaumcraft(FMLJavaModLoadingContext context) {
         var bus = context.getModEventBus();
+        bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) ->
+                event.enqueueWork(thaumcraft.fx.FxDispatcher::register));
         BLOCKS.register(bus);
         ITEMS.register(bus);
         TABS.register(bus);
