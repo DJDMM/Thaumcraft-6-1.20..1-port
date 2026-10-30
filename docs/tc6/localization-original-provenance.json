@@ -1,0 +1,2801 @@
+{
+  "schema": 1,
+  "version": "0.42.1",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "normalization": [
+    "1.12 Locale numeric [df] placeholders become s",
+    "book.start.1..3 JSON string page decoded to display text"
+  ],
+  "aliases": {
+    "item.thaumcraft.thaumonomicon": "item.thaumonomicon.normal.name",
+    "item.thaumcraft.thaumonomicon_cheat": "item.thaumonomicon.cheat.name",
+    "item.thaumcraft.curio_arcane": "item.curio.arcane.name",
+    "item.thaumcraft.curio_preserved": "item.curio.preserved.name",
+    "item.thaumcraft.curio_ancient": "item.curio.ancient.name",
+    "item.thaumcraft.curio_eldritch": "item.curio.eldritch.name",
+    "item.thaumcraft.curio_knowledge": "item.curio.knowledge.name",
+    "item.thaumcraft.curio_twisted": "item.curio.twisted.name",
+    "item.thaumcraft.curio_rites": "item.curio.rites.name",
+    "item.thaumcraft.loot_bag_common": "item.loot_bag.common.name",
+    "item.thaumcraft.loot_bag_uncommon": "item.loot_bag.uncommon.name",
+    "item.thaumcraft.loot_bag_rare": "item.loot_bag.rare.name",
+    "item.thaumcraft.primordial_pearl": "item.primordial_pearl.pearl.name",
+    "item.thaumcraft.pech_wand": "item.pech_wand.name",
+    "item.thaumcraft.celestial_notes_sun": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_stars_1": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_stars_2": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_stars_3": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_stars_4": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_1": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_2": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_3": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_4": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_5": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_6": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_7": "item.celestial_notes.name",
+    "item.thaumcraft.celestial_notes_moon_8": "item.celestial_notes.name",
+    "item.thaumcraft.amber": "item.amber.name",
+    "item.thaumcraft.quicksilver": "item.quicksilver.name",
+    "item.thaumcraft.ingot_thaumium": "item.ingot.thaumium.name",
+    "item.thaumcraft.ingot_void": "item.ingot.void.name",
+    "item.thaumcraft.ingot_brass": "item.ingot.brass.name",
+    "item.thaumcraft.nugget_iron": "item.nugget.iron.name",
+    "item.thaumcraft.nugget_copper": "item.nugget.copper.name",
+    "item.thaumcraft.nugget_tin": "item.nugget.tin.name",
+    "item.thaumcraft.nugget_silver": "item.nugget.silver.name",
+    "item.thaumcraft.nugget_lead": "item.nugget.lead.name",
+    "item.thaumcraft.nugget_quicksilver": "item.nugget.quicksilver.name",
+    "item.thaumcraft.nugget_thaumium": "item.nugget.thaumium.name",
+    "item.thaumcraft.nugget_void": "item.nugget.void.name",
+    "item.thaumcraft.nugget_brass": "item.nugget.brass.name",
+    "item.thaumcraft.nugget_quartz": "item.nugget.quartz.name",
+    "item.thaumcraft.nugget_rareearth": "item.nugget.rareearth.name",
+    "item.thaumcraft.cluster_iron": "item.cluster.iron.name",
+    "item.thaumcraft.cluster_gold": "item.cluster.gold.name",
+    "item.thaumcraft.cluster_copper": "item.cluster.copper.name",
+    "item.thaumcraft.cluster_tin": "item.cluster.tin.name",
+    "item.thaumcraft.cluster_silver": "item.cluster.silver.name",
+    "item.thaumcraft.cluster_lead": "item.cluster.lead.name",
+    "item.thaumcraft.cluster_cinnabar": "item.cluster.cinnabar.name",
+    "item.thaumcraft.cluster_quartz": "item.cluster.quartz.name",
+    "item.thaumcraft.fabric": "item.fabric.name",
+    "item.thaumcraft.vis_resonator": "item.vis_resonator.name",
+    "item.thaumcraft.tallow": "item.tallow.name",
+    "item.thaumcraft.mechanism_simple": "item.mechanism_simple.name",
+    "item.thaumcraft.mechanism_complex": "item.mechanism_complex.name",
+    "item.thaumcraft.plate_brass": "item.plate.brass.name",
+    "item.thaumcraft.plate_iron": "item.plate.iron.name",
+    "item.thaumcraft.plate_thaumium": "item.plate.thaumium.name",
+    "item.thaumcraft.plate_void": "item.plate.void.name",
+    "item.thaumcraft.filter": "item.filter.name",
+    "item.thaumcraft.morphic_resonator": "item.morphic_resonator.name",
+    "item.thaumcraft.salis_mundus": "item.salis_mundus.name",
+    "item.thaumcraft.mirrored_glass": "item.mirrored_glass.name",
+    "item.thaumcraft.void_seed": "item.void_seed.name",
+    "item.thaumcraft.mind_clockwork": "item.mind.clockwork.name",
+    "item.thaumcraft.mind_biothaumic": "item.mind.biothaumic.name",
+    "item.thaumcraft.module_vision": "item.module.vision.name",
+    "item.thaumcraft.module_aggression": "item.module.aggression.name",
+    "item.thaumcraft.crystal_essence": "item.crystal_essence.name",
+    "item.thaumcraft.chunk_beef": "item.chunk.beef.name",
+    "item.thaumcraft.chunk_chicken": "item.chunk.chicken.name",
+    "item.thaumcraft.chunk_pork": "item.chunk.pork.name",
+    "item.thaumcraft.chunk_fish": "item.chunk.fish.name",
+    "item.thaumcraft.chunk_rabbit": "item.chunk.rabbit.name",
+    "item.thaumcraft.chunk_mutton": "item.chunk.mutton.name",
+    "item.thaumcraft.triple_meat_treat": "item.triple_meat_treat.name",
+    "item.thaumcraft.brain": "item.brain.name",
+    "item.thaumcraft.label_blank": "item.label.blank.name",
+    "item.thaumcraft.label_filled": "item.label.filled.name",
+    "item.thaumcraft.phial_empty": "item.phial.empty.name",
+    "item.thaumcraft.phial_filled": "item.phial.filled.name",
+    "item.thaumcraft.alumentum": "item.alumentum.name",
+    "item.thaumcraft.jar_brace": "item.jar_brace.name",
+    "item.thaumcraft.bottle_taint": "item.bottle_taint.name",
+    "item.thaumcraft.sanity_soap": "item.sanity_soap.name",
+    "item.thaumcraft.bath_salts": "item.bath_salts.name",
+    "item.thaumcraft.turret_basic": "item.turret.basic.name",
+    "item.thaumcraft.turret_advanced": "item.turret.advanced.name",
+    "item.thaumcraft.turret_bore": "item.turret.bore.name",
+    "item.thaumcraft.causality_collapser": "item.causality_collapser.name",
+    "item.thaumcraft.scribing_tools": "item.scribing_tools.name",
+    "item.thaumcraft.thaumometer": "item.thaumometer.name",
+    "item.thaumcraft.resonator": "item.resonator.name",
+    "item.thaumcraft.sanity_checker": "item.sanity_checker.name",
+    "item.thaumcraft.hand_mirror": "item.hand_mirror.name",
+    "item.thaumcraft.thaumium_axe": "item.thaumium_axe.name",
+    "item.thaumcraft.thaumium_sword": "item.thaumium_sword.name",
+    "item.thaumcraft.thaumium_shovel": "item.thaumium_shovel.name",
+    "item.thaumcraft.thaumium_pick": "item.thaumium_pick.name",
+    "item.thaumcraft.thaumium_hoe": "item.thaumium_hoe.name",
+    "item.thaumcraft.void_axe": "item.void_axe.name",
+    "item.thaumcraft.void_sword": "item.void_sword.name",
+    "item.thaumcraft.void_shovel": "item.void_shovel.name",
+    "item.thaumcraft.void_pick": "item.void_pick.name",
+    "item.thaumcraft.void_hoe": "item.void_hoe.name",
+    "item.thaumcraft.elemental_axe": "item.elemental_axe.name",
+    "item.thaumcraft.elemental_sword": "item.elemental_sword.name",
+    "item.thaumcraft.elemental_shovel": "item.elemental_shovel.name",
+    "item.thaumcraft.elemental_pick": "item.elemental_pick.name",
+    "item.thaumcraft.elemental_hoe": "item.elemental_hoe.name",
+    "item.thaumcraft.primal_crusher": "item.primal_crusher.name",
+    "item.thaumcraft.crimson_blade": "item.crimson_blade.name",
+    "item.thaumcraft.grapple_gun": "item.grapple_gun.name",
+    "item.thaumcraft.grapple_gun_tip": "item.grapple_gun_tip.name",
+    "item.thaumcraft.grapple_gun_spool": "item.grapple_gun_spool.name",
+    "item.thaumcraft.goggles": "item.goggles.name",
+    "item.thaumcraft.thaumium_helm": "item.thaumium_helm.name",
+    "item.thaumcraft.thaumium_chest": "item.thaumium_chest.name",
+    "item.thaumcraft.thaumium_legs": "item.thaumium_legs.name",
+    "item.thaumcraft.thaumium_boots": "item.thaumium_boots.name",
+    "item.thaumcraft.cloth_chest": "item.cloth_chest.name",
+    "item.thaumcraft.cloth_legs": "item.cloth_legs.name",
+    "item.thaumcraft.cloth_boots": "item.cloth_boots.name",
+    "item.thaumcraft.traveller_boots": "item.traveller_boots.name",
+    "item.thaumcraft.fortress_helm": "item.fortress_helm.name",
+    "item.thaumcraft.fortress_chest": "item.fortress_chest.name",
+    "item.thaumcraft.fortress_legs": "item.fortress_legs.name",
+    "item.thaumcraft.void_helm": "item.void_helm.name",
+    "item.thaumcraft.void_chest": "item.void_chest.name",
+    "item.thaumcraft.void_legs": "item.void_legs.name",
+    "item.thaumcraft.void_boots": "item.void_boots.name",
+    "item.thaumcraft.void_robe_helm": "item.void_robe_helm.name",
+    "item.thaumcraft.void_robe_chest": "item.void_robe_chest.name",
+    "item.thaumcraft.void_robe_legs": "item.void_robe_legs.name",
+    "item.thaumcraft.crimson_plate_helm": "item.crimson_plate_helm.name",
+    "item.thaumcraft.crimson_plate_chest": "item.crimson_plate_chest.name",
+    "item.thaumcraft.crimson_plate_legs": "item.crimson_plate_legs.name",
+    "item.thaumcraft.crimson_boots": "item.crimson_boots.name",
+    "item.thaumcraft.crimson_robe_helm": "item.crimson_robe_helm.name",
+    "item.thaumcraft.crimson_robe_chest": "item.crimson_robe_chest.name",
+    "item.thaumcraft.crimson_robe_legs": "item.crimson_robe_legs.name",
+    "item.thaumcraft.crimson_praetor_helm": "item.crimson_praetor_helm.name",
+    "item.thaumcraft.crimson_praetor_chest": "item.crimson_praetor_chest.name",
+    "item.thaumcraft.crimson_praetor_legs": "item.crimson_praetor_legs.name",
+    "item.thaumcraft.baubles_amulet_mundane": "item.baubles.amulet_mundane.name",
+    "item.thaumcraft.baubles_ring_mundane": "item.baubles.ring_mundane.name",
+    "item.thaumcraft.baubles_girdle_mundane": "item.baubles.girdle_mundane.name",
+    "item.thaumcraft.baubles_ring_apprentice": "item.baubles.ring_apprentice.name",
+    "item.thaumcraft.baubles_amulet_fancy": "item.baubles.amulet_fancy.name",
+    "item.thaumcraft.baubles_ring_fancy": "item.baubles.ring_fancy.name",
+    "item.thaumcraft.baubles_girdle_fancy": "item.baubles.girdle_fancy.name",
+    "item.thaumcraft.amulet_vis_found": "item.amulet_vis.found.name",
+    "item.thaumcraft.amulet_vis_crafted": "item.amulet_vis.crafted.name",
+    "item.thaumcraft.verdant_charm": "item.verdant_charm.name",
+    "item.thaumcraft.curiosity_band": "item.curiosity_band.name",
+    "item.thaumcraft.voidseer_charm": "item.voidseer_charm.name",
+    "item.thaumcraft.cloud_ring": "item.cloud_ring.name",
+    "item.thaumcraft.charm_undying": "item.charm_undying.name",
+    "item.thaumcraft.creative_flux_sponge": "item.creative_flux_sponge.name",
+    "item.thaumcraft.enchanted_placeholder": "item.enchanted_placeholder.name",
+    "item.thaumcraft.caster_basic": "item.caster_basic.name",
+    "item.thaumcraft.focus_1": "item.focus_1.name",
+    "item.thaumcraft.focus_2": "item.focus_2.name",
+    "item.thaumcraft.focus_3": "item.focus_3.name",
+    "item.thaumcraft.focus_pouch": "item.focus_pouch.name",
+    "item.thaumcraft.golem_bell": "item.golem_bell.name",
+    "item.thaumcraft.golem": "item.golem.name",
+    "item.thaumcraft.seal_blank": "item.seal.blank.name",
+    "item.thaumcraft.seal_pickup": "item.seal.pickup.name",
+    "item.thaumcraft.seal_pickup_advanced": "item.seal.pickup_advanced.name",
+    "item.thaumcraft.seal_fill": "item.seal.fill.name",
+    "item.thaumcraft.seal_fill_advanced": "item.seal.fill_advanced.name",
+    "item.thaumcraft.seal_empty": "item.seal.empty.name",
+    "item.thaumcraft.seal_empty_advanced": "item.seal.empty_advanced.name",
+    "item.thaumcraft.seal_harvest": "item.seal.harvest.name",
+    "item.thaumcraft.seal_butcher": "item.seal.butcher.name",
+    "item.thaumcraft.seal_guard": "item.seal.guard.name",
+    "item.thaumcraft.seal_guard_advanced": "item.seal.guard_advanced.name",
+    "item.thaumcraft.seal_lumber": "item.seal.lumber.name",
+    "item.thaumcraft.seal_breaker": "item.seal.breaker.name",
+    "item.thaumcraft.seal_use": "item.seal.use.name",
+    "item.thaumcraft.seal_provider": "item.seal.provider.name",
+    "item.thaumcraft.seal_stock": "item.seal.stock.name",
+    "item.thaumcraft.seal_breaker_advanced": "item.seal.breaker_advanced.name",
+    "block.thaumcraft.ore_amber": "tile.ore_amber.name",
+    "block.thaumcraft.ore_cinnabar": "tile.ore_cinnabar.name",
+    "block.thaumcraft.ore_quartz": "tile.ore_quartz.name",
+    "block.thaumcraft.crystal_aer": "tile.crystal_aer.name",
+    "block.thaumcraft.crystal_ignis": "tile.crystal_ignis.name",
+    "block.thaumcraft.crystal_aqua": "tile.crystal_aqua.name",
+    "block.thaumcraft.crystal_terra": "tile.crystal_terra.name",
+    "block.thaumcraft.crystal_ordo": "tile.crystal_ordo.name",
+    "block.thaumcraft.crystal_perditio": "tile.crystal_perditio.name",
+    "block.thaumcraft.crystal_vitium": "tile.crystal_vitium.name",
+    "block.thaumcraft.stone_arcane": "tile.stone_arcane.name",
+    "block.thaumcraft.stone_arcane_brick": "tile.stone_arcane_brick.name",
+    "block.thaumcraft.stone_ancient": "tile.stone_ancient.name",
+    "block.thaumcraft.stone_ancient_tile": "tile.stone_ancient_tile.name",
+    "block.thaumcraft.stone_ancient_rock": "tile.stone_ancient_rock.name",
+    "block.thaumcraft.stone_ancient_glyphed": "tile.stone_ancient_glyphed.name",
+    "block.thaumcraft.stone_ancient_doorway": "tile.stone_ancient_doorway.name",
+    "block.thaumcraft.stone_eldritch_tile": "tile.stone_eldritch_tile.name",
+    "block.thaumcraft.stone_porous": "tile.stone_porous.name",
+    "block.thaumcraft.stairs_arcane": "tile.stairs_arcane.name",
+    "block.thaumcraft.stairs_arcane_brick": "tile.stairs_arcane_brick.name",
+    "block.thaumcraft.stairs_ancient": "tile.stairs_ancient.name",
+    "block.thaumcraft.slab_arcane_stone": "tile.slab_arcane_stone.name",
+    "block.thaumcraft.slab_double_arcane_stone": "tile.slab_arcane_stone.name",
+    "block.thaumcraft.slab_arcane_brick": "tile.slab_arcane_brick.name",
+    "block.thaumcraft.slab_double_arcane_brick": "tile.slab_arcane_brick.name",
+    "block.thaumcraft.slab_ancient": "tile.slab_ancient.name",
+    "block.thaumcraft.slab_double_ancient": "tile.slab_ancient.name",
+    "block.thaumcraft.slab_eldritch": "tile.slab_eldritch.name",
+    "block.thaumcraft.slab_double_eldritch": "tile.slab_eldritch.name",
+    "block.thaumcraft.sapling_greatwood": "tile.sapling_greatwood.name",
+    "block.thaumcraft.sapling_silverwood": "tile.sapling_silverwood.name",
+    "block.thaumcraft.log_greatwood": "tile.log_greatwood.name",
+    "block.thaumcraft.log_silverwood": "tile.log_silverwood.name",
+    "block.thaumcraft.leaves_greatwood": "tile.leaves_greatwood.name",
+    "block.thaumcraft.leaves_silverwood": "tile.leaves_silverwood.name",
+    "block.thaumcraft.shimmerleaf": "tile.shimmerleaf.name",
+    "block.thaumcraft.cinderpearl": "tile.cinderpearl.name",
+    "block.thaumcraft.vishroom": "tile.vishroom.name",
+    "block.thaumcraft.plank_greatwood": "tile.plank_greatwood.name",
+    "block.thaumcraft.plank_silverwood": "tile.plank_silverwood.name",
+    "block.thaumcraft.stairs_greatwood": "tile.stairs_greatwood.name",
+    "block.thaumcraft.stairs_silverwood": "tile.stairs_silverwood.name",
+    "block.thaumcraft.slab_greatwood": "tile.slab_greatwood.name",
+    "block.thaumcraft.slab_double_greatwood": "tile.slab_greatwood.name",
+    "block.thaumcraft.slab_silverwood": "tile.slab_silverwood.name",
+    "block.thaumcraft.slab_double_silverwood": "tile.slab_silverwood.name",
+    "block.thaumcraft.amber_block": "tile.amber_block.name",
+    "block.thaumcraft.amber_brick": "tile.amber_brick.name",
+    "block.thaumcraft.flesh_block": "tile.flesh_block.name",
+    "block.thaumcraft.loot_crate_common": "tile.loot_crate_common.name",
+    "block.thaumcraft.loot_crate_uncommon": "tile.loot_crate_uncommon.name",
+    "block.thaumcraft.loot_crate_rare": "tile.loot_crate_rare.name",
+    "block.thaumcraft.loot_urn_common": "tile.loot_urn_common.name",
+    "block.thaumcraft.loot_urn_uncommon": "tile.loot_urn_uncommon.name",
+    "block.thaumcraft.loot_urn_rare": "tile.loot_urn_rare.name",
+    "block.thaumcraft.taint_fibre": "tile.taint_fibre.name",
+    "block.thaumcraft.taint_crust": "tile.taint_crust.name",
+    "block.thaumcraft.taint_soil": "tile.taint_soil.name",
+    "block.thaumcraft.taint_rock": "tile.taint_rock.name",
+    "block.thaumcraft.taint_geyser": "tile.taint_geyser.name",
+    "block.thaumcraft.taint_feature": "tile.taint_feature.name",
+    "block.thaumcraft.taint_log": "tile.taint_log.name",
+    "block.thaumcraft.grass_ambient": "tile.grass_ambient.name",
+    "block.thaumcraft.table_wood": "tile.table_wood.name",
+    "block.thaumcraft.table_stone": "tile.table_stone.name",
+    "block.thaumcraft.pedestal_arcane": "tile.pedestal_arcane.name",
+    "block.thaumcraft.pedestal_ancient": "tile.pedestal_ancient.name",
+    "block.thaumcraft.pedestal_eldritch": "tile.pedestal_eldritch.name",
+    "block.thaumcraft.metal_brass": "tile.metal_brass.name",
+    "block.thaumcraft.metal_thaumium": "tile.metal_thaumium.name",
+    "block.thaumcraft.metal_void": "tile.metal_void.name",
+    "block.thaumcraft.metal_alchemical": "tile.metal_alchemical.name",
+    "block.thaumcraft.metal_alchemical_advanced": "tile.metal_alchemical_advanced.name",
+    "block.thaumcraft.paving_stone_travel": "tile.paving_stone_travel.name",
+    "block.thaumcraft.paving_stone_barrier": "tile.paving_stone_barrier.name",
+    "block.thaumcraft.pillar_arcane": "tile.pillar_arcane.name",
+    "block.thaumcraft.pillar_ancient": "tile.pillar_ancient.name",
+    "block.thaumcraft.pillar_eldritch": "tile.pillar_eldritch.name",
+    "block.thaumcraft.matrix_speed": "tile.matrix_speed.name",
+    "block.thaumcraft.matrix_cost": "tile.matrix_cost.name",
+    "block.thaumcraft.banner_crimson_cult": "tile.banner_crimson_cult.name",
+    "block.thaumcraft.vis_battery": "tile.vis_battery.name",
+    "block.thaumcraft.inlay": "tile.inlay.name",
+    "block.thaumcraft.arcane_workbench": "tile.arcane_workbench.name",
+    "block.thaumcraft.arcane_workbench_charger": "tile.arcane_workbench_charger.name",
+    "block.thaumcraft.dioptra": "tile.dioptra.name",
+    "block.thaumcraft.research_table": "tile.research_table.name",
+    "block.thaumcraft.crucible": "tile.crucible.name",
+    "block.thaumcraft.arcane_ear": "tile.arcane_ear.name",
+    "block.thaumcraft.arcane_ear_toggle": "tile.arcane_ear_toggle.name",
+    "block.thaumcraft.lamp_arcane": "tile.lamp_arcane.name",
+    "block.thaumcraft.lamp_fertility": "tile.lamp_fertility.name",
+    "block.thaumcraft.lamp_growth": "tile.lamp_growth.name",
+    "block.thaumcraft.levitator": "tile.levitator.name",
+    "block.thaumcraft.centrifuge": "tile.centrifuge.name",
+    "block.thaumcraft.bellows": "tile.bellows.name",
+    "block.thaumcraft.smelter_basic": "tile.smelter_basic.name",
+    "block.thaumcraft.smelter_thaumium": "tile.smelter_thaumium.name",
+    "block.thaumcraft.smelter_void": "tile.smelter_void.name",
+    "block.thaumcraft.smelter_aux": "tile.smelter_aux.name",
+    "block.thaumcraft.smelter_vent": "tile.smelter_vent.name",
+    "block.thaumcraft.alembic": "tile.alembic.name",
+    "block.thaumcraft.recharge_pedestal": "tile.recharge_pedestal.name",
+    "block.thaumcraft.wand_workbench": "tile.wand_workbench.name",
+    "block.thaumcraft.hungry_chest": "tile.hungry_chest.name",
+    "block.thaumcraft.tube": "tile.tube.name",
+    "block.thaumcraft.tube_valve": "tile.tube_valve.name",
+    "block.thaumcraft.tube_restrict": "tile.tube_restrict.name",
+    "block.thaumcraft.tube_oneway": "tile.tube_oneway.name",
+    "block.thaumcraft.tube_filter": "tile.tube_filter.name",
+    "block.thaumcraft.tube_buffer": "tile.tube_buffer.name",
+    "block.thaumcraft.jar_normal": "tile.jar_normal.name",
+    "block.thaumcraft.jar_void": "tile.jar_void.name",
+    "block.thaumcraft.jar_brain": "tile.jar_brain.name",
+    "block.thaumcraft.infusion_matrix": "tile.infusion_matrix.name",
+    "block.thaumcraft.infernal_furnace": "tile.infernal_furnace.name",
+    "block.thaumcraft.everfull_urn": "tile.everfull_urn.name",
+    "block.thaumcraft.thaumatorium": "tile.thaumatorium.name",
+    "block.thaumcraft.thaumatorium_top": "tile.thaumatorium_top.name",
+    "block.thaumcraft.brain_box": "tile.brain_box.name",
+    "block.thaumcraft.spa": "tile.spa.name",
+    "block.thaumcraft.golem_builder": "tile.golem_builder.name",
+    "block.thaumcraft.mirror": "tile.mirror.name",
+    "block.thaumcraft.mirror_essentia": "tile.mirror_essentia.name",
+    "block.thaumcraft.essentia_input": "tile.essentia_input.name",
+    "block.thaumcraft.essentia_output": "tile.essentia_output.name",
+    "block.thaumcraft.redstone_relay": "tile.redstone_relay.name",
+    "block.thaumcraft.pattern_crafter": "tile.pattern_crafter.name",
+    "block.thaumcraft.potion_sprayer": "tile.potion_sprayer.name",
+    "block.thaumcraft.activator_rail": "tile.activator_rail.name",
+    "block.thaumcraft.stabilizer": "tile.stabilizer.name",
+    "block.thaumcraft.vis_generator": "tile.vis_generator.name",
+    "block.thaumcraft.condenser": "tile.condenser.name",
+    "block.thaumcraft.condenser_lattice": "tile.condenser_lattice.name",
+    "block.thaumcraft.condenser_lattice_dirty": "tile.condenser_lattice_dirty.name",
+    "block.thaumcraft.void_siphon": "tile.void_siphon.name",
+    "block.thaumcraft.flux_goo": "tile.flux_goo.name",
+    "block.thaumcraft.liquid_death": "tile.liquid_death.name",
+    "block.thaumcraft.purifying_fluid": "tile.purifying_fluid.name",
+    "block.thaumcraft.hole": "tile.hole.name",
+    "block.thaumcraft.effect_shock": "tile.effect_shock.name",
+    "block.thaumcraft.effect_sap": "tile.effect_sap.name",
+    "block.thaumcraft.effect_glimmer": "tile.effect_glimmer.name",
+    "block.thaumcraft.placeholder_brick": "tile.placeholder_brick.name",
+    "block.thaumcraft.placeholder_obsidian": "tile.placeholder_obsidian.name",
+    "block.thaumcraft.placeholder_bars": "tile.placeholder_bars.name",
+    "block.thaumcraft.placeholder_anvil": "tile.placeholder_anvil.name",
+    "block.thaumcraft.placeholder_cauldron": "tile.placeholder_cauldron.name",
+    "block.thaumcraft.placeholder_table": "tile.placeholder_table.name",
+    "block.thaumcraft.empty": "tile.empty.name",
+    "block.thaumcraft.barrier": "tile.barrier.name",
+    "block.thaumcraft.candle_white": "tile.candle_white.name",
+    "block.thaumcraft.candle_orange": "tile.candle_orange.name",
+    "block.thaumcraft.candle_magenta": "tile.candle_magenta.name",
+    "block.thaumcraft.candle_lightblue": "tile.candle_lightblue.name",
+    "block.thaumcraft.candle_yellow": "tile.candle_yellow.name",
+    "block.thaumcraft.candle_lime": "tile.candle_lime.name",
+    "block.thaumcraft.candle_pink": "tile.candle_pink.name",
+    "block.thaumcraft.candle_gray": "tile.candle_gray.name",
+    "block.thaumcraft.candle_silver": "tile.candle_silver.name",
+    "block.thaumcraft.candle_cyan": "tile.candle_cyan.name",
+    "block.thaumcraft.candle_purple": "tile.candle_purple.name",
+    "block.thaumcraft.candle_blue": "tile.candle_blue.name",
+    "block.thaumcraft.candle_brown": "tile.candle_brown.name",
+    "block.thaumcraft.candle_green": "tile.candle_green.name",
+    "block.thaumcraft.candle_red": "tile.candle_red.name",
+    "block.thaumcraft.candle_black": "tile.candle_black.name",
+    "block.thaumcraft.banner_white": "tile.banner_white.name",
+    "block.thaumcraft.banner_orange": "tile.banner_orange.name",
+    "block.thaumcraft.banner_magenta": "tile.banner_magenta.name",
+    "block.thaumcraft.banner_lightblue": "tile.banner_lightblue.name",
+    "block.thaumcraft.banner_yellow": "tile.banner_yellow.name",
+    "block.thaumcraft.banner_lime": "tile.banner_lime.name",
+    "block.thaumcraft.banner_pink": "tile.banner_pink.name",
+    "block.thaumcraft.banner_gray": "tile.banner_gray.name",
+    "block.thaumcraft.banner_silver": "tile.banner_silver.name",
+    "block.thaumcraft.banner_cyan": "tile.banner_cyan.name",
+    "block.thaumcraft.banner_purple": "tile.banner_purple.name",
+    "block.thaumcraft.banner_blue": "tile.banner_blue.name",
+    "block.thaumcraft.banner_brown": "tile.banner_brown.name",
+    "block.thaumcraft.banner_green": "tile.banner_green.name",
+    "block.thaumcraft.banner_red": "tile.banner_red.name",
+    "block.thaumcraft.banner_black": "tile.banner_black.name",
+    "block.thaumcraft.nitor_white": "tile.nitor_white.name",
+    "block.thaumcraft.nitor_orange": "tile.nitor_orange.name",
+    "block.thaumcraft.nitor_magenta": "tile.nitor_magenta.name",
+    "block.thaumcraft.nitor_lightblue": "tile.nitor_lightblue.name",
+    "block.thaumcraft.nitor_yellow": "tile.nitor_yellow.name",
+    "block.thaumcraft.nitor_lime": "tile.nitor_lime.name",
+    "block.thaumcraft.nitor_pink": "tile.nitor_pink.name",
+    "block.thaumcraft.nitor_gray": "tile.nitor_gray.name",
+    "block.thaumcraft.nitor_silver": "tile.nitor_silver.name",
+    "block.thaumcraft.nitor_cyan": "tile.nitor_cyan.name",
+    "block.thaumcraft.nitor_purple": "tile.nitor_purple.name",
+    "block.thaumcraft.nitor_blue": "tile.nitor_blue.name",
+    "block.thaumcraft.nitor_brown": "tile.nitor_brown.name",
+    "block.thaumcraft.nitor_green": "tile.nitor_green.name",
+    "block.thaumcraft.nitor_red": "tile.nitor_red.name",
+    "block.thaumcraft.nitor_black": "tile.nitor_black.name",
+    "entity.thaumcraft.cultist_portal_greater": "entity.CultistPortalGreater.name",
+    "entity.thaumcraft.cultist_portal_lesser": "entity.CultistPortalLesser.name",
+    "entity.thaumcraft.flux_rift": "entity.FluxRift.name",
+    "entity.thaumcraft.special_item": "entity.SpecialItem.name",
+    "entity.thaumcraft.following_item": "entity.FollowItem.name",
+    "entity.thaumcraft.falling_taint": "entity.FallingTaint.name",
+    "entity.thaumcraft.alumentum": "entity.Alumentum.name",
+    "entity.thaumcraft.golem_dart": "entity.GolemDart.name",
+    "entity.thaumcraft.eldritch_orb": "entity.EldritchOrb.name",
+    "entity.thaumcraft.bottle_taint": "entity.BottleTaint.name",
+    "entity.thaumcraft.golem_orb": "entity.GolemOrb.name",
+    "entity.thaumcraft.grapple": "item.grapple_gun_tip.name",
+    "entity.thaumcraft.causality_collapser": "item.causality_collapser.name",
+    "entity.thaumcraft.focus_projectile": "entity.FocusProjectile.name",
+    "entity.thaumcraft.focus_cloud": "entity.FocusCloud.name",
+    "entity.thaumcraft.focus_mine": "entity.FocusMine.name",
+    "entity.thaumcraft.turret_basic": "entity.TurretBasic.name",
+    "entity.thaumcraft.turret_advanced": "entity.TurretAdvanced.name",
+    "entity.thaumcraft.arcane_bore": "entity.ArcaneBore.name",
+    "entity.thaumcraft.golem": "entity.Golem.name",
+    "entity.thaumcraft.eldritch_warden": "entity.EldritchWarden.name",
+    "entity.thaumcraft.eldritch_golem": "entity.EldritchGolem.name",
+    "entity.thaumcraft.cultist_leader": "entity.CultistLeader.name",
+    "entity.thaumcraft.taintacle_giant": "entity.TaintacleGiant.name",
+    "entity.thaumcraft.brainy_zombie": "entity.BrainyZombie.name",
+    "entity.thaumcraft.giant_brainy_zombie": "entity.GiantBrainyZombie.name",
+    "entity.thaumcraft.wisp": "entity.Wisp.name",
+    "entity.thaumcraft.fire_bat": "entity.Firebat.name",
+    "entity.thaumcraft.spell_bat": "entity.Spellbat.name",
+    "entity.thaumcraft.pech": "entity.Pech.name",
+    "entity.thaumcraft.mind_spider": "entity.MindSpider.name",
+    "entity.thaumcraft.eldritch_guardian": "entity.EldritchGuardian.name",
+    "entity.thaumcraft.cultist_knight": "entity.CultistKnight.name",
+    "entity.thaumcraft.cultist_cleric": "entity.CultistCleric.name",
+    "entity.thaumcraft.eldritch_crab": "entity.EldritchCrab.name",
+    "entity.thaumcraft.inhabited_zombie": "entity.InhabitedZombie.name",
+    "entity.thaumcraft.thaumic_slime": "entity.ThaumSlime.name",
+    "entity.thaumcraft.taint_crawler": "entity.TaintCrawler.name",
+    "entity.thaumcraft.taintacle": "entity.Taintacle.name",
+    "entity.thaumcraft.taintacle_tiny": "entity.TaintacleTiny.name",
+    "entity.thaumcraft.taint_swarm": "entity.TaintSwarm.name",
+    "entity.thaumcraft.taint_seed": "entity.TaintSeed.name",
+    "entity.thaumcraft.taint_seed_prime": "entity.TaintSeedPrime.name",
+    "block.thaumcraft.nitor": "tile.nitor_yellow.name",
+    "entity.thaumcraft.focus_cloud_spell": "entity.FocusCloud.name",
+    "entity.thaumcraft.focus_mine_spell": "entity.FocusMine.name",
+    "entity.thaumcraft.spell_bat_spell": "entity.Spellbat.name",
+    "entity.thaumcraft.focus_exchange_item": "entity.SpecialItem.name",
+    "effect.thaumcraft.warp_ward": "potion.warpward",
+    "effect.thaumcraft.flux_taint": "potion.flux_taint",
+    "effect.thaumcraft.vis_exhaust": "potion.vis_exhaust",
+    "effect.thaumcraft.infectious_vis_exhaust": "potion.infvisexhaust",
+    "effect.thaumcraft.thaumarhia": "potion.thaumarhia",
+    "effect.thaumcraft.unnatural_hunger": "potion.unhunger",
+    "effect.thaumcraft.sun_scorned": "potion.sunscorned",
+    "effect.thaumcraft.death_gaze": "potion.deathgaze",
+    "effect.thaumcraft.blurred_vision": "potion.blurred",
+    "item.thaumcraft.primordial_pearl.pearl": "item.primordial_pearl.pearl.name",
+    "item.thaumcraft.primordial_pearl.nodule": "item.primordial_pearl.nodule.name",
+    "item.thaumcraft.primordial_pearl.mote": "item.primordial_pearl.mote.name",
+    "entity.Thaumcraft.EldritchWarden.name.custom": "entity.EldritchWarden.name.custom",
+    "entity.Thaumcraft.EldritchGolem.name.custom": "entity.EldritchGolem.name.custom",
+    "entity.Thaumcraft.CultistLeader.name.custom": "entity.CultistLeader.name.custom"
+  },
+  "russianMissingOriginalKeys": [
+    "item.seal.breaker_advanced.name",
+    "tile.inlay.name",
+    "enchantment.infusion.LAMPLIGHT",
+    "stability.gain",
+    "stability.range",
+    "stability.loss",
+    "thaumcraft.BOLT.text",
+    "workbench.available",
+    "workbench.discount",
+    "workbench.cost",
+    "golem.prop.silk",
+    "research.SEALBREAK.stage.ADV"
+  ],
+  "russianIncompleteOriginalKeys": [
+    "entity.EldritchWarden.name.custom",
+    "entity.CultistLeader.name.custom",
+    "research.INFUSIONENCHANTMENT.stage.2"
+  ],
+  "locales": {
+    "en_us": {
+      "originalLangSha256": "3b78dfdbe0c035ff89bba3cb7ecbb5116800f34f10bf459f17eeae4de439c086",
+      "originalKeyCount": 1464,
+      "duplicateOriginalKeys": [],
+      "beforeJsonSha256": "52817df0c0cee4f4eba423104299ac29fc835080c590f7792163d1cf86952f20",
+      "changes": {
+        "item.cluster.cinnabar.name": {
+          "before": "Native Cinnabar Cluster",
+          "after": "Native Cinnabar Cluster   "
+        },
+        "item.fortress_helm.mask.0": {
+          "before": null,
+          "after": "Grinning Devil"
+        },
+        "item.fortress_helm.mask.1": {
+          "before": null,
+          "after": "Angry Ghost"
+        },
+        "item.fortress_helm.mask.2": {
+          "before": null,
+          "after": "Sipping Fiend"
+        },
+        "item.amulet_vis.text": {
+          "before": null,
+          "after": "Recharges armor, baubles and hotbar items."
+        },
+        "item.caster_basic.name": {
+          "before": "Caster's Gauntlet",
+          "after": "Caster's Gauntlet "
+        },
+        "item.enchanted_placeholder.text": {
+          "before": null,
+          "after": "Must have at least these enchantments:"
+        },
+        "tile.lamp_growth.name": {
+          "before": "Lamp of Growth",
+          "after": "Lamp of Growth  "
+        },
+        "enchantment.special.sapless": {
+          "before": null,
+          "after": "Lesser Sapping"
+        },
+        "enchantment.special.sapgreat": {
+          "before": null,
+          "after": "Greater Sapping"
+        },
+        "potion.soulshatter": {
+          "before": null,
+          "after": "Soul Shatter"
+        },
+        "potion.unhunger": {
+          "before": null,
+          "after": "Unnatural Hunger"
+        },
+        "potion.deathgaze": {
+          "before": null,
+          "after": "Deadly Gaze"
+        },
+        "potion.blurred": {
+          "before": null,
+          "after": "Blurred Vision"
+        },
+        "potion.sunscorned": {
+          "before": null,
+          "after": "Sun Scorned"
+        },
+        "potion.thaumarhia": {
+          "before": null,
+          "after": "Thaumorrhea"
+        },
+        "warp.text.1": {
+          "before": null,
+          "after": "You feel oddly drained."
+        },
+        "warp.text.2": {
+          "before": null,
+          "after": "A sudden and unnatural hunger consumes you."
+        },
+        "warp.text.hunger.1": {
+          "before": null,
+          "after": "Your hunger cannot be satisfied with normal food."
+        },
+        "warp.text.hunger.2": {
+          "before": null,
+          "after": "Your hunger begins to fade."
+        },
+        "warp.text.3": {
+          "before": null,
+          "after": "Strange whispers reveal secrets to you."
+        },
+        "warp.text.4": {
+          "before": null,
+          "after": "Your vision becomes strange and grim."
+        },
+        "warp.text.5": {
+          "before": null,
+          "after": "The light suddenly becomes overwhelmingly bright and burns your skin."
+        },
+        "warp.text.6": {
+          "before": null,
+          "after": "A thick fog appears from nowhere. Something stirs in its depths."
+        },
+        "warp.text.7": {
+          "before": null,
+          "after": "They're everywhere! Run!"
+        },
+        "warp.text.8": {
+          "before": null,
+          "after": "Surely there must be a way to stop these headaches?"
+        },
+        "warp.text.9": {
+          "before": null,
+          "after": "You suddenly feel reluctant to break things. "
+        },
+        "warp.text.10": {
+          "before": null,
+          "after": "Your perception suddenly expands."
+        },
+        "warp.text.11": {
+          "before": null,
+          "after": "What was that noise? Something is behind you."
+        },
+        "warp.text.12": {
+          "before": null,
+          "after": "Something is following you."
+        },
+        "warp.text.13": {
+          "before": null,
+          "after": "Something is watching you. Maybe it is time to stop."
+        },
+        "warp.text.14": {
+          "before": null,
+          "after": "You have a moment of clarity."
+        },
+        "warp.text.15": {
+          "before": null,
+          "after": "Your stomach suddenly gurgles very strangely."
+        },
+        "warp.text.16": {
+          "before": null,
+          "after": "The faint sound of chanting can be heard nearby."
+        },
+        "entity.ArcaneBore.name": {
+          "before": null,
+          "after": "Arcane Bore"
+        },
+        "entity.Golem.name": {
+          "before": null,
+          "after": "Golem"
+        },
+        "entity.GolemDart.name": {
+          "before": null,
+          "after": "Golem Dart"
+        },
+        "entity.PrimalArrow.name": {
+          "before": null,
+          "after": "Primal Arrow"
+        },
+        "entity.FrostShard.name": {
+          "before": null,
+          "after": "Frost Shard"
+        },
+        "entity.ExplosiveOrb.name": {
+          "before": null,
+          "after": "Explosive Fireball"
+        },
+        "entity.ShockOrb.name": {
+          "before": null,
+          "after": "Shocking Orb"
+        },
+        "entity.GolemOrb.name": {
+          "before": null,
+          "after": "Energy Orb"
+        },
+        "entity.BottleTaint.name": {
+          "before": null,
+          "after": "Bottled Taint"
+        },
+        "entity.Spellbat.name": {
+          "before": null,
+          "after": "Spellbat"
+        },
+        "entity.Alumentum.name": {
+          "before": null,
+          "after": "Alumentum"
+        },
+        "entity.GiantBrainyZombie.name": {
+          "before": null,
+          "after": "Furious Zombie"
+        },
+        "entity.FollowItem.name": {
+          "before": null,
+          "after": "Following Item"
+        },
+        "entity.SpecialItem.name": {
+          "before": null,
+          "after": "Magic Item"
+        },
+        "entity.FallingTaint.name": {
+          "before": null,
+          "after": "Tainted Crust"
+        },
+        "entity.TaintacleTiny.name": {
+          "before": null,
+          "after": "Taint Tendril"
+        },
+        "entity.TaintacleGiant.name": {
+          "before": null,
+          "after": "Giant Taintacle"
+        },
+        "entity.TaintSeedPrime.name": {
+          "before": null,
+          "after": "Giant Taint Seed"
+        },
+        "entity.Pech.name": {
+          "before": null,
+          "after": "Pech Forager"
+        },
+        "entity.Pech.1.name": {
+          "before": null,
+          "after": "Pech Mage"
+        },
+        "entity.Pech.2.name": {
+          "before": null,
+          "after": "Pech Stalker"
+        },
+        "entity.PrimalOrb.name": {
+          "before": null,
+          "after": "Orb of Primal Energy"
+        },
+        "entity.MindSpider.name": {
+          "before": null,
+          "after": "Mind Spider"
+        },
+        "entity.EldritchWarden.name": {
+          "before": null,
+          "after": "Eldritch Warden"
+        },
+        "entity.EldritchWarden.name.custom": {
+          "before": "%s the %d",
+          "after": "%s the %s"
+        },
+        "entity.EldritchGolem.name": {
+          "before": null,
+          "after": "Eldritch Construct"
+        },
+        "entity.EldritchOrb.name": {
+          "before": null,
+          "after": "Eldritch Orb"
+        },
+        "entity.CultistKnight.name": {
+          "before": null,
+          "after": "Crimson Knight"
+        },
+        "entity.CultistCleric.name": {
+          "before": null,
+          "after": "Crimson Cleric"
+        },
+        "entity.CultistLeader.name": {
+          "before": null,
+          "after": "Crimson Praetor"
+        },
+        "entity.CultistLeader.name.custom": {
+          "before": "Praetor %s the %d",
+          "after": "Praetor %s the %s"
+        },
+        "entity.CultistPortalGreater.name": {
+          "before": null,
+          "after": "Greater Crimson Portal"
+        },
+        "entity.CultistPortalLesser.name": {
+          "before": null,
+          "after": "Lesser Crimson Portal"
+        },
+        "entity.InhabitedZombie.name": {
+          "before": null,
+          "after": "Shambling Husk"
+        },
+        "entity.TurretBasic.name": {
+          "before": null,
+          "after": "Automated Crossbow"
+        },
+        "entity.TurretAdvanced.name": {
+          "before": null,
+          "after": "Advanced Automated Crossbow"
+        },
+        "entity.FocusProjectile.name": {
+          "before": null,
+          "after": "Focus Projectile"
+        },
+        "entity.FocusCloud.name": {
+          "before": null,
+          "after": "Focus Cloud"
+        },
+        "entity.FocusMine.name": {
+          "before": null,
+          "after": "Focus Mine"
+        },
+        "entity.FluxRift.name": {
+          "before": null,
+          "after": "Flux Rift"
+        },
+        "tc.boss.crimson": {
+          "before": null,
+          "after": "A ruby portal opens nearby, heralding the arrival of the Crimson Cult. You must close the portal quickly!"
+        },
+        "tc.boss.golem": {
+          "before": null,
+          "after": "A lone sentinel stands frozen in this room, but as energy starts crackling through its ancient frame, you know it will not stay frozen for long."
+        },
+        "tc.boss.warden": {
+          "before": null,
+          "after": "Black energy bubbles on the distant pedestal. Something is coming..."
+        },
+        "tc.boss.taint": {
+          "before": null,
+          "after": "An organic rustling comes from the room beyond. The sound of something... wrong. Something growing..."
+        },
+        "item.crimson_rites.text.0": {
+          "before": null,
+          "after": "The book is filled with strange symbols."
+        },
+        "item.crimson_rites.text.1": {
+          "before": null,
+          "after": "Click to study it."
+        },
+        "item.runed_tablet.text": {
+          "before": null,
+          "after": "It seems to be part of something larger."
+        },
+        "research.complete": {
+          "before": "Research completed",
+          "after": "Research Completed!"
+        },
+        "item.capacity.text": {
+          "before": null,
+          "after": "Capacity"
+        },
+        "item.chargebonus.text": {
+          "before": null,
+          "after": "Charge"
+        },
+        "fluid.flux_goo": {
+          "before": null,
+          "after": "Flux Goo"
+        },
+        "fluid.purifying_fluid": {
+          "before": null,
+          "after": "Purifying Fluid"
+        },
+        "fluid.liquid_death": {
+          "before": null,
+          "after": "Liquid Death"
+        },
+        "workbench.available": {
+          "before": null,
+          "after": "available"
+        },
+        "workbench.discount": {
+          "before": null,
+          "after": "discount"
+        },
+        "workbench.cost": {
+          "before": null,
+          "after": "vis"
+        },
+        "recipe.return": {
+          "before": null,
+          "after": "Back"
+        },
+        "recipe.clickthrough": {
+          "before": null,
+          "after": "Click for recipe"
+        },
+        "recipe.unknown": {
+          "before": null,
+          "after": "You cannot craft this yet"
+        },
+        "recipe.type.workbench": {
+          "before": "Crafting",
+          "after": "Workbench"
+        },
+        "recipe.type.smelting": {
+          "before": null,
+          "after": "Smelting"
+        },
+        "recipe.type.workbenchshapeless": {
+          "before": "Shapeless crafting",
+          "after": "Workbench (Shapeless)"
+        },
+        "recipe.type.arcane": {
+          "before": "Arcane crafting",
+          "after": "Arcane Workbench"
+        },
+        "recipe.type.arcane.shapeless": {
+          "before": "Shapeless arcane crafting",
+          "after": "Arcane Workbench (Shapeless)"
+        },
+        "recipe.type.infusion": {
+          "before": "Infusion",
+          "after": "Arcane Infusion"
+        },
+        "recipe.type.construct": {
+          "before": null,
+          "after": "Mystical Construct"
+        },
+        "turretfocus.range": {
+          "before": null,
+          "after": "Range %t blocks"
+        },
+        "tile.researchtable.noink.0": {
+          "before": null,
+          "after": "You have run out of ink!"
+        },
+        "tile.researchtable.noink.1": {
+          "before": null,
+          "after": "Refill your scribing tools."
+        },
+        "tile.researchtable.nopaper.0": {
+          "before": null,
+          "after": "You have run out of paper!"
+        },
+        "text.spa.mix.true": {
+          "before": null,
+          "after": "Mix with ingredient"
+        },
+        "text.spa.mix.false": {
+          "before": null,
+          "after": "Use just the fluid"
+        },
+        "color.white": {
+          "before": null,
+          "after": "White"
+        },
+        "color.orange": {
+          "before": null,
+          "after": "Orange"
+        },
+        "color.magenta": {
+          "before": null,
+          "after": "Magenta"
+        },
+        "color.light_blue": {
+          "before": null,
+          "after": "Light Blue"
+        },
+        "color.yellow": {
+          "before": null,
+          "after": "Yellow"
+        },
+        "color.lime": {
+          "before": null,
+          "after": "Lime"
+        },
+        "color.pink": {
+          "before": null,
+          "after": "Pink"
+        },
+        "color.gray": {
+          "before": null,
+          "after": "Gray"
+        },
+        "color.silver": {
+          "before": null,
+          "after": "Light Gray"
+        },
+        "color.cyan": {
+          "before": null,
+          "after": "Cyan"
+        },
+        "color.purple": {
+          "before": null,
+          "after": "Purple"
+        },
+        "color.blue": {
+          "before": null,
+          "after": "Blue"
+        },
+        "color.brown": {
+          "before": null,
+          "after": "Brown"
+        },
+        "color.green": {
+          "before": null,
+          "after": "Green"
+        },
+        "color.red": {
+          "before": null,
+          "after": "Red"
+        },
+        "color.black": {
+          "before": null,
+          "after": "Black"
+        },
+        "card.study.name": {
+          "before": "Study %s",
+          "after": "Study %1$s"
+        },
+        "card.study.text": {
+          "before": "Study %s to gain 15–25%% progress.",
+          "after": "A large part of research is simply hitting the books and putting in the work. You study %1$s and gain 15 to 25 progress."
+        },
+        "card.reject.name": {
+          "before": "Reject %s",
+          "after": "Reject %1$s findings"
+        },
+        "card.reject.text": {
+          "before": "Reject %s. Keep existing progress, but stop gaining progress in this category.",
+          "after": "You come to the realization that %1$s is not vital to your current research. You will not gain any more progress in %1$s, or draw any cards related to that category, but your current progress will remain."
+        },
+        "card.experimentation.text": {
+          "before": "Gain 15–30%% in a random category and 1–10%% in Basics.",
+          "after": "You perform some random experiments to see if something can be discovered. Gain 15 to 30 progress in a completely random category."
+        },
+        "card.analyze.name": {
+          "before": "Analyze %s",
+          "after": "Analyze %1$s"
+        },
+        "card.analyze.text": {
+          "before": "Consume 1 %s observation: gain 25–50%% there and 5%% in %s.",
+          "after": "By thoroughly analyzing observations you have made about %1$s you might be able to put together a theory based on the collected data. Lose 1 %1$s observation to gain 25 to 50 %1$s progress and 5 %2$s progress."
+        },
+        "card.rethink.text": {
+          "before": "Lose up to 10%% across current categories. Regain 1 inspiration and gain a bonus draw.",
+          "after": "You take a step back and reassess your findings. You get rid of invalid conclusions and proceed with fresh understanding. Lose 10 progress divided evenly between all current categories, but you regain 1 inspiration and gain a bonus draw."
+        },
+        "card.ponder.text": {
+          "before": "Split 25%% across active categories. Gain 5%% Basics and a bonus draw.",
+          "after": "You carefully consider all you have learned so far. Gain 25 progress divided evenly between all current active categories and a bonus draw."
+        },
+        "card.notation.text": {
+          "before": "Move most of the progress from %s to %s.",
+          "after": "While making notes of your discoveries thus far you find some errors and correct them. You lose all your progress in %1$s, but most of the lost progress is added to %2$s."
+        },
+        "card.balance.text": {
+          "before": "Share progress evenly across revealed categories. One more category receives the full reward.",
+          "after": "A moment of revelation shows you the common links between all you have been studying. Your total progress is split evenly amongst all currently revealed and valid categories and an additional category will gain the full bonus upon completion."
+        },
+        "card.inspired.text": {
+          "before": "Gain %s%% in %s.",
+          "after": "Inspired by the progress you have made so far, your mind explores paths you have not considered before. You gain %1$s %2$s."
+        },
+        "card.enchantment.text": {
+          "before": "Study normal enchantments: spend 5 experience levels to gain 15–20%% in both Infusion and Auromancy.",
+          "after": "You study normal enchantment to see how it functions at a fundamental level. You are sure that is shares a lot in common with the enchantment methods used in Infusion and Artifice. You lose 5 experience levels, but will gain 15 to 20 progress in both Infusion and Auromancy. "
+        },
+        "card.beacon.text": {
+          "before": "Study the beacon’s aura. Regain 2 inspiration, gain a bonus draw and let one more category receive its full reward.",
+          "after": "You believe that the beacon interacts in some way with the mystical aura. You carefully study this and while you cannot find anything concrete this time you have been inspired. You regain 2 inspiration, 1 bonus draw and an additional category will gain the full bonus upon completion. "
+        },
+        "card.dragonegg.text": {
+          "before": "The aura around the egg swirls with strange and chaotic energies. Occasionally you glimpse strange order in the chaos.",
+          "after": "The aura around the egg swirls with strange and chaotic energies. Occasionally you glimpse strange order in the chaos. "
+        },
+        "card.celestial.text": {
+          "before": "Compare two exact celestial notes: gain 25–50%% in %s. Solar notes improve rewards, lunar notes grant a bonus draw; stellar notes may reveal Eldritch knowledge and temporary Warp.",
+          "after": "You take some of the celestial notes you have made and compare them for possible correlations with your primary research category. You gain 25 to 50 inspiration toward %1$s. You may gain other things as well..."
+        },
+        "card.mindmatter.text": {
+          "before": "You carefully examine and take apart some basic components in the hopes of finding new ways to assemble them into more complex creations. Gain %1$s Artifice.",
+          "after": "You carefully examine and take apart some basic components in the hopes of finding new ways to assemble them into more complex creations. Gain %1$s Artifice. "
+        },
+        "card.awareness.text": {
+          "before": "You open yourself to the flows of vis around you. You gain a deeper understanding of how it works and the underlying nature of things, but this leaves you metaphysically vulnerable. Gain 20 Auromancy. There is a chance you gain Eldritch knowledge and Warp.",
+          "after": "You open yourself to the flows of vis around you. You gain a deeper understanding of how it works and the underlying nature of things, but this leaves you metaphysically vulnerable. Gain 20 Auromancy. There is a chance you gain Eldritch knowledge and Warp. "
+        },
+        "card.scripting.text": {
+          "before": "A large part of Golemancy is creating intricate arcane texts to control your creations. By creating some test scripts you can further your understanding. Gain 25 Golemancy. This consumes additional paper and ink from the research table.",
+          "after": "A large part of Golemancy is creating intricate arcane texts to control your creations. By creating some test scripts you can further your understanding. Gain 25 Golemancy. This consumes additional paper and ink from the research table. "
+        },
+        "card.revelation.text": {
+          "before": "Studying the Eldritch is a dangerous pursuit, but the knowledge you can uncover is often worth it. You gain 30 Eldritch progress and 5 to 10 progress in a random category. You will also gain some temporary and normal Warp and an additional category will gain the full bonus upon completion.",
+          "after": "Studying the Eldritch is a dangerous pursuit, but the knowledge you can uncover is often worth it. You gain 30 Eldritch progress and 5 to 10 progress in a random category. You will also gain some temporary and normal Warp and an additional category will gain the full bonus upon completion. "
+        },
+        "got.dream": {
+          "before": "You awaken from a strange dream. You quickly write it down before the memory fades.",
+          "after": "You awaken from a strange dream. You quickly write it down before the memory fades. "
+        },
+        "false.start": {
+          "before": null,
+          "after": "This feels like it should work, but something is missing..."
+        },
+        "tc.card.unknown": {
+          "before": null,
+          "after": "Unknown item"
+        },
+        "tc.taint_item_poison": {
+          "before": null,
+          "after": "A dissolving %s has infected you with Taint"
+        },
+        "death.attack.tentacle": {
+          "before": null,
+          "after": "%1$s was squeezed by %2$s"
+        },
+        "death.attack.swarm": {
+          "before": null,
+          "after": "%1$s was infested by %2$s"
+        },
+        "death.attack.swarm.item": {
+          "before": null,
+          "after": "%1$s was infested by %2$s using %3$s"
+        },
+        "death.attack.dissolve": {
+          "before": null,
+          "after": "%1$s was dissolved"
+        },
+        "death.attack.dissolve.player": {
+          "before": null,
+          "after": "%1$s was dissolved whilst fighting %2$s"
+        },
+        "tc.researcherror": {
+          "before": null,
+          "after": "You lack the required knowledge to understand this."
+        },
+        "tc.researchexists": {
+          "before": null,
+          "after": "You already possess this knowledge."
+        },
+        "tc.discoveryerror": {
+          "before": null,
+          "after": "To understand this you need to study %1$s."
+        },
+        "tc.discoveryunknown": {
+          "before": null,
+          "after": "Unknown theory"
+        },
+        "tc.discoveryprogress": {
+          "before": null,
+          "after": "% complete"
+        },
+        "tc.addclue": {
+          "before": null,
+          "after": "§aYou have discovered something that could aid future research§0"
+        },
+        "tc.addaddendum": {
+          "before": null,
+          "after": "§aAddendum added to %1$s§0"
+        },
+        "tc.addendumtext": {
+          "before": null,
+          "after": "§oAddendum %1$s§r"
+        },
+        "tc.addaspect": {
+          "before": null,
+          "after": "§aYou have gained practical knowledge of %1$s§0"
+        },
+        "tc.addwarp": {
+          "before": null,
+          "after": "§5You have gained permanent Warp!§0"
+        },
+        "tc.addwarptemp": {
+          "before": null,
+          "after": "§5You have gained temporary Warp!§0"
+        },
+        "tc.addwarpsticky": {
+          "before": null,
+          "after": "§5You have gained Warp!§0"
+        },
+        "tc.removewarp": {
+          "before": null,
+          "after": "§5You have lost permanent Warp!§0"
+        },
+        "tc.removewarpsticky": {
+          "before": null,
+          "after": "§5You have lost Warp!§0"
+        },
+        "tc.removewarptemp": {
+          "before": null,
+          "after": "§5You have lost temporary Warp!§0"
+        },
+        "tc.forbidden": {
+          "before": null,
+          "after": "§l§5Forbidden knowledge (%n)§0"
+        },
+        "tc.forbidden.level.1": {
+          "before": null,
+          "after": "Mostly Harmless"
+        },
+        "tc.forbidden.level.2": {
+          "before": null,
+          "after": "Minor"
+        },
+        "tc.forbidden.level.3": {
+          "before": null,
+          "after": "Moderate"
+        },
+        "tc.forbidden.level.4": {
+          "before": null,
+          "after": "Dangerous"
+        },
+        "tc.forbidden.level.5": {
+          "before": null,
+          "after": "Taboo"
+        },
+        "tc.markerchange": {
+          "before": null,
+          "after": "Set marker color to %n"
+        },
+        "tc.markerchangeany": {
+          "before": null,
+          "after": "Set to any color"
+        },
+        "tc.researchmissing": {
+          "before": null,
+          "after": "Missing required research:"
+        },
+        "tc.discount": {
+          "before": null,
+          "after": "discount"
+        },
+        "tc.inst": {
+          "before": null,
+          "after": "Instability: "
+        },
+        "tc.inst.0": {
+          "before": null,
+          "after": "§1Negligible§0"
+        },
+        "tc.inst.1": {
+          "before": null,
+          "after": "§9Minor§0"
+        },
+        "tc.inst.2": {
+          "before": null,
+          "after": "§5Moderate§0"
+        },
+        "tc.inst.3": {
+          "before": null,
+          "after": "§eHigh§0"
+        },
+        "tc.inst.4": {
+          "before": null,
+          "after": "§6Very High§0"
+        },
+        "tc.inst.5": {
+          "before": null,
+          "after": "§4Dangerous§0"
+        },
+        "tc.adv": {
+          "before": null,
+          "after": "Advanced"
+        },
+        "tc.search": {
+          "before": null,
+          "after": "Search"
+        },
+        "tc.search.more": {
+          "before": null,
+          "after": "...too many results found. Refine your search"
+        },
+        "tc.research.stage": {
+          "before": null,
+          "after": "Current stage:"
+        },
+        "tc.research.begin": {
+          "before": null,
+          "after": "You have not yet begun this research"
+        },
+        "tc.research.newpage": {
+          "before": "New page",
+          "after": "§aNew page added§0"
+        },
+        "tc.research.newresearch": {
+          "before": "New research",
+          "after": "§6Newly discovered research§0"
+        },
+        "tc.research.purchase": {
+          "before": null,
+          "after": "Click to purchase this research with %1$s experience level(s)."
+        },
+        "tc.research.short": {
+          "before": null,
+          "after": "You need %1$s experience level(s) to purchase this."
+        },
+        "tc.research.read": {
+          "before": null,
+          "after": "Click to read this research."
+        },
+        "tc.research.add": {
+          "before": null,
+          "after": "Click to consume fragment and add 1 of each primal."
+        },
+        "tc.need.research": {
+          "before": null,
+          "after": "Things that need to be discovered"
+        },
+        "tc.need.craft": {
+          "before": null,
+          "after": "Items that need to be crafted"
+        },
+        "tc.need.obtain": {
+          "before": null,
+          "after": "Items that will be consumed"
+        },
+        "tc.need.know": {
+          "before": null,
+          "after": "Knowledge that must be used"
+        },
+        "tc.break.fly": {
+          "before": null,
+          "after": "Something disrupts your ability to fly."
+        },
+        "tc.dioptra.1": {
+          "before": null,
+          "after": "Showing %s levels in the aura. "
+        },
+        "tc.dioptra.2": {
+          "before": null,
+          "after": "Showing highest aura levels."
+        },
+        "tc.dioptra.3": {
+          "before": null,
+          "after": "Showing aura level ratios."
+        },
+        "tc.fluxevent.1": {
+          "before": null,
+          "after": "The nearby aura suddenly twists and warps, leaving your thoughts in a shambles."
+        },
+        "tc.stage.complete": {
+          "before": null,
+          "after": "Complete"
+        },
+        "tc.stage.hold": {
+          "before": null,
+          "after": "Completing..."
+        },
+        "tc.warp.warn": {
+          "before": null,
+          "after": " Warping level: %n"
+        },
+        "tc.knowledge.name": {
+          "before": "Knowledge",
+          "after": "Knowledge Totals"
+        },
+        "tc.type.theory": {
+          "before": null,
+          "after": "Theory"
+        },
+        "tc.type.observation": {
+          "before": null,
+          "after": "Observation"
+        },
+        "got.deepdown": {
+          "before": null,
+          "after": "You have visited deep and dark depths and have learned much."
+        },
+        "got.uphigh": {
+          "before": null,
+          "after": "The world is spread out before you. Your perspective has been broadened."
+        },
+        "got.finddesert": {
+          "before": null,
+          "after": "You have visited the scorching desert."
+        },
+        "got.findocean": {
+          "before": null,
+          "after": "You have peered into the endless blue abyss."
+        },
+        "research.f_VOIDSEED.text": {
+          "before": "Examine something native to the Void",
+          "after": "Examine something native to the Void "
+        },
+        "got.instability": {
+          "before": null,
+          "after": "I should study infusion instability further."
+        },
+        "got.projectile": {
+          "before": null,
+          "after": "You learn some more about projectiles."
+        },
+        "research.f_MATBRASS.text": {
+          "before": "Examine brass",
+          "after": "Examine brass "
+        },
+        "research.f_MATTHAUMIUM.text": {
+          "before": "Examine thaumium",
+          "after": "Examine thaumium "
+        },
+        "research.f_MATVOID.text": {
+          "before": "Examine void metal",
+          "after": "Examine void metal "
+        },
+        "not.pechwand": {
+          "before": null,
+          "after": "You cannot fathom the workings of this yet."
+        },
+        "got.pechwand": {
+          "before": null,
+          "after": "Hmmm, curious. I should investigate this further."
+        },
+        "got.onfire": {
+          "before": null,
+          "after": "You have felt the touch of flame."
+        },
+        "got.endoftheworld": {
+          "before": null,
+          "after": "You have visited the End."
+        },
+        "block.thaumcraft.ore_amber": {
+          "before": "Amber-bearing Stone",
+          "after": "Amber Bearing Stone"
+        },
+        "block.thaumcraft.crystal_aer": {
+          "before": "Air Crystal Cluster",
+          "after": "Air Crystal"
+        },
+        "block.thaumcraft.crystal_ignis": {
+          "before": "Fire Crystal Cluster",
+          "after": "Fire Crystal"
+        },
+        "block.thaumcraft.crystal_aqua": {
+          "before": "Water Crystal Cluster",
+          "after": "Water Crystal"
+        },
+        "block.thaumcraft.crystal_terra": {
+          "before": "Earth Crystal Cluster",
+          "after": "Earth Crystal"
+        },
+        "block.thaumcraft.crystal_ordo": {
+          "before": "Order Crystal Cluster",
+          "after": "Order Crystal"
+        },
+        "block.thaumcraft.crystal_perditio": {
+          "before": "Entropy Crystal Cluster",
+          "after": "Entropy Crystal"
+        },
+        "block.thaumcraft.slab_double_arcane_stone": {
+          "before": "Slab Double Arcane Stone",
+          "after": "Arcane Stone Slab"
+        },
+        "block.thaumcraft.slab_double_arcane_brick": {
+          "before": "Slab Double Arcane Brick",
+          "after": "Arcane Brick Slab"
+        },
+        "block.thaumcraft.slab_double_ancient": {
+          "before": "Slab Double Ancient",
+          "after": "Ancient Stone Slab"
+        },
+        "block.thaumcraft.slab_double_eldritch": {
+          "before": "Slab Double Eldritch",
+          "after": "Eldritch Stone Slab"
+        },
+        "block.thaumcraft.slab_double_greatwood": {
+          "before": "Slab Double Greatwood",
+          "after": "Greatwood Slab"
+        },
+        "block.thaumcraft.slab_double_silverwood": {
+          "before": "Slab Double Silverwood",
+          "after": "Silverwood Slab"
+        },
+        "entity.thaumcraft.spell_bat_spell": {
+          "before": "Spell Bat",
+          "after": "Spellbat"
+        },
+        "entity.Thaumcraft.EldritchWarden.name.custom": {
+          "before": "%s the %d",
+          "after": "%s the %s"
+        },
+        "entity.Thaumcraft.CultistLeader.name.custom": {
+          "before": "Praetor %s the %d",
+          "after": "Praetor %s the %s"
+        },
+        "tc.bore.width": {
+          "before": null,
+          "after": "Width: %s"
+        },
+        "tc.bore.depth": {
+          "before": null,
+          "after": "Depth: %s"
+        },
+        "tc.bore.speed": {
+          "before": null,
+          "after": "Speed: +%s"
+        },
+        "tc.bore.properties": {
+          "before": null,
+          "after": "Other properties:"
+        },
+        "thaumcraft.device.output": {
+          "before": null,
+          "after": "Out: %s"
+        },
+        "thaumcraft.device.input": {
+          "before": null,
+          "after": "In: %s"
+        },
+        "thaumcraft.device.note": {
+          "before": null,
+          "after": "Note: %s"
+        },
+        "gui.thaumcraft.focal.focus_name": {
+          "before": null,
+          "after": "Focus name"
+        },
+        "tooltip.thaumcraft.brain_jar.experience": {
+          "before": null,
+          "after": "Experience: %s"
+        },
+        "logistics.scrollbar": {
+          "before": null,
+          "after": "Scroll"
+        },
+        "block.thaumcraft.nitor": {
+          "before": "Nitor",
+          "after": "Yellow Nitor"
+        },
+        "item.thaumcraft.vis_crystal_aer": {
+          "before": "Air Vis Crystal",
+          "after": "Aer Vis Crystal"
+        },
+        "item.thaumcraft.vis_crystal_ignis": {
+          "before": "Fire Vis Crystal",
+          "after": "Ignis Vis Crystal"
+        },
+        "item.thaumcraft.vis_crystal_aqua": {
+          "before": "Water Vis Crystal",
+          "after": "Aqua Vis Crystal"
+        },
+        "item.thaumcraft.vis_crystal_terra": {
+          "before": "Earth Vis Crystal",
+          "after": "Terra Vis Crystal"
+        },
+        "item.thaumcraft.vis_crystal_ordo": {
+          "before": "Order Vis Crystal",
+          "after": "Ordo Vis Crystal"
+        },
+        "item.thaumcraft.vis_crystal_perditio": {
+          "before": "Entropy Vis Crystal",
+          "after": "Perditio Vis Crystal"
+        },
+        "entity.thaumcraft.focus_exchange_item": {
+          "before": null,
+          "after": "Magic Item"
+        },
+        "effect.thaumcraft.thaumarhia": {
+          "before": null,
+          "after": "Thaumorrhea"
+        },
+        "effect.thaumcraft.unnatural_hunger": {
+          "before": null,
+          "after": "Unnatural Hunger"
+        },
+        "effect.thaumcraft.sun_scorned": {
+          "before": null,
+          "after": "Sun Scorned"
+        },
+        "effect.thaumcraft.death_gaze": {
+          "before": null,
+          "after": "Deadly Gaze"
+        },
+        "effect.thaumcraft.blurred_vision": {
+          "before": null,
+          "after": "Blurred Vision"
+        },
+        "attribute.thaumcraft.champion_mod": {
+          "before": null,
+          "after": "Champion modifier"
+        },
+        "attribute.thaumcraft.tainted_mod": {
+          "before": null,
+          "after": "Taint modifier"
+        }
+      },
+      "changeCount": 264,
+      "finalKeyCount": 2249,
+      "afterJsonSha256": "6b3a46d2185805eab6f9c02222b83e41194fde7fe022241cc6c893833b728e41"
+    },
+    "ru_ru": {
+      "originalLangSha256": "284c7f8a8f4fa1982cf7e3ab821167275c8a828e72e1433899962076413a1e14",
+      "originalKeyCount": 1452,
+      "duplicateOriginalKeys": [],
+      "beforeJsonSha256": "c7af019d4df79de4b963536dfe513f38aa588954bb867aacc722955da2a4be0b",
+      "changes": {
+        "item.fortress_helm.mask.0": {
+          "before": null,
+          "after": "Ухмыляющийся дьявол"
+        },
+        "item.fortress_helm.mask.1": {
+          "before": null,
+          "after": "Разгневанное привидение"
+        },
+        "item.fortress_helm.mask.2": {
+          "before": null,
+          "after": "Истощающий бес"
+        },
+        "item.amulet_vis.text": {
+          "before": null,
+          "after": "Перезаряжает броню, аксессуары и предметы из панели быстрого доступа"
+        },
+        "item.enchanted_placeholder.text": {
+          "before": null,
+          "after": "Должен иметь хотя бы одно с зачарований ниже:"
+        },
+        "enchantment.special.sapless": {
+          "before": null,
+          "after": "Слабое истощение"
+        },
+        "enchantment.special.sapgreat": {
+          "before": null,
+          "after": "Сильное истощение"
+        },
+        "potion.soulshatter": {
+          "before": null,
+          "after": "Разрушитель душ"
+        },
+        "potion.unhunger": {
+          "before": null,
+          "after": "Неестественный голод"
+        },
+        "potion.deathgaze": {
+          "before": null,
+          "after": "Смертельный взгляд"
+        },
+        "potion.blurred": {
+          "before": null,
+          "after": "Размытое зрение"
+        },
+        "potion.sunscorned": {
+          "before": null,
+          "after": "Презирающий Солнце"
+        },
+        "potion.thaumarhia": {
+          "before": null,
+          "after": "Таумория"
+        },
+        "warp.text.1": {
+          "before": null,
+          "after": "Вы чувствуете странное истощение."
+        },
+        "warp.text.2": {
+          "before": null,
+          "after": "Вы внезапно начинаете ощущать неестественный голод."
+        },
+        "warp.text.hunger.1": {
+          "before": null,
+          "after": "Ваш голод нельзя утолить обычной едой."
+        },
+        "warp.text.hunger.2": {
+          "before": null,
+          "after": "Ваш голод постепенно уходит."
+        },
+        "warp.text.3": {
+          "before": null,
+          "after": "Странные голоса нашёптывают Вам секреты."
+        },
+        "warp.text.4": {
+          "before": null,
+          "after": "Ваше зрение становится странным и зловещим."
+        },
+        "warp.text.5": {
+          "before": null,
+          "after": "Свет внезапно становится невероятно ярким и поджигает Вашу кожу."
+        },
+        "warp.text.6": {
+          "before": null,
+          "after": "Из ниоткуда появляется густой туман. И что-то шевелится в его глубинах."
+        },
+        "warp.text.7": {
+          "before": null,
+          "after": "Они везде! Бегите!"
+        },
+        "warp.text.8": {
+          "before": null,
+          "after": "Но ведь должен существовать способ, который поможет избавиться от этой головной боли?"
+        },
+        "warp.text.9": {
+          "before": null,
+          "after": "У Вас внезапно появляется непреодолимое желание крушить всё вокруг. "
+        },
+        "warp.text.10": {
+          "before": null,
+          "after": "Ваше восприятие внезапно расширяет свои пределы."
+        },
+        "warp.text.11": {
+          "before": null,
+          "after": "Что это был за шум? Что-то стоит у Вас за спиной."
+        },
+        "warp.text.12": {
+          "before": null,
+          "after": "Что-то преследует Вас."
+        },
+        "warp.text.13": {
+          "before": null,
+          "after": "Что-то наблюдает за Вами. Возможно, пришло время остановиться, пока не стало слишком поздно."
+        },
+        "warp.text.14": {
+          "before": null,
+          "after": "Вы ощущаете ясность своих мыслей."
+        },
+        "warp.text.15": {
+          "before": null,
+          "after": "Ваш живот внезапно издаёт очень странный бурлящий звук."
+        },
+        "warp.text.16": {
+          "before": null,
+          "after": "По близости слышится тихий звук пения."
+        },
+        "entity.ArcaneBore.name": {
+          "before": null,
+          "after": "Мистический бур"
+        },
+        "entity.Golem.name": {
+          "before": null,
+          "after": "Голем"
+        },
+        "entity.GolemDart.name": {
+          "before": null,
+          "after": "Дротик голема"
+        },
+        "entity.PrimalArrow.name": {
+          "before": null,
+          "after": "Первичная стрела"
+        },
+        "entity.FrostShard.name": {
+          "before": null,
+          "after": "Ледяной осколок"
+        },
+        "entity.ExplosiveOrb.name": {
+          "before": null,
+          "after": "Взрывной огненный шар"
+        },
+        "entity.ShockOrb.name": {
+          "before": null,
+          "after": "Шокирующая сфера"
+        },
+        "entity.GolemOrb.name": {
+          "before": null,
+          "after": "Энергетическая сфера"
+        },
+        "entity.BottleTaint.name": {
+          "before": null,
+          "after": "Закупоренное заражение"
+        },
+        "entity.Spellbat.name": {
+          "before": null,
+          "after": "Волшебная летучая мышь"
+        },
+        "entity.Alumentum.name": {
+          "before": null,
+          "after": "Алюментум"
+        },
+        "entity.GiantBrainyZombie.name": {
+          "before": null,
+          "after": "Яростный зомби"
+        },
+        "entity.FollowItem.name": {
+          "before": null,
+          "after": "Следующий предмет"
+        },
+        "entity.SpecialItem.name": {
+          "before": null,
+          "after": "Магический предмет"
+        },
+        "entity.FallingTaint.name": {
+          "before": null,
+          "after": "Заражённая корка"
+        },
+        "entity.TaintacleTiny.name": {
+          "before": null,
+          "after": "Заражённый усик"
+        },
+        "entity.TaintacleGiant.name": {
+          "before": null,
+          "after": "Гигантское заражённое щупальце"
+        },
+        "entity.TaintSeedPrime.name": {
+          "before": null,
+          "after": "Гигантское семя заражения"
+        },
+        "entity.Pech.name": {
+          "before": null,
+          "after": "Пехт-кладовщик"
+        },
+        "entity.Pech.1.name": {
+          "before": null,
+          "after": "Пехт-маг"
+        },
+        "entity.Pech.2.name": {
+          "before": null,
+          "after": "Пехт-сталкер"
+        },
+        "entity.PrimalOrb.name": {
+          "before": null,
+          "after": "Сфера первичной энергии"
+        },
+        "entity.MindSpider.name": {
+          "before": null,
+          "after": "Мозговой паук"
+        },
+        "entity.EldritchWarden.name": {
+          "before": null,
+          "after": "Потусторонний смотритель"
+        },
+        "entity.EldritchWarden.name.custom": {
+          "before": "%s the %d",
+          "after": "%s, %s"
+        },
+        "entity.EldritchGolem.name": {
+          "before": null,
+          "after": "Потусторонняя конструкция"
+        },
+        "entity.EldritchOrb.name": {
+          "before": null,
+          "after": "Потусторонняя сфера"
+        },
+        "entity.CultistKnight.name": {
+          "before": null,
+          "after": "Багровый рыцарь"
+        },
+        "entity.CultistCleric.name": {
+          "before": null,
+          "after": "Багровый клирик"
+        },
+        "entity.CultistLeader.name": {
+          "before": null,
+          "after": "Багровый претор"
+        },
+        "entity.CultistLeader.name.custom": {
+          "before": "%s the %d, Претор",
+          "after": "%s, %s Претор"
+        },
+        "entity.CultistPortalGreater.name": {
+          "before": null,
+          "after": "Большой багровый портал"
+        },
+        "entity.CultistPortalLesser.name": {
+          "before": null,
+          "after": "Маленький багровый портал"
+        },
+        "entity.InhabitedZombie.name": {
+          "before": null,
+          "after": "Неуклюжий кадавр"
+        },
+        "entity.TurretBasic.name": {
+          "before": null,
+          "after": "Автоматический арбалет"
+        },
+        "entity.TurretAdvanced.name": {
+          "before": null,
+          "after": "Продвинутый автоматический арбалет"
+        },
+        "entity.FocusProjectile.name": {
+          "before": null,
+          "after": "Снаряд линзы"
+        },
+        "entity.FocusCloud.name": {
+          "before": null,
+          "after": "Облако линзы"
+        },
+        "entity.FocusMine.name": {
+          "before": null,
+          "after": "Ловушка линзы"
+        },
+        "entity.FluxRift.name": {
+          "before": null,
+          "after": "Разлом от Выбросов"
+        },
+        "tc.boss.crimson": {
+          "before": null,
+          "after": "Поблизости открывается рубиновый портал, предвещающий прибытие Багрового культа. Вы должны как можно скорее закрыть его!"
+        },
+        "tc.boss.golem": {
+          "before": null,
+          "after": "В комнате стоит лишь одинокий обледенелый страж, но по тому, как энергия начинает сверкать на его доспехах, Вы понимаете, что недолго он будет оставаться замороженным."
+        },
+        "tc.boss.warden": {
+          "before": null,
+          "after": "Чёрные сгустки энергии прыгают на удалённом пьедестале. Что-то грядёт..."
+        },
+        "tc.boss.taint": {
+          "before": null,
+          "after": "По ту сторону комнаты слышится шорох какого-то существа. И он звучит... как-то неправильно. Что-то растёт..."
+        },
+        "item.crimson_rites.text.0": {
+          "before": null,
+          "after": "Книга исписана странными символами."
+        },
+        "item.crimson_rites.text.1": {
+          "before": null,
+          "after": "Нажмите на неё для более детального изучения."
+        },
+        "item.runed_tablet.text": {
+          "before": null,
+          "after": "Похоже, это часть чего-то большего."
+        },
+        "research.complete": {
+          "before": "Исследование завершено",
+          "after": "Исследование завершено!"
+        },
+        "item.capacity.text": {
+          "before": null,
+          "after": "Вместимость"
+        },
+        "item.chargebonus.text": {
+          "before": null,
+          "after": "Заряд"
+        },
+        "fluid.flux_goo": {
+          "before": null,
+          "after": "Склизкие Выбросы"
+        },
+        "fluid.purifying_fluid": {
+          "before": null,
+          "after": "Очищающая жидкость"
+        },
+        "fluid.liquid_death": {
+          "before": null,
+          "after": "Жидкая смерть"
+        },
+        "recipe.return": {
+          "before": null,
+          "after": "Назад"
+        },
+        "recipe.clickthrough": {
+          "before": null,
+          "after": "Нажмите для просмотра рецепта"
+        },
+        "recipe.unknown": {
+          "before": null,
+          "after": "Вы пока не можете это создать"
+        },
+        "recipe.type.workbench": {
+          "before": "Обычный крафт",
+          "after": "Верстак"
+        },
+        "recipe.type.smelting": {
+          "before": null,
+          "after": "Выплавка"
+        },
+        "recipe.type.workbenchshapeless": {
+          "before": "Бесформенный крафт",
+          "after": "Верстак (Бесформенный)"
+        },
+        "recipe.type.arcane": {
+          "before": "Магический крафт",
+          "after": "Мистический верстак"
+        },
+        "recipe.type.arcane.shapeless": {
+          "before": "Бесформенный магический крафт",
+          "after": "Мистический верстак (Бесформенный)"
+        },
+        "recipe.type.infusion": {
+          "before": "Наполнение",
+          "after": "Мистическое наполнение"
+        },
+        "recipe.type.construct": {
+          "before": null,
+          "after": "Мистическая конструкция"
+        },
+        "turretfocus.range": {
+          "before": null,
+          "after": "Радиус %t блоков(а)"
+        },
+        "tile.researchtable.noink.0": {
+          "before": null,
+          "after": "У вас закончились чернила!"
+        },
+        "tile.researchtable.noink.1": {
+          "before": null,
+          "after": "Заправьте письменные принадлежности."
+        },
+        "tile.researchtable.nopaper.0": {
+          "before": null,
+          "after": "У вас закончилась бумага!"
+        },
+        "text.spa.mix.true": {
+          "before": null,
+          "after": "Смешать с ингредиентом"
+        },
+        "text.spa.mix.false": {
+          "before": null,
+          "after": "Использовать только жидкость"
+        },
+        "color.white": {
+          "before": null,
+          "after": "Белый"
+        },
+        "color.orange": {
+          "before": null,
+          "after": "Оранжевый"
+        },
+        "color.magenta": {
+          "before": null,
+          "after": "Пурпурный"
+        },
+        "color.light_blue": {
+          "before": null,
+          "after": "Голубой"
+        },
+        "color.yellow": {
+          "before": null,
+          "after": "Жёлтый"
+        },
+        "color.lime": {
+          "before": null,
+          "after": "Лаймовый"
+        },
+        "color.pink": {
+          "before": null,
+          "after": "Розовой"
+        },
+        "color.gray": {
+          "before": null,
+          "after": "Серый"
+        },
+        "color.silver": {
+          "before": null,
+          "after": "Светло-серый"
+        },
+        "color.cyan": {
+          "before": null,
+          "after": "Бирюзовый"
+        },
+        "color.purple": {
+          "before": null,
+          "after": "Фиолетовый"
+        },
+        "color.blue": {
+          "before": null,
+          "after": "Синий"
+        },
+        "color.brown": {
+          "before": null,
+          "after": "Коричневый"
+        },
+        "color.green": {
+          "before": null,
+          "after": "Зелёный"
+        },
+        "color.red": {
+          "before": null,
+          "after": "Красный"
+        },
+        "color.black": {
+          "before": null,
+          "after": "Чёрный"
+        },
+        "card.study.name": {
+          "before": "Изучение: %s",
+          "after": "Изучить категорию %1$s"
+        },
+        "card.study.text": {
+          "before": "Изучите %s: +15–25%% прогресса.",
+          "after": "Большая часть исследований предполагает то, что нужно просто взяться за книги и окунуться в работу. Вы изучаете сведения о категории %1$s и получаете от 15 до 25 очков прогресса."
+        },
+        "card.reject.name": {
+          "before": "Отклонить: %s",
+          "after": "Отбросить категорию %1$s"
+        },
+        "card.reject.text": {
+          "before": "Отклоните %s. Прогресс сохранится, но категория больше не развивается.",
+          "after": "Вы осознали, что категория %1$s не существенна для Вашего текущего исследования. Вы больше не будете получать прогресс в категории %1$s или доставать связанные с ней карты, но свой текущий прогресс в ней Вы не потеряете."
+        },
+        "card.experimentation.name": {
+          "before": "Эксперимент",
+          "after": "Экспериментирование"
+        },
+        "card.experimentation.text": {
+          "before": "+15–30%% в случайной категории и +1–10%% в основах.",
+          "after": "Вы проводите ряд случайных экспериментов, чтобы узнать, сможете ли Вы что-нибудь обнаружить. Вы получаете от 10 до 25 очков прогресса в совершенно случайной категории."
+        },
+        "card.analyze.name": {
+          "before": "Анализ: %s",
+          "after": "Анализ Категории %1$s"
+        },
+        "card.analyze.text": {
+          "before": "Потратьте 1 наблюдение: %s. +25–50%% в ней и +5%%: %s.",
+          "after": "Тщательно проанализировав сделанные Вами наблюдения в категории %1$s, Вы могли бы составить теорию, основанную на собранных данных. Вы теряете 1 наблюдение в категории %1$s, но получаете от 25 до 50 очков прогресса в категории %1$s и 5 очков прогресса в категории %2$s."
+        },
+        "card.rethink.text": {
+          "before": "Уберите до 10%% из текущих категорий. Верните 1 вдохновение и получите бонусный выбор.",
+          "after": "Вы делаете шаг назад и пересматриваете свои результаты. Вы избавляетесь от неверных выводов и приступаете к рассмотрению новых идей. Вы теряете 10 очков, разделённых поровну между всеми текущими категориями, но восстанавливаете 1 очко вдохновения и берёте дополнительную карту."
+        },
+        "card.ponder.name": {
+          "before": "Размышление",
+          "after": "Размышления"
+        },
+        "card.ponder.text": {
+          "before": "Распределите 25%% между категориями. +5%% основ и бонусный выбор.",
+          "after": "Вы тщательно обдумываете всё то, что уже успели узнать. Вы получаете 25 очков прогресса, равномерно распределённых между всеми текущими категориями и берёте дополнительную карту."
+        },
+        "card.notation.name": {
+          "before": "Заметки",
+          "after": "Нотация"
+        },
+        "card.notation.text": {
+          "before": "Перенесите большую часть прогресса из категории %s в категорию %s.",
+          "after": "Делая заметки о своих открытиях, Вы находите несколько ошибок и исправляете их. Вы теряете весь прогресс в категории %1$s, но его бóльшая часть добавляется к категории %2$s."
+        },
+        "card.balance.name": {
+          "before": "Общая теория",
+          "after": "Универсальная Теория"
+        },
+        "card.balance.text": {
+          "before": "Выровняйте прогресс открытых категорий. Ещё одна категория получит полную награду.",
+          "after": "В момент озарения Вы видите связь между всем тем, что сейчас изучаете. Весь Ваш текущий прогресс будет равномерно распределён между всеми открытыми и допустимыми категориями, а также дополнительная категория получит полный бонус по завершении исследования."
+        },
+        "card.inspired.name": {
+          "before": "Озарение",
+          "after": "Вдохновение"
+        },
+        "card.inspired.text": {
+          "before": "+%s%%: %s.",
+          "after": "Вдохновлённый таким успехом, Ваш разум открывает пути, о которых Вы раньше и не задумывались. Вы получаете %1$s очков прогресса в категории %2$s."
+        },
+        "card.enchantment.name": {
+          "before": "Изучение зачарований",
+          "after": "Изучить зачарование"
+        },
+        "card.enchantment.text": {
+          "before": "Изучите обычные чары: потратьте 5 уровней опыта, чтобы получить по 15–20%% в наполнении и ауромантии.",
+          "after": "Вы изучаете обычное зачарование, чтобы понять, как оно работает на фундаментальном уровне. Вы уверены, что оно имеет много общего с методами зачарования, используемыми в Изобретениях или Наполнении. Вы теряете 5 уровней опыта, но получаете от 15 до 20 очков прогресса в Ауромантии и Наполнении. "
+        },
+        "card.beacon.text": {
+          "before": "Изучите ауру маяка. Верните 2 вдохновения, получите бонусный выбор и полную награду ещё одной категории.",
+          "after": "Вы думаете, что маяк каким-то образом взаимодействует с магической аурой. Вы внимательно изучаете его, и хотя в этот раз у Вас и не получается прийти к чему-то конкретному, Вы чувствуете себя воодушевлённым. Вы восстанавливаете 2 очка вдохновения и берёте дополнительную карту, а также дополнительная категория получит полный бонус по завершении исследования. "
+        },
+        "card.celestial.name": {
+          "before": "Небесные исследования",
+          "after": "Изучение небес"
+        },
+        "card.celestial.text": {
+          "before": "Сравните две нужные заметки: +25–50%% в категории %s. Солнце улучшает награды, луна даёт бонусный выбор; звёзды могут дать знания древних и временное искажение.",
+          "after": "Вы берёте несколько сделанных Вами заметок о небесах и сравниваете их, пытаясь найти связь с Вашей основной категорией исследования. Вы получаете от 25 до 50 очков прогресса в категории %1$s. Также есть шанс получить что-нибудь ещё..."
+        },
+        "card.mindmatter.text": {
+          "before": "Вы тщательно осматриваете и разбираете несколько базовых компонентов в надежде найти новые пути, позволяющие собрать из них более сложные творения. Вы получаете %1$s очков прогресса в Изобретениях.",
+          "after": "Вы тщательно осматриваете и разбираете несколько базовых компонентов в надежде найти новые пути, позволяющие собрать из них более сложные творения. Вы получаете %1$s очков прогресса в Изобретениях. "
+        },
+        "card.scripting.text": {
+          "before": "Большая часть работы в Големостроении состоит в написании сложных магических текстов для контроля ваших созданий. Создав несколько пробных текстов, Вы сможете лучше понять её. Вы получаете 25 очков прогресса в Големостроении. На это будут израсходованы дополнительные листы бумаги и чернила со стола исследований.",
+          "after": "Большая часть работы в Големостроении состоит в написании сложных магических текстов для контроля ваших созданий. Создав несколько пробных текстов, Вы сможете лучше понять её. Вы получаете 25 очков прогресса в Големостроении. На это будут израсходованы дополнительные листы бумаги и чернила со стола исследований. "
+        },
+        "false.start": {
+          "before": null,
+          "after": "Такое чувство, будто это должно работать, но чего-то не хватает..."
+        },
+        "tc.card.unknown": {
+          "before": null,
+          "after": "Неизвестный предмет"
+        },
+        "tc.taint_item_poison": {
+          "before": null,
+          "after": "Растворяемый %s инфицировал Вас заражением"
+        },
+        "death.attack.tentacle": {
+          "before": null,
+          "after": "%1$s был раздавлен %2$s"
+        },
+        "death.attack.swarm": {
+          "before": null,
+          "after": "%1$s был заражён паразитами от %2$s"
+        },
+        "death.attack.swarm.item": {
+          "before": null,
+          "after": "%1$s был заражён паразитами от %2$s используя %3$s"
+        },
+        "death.attack.dissolve": {
+          "before": null,
+          "after": "%1$s расстворился"
+        },
+        "death.attack.dissolve.player": {
+          "before": null,
+          "after": "%1$s расстворился во время битвы с %2$s"
+        },
+        "tc.researcherror": {
+          "before": null,
+          "after": "У Вас не хватает знаний для того, чтобы это понять."
+        },
+        "tc.researchexists": {
+          "before": null,
+          "after": "Вам уже это известно."
+        },
+        "tc.discoveryerror": {
+          "before": null,
+          "after": "Чтобы это понять нужно предварительно изучить %1$s."
+        },
+        "tc.discoveryunknown": {
+          "before": null,
+          "after": "Неизвестная теория"
+        },
+        "tc.discoveryprogress": {
+          "before": null,
+          "after": "% выполнено"
+        },
+        "tc.addclue": {
+          "before": null,
+          "after": "§aВы обнаружили нечто, что может помочь в будущих исследованиях§0"
+        },
+        "tc.addaddendum": {
+          "before": null,
+          "after": "§aК исследованию \"%1$s\" добавлено приложение§0"
+        },
+        "tc.addendumtext": {
+          "before": null,
+          "after": "§oПриложение %1$s§r"
+        },
+        "tc.addaspect": {
+          "before": null,
+          "after": "§aВы получили практические знания в %1$s§0"
+        },
+        "tc.addwarp": {
+          "before": null,
+          "after": "§5Вы получили постоянное Искажение!§0"
+        },
+        "tc.addwarptemp": {
+          "before": null,
+          "after": "§5Вы получили временное Искажение!§0"
+        },
+        "tc.addwarpsticky": {
+          "before": null,
+          "after": "§5Вы получили Искажение!§0"
+        },
+        "tc.removewarp": {
+          "before": null,
+          "after": "§5Вы избавились от постоянного Искажения!§0"
+        },
+        "tc.removewarpsticky": {
+          "before": null,
+          "after": "§5Вы избавились от Искажения!§0"
+        },
+        "tc.removewarptemp": {
+          "before": null,
+          "after": "§5Вы избавились от временного Искажения!§0"
+        },
+        "tc.forbidden": {
+          "before": null,
+          "after": "§l§5Запрещённые знания (%n)§0"
+        },
+        "tc.forbidden.level.1": {
+          "before": null,
+          "after": "Практически безвредные"
+        },
+        "tc.forbidden.level.2": {
+          "before": null,
+          "after": "Слабые"
+        },
+        "tc.forbidden.level.3": {
+          "before": null,
+          "after": "Средние"
+        },
+        "tc.forbidden.level.4": {
+          "before": null,
+          "after": "Опасные"
+        },
+        "tc.forbidden.level.5": {
+          "before": null,
+          "after": "Запретные"
+        },
+        "tc.markerchange": {
+          "before": null,
+          "after": "Установить маркер в %n цвет"
+        },
+        "tc.markerchangeany": {
+          "before": null,
+          "after": "Установить маркер в любой цвет"
+        },
+        "tc.researchmissing": {
+          "before": null,
+          "after": "Отсутствует необходимое исследование(я):"
+        },
+        "tc.discount": {
+          "before": null,
+          "after": "скидка"
+        },
+        "tc.inst": {
+          "before": null,
+          "after": "Нестабильность: "
+        },
+        "tc.inst.0": {
+          "before": null,
+          "after": "§1Незначительная§0"
+        },
+        "tc.inst.1": {
+          "before": null,
+          "after": "§9Слабая§0"
+        },
+        "tc.inst.2": {
+          "before": null,
+          "after": "§5Средняя§0"
+        },
+        "tc.inst.3": {
+          "before": null,
+          "after": "§eВысокая§0"
+        },
+        "tc.inst.4": {
+          "before": null,
+          "after": "§6Очень высокая§0"
+        },
+        "tc.inst.5": {
+          "before": null,
+          "after": "§4Опасная§0"
+        },
+        "tc.adv": {
+          "before": null,
+          "after": "Продвинутые"
+        },
+        "tc.search": {
+          "before": null,
+          "after": "Поиск"
+        },
+        "tc.search.more": {
+          "before": null,
+          "after": "... найдено слишком много совпадений. Уточните свой поиск"
+        },
+        "tc.research.stage": {
+          "before": null,
+          "after": "Текущая стадия:"
+        },
+        "tc.research.begin": {
+          "before": null,
+          "after": "Вы ещё не начали это исследование"
+        },
+        "tc.research.newpage": {
+          "before": "Новая страница",
+          "after": "§aДобавлена новая страница§0"
+        },
+        "tc.research.newresearch": {
+          "before": "Новое исследование",
+          "after": "§6Недавно открытое исследование§0"
+        },
+        "tc.research.purchase": {
+          "before": null,
+          "after": "Нажмите для покупки данного исследования за %1$s уровня(-ей) опыта."
+        },
+        "tc.research.short": {
+          "before": null,
+          "after": "Вам необходимо %1$s уровня(-ей) опыта для покупки данного исследования."
+        },
+        "tc.research.read": {
+          "before": null,
+          "after": "Нажмите, чтобы прочитать это исследование."
+        },
+        "tc.research.add": {
+          "before": null,
+          "after": "Нажмите, чтобы использовать фрагмент и получить по 1 единице каждого первичного аспекта."
+        },
+        "tc.need.research": {
+          "before": null,
+          "after": "То, что необходимо открыть"
+        },
+        "tc.need.craft": {
+          "before": null,
+          "after": "Предметы, которые необходимо создать"
+        },
+        "tc.need.obtain": {
+          "before": null,
+          "after": "Предметы, которые будут использованы"
+        },
+        "tc.need.know": {
+          "before": null,
+          "after": "Знания, которые необходимо использовать"
+        },
+        "tc.break.fly": {
+          "before": null,
+          "after": "Что-то мешает Вам воспользоваться полётом."
+        },
+        "tc.dioptra.1": {
+          "before": null,
+          "after": "Отображается %s уровней в ауре. "
+        },
+        "tc.dioptra.2": {
+          "before": null,
+          "after": "Отображаются наивысшие уровни ауры."
+        },
+        "tc.dioptra.3": {
+          "before": null,
+          "after": "Отображаются коэффициенты уровня ауры."
+        },
+        "tc.fluxevent.1": {
+          "before": null,
+          "after": "Ближайшая аура внезапно начинает изгибаться и искажаться, приводя Ваши мысли в полный беспорядок."
+        },
+        "tc.stage.complete": {
+          "before": null,
+          "after": "Завершить"
+        },
+        "tc.stage.hold": {
+          "before": null,
+          "after": "Завершение..."
+        },
+        "tc.warp.warn": {
+          "before": null,
+          "after": " Уровень искажения: %n"
+        },
+        "tc.knowledge.name": {
+          "before": "Знания",
+          "after": "Количество знаний"
+        },
+        "tc.type.theory": {
+          "before": null,
+          "after": "Теория"
+        },
+        "tc.type.observation": {
+          "before": null,
+          "after": "Наблюдение"
+        },
+        "got.deepdown": {
+          "before": null,
+          "after": "Вы добрались до тёмных и глубоких недр и смогли многому научиться."
+        },
+        "got.uphigh": {
+          "before": null,
+          "after": "Мир раскинулся перед Вами. Вы расширили свой кругозор."
+        },
+        "got.finddesert": {
+          "before": null,
+          "after": "Вы побывали в палящей пустыне."
+        },
+        "got.findocean": {
+          "before": null,
+          "after": "Вы заглянули в бесконечную синюю бездну."
+        },
+        "got.instability": {
+          "before": null,
+          "after": "Мне нужно еще больше изучить нестабильность во время наполнения."
+        },
+        "got.projectile": {
+          "before": null,
+          "after": "Вы немного больше узнаёте о снарядах."
+        },
+        "not.pechwand": {
+          "before": null,
+          "after": "Вы пока не можете понять как функционирует данная вещь."
+        },
+        "got.pechwand": {
+          "before": null,
+          "after": "Хмм, любопытно... Мне следует изучить это поподробнее."
+        },
+        "got.onfire": {
+          "before": null,
+          "after": "Вы почувствовали прикосновение пламени."
+        },
+        "got.endoftheworld": {
+          "before": null,
+          "after": "Вы посетили Край."
+        },
+        "item.seal.breaker_advanced.name": {
+          "before": null,
+          "after": "Печать контроля: Продвинутое Разрушение Блоков"
+        },
+        "tile.inlay.name": {
+          "before": null,
+          "after": "Редстоуновая инкрустация"
+        },
+        "enchantment.infusion.LAMPLIGHT": {
+          "before": null,
+          "after": "Фонарщик"
+        },
+        "thaumcraft.BOLT.text": {
+          "before": null,
+          "after": "Обрушьте магию прямо на цель в виде сосредоточенного разряда энергии. Эффект мгновенный, но дальность ограничена 16 блоками."
+        },
+        "workbench.available": {
+          "before": null,
+          "after": "доступно"
+        },
+        "workbench.discount": {
+          "before": null,
+          "after": "скидка"
+        },
+        "workbench.cost": {
+          "before": null,
+          "after": "вис"
+        },
+        "golem.prop.silk": {
+          "before": null,
+          "after": "Использовать Шёлковое касание"
+        },
+        "research.SEALBREAK.stage.ADV": {
+          "before": null,
+          "after": "Теперь я могу изготовить продвинутую версию печати, которая позволит фильтровать больше предметов одновременно и даст голему возможность разрушать блоки так, словно он использует Шёлковое касание.<BR>При использовании Шёлкового касания големам потребуется больше времени на разрушение блоков. "
+        },
+        "item.thaumcraft.alumentum": {
+          "before": "Алументум",
+          "after": "Алюментум"
+        },
+        "item.thaumcraft.seal_breaker_advanced": {
+          "before": "Seal Breaker Advanced",
+          "after": "Печать контроля: Продвинутое Разрушение Блоков"
+        },
+        "block.thaumcraft.ore_cinnabar": {
+          "before": "Киноварная руда",
+          "after": "Киноварь"
+        },
+        "block.thaumcraft.crystal_aer": {
+          "before": "Скопление кристаллов воздуха",
+          "after": "Кристалл воздуха"
+        },
+        "block.thaumcraft.crystal_ignis": {
+          "before": "Скопление кристаллов огня",
+          "after": "Кристалл огня"
+        },
+        "block.thaumcraft.crystal_aqua": {
+          "before": "Скопление кристаллов воды",
+          "after": "Кристалл воды"
+        },
+        "block.thaumcraft.crystal_terra": {
+          "before": "Скопление кристаллов земли",
+          "after": "Кристалл земли"
+        },
+        "block.thaumcraft.crystal_ordo": {
+          "before": "Скопление кристаллов порядка",
+          "after": "Кристалл порядка"
+        },
+        "block.thaumcraft.crystal_perditio": {
+          "before": "Скопление кристаллов разрушения",
+          "after": "Кристалл энтропии"
+        },
+        "block.thaumcraft.slab_double_arcane_stone": {
+          "before": "Slab Double Arcane Stone",
+          "after": "Плита из мистического камня"
+        },
+        "block.thaumcraft.slab_double_arcane_brick": {
+          "before": "Slab Double Arcane Brick",
+          "after": "Плита из кирпичей мистического камня"
+        },
+        "block.thaumcraft.slab_double_ancient": {
+          "before": "Slab Double Ancient",
+          "after": "Плита из древнего камня"
+        },
+        "block.thaumcraft.slab_double_eldritch": {
+          "before": "Slab Double Eldritch",
+          "after": "Плита из потустороннего камня"
+        },
+        "block.thaumcraft.log_greatwood": {
+          "before": "Древесина великого дерева",
+          "after": "Бревно великого дерева"
+        },
+        "block.thaumcraft.log_silverwood": {
+          "before": "Древесина серебряного дерева",
+          "after": "Бревно серебряного дерева"
+        },
+        "block.thaumcraft.leaves_greatwood": {
+          "before": "Листва великого дерева",
+          "after": "Листья великого дерева"
+        },
+        "block.thaumcraft.leaves_silverwood": {
+          "before": "Листва серебряного дерева",
+          "after": "Листья серебряного дерева"
+        },
+        "block.thaumcraft.plank_greatwood": {
+          "before": "Доски великого дерева",
+          "after": "Доски из великого дерева"
+        },
+        "block.thaumcraft.plank_silverwood": {
+          "before": "Доски серебряного дерева",
+          "after": "Доски из серебряного дерева"
+        },
+        "block.thaumcraft.stairs_greatwood": {
+          "before": "Ступени великого дерева",
+          "after": "Ступеньки из великого дерева"
+        },
+        "block.thaumcraft.stairs_silverwood": {
+          "before": "Ступени серебряного дерева",
+          "after": "Ступеньки из серебряного дерева"
+        },
+        "block.thaumcraft.slab_greatwood": {
+          "before": "Плита великого дерева",
+          "after": "Плита из великого дерева"
+        },
+        "block.thaumcraft.slab_double_greatwood": {
+          "before": "Slab Double Greatwood",
+          "after": "Плита из великого дерева"
+        },
+        "block.thaumcraft.slab_silverwood": {
+          "before": "Плита серебряного дерева",
+          "after": "Плита из серебряного дерева"
+        },
+        "block.thaumcraft.slab_double_silverwood": {
+          "before": "Slab Double Silverwood",
+          "after": "Плита из серебряного дерева"
+        },
+        "block.thaumcraft.inlay": {
+          "before": "Inlay",
+          "after": "Редстоуновая инкрустация"
+        },
+        "block.thaumcraft.arcane_workbench": {
+          "before": "Магический верстак",
+          "after": "Мистический верстак"
+        },
+        "block.thaumcraft.research_table": {
+          "before": "Исследовательский стол",
+          "after": "Стол исследований"
+        },
+        "entity.thaumcraft.focus_cloud_spell": {
+          "before": "Облако фокуса",
+          "after": "Облако линзы"
+        },
+        "entity.thaumcraft.focus_mine_spell": {
+          "before": "Мина фокуса",
+          "after": "Ловушка линзы"
+        },
+        "entity.thaumcraft.spell_bat_spell": {
+          "before": "Магическая летучая мышь",
+          "after": "Волшебная летучая мышь"
+        },
+        "entity.Thaumcraft.EldritchWarden.name.custom": {
+          "before": "%s the %d",
+          "after": "%s, %s"
+        },
+        "entity.Thaumcraft.CultistLeader.name.custom": {
+          "before": "%s the %d, Претор",
+          "after": "%s, %s Претор"
+        },
+        "tc.bore.width": {
+          "before": null,
+          "after": "Ширина: %s"
+        },
+        "tc.bore.depth": {
+          "before": null,
+          "after": "Глубина: %s"
+        },
+        "tc.bore.speed": {
+          "before": null,
+          "after": "Скорость: +%s"
+        },
+        "tc.bore.properties": {
+          "before": null,
+          "after": "Другие свойства:"
+        },
+        "thaumcraft.device.output": {
+          "before": null,
+          "after": "Выход: %s"
+        },
+        "thaumcraft.device.input": {
+          "before": null,
+          "after": "Вход: %s"
+        },
+        "thaumcraft.device.note": {
+          "before": null,
+          "after": "Нота: %s"
+        },
+        "gui.thaumcraft.focal.focus_name": {
+          "before": null,
+          "after": "Название линзы"
+        },
+        "tooltip.thaumcraft.brain_jar.experience": {
+          "before": null,
+          "after": "Опыт: %s"
+        },
+        "logistics.scrollbar": {
+          "before": null,
+          "after": "Прокрутка"
+        },
+        "block.thaumcraft.nitor": {
+          "before": "Нитор",
+          "after": "Жёлтый нитор"
+        },
+        "item.thaumcraft.vis_crystal_aer": {
+          "before": "Вис-кристалл воздуха",
+          "after": "Вис-кристалл Aer"
+        },
+        "item.thaumcraft.vis_crystal_ignis": {
+          "before": "Вис-кристалл огня",
+          "after": "Вис-кристалл Ignis"
+        },
+        "item.thaumcraft.vis_crystal_aqua": {
+          "before": "Вис-кристалл воды",
+          "after": "Вис-кристалл Aqua"
+        },
+        "item.thaumcraft.vis_crystal_terra": {
+          "before": "Вис-кристалл земли",
+          "after": "Вис-кристалл Terra"
+        },
+        "item.thaumcraft.vis_crystal_ordo": {
+          "before": "Вис-кристалл порядка",
+          "after": "Вис-кристалл Ordo"
+        },
+        "item.thaumcraft.vis_crystal_perditio": {
+          "before": "Вис-кристалл разрушения",
+          "after": "Вис-кристалл Perditio"
+        },
+        "research.INFUSIONENCHANTMENT.stage.2": {
+          "before": "У меня получилось решить все проблемы и теперь я могу накладывать Наполняющие зачарования на большинство инструментов или оружия. Некоторые зачарования могут быть наложены на один и тот же предмет несколько раз, однако с каждым уровнем нужное для создания количество эссенции будет расти.<BR>Каждое зачарование другого типа также увеличивает стоимость процесса на 33% и, кроме того, увеличивается шанс получить эффект Искажения.<BR>Некоторые Наполняющие зачарования могут быть применены только на конкретные инструменты или оружие. Об этом будет указано ниже сразу под самим названием зачарования.<BR>Инструменты с Наполняющими Зачарованиями всё также могут быть зачарованы на обычном зачаровательном столе и наоборот.<BR>Также, как и с элементальными инструментами, нажав Shift во время использования инструментов с Наполняющими зачарованиями, Вы запечатаете их способности.<PAGE>§oСборщик§r<DIV>При добыче ресурсов этим инструментом, они автоматически будут притягиваться к Вам.<DIV>§oУровни§r: отсутствуют<BR>§oЦель§r: топор, кирка, лопата, оружие<PAGE>§oБур§r<DIV>При попытке добыть дерево или руду этим инструментом, будет добываться самый дальний блок, а не тот, который инструмент добывает.<DIV>§oУровни§r: отсутствуют<BR>§oЦель§r: топор, кирка<PAGE>§oОбогащение§r<DIV>Всякий раз, когда Вы собираете руду этим инструментом, есть шанс добыть самородный кластер. Увеличение уровня зачарования повышает этот шанс.<DIV>§oУровни§r: 1-4<BR>§oЦель§r: кирка<PAGE>§oСонар§r<DIV>С этим инструментом Вы можете, нажав комбинацию SHIFT+ПКМ на блок, послать звуковой импульс. Этот импульс обнаружит все руды, скрытые поблизости. Использование этого навыка немного уменьшает прочность инструмента.<DIV>§oУровни§r: 1-4<BR>§oЦель§r: кирка<PAGE>§oРазрушение§r<DIV>При добыче блока этим инструментом, все окружающие его 8 блоков (площадь в 3х3 блока) также будут добыты с использованием всех эффектов данного инструмента. Каждый дополнительно добытый блок уменьшает прочность инструмента также, как если бы он был добыт обычным способом.<DIV>§oУровни§r: отсутствуют<BR>§oЦель§r: топор, кирка, лопата<PAGE>§oВихрь§r<DIV>При поражении врага оружием с данным зачарованием создастся пронзающий воздушный вихрь, который нанесёт целям вокруг атакуемой урон в половинном размере от силы атаки Вашего оружия. Увеличение уровня зачарования увеличит количество поражаемых целей и радиус вихря.<DIV>§oУровни§r: 1-4<BR>§oЦель§r: оружие<PAGE>§oСобиратель Эссенции§r<DIV>При убийстве цели данным оружием, есть шанс получить кристалл эссенции, содержащейся в ней. Увеличение уровня зачарования увеличит шанс выпадения кристалла и также может увеличить их количество.<DIV>§oУровни§r: 1-5<BR>§oЦель§r: оружие",
+          "after": "У меня получилось решить все проблемы и теперь я могу накладывать Наполняющие зачарования на большинство инструментов или оружия. Некоторые зачарования могут быть наложены на один и тот же предмет несколько раз, однако с каждым уровнем нужное для создания количество эссенции будет расти.<BR>Каждое зачарование другого типа также увеличивает стоимость процесса на 33% и, кроме того, увеличивается шанс получить эффект Искажения.<BR>Некоторые Наполняющие зачарования могут быть применены только на конкретные инструменты или оружие. Об этом будет указано ниже сразу под самим названием зачарования.<BR>Инструменты с Наполняющими Зачарованиями всё также могут быть зачарованы на обычном зачаровательном столе и наоборот.<BR>Также, как и с элементальными инструментами, нажав Shift во время использования инструментов с Наполняющими зачарованиями, Вы запечатаете их способности.<PAGE>§oСборщик§r<DIV>При добыче ресурсов этим инструментом, они автоматически будут притягиваться к Вам.<DIV>§oУровни§r: отсутствуют<BR>§oЦель§r: топор, кирка, лопата, оружие<PAGE>§oБур§r<DIV>При попытке добыть дерево или руду этим инструментом, будет добываться самый дальний блок, а не тот, который инструмент добывает.<DIV>§oУровни§r: отсутствуют<BR>§oЦель§r: топор, кирка<PAGE>§oОбогащение§r<DIV>Всякий раз, когда Вы собираете руду этим инструментом, есть шанс добыть самородный кластер. Увеличение уровня зачарования повышает этот шанс.<DIV>§oУровни§r: 1-4<BR>§oЦель§r: кирка<PAGE>§oСонар§r<DIV>С этим инструментом Вы можете, нажав комбинацию SHIFT+ПКМ на блок, послать звуковой импульс. Этот импульс обнаружит все руды, скрытые поблизости. Использование этого навыка немного уменьшает прочность инструмента.<DIV>§oУровни§r: 1-4<BR>§oЦель§r: кирка<PAGE>§oРазрушение§r<DIV>При добыче блока этим инструментом, все окружающие его 8 блоков (площадь в 3х3 блока) также будут добыты с использованием всех эффектов данного инструмента. Каждый дополнительно добытый блок уменьшает прочность инструмента также, как если бы он был добыт обычным способом.<DIV>§oУровни§r: отсутствуют<BR>§oЦель§r: топор, кирка, лопата<PAGE>§oВихрь§r<DIV>При поражении врага оружием с данным зачарованием создастся пронзающий воздушный вихрь, который нанесёт целям вокруг атакуемой урон в половинном размере от силы атаки Вашего оружия. Увеличение уровня зачарования увеличит количество поражаемых целей и радиус вихря.<DIV>§oУровни§r: 1-4<BR>§oЦель§r: оружие<PAGE>§oСобиратель Эссенции§r<DIV>При убийстве цели данным оружием, есть шанс получить кристалл эссенции, содержащейся в ней. Увеличение уровня зачарования увеличит шанс выпадения кристалла и также может увеличить их количество.<DIV>§oУровни§r: 1-5<BR>§oЦель§r: оружие<PAGE>§oФонарщик§r<DIV>Когда вы разрушаете блок, это зачарование размещает на его месте невидимый и неосязаемый источник света, если уровень освещения ниже 10.<DIV>§oУровни§r: нет<BR>§oЦель§r: топор, кирка, лопата"
+        },
+        "entity.thaumcraft.focus_exchange_item": {
+          "before": null,
+          "after": "Магический предмет"
+        },
+        "effect.thaumcraft.thaumarhia": {
+          "before": null,
+          "after": "Таумория"
+        },
+        "effect.thaumcraft.unnatural_hunger": {
+          "before": null,
+          "after": "Неестественный голод"
+        },
+        "effect.thaumcraft.sun_scorned": {
+          "before": null,
+          "after": "Презирающий Солнце"
+        },
+        "effect.thaumcraft.death_gaze": {
+          "before": null,
+          "after": "Смертельный взгляд"
+        },
+        "effect.thaumcraft.blurred_vision": {
+          "before": null,
+          "after": "Размытое зрение"
+        },
+        "attribute.thaumcraft.champion_mod": {
+          "before": null,
+          "after": "Модификатор чемпиона"
+        },
+        "attribute.thaumcraft.tainted_mod": {
+          "before": null,
+          "after": "Модификатор заражения"
+        }
+      },
+      "changeCount": 284,
+      "finalKeyCount": 2249,
+      "afterJsonSha256": "24616be4f0f15439f1100e4cc0f3ccc06b80a3853cb1d314a39dd06627cd5f0f"
+    }
+  },
+  "portOnlyLabels": {
+    "tc.bore.width": [
+      "Width: %s",
+      "Ширина: %s"
+    ],
+    "tc.bore.depth": [
+      "Depth: %s",
+      "Глубина: %s"
+    ],
+    "tc.bore.speed": [
+      "Speed: +%s",
+      "Скорость: +%s"
+    ],
+    "tc.bore.properties": [
+      "Other properties:",
+      "Другие свойства:"
+    ],
+    "thaumcraft.device.output": [
+      "Out: %s",
+      "Выход: %s"
+    ],
+    "thaumcraft.device.input": [
+      "In: %s",
+      "Вход: %s"
+    ],
+    "thaumcraft.device.note": [
+      "Note: %s",
+      "Нота: %s"
+    ],
+    "gui.thaumcraft.focal.focus_name": [
+      "Focus name",
+      "Название линзы"
+    ],
+    "tooltip.thaumcraft.brain_jar.experience": [
+      "Experience: %s",
+      "Опыт: %s"
+    ],
+    "logistics.scrollbar": [
+      "Scroll",
+      "Прокрутка"
+    ],
+    "attribute.thaumcraft.champion_mod": [
+      "Champion modifier",
+      "Модификатор чемпиона"
+    ],
+    "attribute.thaumcraft.tainted_mod": [
+      "Taint modifier",
+      "Модификатор заражения"
+    ]
+  },
+  "formattedAliases": {
+    "item.thaumcraft.vis_crystal_aer": [
+      "item.crystal_essence.name",
+      "Aer"
+    ],
+    "item.thaumcraft.vis_crystal_terra": [
+      "item.crystal_essence.name",
+      "Terra"
+    ],
+    "item.thaumcraft.vis_crystal_ignis": [
+      "item.crystal_essence.name",
+      "Ignis"
+    ],
+    "item.thaumcraft.vis_crystal_aqua": [
+      "item.crystal_essence.name",
+      "Aqua"
+    ],
+    "item.thaumcraft.vis_crystal_ordo": [
+      "item.crystal_essence.name",
+      "Ordo"
+    ],
+    "item.thaumcraft.vis_crystal_perditio": [
+      "item.crystal_essence.name",
+      "Perditio"
+    ]
+  },
+  "russianIncompleteOriginalAppendices": {
+    "research.INFUSIONENCHANTMENT.stage.2": "<PAGE>§oФонарщик§r<DIV>Когда вы разрушаете блок, это зачарование размещает на его месте невидимый и неосязаемый источник света, если уровень освещения ниже 10.<DIV>§oУровни§r: нет<BR>§oЦель§r: топор, кирка, лопата"
+  },
+  "extraRegistryAudit": {
+    "catalogueEntityIds": 43,
+    "additionalEntityIds": [
+      "focus_cloud_spell",
+      "focus_mine_spell",
+      "spell_bat_spell",
+      "focus_exchange_item"
+    ],
+    "nativeFailureThatExposedMissingAlias": "entity.thaumcraft.focus_exchange_item",
+    "focusExchangeOriginalIdentity": "EntitySpecialItem, ConfigEntities.java registerModEntity name SpecialItem",
+    "effects": {
+      "warp_ward": "effect.thaumcraft.warp_ward",
+      "flux_taint": "effect.thaumcraft.flux_taint",
+      "vis_exhaust": "effect.thaumcraft.vis_exhaust",
+      "infectious_vis_exhaust": "effect.thaumcraft.infectious_vis_exhaust",
+      "thaumarhia": "potion.thaumarhia",
+      "unnatural_hunger": "potion.unhunger",
+      "sun_scorned": "potion.sunscorned",
+      "death_gaze": "potion.deathgaze",
+      "blurred_vision": "potion.blurred"
+    },
+    "method": "All DeferredRegister ENTITY_TYPES/MOB_EFFECTS declarations and literal EntityType builder IDs, plus complete catalogue and actual effect getDescriptionId overrides. Native full-registry audit remains root QA.",
+    "attributes": {
+      "attribute.thaumcraft.champion_mod": "Champion modifier / Модификатор чемпиона",
+      "attribute.thaumcraft.tainted_mod": "Taint modifier / Модификатор заражения",
+      "source": "Modern Champions registered descriptions. Original BETA26 languages contain no attribute labels; two new bilingual labels."
+    }
+  }
+}

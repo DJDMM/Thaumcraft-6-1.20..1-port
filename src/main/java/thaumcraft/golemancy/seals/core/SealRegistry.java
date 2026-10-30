@@ -73,7 +73,7 @@ public final class SealRegistry {
     }
     public static boolean openLogistics(ServerPlayer player,BlockPos target,Direction side){
         if(player==null||!player.isAlive()||player.isSpectator()||!KnowledgeStore.get(player).isResearchKnown("GOLEMLOGISTICS")||(target!=null&&(side==null||!player.serverLevel().hasChunkAt(target)||player.distanceToSqr(target.getCenter())>64||!player.serverLevel().mayInteract(player,target))))return false;
-        NetworkHooks.openScreen(player,new SimpleMenuProvider((id,inventory,p)->new SealLogisticsMenu(id,inventory,target,side),Component.translatable("golem.logistics")),buffer->{buffer.writeBoolean(target!=null);if(target!=null){buffer.writeBlockPos(target);buffer.writeEnum(side);}});return true;
+        NetworkHooks.openScreen(player,new SimpleMenuProvider((id,inventory,p)->new SealLogisticsMenu(id,inventory,target,side),Component.translatable("research.GOLEMLOGISTICS.title")),buffer->{buffer.writeBoolean(target!=null);if(target!=null){buffer.writeBlockPos(target);buffer.writeEnum(side);}});return true;
     }
     @SubscribeEvent public static void tick(TickEvent.LevelTickEvent event){if(event.phase==TickEvent.Phase.END&&event.level instanceof ServerLevel level)SealService.get(level).tick();}
     @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent event){if(event.getEntity() instanceof ServerPlayer player)SealNetwork.syncAll(player);}

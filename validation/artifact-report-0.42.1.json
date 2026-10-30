@@ -1,0 +1,160 @@
+{
+  "version": "0.42.1",
+  "date": "2026-10-30",
+  "acceptedSlice": true,
+  "scope": "Complete English/Russian localization from released TC6 BETA26, explicit modern aliases and documented supplements; targeted bilingual verification.",
+  "gitBaseCommit": "89a768e32c5383bc856fb5c9290838123229ef87",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "localization": {
+    "locales": {
+      "en_us": 2249,
+      "ru_ru": 2249
+    },
+    "productionJavaFilesScanned": 664,
+    "checkedTranslationReferences": 699,
+    "researchEntries": 156,
+    "errors": [],
+    "limits": "Literal/helper/book references and selected families; live registries and formatting need native client."
+  },
+  "provenance": {
+    "file": "localization-original-provenance.json",
+    "bytes": 133564,
+    "sha256": "c2dd2bbe28677485fd3a5b4171f36b6983b2cb98bce96a2211b7614ac33e232c"
+  },
+  "nativeClient": {
+    "runTag": "localization-0421-client3",
+    "smokeTest": "Localization",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\localization-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\localization-client-localization-0421-client3-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\localization-client-localization-0421-client3-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\localization-client-localization-0421-client3.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\localization-client-localization-0421-client3-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\localization-client-localization-0421-client3-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\localization-client-localization-0421-client3-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_a9c7a1f1478b46f799baa9d168557ec8",
+    "jvmPid": 44752,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 10
+  },
+  "nativeLog": {
+    "file": "localization-client-localization-0421-client3-client.log",
+    "bytes": 29628,
+    "sha256": "9994f222efff8d83e2849a379e536a2095a20aa92953a778af3191d4d304b5db"
+  },
+  "sourceFingerprintCount": 4820,
+  "sourceProof": "Build3 and selected Client3 snapshots and current src/scripts/build.gradle match exactly; no exceptions.",
+  "newRequiredGameTestsRun": 0,
+  "baselineGameTests": {
+    "version": "0.42.0",
+    "passed": 1786,
+    "rerun": false
+  },
+  "packagedResourceByteChecks": 3894,
+  "frames": [
+    {
+      "file": "tc6-localization-en_us-bore-gui.png",
+      "bytes": 258137,
+      "sha256": "61f18d56a8ac42ff90b46a26901adf532a21b74134f88b6910312371f054cdd7"
+    },
+    {
+      "file": "tc6-localization-en_us-dream-journal.png",
+      "bytes": 270970,
+      "sha256": "a0763d3fc6a814955f9c386580efbdb810c007be355b3a1a8ec6a4353359d4db"
+    },
+    {
+      "file": "tc6-localization-en_us-firststeps.png",
+      "bytes": 683076,
+      "sha256": "24e4e179f11540983b0af866c30cd051c509151633c7f80e21bbf2811bddb80f"
+    },
+    {
+      "file": "tc6-localization-en_us-research-map.png",
+      "bytes": 1184970,
+      "sha256": "957e65bad5ab98b4542185dfef56ef42382934ab1be0c2c668cc421c5c5ec6eb"
+    },
+    {
+      "file": "tc6-localization-en_us-theory-cards.png",
+      "bytes": 536146,
+      "sha256": "319068f42c66df5b784c3658566fef8f5cad8403b48e0f7a86cf343e6d9eb217"
+    },
+    {
+      "file": "tc6-localization-ru_ru-bore-gui.png",
+      "bytes": 239951,
+      "sha256": "b06ccb0b10cd5c9ec99c23e2cb14f79498f425d01629e24b2b532d2708d1a84f"
+    },
+    {
+      "file": "tc6-localization-ru_ru-dream-journal.png",
+      "bytes": 253035,
+      "sha256": "86cfc5eefdfb0fe591c3d49bf65158757c232842e3ad8e6fe441b239e032b858"
+    },
+    {
+      "file": "tc6-localization-ru_ru-firststeps.png",
+      "bytes": 655322,
+      "sha256": "45b0abb295d2de337a1b52b114e688b8a2491de1c093c4bd57545129141dcadc"
+    },
+    {
+      "file": "tc6-localization-ru_ru-research-map.png",
+      "bytes": 1184611,
+      "sha256": "7ecef1738994eaf1bba47f9c37a3e3abdf17f06b6e5dd76a1e6c7f28a6842e42"
+    },
+    {
+      "file": "tc6-localization-ru_ru-theory-cards.png",
+      "bytes": 516149,
+      "sha256": "60de00b319e1d4de9731698c4b6e095adc6aeeefa602a31c56bc24548022cf0f"
+    }
+  ],
+  "reviews": [
+    {
+      "file": "localization-0421-client3-root-visual-review.json",
+      "bytes": 2541,
+      "sha256": "db17488acd9a7b147550cc97a711d30759595b10ffcc4cc83e9edd2b9aba7ac0"
+    },
+    {
+      "file": "localization-0421-client3-independent-visual-review.json",
+      "bytes": 6589,
+      "sha256": "5ffaf5c5ba60ab2c2116c29167245df8e8abffcec86524d1feefa01310fadf31"
+    }
+  ],
+  "preview": {
+    "file": "thaumcraft-1.20.1-0.42.1-preview.png",
+    "bytes": 1166768,
+    "sha256": "0391aebbe4909e0ef0450566751c742d7c0708fdbe4bc29c53c9ca02408f1e81"
+  },
+  "deliveredJar": {
+    "file": "thaumcraft-1.20.1-0.42.1.jar",
+    "bytes": 14282439,
+    "sha256": "17e68e32c129ad88b5d9bbb59435fff80676998c724e7a9ed8124c64db5525eb"
+  },
+  "modsZip": {
+    "file": "thaumcraft-1.20.1-0.42.1-mods.zip",
+    "bytes": 13648145,
+    "sha256": "b17f295afc47ce4c20b651aca6e9cff7f553734400b16fd0d54dc1971c665671"
+  },
+  "screenshotsZip": {
+    "file": "thaumcraft-1.20.1-0.42.1-screenshots.zip",
+    "bytes": 8611355,
+    "sha256": "cf3fcf13f13e0b3468d16f89b98446e4cf6208218eb6f23d2502afcbdbb57e3f"
+  },
+  "packager": {
+    "file": "finalize-localization-0421.py",
+    "bytes": 9240,
+    "sha256": "19864fb26070867dcfde45e66ffee658e59d7b4fcf6685b076269fb8fa60d9bd"
+  },
+  "limits": [
+    "Original proper names/Latin aspects remain original; missing/incomplete Russian entries and original Java literals are explicitly supplemented.",
+    "Ten representative screens plus registry/card/variant checks; not every book spread at every GUI scale, language dialect, third-party pack or narrator/audio route.",
+    "Client1 correctly failed missing SpecialItem alias before any PNG; preserved locally, not substituted.",
+    "Client2 passed native checks but FIRSTSTEPS pair showed a closed study; all10frames preserved and visually rejected. Client3 uses authoritative raw server knowledge and actual visible-prose gates.",
+    "No gameplay mechanics changed; baseline 1786 server checks were not rerun for this localization patch. Native integrated-server/menu route executed.",
+    "Localization fixtures are not survival acquisition or multiplayer proof."
+  ]
+}

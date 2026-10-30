@@ -38,7 +38,7 @@ public final class FocalManipulatorScreen extends AbstractContainerScreen<FocalM
     private static ResourceLocation tex(String path) { return ResourceLocation.fromNamespaceAndPath("thaumcraft", path); }
     @Override protected void init() {
         super.init();
-        name = new EditBox(font, leftPos+30, topPos+11, 170, 12, Component.translatable("wandtable.text6"));
+        name = new EditBox(font, leftPos+30, topPos+11, 170, 12, Component.translatable("gui.thaumcraft.focal.focus_name"));
         name.setMaxLength(50); name.setBordered(false); name.setTextColor(0xFFFFFF);
         name.setResponder(text -> { if (!changingName && !menu.busy()) markDirty(); });
         addRenderableWidget(name);

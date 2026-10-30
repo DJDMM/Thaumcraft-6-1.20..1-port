@@ -1,13 +1,18 @@
 """Validate local model/texture references and translations without Minecraft."""
 import json
 import re
+import sys
 from PIL import Image
 from pathlib import Path
+sys.dont_write_bytecode = True
+from validate_localization import validate as validate_localization
 
 root = Path(__file__).resolve().parents[1] / 'src/main/resources'
 assets = root / 'assets/thaumcraft'
 documents = {p: json.loads(p.read_text(encoding='utf-8-sig')) for p in root.rglob('*.json')}
 errors = []
+localization_errors, localization_report = validate_localization(root.parents[2])
+errors.extend(localization_errors)
 for path, data in documents.items():
     if 'models' in path.parts and isinstance(data, dict):
         parent = data.get('parent', '')

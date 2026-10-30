@@ -47,7 +47,7 @@ public final class FocusPouchItem extends Item implements ICurioItem {
         ItemStack pouch=player.getItemInHand(hand);
         if(!editable(pouch))return InteractionResultHolder.fail(pouch);
         if(player instanceof ServerPlayer server)NetworkHooks.openScreen(server,
-                new SimpleMenuProvider((id,inventory,p)->new FocusPouchMenu(id,inventory,hand),Component.translatable("container.focuspouch")),
+                new SimpleMenuProvider((id,inventory,p)->new FocusPouchMenu(id,inventory,hand),Component.translatable("item.thaumcraft.focus_pouch")),
                 data->data.writeEnum(hand));
         return InteractionResultHolder.pass(pouch);
     }

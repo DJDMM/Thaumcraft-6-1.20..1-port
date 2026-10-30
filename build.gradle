@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.54'
 }
-version = '0.42.0'
+version = '0.42.1'
 group = 'thaumcraft.port'
 base { archivesName = 'thaumcraft-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -20,7 +20,11 @@ minecraft {
             mods { thaumcraft { source sourceSets.main } }
         }
         client {
-            if (project.hasProperty('lateDevicesSmokeTest')) {
+            if (project.hasProperty('localizationSmokeTest')) {
+                workingDirectory project.file('run/localization-smoke')
+                property 'thaumcraft.localizationSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('lateDevicesSmokeTest')) {
                 workingDirectory project.file('run/late-devices-smoke')
                 property 'thaumcraft.lateDevicesSmokeTest', 'true'
                 args '--width', '1600', '--height', '1000'

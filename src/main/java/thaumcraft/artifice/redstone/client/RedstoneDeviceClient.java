@@ -34,11 +34,11 @@ public final class RedstoneDeviceClient {
         Component text = null; double height = .8;
         if (tile instanceof RedstoneRelayBlockEntity relay) {
             int knob = RedstoneRelayBlock.selectedKnob(state, hit.getLocation().subtract(Vec3.atLowerCornerOf(pos)));
-            if (knob == 0) text = Component.translatableWithFallback("thaumcraft.device.output", "Out: %s", relay.getOut());
-            if (knob == 1) text = Component.translatableWithFallback("thaumcraft.device.input", "In: %s", relay.getIn());
+            if (knob == 0) text = Component.translatable("thaumcraft.device.output", relay.getOut());
+            if (knob == 1) text = Component.translatable("thaumcraft.device.input", relay.getIn());
         } else if (GogglesArmorSupport.hasGoggles(mc.player)) {
             int note = tile instanceof ArcaneEarBlockEntity ear ? ear.note : state.is(Blocks.NOTE_BLOCK) ? state.getValue(NoteBlock.NOTE) : -1;
-            if (note >= 0) { text = Component.translatableWithFallback("thaumcraft.device.note", "Note: %s", note); height = 1.5; }
+            if (note >= 0) { text = Component.translatable("thaumcraft.device.note", note); height = 1.5; }
         }
         if (text == null) return;
         Vec3 origin = Vec3.atLowerCornerOf(pos).add(.5, height, .5); Vec3 camera = event.getCamera().getPosition();

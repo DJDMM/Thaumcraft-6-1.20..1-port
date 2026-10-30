@@ -155,8 +155,7 @@ public class CatalogArmorItem extends ArmorItem implements VisDiscountGear, Warp
             if (stack.getTag().contains("goggles")) tooltip.add(Component.translatable("item.thaumcraft.goggles").withStyle(ChatFormatting.DARK_PURPLE));
             if (stack.getTag().contains("mask")) {
                 int mask = stack.getTag().getInt("mask");
-                String fallback = switch (mask) { case 0 -> "Grinning Devil"; case 1 -> "Angry Ghost"; case 2 -> "Sipping Fiend"; default -> "Mask " + mask; };
-                tooltip.add(Component.translatableWithFallback("item.fortress_helm.mask." + mask, fallback).withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("item.fortress_helm.mask." + mask).withStyle(ChatFormatting.GOLD));
             }
         }
     }

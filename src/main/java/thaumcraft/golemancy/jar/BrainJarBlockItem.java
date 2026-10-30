@@ -14,7 +14,7 @@ public final class BrainJarBlockItem extends BlockItem {
     public BrainJarBlockItem(Block block) { super(block, new Item.Properties()); }
     @Override public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if (stack.hasTag() && stack.getTag().contains("xp"))
-            tooltip.add(Component.literal(Math.max(0, stack.getTag().getInt("xp")) + " xp").withStyle(ChatFormatting.GREEN));
+            tooltip.add(Component.translatable("tooltip.thaumcraft.brain_jar.experience", Math.max(0, stack.getTag().getInt("xp"))).withStyle(ChatFormatting.GREEN));
         super.appendHoverText(stack, level, tooltip, flag);
     }
     @Override public void initializeClient(Consumer<IClientItemExtensions> consumer) {

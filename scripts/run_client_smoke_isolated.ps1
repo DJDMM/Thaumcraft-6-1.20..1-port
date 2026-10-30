@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser', 'Lamps', 'Pattern', 'Generator', 'Grapple', 'Accessories', 'InfusionUpgrades', 'Sounding', 'VisualFx', 'WorldVisual', 'ArmorVisual', 'Warp', 'Mobs', 'Eldritch', 'LateAccessories', 'LateDevices')]
+    [ValidateSet('Localization', 'TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer', 'Rift', 'Taint', 'Turret', 'Bore', 'Mirror', 'Infernal', 'Condenser', 'Lamps', 'Pattern', 'Generator', 'Grapple', 'Accessories', 'InfusionUpgrades', 'Sounding', 'VisualFx', 'WorldVisual', 'ArmorVisual', 'Warp', 'Mobs', 'Eldritch', 'LateAccessories', 'LateDevices')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Localization = @{ property = 'localizationSmokeTest'; directory = 'localization-smoke'; prefix = 'localization-client'; marker = 'THAUMCRAFT_LOCALIZATION_CLIENT_SMOKE'; audit = 'THAUMCRAFT_LOCALIZATION_RENDER_AUDIT_OK' }
     LateDevices = @{ property = 'lateDevicesSmokeTest'; directory = 'late-devices-smoke'; prefix = 'late-devices-client'; marker = 'THAUMCRAFT_LATE_DEVICES_CLIENT_SMOKE'; audit = 'THAUMCRAFT_LATE_DEVICES_RENDER_AUDIT_OK' }
     Eldritch = @{ property = 'eldritchSmokeTest'; directory = 'eldritch-smoke'; prefix = 'eldritch-client'; marker = 'THAUMCRAFT_ELDRITCH_CLIENT_SMOKE'; audit = 'THAUMCRAFT_ELDRITCH_RENDER_AUDIT_OK' }
     LateAccessories = @{ property = 'lateAccessoriesSmokeTest'; directory = 'late-accessories-smoke'; prefix = 'late-accessories-client'; marker = 'THAUMCRAFT_LATE_ACCESSORIES_CLIENT_SMOKE'; audit = 'THAUMCRAFT_LATE_ACCESSORIES_RENDER_AUDIT_OK' }
