@@ -1,0 +1,6 @@
+{
+  "research": "BATHSALTS",
+  "catalyst": { "item": "thaumcraft:salis_mundus" },
+  "result": { "item": "thaumcraft:bath_salts" },
+  "aspects": { "cognitio": 40, "aer": 40, "ordo": 40, "victus": 40 }
+}

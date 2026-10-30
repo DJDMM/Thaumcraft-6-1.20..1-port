@@ -44,11 +44,11 @@ public final class AccessoriesProgressionGameTests {
 
     @GameTest(template="empty")
     public static void bothReleasedAccessoryStudiesAddOnlyTwoKeysAndOneExistingInfusionPath(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108,"Expected108 canonical studies");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==148,"Expected148 canonical studies");
         var infusions=h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get());
-        h.assertTrue(infusions.size()==56&&infusions.stream().filter(r->ResearchProgression.isImplemented(r.research().split("@")[0])).count()==44,"Accessory research duplicated or miscounted existing infusions");
+        h.assertTrue(infusions.size()==56&&infusions.stream().filter(r->ResearchProgression.isImplemented(r.research().split("@")[0])).count()==56,"Accessory research duplicated or miscounted existing infusions");
         for(String key:KEYS){var e=ResearchCatalog.get(key);h.assertTrue(e.parents().equals(parents(key))&&e.category().equals("AUROMANCY")&&e.stages().size()==2&&e.siblings().isEmpty()&&e.stages().stream().allMatch(s->s.warp()==0),"Original accessory graph changed: "+key);}
-        for(String key:List.of("BASEELDRITCH","CURIOSITYBAND","VOIDSEERPEARL"))result(h,player(h),key,0,ResearchProgression.Result.UNSUPPORTED);
+        for(String key:List.of("BASEELDRITCH","CURIOSITYBAND","VOIDSEERPEARL"))result(h,player(h),key,0,ResearchProgression.Result.LOCKED);
         h.succeed();
     }
 

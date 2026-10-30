@@ -9,7 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-/** Paid spell entities deliberately use distinct IDs from old harmless catalogue appearances. */
+/** Paid continuations retain their saved IDs; the original bat ID uses the same guarded runtime. */
 public final class FocusMediaModule {
     public static final DeferredRegister<EntityType<?>> TYPES=DeferredRegister.create(ForgeRegistries.ENTITY_TYPES,"thaumcraft");
     public static final RegistryObject<EntityType<FocusCloudEntity>> CLOUD=TYPES.register("focus_cloud_spell",()->
@@ -17,10 +17,13 @@ public final class FocusMediaModule {
     public static final RegistryObject<EntityType<FocusMineEntity>> MINE=TYPES.register("focus_mine_spell",()->
             EntityType.Builder.<FocusMineEntity>of(FocusMineEntity::new,MobCategory.MISC).sized(.15F,.15F).clientTrackingRange(4).updateInterval(5).setShouldReceiveVelocityUpdates(true).build("thaumcraft:focus_mine_spell"));
     public static final RegistryObject<EntityType<SpellBatEntity>> SPELL_BAT=TYPES.register("spell_bat_spell",()->
-            EntityType.Builder.<SpellBatEntity>of(SpellBatEntity::new,MobCategory.MISC).sized(.5F,.9F).clientTrackingRange(4).updateInterval(3).setShouldReceiveVelocityUpdates(true).build("thaumcraft:spell_bat_spell"));
+            EntityType.Builder.<SpellBatEntity>of(SpellBatEntity::new,MobCategory.MISC).fireImmune().sized(.5F,.9F).clientTrackingRange(4).updateInterval(3).setShouldReceiveVelocityUpdates(true).build("thaumcraft:spell_bat_spell"));
+    public static final RegistryObject<EntityType<SpellBatEntity>> ORIGINAL_SPELL_BAT=TYPES.register("spell_bat",()->
+            EntityType.Builder.<SpellBatEntity>of(SpellBatEntity::new,MobCategory.MISC).fireImmune().sized(.5F,.9F).clientTrackingRange(4).updateInterval(3).setShouldReceiveVelocityUpdates(true).build("thaumcraft:spell_bat"));
     private FocusMediaModule(){}
     public static void register(IEventBus bus){TYPES.register(bus);bus.addListener(FocusMediaModule::attributes);}
     private static void attributes(EntityAttributeCreationEvent event){
         event.put(SPELL_BAT.get(),SpellBatEntity.createMobAttributes().add(Attributes.MAX_HEALTH,5).add(Attributes.ATTACK_DAMAGE,1).add(Attributes.MOVEMENT_SPEED,.25).add(Attributes.FOLLOW_RANGE,12).build());
+        event.put(ORIGINAL_SPELL_BAT.get(),SpellBatEntity.createMobAttributes().add(Attributes.MAX_HEALTH,5).add(Attributes.ATTACK_DAMAGE,1).add(Attributes.MOVEMENT_SPEED,.25).add(Attributes.FOLLOW_RANGE,12).build());
     }
 }

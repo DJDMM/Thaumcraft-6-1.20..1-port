@@ -1,0 +1,14 @@
+{
+  "research": "LIQUIDDEATH",
+  "catalyst": {
+    "item": "minecraft:bucket"
+  },
+  "result": {
+    "item": "thaumcraft:liquid_death_bucket"
+  },
+  "aspects": {
+    "mortuus": 100,
+    "alkimia": 20,
+    "perditio": 50
+  }
+}

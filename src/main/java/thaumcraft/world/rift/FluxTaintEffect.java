@@ -26,10 +26,9 @@ public final class FluxTaintEffect extends MobEffect {
     @Override public void applyEffectTick(LivingEntity target,int amplifier) {
         if(target.level().isClientSide || !target.isAlive() || target.isRemoved()
                 || target.getServer()==null || !target.getServer().isSameThread())return;
-        if(isNativeTainted(target))target.heal(1);
+        if(isNativeTainted(target) || thaumcraft.world.taint.champion.Champions.type(target)==13)target.heal(1);
         else if(!isOriginalUndead(target))target.hurt(TaintDamage.source(target),1);
-        // Original Champion modifier13 also heals. That actual attribute/champion system
-        // is not ported; arbitrary persistent NBT must not impersonate it.
+        // Champion13 is the actual registered attribute, never an arbitrary NBT flag.
     }
     public static boolean isNativeTainted(LivingEntity target) {
         if(!(target instanceof VisualMobEntity))return false;

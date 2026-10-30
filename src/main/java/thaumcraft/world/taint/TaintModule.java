@@ -26,9 +26,10 @@ public final class TaintModule {
     public static void register(IEventBus bus) { SOUNDS.register(bus); }
     public static int spreadArea() { return RiftModule.TAINT_SPREAD_AREA.get(); }
     public static float spreadRate() { return RiftModule.TAINT_SPREAD_RATE.get().floatValue(); }
-    public static boolean handlesBlock(String id) { return java.util.Set.of("taint_fibre","taint_soil","taint_rock","taint_crust","taint_log","taint_feature","taint_geyser").contains(id); }
+    public static boolean handlesBlock(String id) { return java.util.Set.of("flux_goo","taint_fibre","taint_soil","taint_rock","taint_crust","taint_log","taint_feature","taint_geyser").contains(id); }
     public static Block createBlock(String id) {
         return switch(id) {
+            case "flux_goo" -> new FluxGooBlock();
             case "taint_fibre" -> new TaintFibreBlock();
             case "taint_log" -> new TaintLogBlock();
             case "taint_feature" -> new TaintFeatureBlock();
@@ -46,7 +47,7 @@ public final class TaintModule {
         falling.initializeFallingTaint(state,original);
         return level.addFreshEntity(entity);
     }
-    static net.minecraft.world.entity.Mob activeMob(String id,net.minecraft.server.level.ServerLevel level) {
+    public static net.minecraft.world.entity.Mob activeMob(String id,net.minecraft.server.level.ServerLevel level) {
         var type=thaumcraft.catalog.entities.VisualEntitiesModule.LIVING.get(id);
         if(type==null) return null;
         var mob=type.get().create(level);

@@ -42,6 +42,12 @@ public final class PlayerKnowledge {
     public int permanentWarp() { return permanentWarp; }
     public int actualWarp() { return normalWarp + permanentWarp; }
     public int warpCounter() { return warpCounter; }
+    boolean setWarpCounter(int value) {
+        int next = Math.max(0, Math.min(1500, value));
+        if (warpCounter == next) return false;
+        warpCounter = next;
+        return true;
+    }
 
     boolean recordCelestial(long day, int metadata) {
         if (day < 0 || metadata < 0 || metadata >= 13 || hasCelestial(day, metadata)) return false;

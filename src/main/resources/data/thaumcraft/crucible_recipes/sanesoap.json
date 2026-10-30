@@ -1,0 +1,6 @@
+{
+  "research": "SANESOAP",
+  "catalyst": { "item": "thaumcraft:flesh_block" },
+  "result": { "item": "thaumcraft:sanity_soap" },
+  "aspects": { "cognitio": 75, "alienis": 50, "ordo": 75, "victus": 50 }
+}

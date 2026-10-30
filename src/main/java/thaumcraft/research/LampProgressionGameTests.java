@@ -54,8 +54,8 @@ public final class LampProgressionGameTests {
 
     @GameTest(template="empty")
     public static void bothOriginalLampStudiesRequireEveryStrictCompletedParentAndKeepLaterDevicesClosed(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==108,
-                "Expected current108 canonical entries");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==148,
+                "Expected current148 canonical entries");
         h.assertTrue(h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get()).size()==56,
                 "Enabling two existing lamp paths duplicated the archived56 infusion recipes");
         for (String key:KEYS) {
@@ -72,7 +72,7 @@ public final class LampProgressionGameTests {
                 complete(k,missing);result(h,p,key,0,ResearchProgression.Result.STARTED);
                 h.assertTrue(k.researchStage(key)==1&&p.totalExperience==5,"Lamp start skipped paid stage or5XP");
                 for (String later:List.of("BASEELDRITCH"))
-                    result(h,p,later,0,ResearchProgression.Result.UNSUPPORTED);
+                    result(h,p,later,0,ResearchProgression.Result.LOCKED);
             }
         }
         h.succeed();

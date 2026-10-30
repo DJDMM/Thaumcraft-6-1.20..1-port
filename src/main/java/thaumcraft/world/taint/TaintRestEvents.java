@@ -34,8 +34,10 @@ public final class TaintRestEvents {
                 || server.getBlockState(foot.above()).isSuffocating(server,foot.above())) return;
         Vec3 centre=Vec3.atBottomCenterOf(pos);
         AABB range=new AABB(centre,centre).inflate(8,5,8);
-        if (server.getEntitiesOfClass(TaintedStationaryMob.class,range,
-                mob->!mob.isRemoved() && mob.isPreventingPlayerRest(player)).isEmpty()) return;
+        if (server.getEntitiesOfClass(net.minecraft.world.entity.Mob.class,range,
+                mob->!mob.isRemoved() && mob.isAlive()
+                        && (mob instanceof thaumcraft.catalog.entities.VisualMobEntity || mob instanceof thaumcraft.auromancy.media.SpellBatEntity)
+                        && thaumcraft.world.taint.champion.Champions.isOriginalMonster(mob)).isEmpty()) return;
         // ServerPlayer performs these same actions after reach/obstruction and before
         // Monster.class safety. Emit the ordinary Forge time hook exactly once even
         // when another mod allows daytime sleep; no new message or alternate result.

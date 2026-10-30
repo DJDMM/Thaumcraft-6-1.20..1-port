@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "research": "INFUSIONELDRITCH",
+  "pattern": [
+    "SSS",
+    " B ",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:slab_eldritch"
+    },
+    "B": {
+      "item": "thaumcraft:stone_eldritch_tile"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:pedestal_eldritch",
+    "count": 1
+  },
+  "vis": 150,
+  "crystals": {}
+}

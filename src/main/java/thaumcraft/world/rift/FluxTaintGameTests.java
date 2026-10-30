@@ -80,7 +80,7 @@ public final class FluxTaintGameTests {
         try { effect().applyEffectTick(zombie,0);h.assertTrue(zombie.getHealth()==start,"Original undead immunity damaged a native Zombie"); }
         finally { zombie.discard(); }
         for(String id : List.of("brainy_zombie","giant_brainy_zombie","inhabited_zombie")){
-            var mob=VisualEntitiesModule.LIVING.get(id).get().create(h.getLevel());float before=mob.getHealth();
+            var mob=(net.minecraft.world.entity.LivingEntity)net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getValue(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thaumcraft",id)).create(h.getLevel());float before=mob.getHealth();
             try { effect().applyEffectTick(mob,0);h.assertTrue(mob.getHealth()==before,"Original undead class identity lost at catalogue adapter"+id); }
             finally { mob.discard(); }
         }

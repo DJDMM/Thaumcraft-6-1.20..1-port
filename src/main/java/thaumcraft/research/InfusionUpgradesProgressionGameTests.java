@@ -48,12 +48,12 @@ public final class InfusionUpgradesProgressionGameTests {
     private InfusionUpgradesProgressionGameTests(){}
 
     @GameTest(template="empty") public static void threeReleasedStudiesOpenThirteenExistingRecipesWithoutRegisteringFakeInfusions(GameTestHelper h){
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108,"Expected108 original studies");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==148,"Expected148 original studies");
         var all=h.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get());
-        h.assertTrue(all.size()==56&&all.stream().filter(r->ResearchProgression.isImplemented(r.research().split("@")[0])).count()==44,"Three studies must open13 existing real infusions");
+        h.assertTrue(all.size()==56&&all.stream().filter(r->ResearchProgression.isImplemented(r.research().split("@")[0])).count()==56,"Three studies must open13 existing real infusions");
         h.assertTrue(all.stream().noneMatch(r->r.getId().getPath().toLowerCase(Locale.ROOT).contains("fake")),"Display-only previews became physical recipes");
         for(String key:KEYS){var e=ResearchCatalog.get(key);h.assertTrue(e.parents().equals(List.of(parent(key)))&&e.category().equals("INFUSION")&&e.stages().size()==2&&e.siblings().isEmpty(),"Original upgrade graph changed: "+key);}
-        for(String key:List.of("INFUSIONANCIENT","INFUSIONELDRITCH","BASEELDRITCH"))result(h,player(h),key,0,ResearchProgression.Result.UNSUPPORTED);
+        for(String key:List.of("INFUSIONANCIENT","INFUSIONELDRITCH","BASEELDRITCH"))result(h,player(h),key,0,ResearchProgression.Result.LOCKED);
         h.succeed();
     }
 

@@ -37,8 +37,11 @@ public final class FocusEffects {
         return apply(level,caster,node,target,direction,1F);
     }
     public static boolean apply(ServerLevel level,ServerPlayer caster,FocusGraph.Node node,HitResult target,Vec3 direction,float finalPower){
+        return applyLiving(level,caster,node,target,direction,finalPower);
+    }
+    public static boolean applyLiving(ServerLevel level,LivingEntity caster,FocusGraph.Node node,HitResult target,Vec3 direction,float finalPower){
         if (!Float.isFinite(finalPower)||finalPower<=0||finalPower>16||level == null || caster == null || node == null || target == null || !level.getServer().isSameThread()
-                || caster.serverLevel() != level || !caster.isAlive() || caster.isSpectator()
+                || caster.level() != level || !caster.isAlive() || caster.isSpectator()
                 || target.getType() == HitResult.Type.MISS || !finite(target.getLocation())
                 || (direction != null && !finite(direction))) return false;
         String key = node.key();
@@ -76,12 +79,12 @@ public final class FocusEffects {
             return !key.equals(FocusNodeRegistry.FROST);
         }
         if (target instanceof BlockHitResult hit) {
-            if (key.equals(FocusNodeRegistry.FROST)) freeze(level, caster, hit, power*finalPower);
-            else if (key.equals(FocusNodeRegistry.EARTH)) {
+            if (key.equals(FocusNodeRegistry.FROST) && caster instanceof ServerPlayer player) freeze(level, player, hit, power*finalPower);
+            else if (key.equals(FocusNodeRegistry.EARTH) && caster instanceof ServerPlayer player) {
                 BlockPos pos = hit.getBlockPos();
                 if (loaded(level, pos)) {
                     var state = level.getBlockState(pos);
-                    if (state.getDestroySpeed(level, pos) <= 2 * power * finalPower / 25F) EarthBreakerQueue.enqueue(level, caster, pos, state);
+                    if (state.getDestroySpeed(level, pos) <= 2 * power * finalPower / 25F) EarthBreakerQueue.enqueue(level, player, pos, state);
                 }
             }
         }
@@ -122,8 +125,8 @@ public final class FocusEffects {
         thaumcraft.fx.emitters.FocusFxPrograms.impact(level,point,key);
     }
 
-    public static void playCastSound(ServerLevel level, ServerPlayer caster, String key) {
-        if (level == null || caster == null || !level.getServer().isSameThread() || caster.serverLevel() != level) return;
+    public static void playCastSound(ServerLevel level, LivingEntity caster, String key) {
+        if (level == null || caster == null || !level.getServer().isSameThread() || caster.level() != level) return;
         if (FocusNodeRegistry.AIR.equals(key))
             level.playSound(null, caster.blockPosition().above(), AuromancySounds.WIND.get(), SoundSource.PLAYERS, .125F, 2);
         else if (FocusNodeRegistry.FROST.equals(key))

@@ -1,0 +1,13 @@
+{
+  "research": "METALPURIFICATION",
+  "catalyst": {
+    "tag": "forge:ores/gold"
+  },
+  "result": {
+    "item": "thaumcraft:cluster_gold"
+  },
+  "aspects": {
+    "metallum": 5,
+    "ordo": 5
+  }
+}

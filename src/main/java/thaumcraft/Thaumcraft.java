@@ -50,6 +50,10 @@ public final class Thaumcraft {
                     });
                     thaumcraft.catalog.entities.VisualEntitiesModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.equipment.cleansing.CleansingModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
+                    thaumcraft.world.taint.TaintEcologyModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
+                    thaumcraft.alchemy.liquiddeath.LiquidDeathModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
+                    thaumcraft.world.mobs.MobsModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
+                    thaumcraft.world.eldritch.EldritchModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                 })
                 .build());
     }
@@ -70,6 +74,14 @@ public final class Thaumcraft {
         thaumcraft.scanning.ScanningModule.register(bus);
         thaumcraft.world.WorldModule.register(bus);
         thaumcraft.world.rift.RiftModule.register();
+        thaumcraft.world.warp.WarpModule.register(bus);
+        thaumcraft.world.taint.TaintEcologyModule.register(bus);
+        thaumcraft.world.crimson.CrimsonModule.register(bus);
+        thaumcraft.world.voidsiphon.VoidSiphonModule.register(bus);
+        thaumcraft.alchemy.liquiddeath.LiquidDeathModule.register(bus);
+        thaumcraft.world.mobs.MobsModule.register(bus);
+        thaumcraft.world.eldritch.EldritchModule.register(bus);
+        thaumcraft.artifice.late.LateDevicesModule.register(bus);
         thaumcraft.world.rift.RiftSounds.register(bus);
         thaumcraft.alchemy.AlchemyModule.register(bus);
         thaumcraft.equipment.EquipmentModule.register(bus);

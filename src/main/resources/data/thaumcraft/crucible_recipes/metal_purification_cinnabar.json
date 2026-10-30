@@ -1,0 +1,13 @@
+{
+  "research": "METALPURIFICATION",
+  "catalyst": {
+    "tag": "forge:ores/cinnabar"
+  },
+  "result": {
+    "item": "thaumcraft:cluster_cinnabar"
+  },
+  "aspects": {
+    "metallum": 5,
+    "ordo": 5
+  }
+}

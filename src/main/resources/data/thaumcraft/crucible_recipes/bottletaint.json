@@ -1,0 +1,14 @@
+{
+  "research": "BOTTLETAINT",
+  "catalyst": {
+    "item": "thaumcraft:phial_filled"
+  },
+  "catalyst_nbt": "{Aspects:[{key:\"vitium\",amount:10}]}",
+  "result": {
+    "item": "thaumcraft:bottle_taint"
+  },
+  "aspects": {
+    "vitium": 30,
+    "aqua": 30
+  }
+}

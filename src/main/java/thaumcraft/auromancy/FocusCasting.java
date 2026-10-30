@@ -51,7 +51,7 @@ public final class FocusCasting {
         if (AuraManager.drainVis(level, player.blockPosition(), price, false) < price) return Result.NO_VIS;
         for(var effect:plan.effects()){
             if(effect.key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.FIRE))
-                level.playSound(null,player.blockPosition().above(),SoundEvents.FIRECHARGE_USE,SoundSource.PLAYERS,1,1+(float)(level.random.nextGaussian()*.05));
+                playFireCastSound(level,player);
             else{
                 FocusEffects.playCastSound(level,player,effect.key());AdvancedFocusEffects.playCastSound(level,player,effect.key());
                 thaumcraft.auromancy.remaining.RemainingFocusEffects.playCastSound(level,player,effect.key());
@@ -108,7 +108,11 @@ public final class FocusCasting {
         return true;
     }
     public static boolean applyFire(ServerLevel level,ServerPlayer caster,HitResult target,int power,int duration){return applyFire(level,caster,target,power,duration,1F);}
-    public static boolean applyFire(ServerLevel level, ServerPlayer caster, HitResult target, int power, int duration,float finalPower) {
+    public static void playFireCastSound(ServerLevel level,net.minecraft.world.entity.LivingEntity caster){
+        if(level!=null&&caster!=null&&caster.level()==level&&level.getServer().isSameThread())
+            level.playSound(null,caster.blockPosition().above(),SoundEvents.FIRECHARGE_USE,SoundSource.PLAYERS,1,1+(float)(level.random.nextGaussian()*.05));
+    }
+    public static boolean applyFire(ServerLevel level, net.minecraft.world.entity.LivingEntity caster, HitResult target, int power, int duration,float finalPower) {
         if (!Float.isFinite(finalPower)||finalPower<=0||finalPower>16||!level.getServer().isSameThread() || power < 1 || power > 5 || duration < 0 || duration > 5) return false;
         Vec3 point = target.getLocation();
         thaumcraft.fx.emitters.FocusFxPrograms.impact(level,point,thaumcraft.auromancy.focus.FocusNodeRegistry.FIRE);
@@ -122,7 +126,9 @@ public final class FocusCasting {
         }
         if (target instanceof BlockHitResult block && duration > 0) {
             BlockPos pos = block.getBlockPos().relative(block.getDirection());
-            if (!level.hasChunkAt(pos) || !level.isEmptyBlock(pos) || !level.mayInteract(caster, pos)) return false;
+            if (!level.hasChunkAt(pos) || !level.isEmptyBlock(pos)
+                    || caster instanceof ServerPlayer player && !level.mayInteract(player, pos)
+                    || caster instanceof net.minecraft.world.entity.Mob mob && !net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(level,mob)) return false;
             if(!(level.random.nextFloat()<finalPower))return false;
             level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, level.random.nextFloat() * .4F + .8F);
             level.setBlock(pos, Blocks.FIRE.defaultBlockState(), 11);

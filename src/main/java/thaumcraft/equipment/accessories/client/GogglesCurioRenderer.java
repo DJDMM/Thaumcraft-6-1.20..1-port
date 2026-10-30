@@ -24,19 +24,25 @@ import top.theillusivec4.curios.api.client.ICurioRenderer;
 @Mod.EventBusSubscriber(modid="thaumcraft",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
 public final class GogglesCurioRenderer implements ICurioRenderer {
     private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("thaumcraft","textures/items/goggles_bauble.png");
+    private final ResourceLocation texture;
+    private final boolean curiosity;
+    public GogglesCurioRenderer(){this(TEXTURE,false);}
+    public GogglesCurioRenderer(ResourceLocation texture,boolean curiosity){this.texture=texture;this.curiosity=curiosity;}
     private static long draws;
     public static long draws(){return draws;}
     @SubscribeEvent public static void setup(FMLClientSetupEvent event){event.enqueueWork(()->{
         var goggles=ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath("thaumcraft","goggles"));
         if(goggles!=null)CuriosRendererRegistry.register(goggles,GogglesCurioRenderer::new);
+        var band=ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath("thaumcraft","curiosity_band"));
+        if(band!=null)CuriosRendererRegistry.register(band,()->new GogglesCurioRenderer(ResourceLocation.fromNamespaceAndPath("thaumcraft","textures/items/curiosity_band_worn.png"),true));
     });}
     @Override public <T extends LivingEntity,M extends EntityModel<T>> void render(ItemStack stack,SlotContext slot,PoseStack pose,RenderLayerParent<T,M> parent,MultiBufferSource buffers,int light,float limb,float amount,float partial,float age,float yaw,float pitch){
         if(!(parent.getModel() instanceof HumanoidModel<?> model))return;
         pose.pushPose();model.head.translateAndRotate(pose);
         // Released helpers compose to this neutral-head transform. Their armor!=null branch
         // is always true for modern nonnull EMPTY, as it was in the original 1.12 inventory.
-        pose.translate(-.275,.005,-.336);pose.scale(.55F,-.55F,-.55F);
-        var out=buffers.getBuffer(RenderType.entityCutoutNoCull(TEXTURE));
+        pose.translate(-.275,.005,curiosity&&slot.entity().getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).isEmpty()?-.27:-.336);pose.scale(.55F,-.55F,-.55F);
+        var out=buffers.getBuffer(RenderType.entityCutoutNoCull(texture));
         face(out,pose,light,0,0,1,new float[][]{{0,0,0,0,1},{1,0,0,1,1},{1,1,0,1,0},{0,1,0,0,0}});
         face(out,pose,light,0,0,-1,new float[][]{{0,1,-.1F,0,0},{1,1,-.1F,1,0},{1,0,-.1F,1,1},{0,0,-.1F,0,1}});
         for(int i=0;i<16;i++){

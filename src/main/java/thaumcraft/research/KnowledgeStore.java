@@ -110,6 +110,15 @@ public final class KnowledgeStore extends SavedData {
         return changed;
     }
 
+    /** Warp events consume activity without changing any of the three warp balances. */
+    public static boolean setWarpCounter(ServerPlayer player, int amount) {
+        var store = of(player.serverLevel());
+        if (!store.get(player.getUUID()).setWarpCounter(amount)) return false;
+        store.setDirty();
+        ResearchNetwork.sync(player);
+        return true;
+    }
+
     public boolean addTemporaryWarp(UUID player, int amount) {
         if (!get(player).addTemporaryWarp(amount)) return false;
         setDirty();

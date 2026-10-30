@@ -39,6 +39,7 @@ public final class FocusProjectileEntity extends Projectile {
     private int ignoreTime;
     private LivingEntity target;
     private boolean ownerCleared;
+    private boolean npcCast;
 
     public FocusProjectileEntity(EntityType<? extends FocusProjectileEntity> type, Level level) { super(type, level); }
     @Override protected void defineSynchedData() {
@@ -70,13 +71,22 @@ public final class FocusProjectileEntity extends Projectile {
 
     public static boolean spawn(ServerPlayer caster,FocusPlan plan,int nextIndex,Vec3 source,Vec3 direction,int speed,int option){return spawn(caster,plan,nextIndex,source,direction,speed,option,1F,0);}
     public static boolean spawn(ServerPlayer caster, FocusPlan plan, int nextIndex, Vec3 source, Vec3 direction, int speed, int option,float power,int ordinal) {
+        return spawnLiving(caster,plan,nextIndex,source,direction,speed,option,power,ordinal,false);
+    }
+    public static boolean spawnNpc(LivingEntity caster,FocusPlan plan,Vec3 source,Vec3 direction){
+        if(!thaumcraft.auromancy.NpcFocusCasting.isCaster(caster)||!thaumcraft.auromancy.NpcFocusCasting.valid(plan))return false;
+        return spawnLiving(caster,plan,2,source,direction,2,0,1,0,true);
+    }
+    private static boolean spawnLiving(LivingEntity caster,FocusPlan plan,int nextIndex,Vec3 source,Vec3 direction,int speed,int option,float power,int ordinal,boolean npc){
         if (!Float.isFinite(power)||power<=0||power>16||ordinal<0||ordinal>4096||caster == null || caster.getServer() == null || !caster.getServer().isSameThread()
                 || !validContinuation(plan, nextIndex, speed, option) || !finite(source) || !finite(direction)
                 || !Double.isFinite(direction.lengthSqr()) || direction.lengthSqr() < 1e-12) return false;
+        if(!(caster.level() instanceof ServerLevel server))return false;
         Vec3 unit = direction.normalize();
         Vec3 position = source.add(unit.scale(caster.getBbWidth() * 2.1));
-        if (!finite(position) || !caster.serverLevel().hasChunkAt(BlockPos.containing(position))) return false;
-        var entity = new FocusProjectileEntity(VisualEntitiesModule.FOCUS_PROJECTILE.get(), caster.serverLevel());
+        if (!finite(position) || !server.hasChunkAt(BlockPos.containing(position))) return false;
+        var entity = new FocusProjectileEntity(VisualEntitiesModule.FOCUS_PROJECTILE.get(), server);
+        entity.npcCast=npc;
         // Each impact resumes a new one-target array; its BETA26 effect ordinal is zero,
         // regardless of which Scatter trajectory created this intermediary.
         entity.plan = plan; entity.nextIndex = nextIndex;entity.power=power;entity.ordinal=0;
@@ -90,7 +100,7 @@ public final class FocusProjectileEntity extends Projectile {
         entity.setYRot((float)(Math.atan2(motion.x,motion.z)*180/Math.PI));
         entity.setXRot((float)(Math.atan2(motion.y,Math.sqrt(motion.x*motion.x+motion.z*motion.z))*180/Math.PI));
         entity.yRotO=entity.getYRot(); entity.xRotO=entity.getXRot();
-        return caster.serverLevel().addFreshEntity(entity);
+        return server.addFreshEntity(entity);
     }
     private static boolean validContinuation(FocusPlan plan, int index, int speed, int option) {
         if (plan == null || index < 1 || index >= plan.graph().nodes().size() || speed < 1 || speed > 5 || option < 0 || option > 3) return false;
@@ -117,7 +127,9 @@ public final class FocusProjectileEntity extends Projectile {
         if (isRemoved()) return;
         Entity owner = getOwner();
         // Old catalogue entities have no paid graph. Never turn their appearance NBT into a spell.
-        if (!level().isClientSide && (plan == null || !(owner instanceof ServerPlayer) || owner.isRemoved() || owner.level()!=level())) { discard(); return; }
+        if (!level().isClientSide && (plan == null || (npcCast
+                ? !thaumcraft.auromancy.NpcFocusCasting.isCaster(owner)||!thaumcraft.auromancy.NpcFocusCasting.valid(plan)
+                : !(owner instanceof ServerPlayer)) || owner.isRemoved() || owner.level()!=level())) { discard(); return; }
         if (!finite(position()) || !finite(getDeltaMovement()) || getDeltaMovement().lengthSqr()>64) { discard(); return; }
         if (!level().isClientSide && ownerEntityId()!=owner.getId()) entityData.set(OWNER_ID, owner.getId());
         super.tick();
@@ -168,6 +180,11 @@ public final class FocusProjectileEntity extends Projectile {
 
     @Override protected void onHit(HitResult hit) {
         if (isRemoved()) return;
+        if(!level().isClientSide&&npcCast&&getOwner() instanceof LivingEntity caster&&thaumcraft.auromancy.NpcFocusCasting.isCaster(caster)&&thaumcraft.auromancy.NpcFocusCasting.valid(plan)){
+            HitResult actual=hit instanceof EntityHitResult entity?new EntityHitResult(entity.getEntity(),position()):hit;
+            Vec3 direction=getDeltaMovement().normalize();discard();
+            thaumcraft.auromancy.NpcFocusCasting.impact((ServerLevel)level(),caster,plan,actual,direction);return;
+        }
         if (special()==1 && hit instanceof BlockHitResult block) {
             if (level().getBlockState(block.getBlockPos()).getCollisionShape(level(),block.getBlockPos()).isEmpty()) return;
             Vec3 motion=getDeltaMovement(); setPos(position().subtract(motion));
@@ -220,10 +237,12 @@ public final class FocusProjectileEntity extends Projectile {
         super.addAdditionalSaveData(tag);
         // Modern Projectile.setOwner(null) leaves its cached UUID; an explicitly cleared owner must not revive on reload.
         if(ownerCleared)tag.remove("Owner");
+        if(npcCast)tag.putBoolean("NpcCast",true);
         if (plan!=null) { tag.put("PaidGraph",plan.graph().save()); tag.putInt("Capacity",plan.maxComplexity()); tag.putInt("Next",nextIndex); tag.putInt("Special",special());tag.putFloat("Power",power);tag.putInt("Ordinal",ordinal);tag.putUUID("Execution",plan.executionId()); }
     }
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag); plan=null; nextIndex=0; target=null; ignoredEntity=null; ignoreTime=0; ownerCleared=false;
+        npcCast=tag.getBoolean("NpcCast");
         if (!tag.contains("PaidGraph",Tag.TAG_COMPOUND) || !tag.contains("Capacity",Tag.TAG_INT)
                 || !tag.contains("Next",Tag.TAG_INT) || !tag.contains("Special",Tag.TAG_INT) || !tag.hasUUID("Owner")) return;
         try {
@@ -240,6 +259,7 @@ public final class FocusProjectileEntity extends Projectile {
             if (index<1 || index>=restored.graph().nodes().size()) return;
             int speed=restored.node(restored.graph().nodes().get(index).parent()).settings().getOrDefault("speed",0);
             if (!validContinuation(restored,index,speed,option)) return;
+            if(npcCast&&!thaumcraft.auromancy.NpcFocusCasting.valid(restored))return;
             plan=restored; nextIndex=index; entityData.set(SPECIAL,option); entityData.set(COLOR,plan.color()); entityData.set(EFFECT,plan.effect().key());
             entityData.set(EFFECTS,thaumcraft.fx.emitters.FocusFxPrograms.keys(plan));
         } catch (IllegalArgumentException ignored) { /* Invalid and old appearances remain harmless. */ }

@@ -75,6 +75,10 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (id.equals("liquid_death")) return new thaumcraft.alchemy.liquiddeath.LiquidDeathBlock();
+        if (thaumcraft.world.voidsiphon.VoidSiphonModule.handlesBlock(id)) return thaumcraft.world.voidsiphon.VoidSiphonModule.createBlock(id);
+        if (thaumcraft.artifice.late.LateDevicesModule.handlesBlock(id)) return thaumcraft.artifice.late.LateDevicesModule.createBlock(id);
+        if (thaumcraft.world.crimson.MoundLootBlock.handles(id)) return new thaumcraft.world.crimson.MoundLootBlock(id);
         if(id.startsWith("nitor_"))return new thaumcraft.fx.nitor.NitorBlock(thaumcraft.fx.nitor.NitorBlock.dye(id));
         if (thaumcraft.artifice.generator.VisGeneratorModule.handlesBlock(id)) return thaumcraft.artifice.generator.VisGeneratorModule.createBlock(id);
         if (thaumcraft.artifice.pattern.PatternCrafterModule.handlesBlock(id)) return thaumcraft.artifice.pattern.PatternCrafterModule.createBlock(id);

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:stone_ancient"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:slab_ancient",
+    "count": 6
+  }
+}

@@ -56,7 +56,7 @@ public final class ArcaneWorkbenchMenu extends AbstractContainerMenu {
         if (bench == null || !(owner instanceof ServerPlayer player)) return;
         ArcaneRecipe recipe = bench.findRecipe(player);
         preview.setItem(0, recipe == null ? ItemStack.EMPTY : recipe.assemble(bench, player.level().registryAccess()));
-        data.set(0, Math.min(32767, (int) AuraManager.getVis(player.serverLevel(), position)));
+        data.set(0, Math.min(32767, bench.availableVis()));
         data.set(1, ArcaneWorkbenchBlockEntity.visCost(player,recipe));
         data.set(2, bench.canCraft(player, recipe) ? 1 : 0);
         data.set(3, recipe == null ? 0 : 1);

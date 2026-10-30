@@ -1,0 +1,6 @@
+{
+  "research": "BASEELDRITCH",
+  "catalyst": { "item": "thaumcraft:void_seed" },
+  "result": { "item": "thaumcraft:ingot_void" },
+  "aspects": { "metallum": 10, "vitium": 5 }
+}

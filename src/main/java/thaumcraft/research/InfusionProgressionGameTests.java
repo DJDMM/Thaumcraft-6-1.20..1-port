@@ -142,10 +142,10 @@ public final class InfusionProgressionGameTests {
         var player = player(helper); var state = KnowledgeStore.get(player);
         complete(state, "INFUSION"); complete(state, "UNLOCKAUROMANCY");
         helper.assertTrue(ResearchCatalog.get("RECHARGEPEDESTAL").parents().equals(java.util.List.of("BASEAUROMANCY"))
-                && ResearchCatalog.get("BOOTSTRAVELLER").parents().contains("RECHARGEPEDESTAL"), "An unported prerequisite was deleted");
+                && ResearchCatalog.get("BOOTSTRAVELLER").parents().contains("RECHARGEPEDESTAL"), "An required prerequisite was deleted");
         for (String key : new String[]{"INFUSIONANCIENT", "INFUSIONELDRITCH"}) {
-            result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.UNSUPPORTED);
-            helper.assertTrue(state.researchStage(key) == 0 && !state.isResearchCompleteStrict(key), "Unported entry was marked completed: " + key);
+            result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.LOCKED);
+            helper.assertTrue(state.researchStage(key) == 0 && !state.isResearchCompleteStrict(key), "Unpaid late entry was marked completed: " + key);
         }
         for (String key : new String[]{"FOCUSADVANCED", "FOCUSGREATER"})
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.LOCKED);

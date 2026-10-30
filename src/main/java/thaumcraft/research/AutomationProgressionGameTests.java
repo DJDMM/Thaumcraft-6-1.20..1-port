@@ -129,7 +129,7 @@ public final class AutomationProgressionGameTests {
         before = state.save(); xp = player.totalExperience;
         result(h, ResearchNetwork.processAdvance(player, "THAUMATORIUM", 1), ResearchProgression.Result.STALE);
         h.assertTrue(before.equals(state.save()) && xp == player.totalExperience && PlayerKnowledge.load(before).isResearchCompleteStrict("THAUMATORIUM"), "Thaumatorium replay/save failed");
-        result(h, ResearchNetwork.processAdvance(player, "ESSENTIASMELTERVOID", 0), ResearchProgression.Result.UNSUPPORTED);
+        result(h, ResearchNetwork.processAdvance(player, "ESSENTIASMELTERVOID", 0), ResearchProgression.Result.LOCKED);
         h.succeed();
     }
 

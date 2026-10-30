@@ -60,6 +60,7 @@ public final class AuromancyProgressionEvents {
         facts.addAll(GolemancyProgressionEvents.scanFacts(scanned));
         facts.addAll(OreProgressionScans.scanFacts(scanned));
         facts.addAll(MirrorProgressionScans.scanFacts(scanned));
+        facts.addAll(RemainingProgressionScans.scanFacts(scanned));
         // Both original ScanEntity registrations are tied to the working rift class,
         // never to a held catalogue item or a client-supplied entity identifier.
         if (scanned instanceof thaumcraft.world.rift.FluxRiftEntity)
@@ -108,7 +109,7 @@ public final class AuromancyProgressionEvents {
         if (!validPlayer(player) || scanned instanceof Entity entity && (entity.isRemoved() || entity.level() != player.level())) return false;
         boolean discovered = false;
         for (String fact : scanFacts(scanned)) {
-            if (fact.equals("PRIMPEARL")||fact.equals("!Firebat")||fact.equals("ORE")) {
+            if (fact.equals("PRIMPEARL")||fact.equals("!Firebat")||fact.equals("ORE")||RemainingProgressionScans.isCanonicalScan(fact)) {
                 var state = KnowledgeStore.get(player);
                 if (state.isResearchCompleteStrict(fact)) continue;
                 // A scan grants this original no-cost canonical entry immediately,

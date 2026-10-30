@@ -26,7 +26,7 @@ public final class GolemancyComponentProgressionGameTests {
 
     @GameTest(template="essentia_network")
     public static void exactGolemScanFamiliesIncludeShulkerAndOwnedConstructsButNotItems(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==108
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==148
                 && ResearchProgression.isImplemented("MINDCLOCKWORK") && ResearchProgression.stageSupported("MINDCLOCKWORK",2),
                 "Clockwork mind's complete original progression was omitted from the canonical inventory");
         for (var type : List.of(EntityType.IRON_GOLEM, EntityType.SNOW_GOLEM, EntityType.SHULKER)) {
@@ -128,8 +128,8 @@ public final class GolemancyComponentProgressionGameTests {
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",2),ResearchProgression.Result.STALE);
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",4),ResearchProgression.Result.LOCKED);
         for(String unsupported:List.of("MATSTUDVOID")) {
-            result(h,ResearchNetwork.processAdvance(p,unsupported,0),ResearchProgression.Result.UNSUPPORTED);
-            h.assertTrue(!state.isResearchKnown(unsupported),"Completed mind opened an unported sibling or descendant: "+unsupported);
+            result(h,ResearchNetwork.processAdvance(p,unsupported,0),ResearchProgression.Result.LOCKED);
+            h.assertTrue(!state.isResearchKnown(unsupported),"Completed mind opened an unpaid sibling or descendant: "+unsupported);
         }
         for(String descendant:List.of("GOLEMFLYER","LEVITATOR")) {
             result(h,ResearchNetwork.processAdvance(p,descendant,0),ResearchProgression.Result.LOCKED);

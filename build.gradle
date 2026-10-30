@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.54'
 }
-version = '0.41.0'
+version = '0.42.0'
 group = 'thaumcraft.port'
 base { archivesName = 'thaumcraft-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -20,7 +20,27 @@ minecraft {
             mods { thaumcraft { source sourceSets.main } }
         }
         client {
-            if (project.hasProperty('visualFxSmokeTest')) {
+            if (project.hasProperty('lateDevicesSmokeTest')) {
+                workingDirectory project.file('run/late-devices-smoke')
+                property 'thaumcraft.lateDevicesSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('lateAccessoriesSmokeTest')) {
+                workingDirectory project.file('run/late-accessories-smoke')
+                property 'thaumcraft.lateAccessoriesSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('eldritchSmokeTest')) {
+                workingDirectory project.file('run/eldritch-smoke')
+                property 'thaumcraft.eldritchSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('warpSmokeTest')) {
+                workingDirectory project.file('run/warp-smoke')
+                property 'thaumcraft.warpSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('mobsSmokeTest')) {
+                workingDirectory project.file('run/mobs-smoke')
+                property 'thaumcraft.mobsSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            } else if (project.hasProperty('visualFxSmokeTest')) {
                 workingDirectory project.file('run/visual-fx-smoke')
                 property 'thaumcraft.visualFxSmokeTest', 'true'
                 args '--width', '1600', '--height', '1000'

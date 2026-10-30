@@ -130,6 +130,18 @@ handling remains governed by the existing rift contract. Size5 pollution is2,
 not2.5. Candidate may intersect solid blocks, because Seed eligibility does
 not inspect block collision. It may begin in air and must fall normally.
 
+The legacy event success regression's Gaussian candidate lay outside its3x3
+template and did not establish candidate chunk visibility or spawn eligibility.
+Native0.42 server2 exposed that under-specified fixture as a rejected event;
+the combined outcome/removal assertion did not identify which gate rejected it.
+The regression now owns an upper vertical band, loads and tickets every chunk
+in the original exclusion cube, waits for real entity visibility/ticking, and
+checks the unchanged liquid/entity/seed gates before creating the event rift.
+The same initial detached sample92173, exact native placement/boost/health,
+integer10pollution and zero stability cost remain required. Outcome and removal
+now have separate assertions. This changes fixture preparation only; original
+probability, protection and payment code remain untouched, pending fresh QA.
+
 ## Fibre spread and conversion
 
 Config defaults: spreadRate100f (allowed0..500), spreadArea32 (8..256).

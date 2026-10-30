@@ -173,7 +173,7 @@ public final class RemainingFocusEffectsGameTests {
         target.addEffect(new MobEffectInstance(MobEffects.WITHER,7,0)); sap.entityInside(sap.defaultBlockState(),level,pos(h),target); CurseSapQueue.process(level);
         h.assertTrue(target.getEffect(MobEffects.WITHER).getDuration()==7 && !target.hasEffect(MobEffects.HUNGER),"Existing Wither did not suppress contact runnable");
         for(var id:List.of("eldritch_crab","eldritch_guardian","eldritch_golem","eldritch_warden","inhabited_zombie","mind_spider","taintacle_giant")) {
-            var eldritch=VisualEntitiesModule.LIVING.get(id).get().create(level); sap.entityInside(sap.defaultBlockState(),level,pos(h),eldritch); CurseSapQueue.process(level);
+            var eldritch=(net.minecraft.world.entity.LivingEntity)net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getValue(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thaumcraft",id)).create(level); sap.entityInside(sap.defaultBlockState(),level,pos(h),eldritch); CurseSapQueue.process(level);
             h.assertTrue(!eldritch.hasEffect(MobEffects.WITHER),"Original IEldritchMob sap exemption missing: " + id);
         } h.succeed();
     }

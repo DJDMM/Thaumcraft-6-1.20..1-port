@@ -34,7 +34,11 @@ public final class ResearchProgression {
             "REDSTONERELAY", "ARCANEEAR", "BASICTURRET", "ADVANCEDTURRET", "ARCANEBORE",
             "ARCANELAMP", "MIRROR", "MIRRORHAND", "MIRRORESSENTIA", "INFERNALFURNACE", "BELLOWS", "FLUXCLEANUP",
             "LAMPGROWTH", "LAMPFERTILITY", "DIOPTRA", "ARCANEPATTERNCRAFTER", "VISGENERATOR", "GRAPPLEGUN",
-            "FOCUSPOUCH", "VISAMULET", "INFUSIONENCHANTMENT", "RUNICSHIELDING", "FORTRESSMASK");
+            "FOCUSPOUCH", "VISAMULET", "INFUSIONENCHANTMENT", "RUNICSHIELDING", "FORTRESSMASK",
+            "WARP", "CrimsonRites", "PLANTS", "BATHSALTS", "SANESOAP", "IMPROVEDSMELTING", "IMPROVEDSMELTING2", "!Wisp", "!TaintSeed",
+            "UNLOCKELDRITCH", "BASEELDRITCH", "MATSTUDVOID", "VOIDSIPHON", "ESSENTIASMELTERVOID", "VOIDROBEARMOR", "PRIMALCRUSHER", "VOIDSEERPEARL",
+            "!ThaumSlime", "!CrimsonCultist", "!EldritchGuardian", "!TaintCrawler", "!Taintacle", "!TaintSwarm",
+            "CLOUDRING", "CURIOSITYBAND", "VERDANTCHARMS", "CHARMUNDYING", "!Pech", "!BrainyZombie", "WORKBENCHCHARGER", "PAVINGSTONES", "METALPURIFICATION", "LIQUIDDEATH", "BOTTLETAINT", "INFUSIONANCIENT", "INFUSIONELDRITCH", "ARCANESPA", "EVERFULLURN", "POTIONSPRAYER", "!EldritchCrab");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
@@ -56,10 +60,14 @@ public final class ResearchProgression {
         return supportsProgression(key) && entry != null && stage(knowledge, key) == 0 && parentsMet(knowledge, entry);
     }
     private static boolean parentsMet(PlayerKnowledge knowledge, ResearchEntry entry) {
+        // The original Warp entry is acquired by the Warp event. CrimsonRites
+        // also has an ordinary parent-gated stage consuming a physical book.
+        if (entry.key().equals("WARP")) return false;
         // ConfigResearch's canonical hidden pearl/firebat/ore entries are acquired by scans, not
         // by submitting an arbitrary empty-root book request. The scanner records
         // the original discovery marker before progressing its one empty stage.
-        if (Set.of("PRIMPEARL","!Firebat","ORE","FLUX").contains(entry.key()) && !knowledge.isResearchKnown(entry.key())) return false;
+        if ((Set.of("PRIMPEARL","!Firebat","ORE","FLUX").contains(entry.key())
+                || RemainingProgressionScans.isCanonicalScan(entry.key())) && !knowledge.isResearchKnown(entry.key())) return false;
         return entry.parents().stream().allMatch(raw -> knowledge.isResearchCompleteStrict(raw.startsWith("~") ? raw.substring(1) : raw));
     }
     public static boolean canAdvance(PlayerKnowledge knowledge, ResearchEntry entry) {
@@ -169,7 +177,7 @@ public final class ResearchProgression {
 
     private static Map<String, List<Requirements>> load() {
         Map<String, List<Requirements>> result = new HashMap<>();
-        for (String filename : List.of("basics", "alchemy", "auromancy", "artifice", "infusion", "golemancy", "scans")) {
+        for (String filename : List.of("basics", "alchemy", "auromancy", "artifice", "infusion", "golemancy", "eldritch", "scans")) {
             String path = "/data/thaumcraft/legacy_research/" + filename + ".json";
             try (var stream = ResearchProgression.class.getResourceAsStream(path)) {
                 if (stream == null) throw new IllegalStateException("Missing original research " + path);
@@ -229,7 +237,9 @@ public final class ResearchProgression {
         // ResearchManager.parseJsonOreList silently discards unregistered BETA26 IDs.
         // These obsolete names exist in the shipped JSON, but neither Item registry entry
         // exists in the pinned release. Do not turn them into invented modern craft proofs.
-        if (Set.of("thaumcraft:metal", "thaumcraft:leather").contains(parts[0])) return null;
+        // PAVINGSTONES ships the recipe name arcane_stone here, but ConfigBlocks
+        // registers only stone_arcane. The released parser drops this missing item too.
+        if (Set.of("thaumcraft:metal", "thaumcraft:leather", "thaumcraft:arcane_stone").contains(parts[0])) return null;
         return LegacyResearchItems.resolve(raw).toString();
     }
 

@@ -33,18 +33,24 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
         }
     }
     public record Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost,
-                        CompoundTag catalystNbt, AspectCost aspectCost) {
+                        CompoundTag catalystNbt, AspectCost aspectCost, net.minecraft.tags.TagKey<net.minecraft.world.item.Item> availabilityTag) {
         public Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost) {
-            this(id, research, catalyst, output, cost, null, null);
+            this(id, research, catalyst, output, cost, null, null, null);
         }
         public Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost, CompoundTag catalystNbt) {
-            this(id, research, catalyst, output, cost, catalystNbt, null);
+            this(id, research, catalyst, output, cost, catalystNbt, null, null);
+        }
+        public Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost, CompoundTag catalystNbt, AspectCost aspectCost) {
+            this(id, research, catalyst, output, cost, catalystNbt, aspectCost, null);
         }
         public Entry { catalystNbt = catalystNbt == null ? null : catalystNbt.copy(); }
         @Override public AspectList cost() { return aspectCost == null ? cost.copy() : aspectCost.resolve(); }
         @Override public CompoundTag catalystNbt() { return catalystNbt == null ? null : catalystNbt.copy(); }
         /** IngredientNBTTC checks complete top-level entries; extra unrelated root tags are allowed. */
         public boolean matchesCatalyst(ItemStack stack) {
+            // Original optional-metal registration depends on the ingot ore dictionary;
+            // evaluate the modern tag after reload binding, not during listener ordering.
+            if (availabilityTag != null && net.minecraftforge.registries.ForgeRegistries.ITEMS.tags().getTag(availabilityTag).isEmpty()) return false;
             if (stack == null || stack.isEmpty() || !catalyst.test(stack)) return false;
             if (catalystNbt == null || catalystNbt.isEmpty()) return true;
             CompoundTag actual = stack.getTag();
@@ -54,7 +60,9 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
             return true;
         }
         public boolean matches(ItemStack stack, AspectList available, ServerPlayer player) {
-            if (!matchesCatalyst(stack) || player == null || !KnowledgeStore.get(player).knowsResearch(research)) return false;
+            if (!matchesCatalyst(stack) || player == null) return false;
+            var knowledge=KnowledgeStore.get(player);
+            if (!research.isEmpty() && !knowledge.isResearchKnown(research) && !knowledge.knowsResearch(research)) return false;
             return hasAspects(available);
         }
         public boolean hasAspects(AspectList available) {
@@ -99,7 +107,8 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
                     throw new JsonParseException("Invalid dynamic aspect cost: " + entry.getKey());
                 aspectCost = new AspectCost(source, subtract);
             }
-            updated.add(new Entry(entry.getKey(), GsonHelper.getAsString(data, "research"), Ingredient.fromJson(data.get("catalyst")), output, cost, catalystNbt, aspectCost));
+            var available = data.has("requires_tag") ? net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, ResourceLocation.parse(GsonHelper.getAsString(data,"requires_tag"))) : null;
+            updated.add(new Entry(entry.getKey(), GsonHelper.getAsString(data, "research"), Ingredient.fromJson(data.get("catalyst")), output, cost, catalystNbt, aspectCost, available));
         });
         entries = List.copyOf(updated);
     }

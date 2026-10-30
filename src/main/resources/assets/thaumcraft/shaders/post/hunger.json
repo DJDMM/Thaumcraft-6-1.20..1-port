@@ -1,0 +1,33 @@
+{
+  "targets": [
+    "swap"
+  ],
+  "passes": [
+    {
+      "name": "thaumcraft:color_convolve2",
+      "intarget": "minecraft:main",
+      "outtarget": "swap",
+      "uniforms": [
+        {
+          "name": "ColorScale",
+          "values": [
+            1.0,
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "name": "Saturation",
+          "values": [
+            1.1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thaumcraft:warp_copy",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

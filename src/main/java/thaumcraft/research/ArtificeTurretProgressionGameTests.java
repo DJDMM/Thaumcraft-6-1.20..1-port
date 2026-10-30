@@ -39,7 +39,7 @@ public final class ArtificeTurretProgressionGameTests {
         var p=player(h);var k=KnowledgeStore.get(p);
         String[][] parents={{"REDSTONERELAY","BASEARTIFICE"},{"ARCANEEAR","REDSTONERELAY"},
                 {"BASICTURRET","MINDCLOCKWORK","ARCANEEAR"},{"ADVANCEDTURRET","MINDBIOTHAUMIC","BASICTURRET"}};
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108,"Expected current108 canonical entries");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==148,"Expected current148 canonical entries");
         for(String[] pair:parents) {
             h.assertTrue(ResearchCatalog.get(pair[0]).parents().equals(List.of(pair).subList(1,pair.length)),"Original turret-chain parents changed");
             result(h,p,pair[0],0,ResearchProgression.Result.LOCKED);
@@ -47,7 +47,7 @@ public final class ArtificeTurretProgressionGameTests {
         result(h,p,"ARCANEBORE",0,ResearchProgression.Result.LOCKED);
         h.assertTrue(k.researchStage("ARCANEBORE")==0,"Unpaid bore parents opened the device");
         for(String key:List.of("BASEELDRITCH")) {
-            result(h,p,key,0,ResearchProgression.Result.UNSUPPORTED);
+            result(h,p,key,0,ResearchProgression.Result.LOCKED);
             h.assertTrue(k.researchStage(key)==0,"Turret research exposed an unrelated late branch");
         }
         result(h,p,"INFERNALFURNACE",0,ResearchProgression.Result.LOCKED);

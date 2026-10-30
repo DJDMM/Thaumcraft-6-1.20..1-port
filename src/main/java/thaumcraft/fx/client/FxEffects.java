@@ -66,6 +66,7 @@ public final class FxEffects {
             }
             case "arcBolt" -> thaumcraft.auromancy.client.FocusBoltClient.receive(new thaumcraft.auromancy.FocusBoltNetwork.Zap(p.dimension(),origin,vector,p.color(),p.scale()));
             case "shield","pedestalShield" -> shield(level,p);
+            case "eldritchSonic" -> thaumcraft.world.warp.client.WarpSonic.receive(p);
             case "golemFlyer" -> {
                 tag=spec(56,1,20+random.nextInt(5),0);tag.putInt("grid",16);keys(tag,"alpha",.3F,0);keys(tag,"scale",1.5F,3,8);tag.putDouble("slowdown",1);tag.putDouble("wind",.001);tag.putFloat("rotationStart",random.nextFloat());tag.putFloat("rotationSpeed",random.nextBoolean()?-1:1);add(level,origin,vector,tag,0);
             }

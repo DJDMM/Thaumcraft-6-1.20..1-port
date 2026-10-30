@@ -163,8 +163,8 @@ public final class EssentiaProgressionGameTests {
         result(helper, ResearchProgression.advance(player, "BELLOWS", 0), ResearchProgression.Result.LOCKED);
         helper.assertTrue(!state.isResearchCompleteStrict("BELLOWS"), "Unpaid furnace parent granted bellows");
         for (String key : new String[]{"ESSENTIASMELTERVOID", "IMPROVEDSMELTING", "IMPROVEDSMELTING2", "INFUSIONANCIENT", "BASEELDRITCH"}) {
-            result(helper, ResearchProgression.advance(player, key, 0), ResearchProgression.Result.UNSUPPORTED);
-            helper.assertTrue(!state.isResearchCompleteStrict(key), "Unported parent was marked complete: " + key);
+            result(helper, ResearchProgression.advance(player, key, 0), ResearchProgression.Result.LOCKED);
+            helper.assertTrue(!state.isResearchCompleteStrict(key), "Unpaid late parent was marked complete: " + key);
         }
         helper.succeed();
     }

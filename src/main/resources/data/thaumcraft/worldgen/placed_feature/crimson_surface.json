@@ -1,0 +1,8 @@
+{
+  "feature": "thaumcraft:crimson_surface",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

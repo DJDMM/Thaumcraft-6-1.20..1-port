@@ -57,6 +57,8 @@ public final class CatalogModule {
 
     /** Kept in one place so armor and special render adapters can be added independently. */
     private static Item createItem(Spec spec) {
+        Item nativeMobItem=thaumcraft.world.mobs.MobsModule.createItem(spec);
+        if(nativeMobItem!=null)return nativeMobItem;
         Item accessory=thaumcraft.equipment.accessories.AccessoriesModule.create(spec);
         if(accessory!=null)return accessory;
         if(spec.id().equals("grapple_gun"))return new thaumcraft.artifice.grapple.GrappleGunItem();
@@ -65,6 +67,7 @@ public final class CatalogModule {
         Item turret=thaumcraft.artifice.construct.TurretModule.createItem(spec);
         if(turret!=null) return turret;
         if (spec.id().equals("causality_collapser")) return new thaumcraft.world.rift.collapser.CausalityCollapserItem();
+        if (spec.id().equals("bottle_taint")) return new thaumcraft.world.taint.BottleTaintItem(new Item.Properties());
         if (spec.id().equals("golem")) return new thaumcraft.golemancy.entity.GolemPlacerItem(spec);
         if (spec.id().equals("golem_bell")) return new thaumcraft.golemancy.entity.GolemBellItem(spec);
         if (spec.legacyItem().equals("seal")) return new thaumcraft.golemancy.seals.core.ItemSealPlacer(spec);

@@ -1,0 +1,14 @@
+{
+  "research": "EVERFULLURN",
+  "catalyst": {
+    "item": "minecraft:flower_pot"
+  },
+  "result": {
+    "item": "thaumcraft:everfull_urn"
+  },
+  "aspects": {
+    "aqua": 30,
+    "fabrico": 10,
+    "terra": 10
+  }
+}

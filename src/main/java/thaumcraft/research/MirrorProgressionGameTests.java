@@ -58,7 +58,7 @@ public final class MirrorProgressionGameTests {
 
     @GameTest(template = "empty")
     public static void mirrorChainKeepsEveryOriginalStrictParentAndNinetySixCanonicalEntries(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 108,
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() ==148,
                 "Preserved101 plus Vis Generator changed");
         Map<String,List<String>> parents = Map.of("ARCANELAMP", List.of("BASEARTIFICE"), "MIRROR", List.of("ARCANELAMP","INFUSION"),
                 "MIRRORHAND", List.of("MIRROR"), "MIRRORESSENTIA", List.of("MIRROR"));
@@ -77,7 +77,7 @@ public final class MirrorProgressionGameTests {
             }
         }
         for (String key : List.of("BASEELDRITCH")) {
-            var p = player(h); result(h,p,key,0,ResearchProgression.Result.UNSUPPORTED);
+            var p = player(h); result(h,p,key,0,ResearchProgression.Result.LOCKED);
         }
         h.succeed();
     }

@@ -267,7 +267,7 @@ public final class AuromancyProgressionGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void canonicalChainOpensExactlyFortyFourOfFiftySixRegisteredInfusions(GameTestHelper helper) {
+    public static void canonicalChainOpensAllFiftySixRegisteredInfusions(GameTestHelper helper) {
         var state = KnowledgeStore.get(player(helper));
         for (ResearchEntry entry : ResearchCatalog.entries()) if (ResearchProgression.isImplemented(entry.key())) complete(state, entry.key());
         var recipes = helper.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get());
@@ -282,10 +282,13 @@ public final class AuromancyProgressionGameTests {
                 "infusion/ieburrowing", "infusion/iecollector", "infusion/iedestructive", "infusion/ierefining",
                 "infusion/iesounding", "infusion/iearcing", "infusion/ieessence", "infusion/ielamplight",
                 "infusion/runicarmor", "infusion/helmgoggles", "infusion/maskgrinningdevil",
-                "infusion/maskangryghost", "infusion/masksippingfiend")),
+                "infusion/maskangryghost", "infusion/masksippingfiend",
+                "infusion/voidsiphon", "infusion/voidrobehelm", "infusion/voidrobechest", "infusion/voidrobelegs",
+                "infusion/primalcrusher", "infusion/cloudring", "infusion/curiosityband", "infusion/voidseerpearl",
+                "infusion/verdantheart", "infusion/verdantheartlife", "infusion/verdantheartsustain", "infusion/charmundying")),
                 "Current original infusion registry scope differs: " + open);
         for (String key : new String[]{"INFUSIONANCIENT", "INFUSIONELDRITCH"})
-            helper.assertTrue(!ResearchProgression.isImplemented(key), "Incomplete branch was silently advertised: " + key);
+            helper.assertTrue(ResearchProgression.isImplemented(key)&&ResearchCatalog.get(key).stages().size()==2, "Original late altar progression was omitted: " + key);
         helper.succeed();
     }
 

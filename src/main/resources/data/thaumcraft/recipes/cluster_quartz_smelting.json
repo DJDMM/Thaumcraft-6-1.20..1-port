@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "thaumcraft:cluster_quartz"
+  },
+  "result": {
+    "item": "minecraft:quartz",
+    "count": 2
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}

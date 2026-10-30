@@ -34,6 +34,9 @@ public final class VisualEntityRenderers {
         VisualEntitiesModule.EFFECTS.forEach((id,type) -> event.registerEntityRenderer(type.get(),context ->
                 id.equals("falling_taint") ? new FallingTaintRenderer(context) : new SpriteRenderer<VisualEffectEntity>(context)));
         event.registerEntityRenderer(VisualEntitiesModule.GRAPPLE.get(),thaumcraft.artifice.grapple.client.GrappleRenderer::new);
+        event.registerEntityRenderer(thaumcraft.world.eldritch.EldritchModule.SPECIAL_ITEM.get(),ItemEntityRenderer::new);
+        event.registerEntityRenderer(thaumcraft.world.warp.WarpModule.ELDRITCH_ORB.get(),SpriteRenderer<thaumcraft.world.warp.EldritchOrbEntity>::new);
+        event.registerEntityRenderer(thaumcraft.world.taint.TaintEcologyModule.BOTTLE_TAINT.get(),context->new ThrownItemRenderer<>(context));
         event.registerEntityRenderer(VisualEntitiesModule.FOCUS_PROJECTILE.get(),FocusProjectileRenderer::new);
         event.registerEntityRenderer(VisualEntitiesModule.GOLEM.get(),thaumcraft.golemancy.client.ThaumcraftGolemRenderer::new);
         event.registerEntityRenderer(VisualEntitiesModule.GOLEM_DART.get(),thaumcraft.golemancy.client.GolemProjectileRenderers.Dart::new);
@@ -96,9 +99,14 @@ public final class VisualEntityRenderers {
             });
         }
         @Override protected RenderType getRenderType(VisualMobEntity entity,boolean bodyVisible,boolean translucent,boolean glowing) {
-            if(entity.spec().model().equals("EldritchGuardian")&&bodyVisible)
+            if((entity.spec().model().equals("EldritchGuardian")||entity.spec().model().equals("EldritchGolem"))&&bodyVisible)
                 return WorldVisualRenderTypes.guardian(getTextureLocation(entity));
             return super.getRenderType(entity,bodyVisible,translucent,glowing);
+        }
+        @Override protected void setupRotations(VisualMobEntity entity,PoseStack pose,float age,float yaw,float partial) {
+            if(entity instanceof thaumcraft.world.mobs.FirebatEntity bat)
+                pose.translate(0,bat.hanging()?-.1:net.minecraft.util.Mth.cos(age*.3F)*.1F,0);
+            super.setupRotations(entity,pose,age,yaw,partial);
         }
         private static void held(VisualMobEntity entity,net.minecraft.world.item.ItemStack stack,boolean left,LegacyPechModel pech,
                                  PoseStack pose,MultiBufferSource buffers,int light) {
@@ -119,6 +127,12 @@ public final class VisualEntityRenderers {
             return texture(entity.spec().texture());
         }
         @Override protected void scale(VisualMobEntity entity,PoseStack pose,float partial) {
+            if(entity instanceof thaumcraft.world.taint.ThaumicSlimeEntity slime) {
+                float size=slime.slimeSize(),squish=net.minecraft.util.Mth.lerp(partial,slime.oSquish,slime.squish)/(size*.5F+1);
+                float inverse=1/(squish+1);shadowRadius=.25F*size;
+                pose.scale(.999F,.999F,.999F);pose.translate(0,.001,0);pose.scale(inverse*size,size/inverse,inverse*size);return;
+            }
+            shadowRadius=.35F;
             if(entity.spec().id().equals("eldritch_warden"))
                 // LivingEntityRenderer has already inverted model Y here. The
                 // released negative world-Y emergence offset is positive locally.
@@ -168,9 +182,10 @@ public final class VisualEntityRenderers {
     }
     private static final class SpriteRenderer<T extends Entity> extends EntityRenderer<T> {
         SpriteRenderer(EntityRendererProvider.Context context) { super(context); }
-        @Override public ResourceLocation getTextureLocation(T entity) { var spec=entity instanceof VisualMobEntity m?m.spec():((VisualEffectEntity)entity).spec();return texture(spec.texture().isEmpty()?"textures/misc/particles.png":spec.texture()); }
+        private VisualEntitySpec spec(T entity) {return VisualEntitySpec.byId(net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(entity.getType()).getPath());}
+        @Override public ResourceLocation getTextureLocation(T entity) { var spec=spec(entity);return texture(spec.texture().isEmpty()?"textures/misc/particles.png":spec.texture()); }
         @Override public void render(T entity,float yaw,float partial,PoseStack pose,MultiBufferSource buffers,int light) {
-            var spec=entity instanceof VisualMobEntity m?m.spec():((VisualEffectEntity)entity).spec();String model=spec.model();
+            var spec=spec(entity);String model=spec.model();
             if(model.equals("none") || model.equals("cloud")) return; // Original renderers have no geometry; spell particles belong to mechanics.
             if(model.equals("wisp")&&entity instanceof net.minecraft.world.entity.LivingEntity living&&living.getHealth()<=0)return;
             if(model.equals("portal")&&spec.id().endsWith("lesser")&&entity instanceof VisualMobEntity mob&&!mob.portalActive())return;
@@ -197,7 +212,7 @@ public final class VisualEntityRenderers {
                 if(model.equals("eldritch_orb"))CatalogEffectGeometry.eldritchOrbRays(pose,buffers,entity.tickCount+partial);
                 pose.translate(0,model.equals("portal")?entity.getBbHeight()/2:0,0);
                 pose.mulPose(entityRenderDispatcher.cameraOrientation());pose.mulPose(Axis.YP.rotationDegrees(180));
-                int color=entity instanceof VisualMobEntity m?m.color():((VisualEffectEntity)entity).color();
+                int color=entity instanceof VisualMobEntity m?m.color():entity instanceof VisualEffectEntity effect?effect.color():0xFFFFFF;
                 if(model.equals("wisp")) {
                     glowFrame(pose,buffers,"textures/misc/particles.png",64,512+entity.tickCount%16,.4f,0xFFFFFF,1);
                     glowFrame(pose,buffers,"textures/misc/particles.png",64,320+entity.tickCount%16,.75f,0xFFFFFF,.25f);

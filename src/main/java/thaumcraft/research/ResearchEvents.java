@@ -35,11 +35,14 @@ public final class ResearchEvents {
     }
 
     private static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && event.player instanceof ServerPlayer player
-                && player.tickCount > 0 && player.tickCount % 2000 == 0) decayTemporaryWarp(player);
+        if (event.phase == TickEvent.Phase.END && event.player instanceof ServerPlayer player) {
+            if (player.tickCount > 0 && player.tickCount % 2000 == 0)
+                thaumcraft.world.warp.WarpEvents.checkWarpEvent(player);
+            if (player.tickCount % 20 == 0) thaumcraft.world.warp.WarpEvents.checkDeathGaze(player);
+        }
     }
 
-    /** Scheduled temporary decay shares the original Ward guard; random warp events still require porting. */
+    /** Explicit temporary decay retains the original Ward guard. */
     public static boolean decayTemporaryWarp(ServerPlayer player) {
         if (thaumcraft.equipment.cleansing.CleansingSupport.isProtected(player)) return false;
         return KnowledgeStore.addTemporaryWarp(player, -1);

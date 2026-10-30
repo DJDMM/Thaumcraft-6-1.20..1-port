@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:voidseer_charm",
+    "thaumcraft:verdant_charm",
+    "thaumcraft:charm_undying"
+  ]
+}

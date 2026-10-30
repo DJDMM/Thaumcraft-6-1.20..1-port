@@ -42,7 +42,10 @@ public final class RemainingFocusEffects {
             default -> false;
         };
     }
-    private static boolean curse(ServerLevel level, ServerPlayer caster, FocusGraph.Node node, HitResult target, float finalPower) {
+    public static boolean curse(ServerLevel level, LivingEntity caster, FocusGraph.Node node, HitResult target, float finalPower) {
+        if (level==null || caster==null || caster.level()!=level || !caster.isAlive() || caster.isSpectator()
+                || !level.getServer().isSameThread() || node==null || target==null || !finite(target.getLocation())
+                || !Float.isFinite(finalPower) || finalPower<=0 || finalPower>16) return false;
         int power = node.settings().getOrDefault("power", 1), duration = node.settings().getOrDefault("duration", 1);
         if (power < 1 || power > 5 || duration < 1 || duration > 10 || node.settings().keySet().stream()
                 .anyMatch(key -> !key.equals("power") && !key.equals("duration"))) return false;
@@ -77,11 +80,11 @@ public final class RemainingFocusEffects {
             for (BlockPos mutable : BlockPos.betweenClosed(min, max)) {
                 if (Vec3.atCenterOf(mutable).distanceToSqr(hit.getLocation()) > radius * radius || !RiftPassage.loaded(level, mutable)) continue;
                 var below = level.getBlockState(mutable); var above = mutable.above();
-                if (!below.isCollisionShapeFullBlock(level, mutable) || !RiftPassage.mayChange(level, caster, above)
+                if (!below.isCollisionShapeFullBlock(level, mutable) || !mayApplySap(level, caster, above)
                         || !level.getBlockState(above).isAir()) continue;
                 BlockPos pos = above.immutable(); var previous = level.getBlockState(pos);
                 var snapshot = BlockSnapshot.create(level.dimension(), level, pos);
-                if (ForgeEventFactory.onBlockPlace(caster, snapshot, Direction.UP) || !RiftPassage.mayChange(level, caster, pos)
+                if (ForgeEventFactory.onBlockPlace(caster, snapshot, Direction.UP) || !mayApplySap(level, caster, pos)
                         || level.getBlockState(pos) != previous || level.getBlockState(mutable) != below) continue;
                 level.setBlock(pos, sap, 3);
             }
@@ -121,8 +124,8 @@ public final class RemainingFocusEffects {
         RiftPassage.create(level, caster, hit.getBlockPos(), hit.getDirection(), (byte)(distance + 1), 20 * duration);
         return true;
     }
-    public static void playCastSound(ServerLevel level, ServerPlayer caster, String key) {
-        if (level == null || caster == null || !level.getServer().isSameThread() || caster.serverLevel() != level) return;
+    public static void playCastSound(ServerLevel level, LivingEntity caster, String key) {
+        if (level == null || caster == null || !level.getServer().isSameThread() || caster.level() != level) return;
         if (key.equals(FocusNodeRegistry.CURSE)) level.playSound(null, caster.blockPosition().above(), SoundEvents.ELDER_GUARDIAN_CURSE,
                 SoundSource.PLAYERS, .15F, 1F + level.random.nextFloat() / 2F);
         else if (key.equals(FocusNodeRegistry.EXCHANGE)) level.playSound(null, caster.blockPosition().above(), SoundEvents.ENCHANTMENT_TABLE_USE,
@@ -134,4 +137,11 @@ public final class RemainingFocusEffects {
         thaumcraft.fx.emitters.FocusFxPrograms.impact(level,pos,FocusNodeRegistry.CURSE);
     }
     private static boolean finite(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
+    private static boolean mayApplySap(ServerLevel level,LivingEntity caster,BlockPos pos) {
+        if(caster.level()!=level||!caster.isAlive()||caster.isRemoved())return false;
+        if(caster instanceof ServerPlayer player)return RiftPassage.mayChange(level,player,pos);
+        return caster instanceof net.minecraft.world.entity.Mob mob && RiftPassage.loaded(level,pos)
+                && !level.captureBlockSnapshots && !level.restoringBlockSnapshots
+                && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(level,mob);
+    }
 }

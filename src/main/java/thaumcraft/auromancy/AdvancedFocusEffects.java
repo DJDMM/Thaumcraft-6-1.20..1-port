@@ -26,8 +26,11 @@ public final class AdvancedFocusEffects {
         return apply(level,caster,node,target,direction,1F);
     }
     public static boolean apply(ServerLevel level,ServerPlayer caster,FocusGraph.Node node,HitResult target,Vec3 direction,float finalPower){
+        return applyLiving(level,caster,node,target,direction,finalPower);
+    }
+    public static boolean applyLiving(ServerLevel level,LivingEntity caster,FocusGraph.Node node,HitResult target,Vec3 direction,float finalPower){
         if (!Float.isFinite(finalPower)||finalPower<=0||finalPower>16||level == null || caster == null || node == null || target == null || !level.getServer().isSameThread()
-                || caster.serverLevel() != level || !caster.isAlive() || caster.isSpectator()
+                || caster.level() != level || !caster.isAlive() || caster.isSpectator()
                 || target.getType() == HitResult.Type.MISS || !finite(target.getLocation())
                 || direction != null && !finite(direction)
                 || !FocusEffects.loaded(level, BlockPos.containing(target.getLocation()))) return false;
@@ -59,7 +62,7 @@ public final class AdvancedFocusEffects {
         return false;
     }
 
-    private static DamageSource magic(ServerLevel level, Entity immediate, ServerPlayer caster) {
+    private static DamageSource magic(ServerLevel level, Entity immediate, LivingEntity caster) {
         return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
                 .getHolderOrThrow(DamageTypes.INDIRECT_MAGIC), immediate, caster);
     }
@@ -72,8 +75,8 @@ public final class AdvancedFocusEffects {
         thaumcraft.fx.emitters.FocusFxPrograms.impact(level,point,key);
     }
 
-    public static void playCastSound(ServerLevel level, ServerPlayer caster, String key) {
-        if (level == null || caster == null || !level.getServer().isSameThread() || caster.serverLevel() != level
+    public static void playCastSound(ServerLevel level, LivingEntity caster, String key) {
+        if (level == null || caster == null || !level.getServer().isSameThread() || caster.level() != level
                 || !caster.isAlive() || caster.isSpectator() || !FLUX.equals(key) && !HEAL.equals(key)) return;
         level.playSound(null, caster.blockPosition().above(), SoundEvents.CHORUS_FLOWER_GROW, SoundSource.PLAYERS,
                 2F, 2F + (float)(level.random.nextGaussian() * .10000000149011612));

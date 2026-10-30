@@ -113,7 +113,7 @@ public final class FluxRiftProgressionGameTests {
             complete(k,omitted); result(h,ResearchNetwork.processAdvance(p,"RIFTCLOSER",0),ResearchProgression.Result.STARTED);
             h.assertTrue(k.researchStage("RIFTCLOSER")==1 && p.totalExperience==5,"Closer start skipped paid research requirements");
             for(String late:List.of("UNLOCKELDRITCH","BASEELDRITCH","MATSTUDVOID","VOIDSIPHON"))
-                h.assertTrue(!ResearchProgression.supportsProgression(late) && k.researchStage(late)==0,"Rift branch fabricated later Eldritch gate "+late);
+                h.assertTrue(ResearchProgression.supportsProgression(late) && k.researchStage(late)==0,"Rift branch fabricated later Eldritch gate "+late);
         } h.succeed();
     }
 

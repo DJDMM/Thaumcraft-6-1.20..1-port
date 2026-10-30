@@ -49,8 +49,9 @@ public final class ArcaneWorkbenchBlockEntity extends BlockEntity implements Con
     public boolean canCraft(ServerPlayer player, ArcaneRecipe recipe) {
         return level instanceof ServerLevel server && !player.isSpectator() && stillValid(player) && recipe != null
                 && recipe.unlocked(player) && recipe.matches(this, server) && recipe.hasCrystals(this)
-                && AuraManager.getVis(server, worldPosition) >= visCost(player,recipe);
+                && availableVis() >= visCost(player,recipe);
     }
+    public int availableVis(){return level instanceof ServerLevel server?thaumcraft.artifice.late.WorkbenchChargerSupport.available(server,worldPosition):0;}
 
     /** Official BETA26 bytecode multiplies first, then truncates; the decompiled cast is misleading. */
     public static int visCost(Player player,ArcaneRecipe recipe) {
@@ -67,7 +68,7 @@ public final class ArcaneWorkbenchBlockEntity extends BlockEntity implements Con
         // The aura and inventory are accessed synchronously on the server thread, so another
         // open menu cannot change either between this check and the commit.
         int cost=visCost(player,recipe);
-        float drained = AuraManager.drainVis(server, worldPosition, cost, false);
+        float drained = thaumcraft.artifice.late.WorkbenchChargerSupport.spend(server,worldPosition,cost);
         if (drained < cost) { AuraManager.addVis(server, worldPosition, drained); return ItemStack.EMPTY; }
         for (int slot = 0; slot < 9; slot++) {
             ItemStack input = items.get(slot);

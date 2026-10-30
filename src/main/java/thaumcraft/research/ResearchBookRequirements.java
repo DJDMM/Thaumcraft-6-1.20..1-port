@@ -27,7 +27,6 @@ public final class ResearchBookRequirements {
             Map.entry("minecraft:web","minecraft:cobweb"), Map.entry("minecraft:noteblock","minecraft:note_block"),
             Map.entry("minecraft:dye","minecraft:ink_sac"),
             Map.entry("minecraft:nether_brick","minecraft:nether_bricks"), Map.entry("minecraft:map","minecraft:filled_map"),
-            Map.entry("thaumcraft:arcane_stone","thaumcraft:stone_arcane"),
             Map.entry("thaumcraft:focus_1","thaumcraft:focus_1"), Map.entry("thaumcraft:focus_2","thaumcraft:focus_2"),
             Map.entry("thaumcraft:focus_3","thaumcraft:focus_3"));
     private ResearchBookRequirements() {}

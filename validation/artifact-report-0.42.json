@@ -1,0 +1,1345 @@
+{
+  "version": "0.42.0",
+  "date": "2026-10-30",
+  "acceptedSlice": true,
+  "scope": "TC6 BETA26 remaining canonical progression/runtime tranche; selected native verification with explicit fixtures and limits, not full survival or whole-mod equivalence.",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 148,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 56,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 1786,
+  "actualNativeClientCount": 5,
+  "actualNativeFrameCount": 87,
+  "sourceFingerprintCount": 4817,
+  "sourceProof": {
+    "file": "source-drift-042-final.json",
+    "bytes": 35941,
+    "sha256": "8a22b6d5d0af432701dbc4eee1e93ff0a71d716828cad7f4b9114d6e2518a8b2"
+  },
+  "sourceProofTiming": "Recorded before server completion; final serverRun below supplies the passed native result.",
+  "buildSnapshotTiming": {
+    "initialSnapshotRequestRejected": "Filename included a dot disallowed by helper; no snapshot written",
+    "actualSnapshotTiming": "After final build launch; before packaging",
+    "sourceFreezeMatchesAll4817ServerFiles": true,
+    "sourceEditsSinceServerFreeze": []
+  },
+  "sourceExceptions": {
+    "status": "final-source-freeze-proof-server-pending",
+    "observedUtc": "2026-10-30T01:27:43.617907+00:00",
+    "sourceFreezeSnapshot": {
+      "file": "completion-042-server4-sources.json",
+      "fileSha256": "c28cee7d31019418203a83bb779173eed5a3436702bd4213067530e3f7a9f34f",
+      "fingerprintCount": 4817,
+      "canonicalManifestSha256": "1644d2ab504f72fea6fb2e1c9db0defc8f4c203e00b3df8022464a4833bd6579",
+      "definition": "Every src/scripts file plus build.gradle; docs/validation/run/build/Git outputs excluded.",
+      "currentWorkingSourceEqualsSnapshotOnTwoReads": true
+    },
+    "serverStatus": "pending",
+    "serverRun": "completion-042-server4",
+    "serverNativePassClaimed": false,
+    "releaseAcceptance": false,
+    "packagedArtifactAcceptance": false,
+    "visualAcceptanceClaimedByThisSourceProof": false,
+    "serverExpectedCountFromKnownSourceDelta": {
+      "previousCompletedServer3Count": 1784,
+      "addedTestClass": "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java",
+      "addedGameTestMethods": [
+        "urnBrightnessClampsBlueInsteadOfWrappingToGreen",
+        "urnInRangeBrightnessKeepsOriginalByteValues"
+      ],
+      "addedCount": 2,
+      "computedExpectedTotal": 1786,
+      "executionResult": false
+    },
+    "comparisons": {
+      "Warp5": {
+        "clientRun": "warp-042-client5",
+        "clientSourceSnapshot": "warp-042-client5-sources.json",
+        "clientSourceSnapshotFileSha256": "8c210f00613cc036b02e36c07b85edbbb447f0b59b1add3ded6c6001b9b509b5",
+        "clientFingerprintCount": 4815,
+        "server4FingerprintCount": 4817,
+        "allFingerprintsExactlyMatch": false,
+        "selectedDriver": {
+          "path": "src/main/java/thaumcraft/world/warp/client/WarpClientSmokeTest.java",
+          "clientSha256": "8781b79cf3a4c386b758e018cf5b9f31a93e25ccbbdd1c059914f67ddbed0cec",
+          "server4Sha256": "8781b79cf3a4c386b758e018cf5b9f31a93e25ccbbdd1c059914f67ddbed0cec",
+          "exactlyMatches": true
+        },
+        "changedPathCount": 10,
+        "addedSinceClient": [
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java"
+        ],
+        "removedSinceClient": [],
+        "changedPaths": [
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "5a58c8b3555c8882f35388ec24ee68791e17e6f601e87067a969b40f0a0b7cca",
+            "classification": {
+              "kind": "production pure Urn color helper",
+              "runtimeScope": "No static side effects. Clamps source/255*brightness to0..1 then truncates to unsigned-byte RGB. Only production call is inside WaterStreams.render active Urn stream vertex emission. Accepted four profiles have no active EverfullUrn fixtures; helper is unselected in those scoped captures.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "ecdd4e3e669b5078fec741fafabed921db4419aedc93b17a33542b0ee2a4cfdb",
+            "classification": {
+              "kind": "server GameTest fixture",
+              "runtimeScope": "Two new GameTestHolder arithmetic regressions: blue clamp instead of unsigned-byte wrap; preserve in-range values. Not invoked by the four accepted smoke drivers.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/LateDevicesClientSmokeTest.java",
+            "acceptedClientSha256": "822e7e5fa6496718b1e0755150ea289b2033594cf2d0cbc2b3c307ac6100e72a",
+            "frozenServer4Sha256": "f5b8f24daf5334fba30891914bf9d9b9096974df2eb554e1977b9734c228df11",
+            "classification": {
+              "kind": "opt-in QA driver",
+              "selectedProperty": "thaumcraft.lateDevicesSmokeTest",
+              "runtimeScope": "Only enabled late-device owned-world fixture/camera/read-only readiness observers; all changed-driver event handlers return when that property is false. Accepted four JVM captures each enable only their own smoke property.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/WaterStreams.java",
+            "acceptedClientSha256": "0be5b5fba2cffe65c60574ee6a22ab6fa1aeea614bfae85c02fc0d822ad35145",
+            "frozenServer4Sha256": "8dd90136f5fd3e1066b2d9887abe6ad32ac10c1cb5b09a7a5dd08dcbd2f582af",
+            "classification": {
+              "kind": "production client Urn stream renderer",
+              "runtimeScope": "WaterStreams.add has one production call chain: EverfullUrnBlockEntity client visualTicks -> LateDeviceEffects.waterTrail -> WaterStreams.add. The renderer returns before vertex work when ACTIVE is empty. None of Warp5/Mobs4/LateAccessories5/Eldritch1 declared fixtures places/activates an Everfull Urn; this is unselected feature scope, not a universal guarantee for arbitrary worlds.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/equipment/accessories/CloudRingSupport.java",
+            "acceptedClientSha256": "8b40e1f5e0273a0cbcda274b761b0862eb938d40f879f98cf72b749d64c9bfaf",
+            "frozenServer4Sha256": "f73a6b48ceed46319dc79c89460e5c674600c7fe4341b4783483bf1805a73a5b",
+            "classification": {
+              "kind": "production common Cloud ring flight state",
+              "runtimeScope": "Shared weak Player map split into separate logical-side maps after native same-ID LocalPlayer/ServerPlayer alias proof. tryJump is reached from physically worn Cloud ring input/C2S; grounded still runs every PlayerTick.END but changes only internal empty/unselected flight state when no Cloud jump occurs.",
+              "Warp5Scope": "Warp5 uses new owned world and only raw held melon/color-depth/effect fixtures; it equips no Cloud ring and sends no Cloud jump request. Changed flight-state behavior was not selected in Warp5.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/equipment/accessories/client/LateAccessoriesClientSmokeTest.java",
+            "acceptedClientSha256": "f758c5357f451c15505a788e7d3e2334a3e110df8e4e0b3fffd33276eab1d9e0",
+            "frozenServer4Sha256": "470cbc95ee7d6e6b09ab821d1b1adcdf37ae33a3335596ff03e78e7c20b97cf0",
+            "classification": {
+              "kind": "opt-in QA driver",
+              "selectedProperty": "thaumcraft.lateAccessoriesSmokeTest",
+              "runtimeScope": "Curios/gear/native key and read-only capture audit, not enabled by Warp5. Selected LateAccessories5 driver fingerprint already matches current.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/research/LateDevicesGameTests.java",
+            "acceptedClientSha256": "7a4f403aea04dc56d4030081a6508047085e72bd9a04e0816e4d5db8bb05ed6e",
+            "frozenServer4Sha256": "51e8e89112c2b1c18bcb624c85f888e072886918af91ca633c9861b5e1274726",
+            "classification": {
+              "kind": "server GameTest fixture",
+              "runtimeScope": "GameTestHolder methods not invoked by any selected smoke driver; includes actual power-edge fixture correction, no production behavior.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/test/CatalogGameTests.java",
+            "acceptedClientSha256": "5aa63aa994cf644c80de1a6f795de360422922852415fa4774d9f5c41837e72e",
+            "frozenServer4Sha256": "35bd304f76d62e5b8d23b68ccf3e8012cf1f8e8071ee61fe8c4770471dcd12d5",
+            "classification": {
+              "kind": "server GameTest fixture",
+              "runtimeScope": "GameTestHolder catalogue native Slime dimension assertion now uses released randomized 2/4/8 size formula; not invoked by accepted clients and no runtime/RNG changes.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/world/eldritch/client/EldritchClientSmokeTest.java",
+            "acceptedClientSha256": "dd904045dd05147531cd8b1c95a475b2987d61bc6a0a36eb5a73a95a45496c12",
+            "frozenServer4Sha256": "7608a2786bae6eb3f92dbd0739d51e28d59442b095d67dc8a1c326a616a89e9c",
+            "classification": {
+              "kind": "opt-in QA driver",
+              "selectedProperty": "thaumcraft.eldritchSmokeTest",
+              "runtimeScope": "Eldritch fixture/camera/visibility audit, not enabled by Warp5. Selected Eldritch1 driver fingerprint already matches current.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/world/mobs/client/MobsClientSmokeTest.java",
+            "acceptedClientSha256": "1b2394b35af004610ca279f7571fe37c87490a3eeda81bc6553e9a7592f93f4d",
+            "frozenServer4Sha256": "7d6d397ac6c67dae211b7c9c2255613ad26fe2a1d729f3b8d5ed1c93a1402399",
+            "classification": {
+              "kind": "opt-in QA driver",
+              "selectedProperty": "thaumcraft.mobsSmokeTest",
+              "runtimeScope": "Mobs fixture/camera/visibility audit, not enabled by Warp5. Selected Mobs4 driver fingerprint already matches current.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          }
+        ],
+        "resourceDrift": [],
+        "buildOrLauncherDrift": [],
+        "capturedSmokeProperties": [
+          "-Dthaumcraft.warpSmokeTest=true"
+        ],
+        "captureFileSha256": "2af35464ad0ae7fc44dec001c053bb73b14c2d1b7b9cde06cb126df5f5e54718",
+        "nativeReceipt": {
+          "file": "warp-client-warp-042-client5-run.json",
+          "fileSha256": "5d3d15d4f8f54b593b70cafd474f9332a9a817f5e1de4f416fac9da6d4bcd361",
+          "jvmPid": 31964,
+          "jvmExitCode": 0,
+          "captureCount": 15,
+          "maxOwnedHiddenWindows": 16,
+          "inputDesktopBefore": "Default",
+          "inputDesktopAfter": "Default"
+        },
+        "existingVisualReviewRecords": [
+          {
+            "file": "warp-042-client5-independent-visual-review.json",
+            "fileSha256": "36ca48276a3aff1c552787a9f35aa8e1a52bd072ba8df01fa6d0c9fda9d393e6",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 15
+          },
+          {
+            "file": "warp-042-client5-root-visual-review.json",
+            "fileSha256": "d0cb12699d9ddbb0be06107de8b59c171e06797fed520d709da84e2e7d7edbf7",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 15
+          }
+        ],
+        "scopedSourceEvidenceRetentionSupported": true,
+        "sourceDecision": "Retain this selected client evidence under the listed exact SHA/path exceptions; changed production features and QA methods were inactive in this declared profile. Do not describe all4817 as identical."
+      },
+      "Mobs4": {
+        "clientRun": "mobs-042-client4",
+        "clientSourceSnapshot": "mobs-042-client4-sources.json",
+        "clientSourceSnapshotFileSha256": "ec3a9850f989f0f68b301ee00569114ed2eb5255bca61b855ab4c4daff64108e",
+        "clientFingerprintCount": 4815,
+        "server4FingerprintCount": 4817,
+        "allFingerprintsExactlyMatch": false,
+        "selectedDriver": {
+          "path": "src/main/java/thaumcraft/world/mobs/client/MobsClientSmokeTest.java",
+          "clientSha256": "7d6d397ac6c67dae211b7c9c2255613ad26fe2a1d729f3b8d5ed1c93a1402399",
+          "server4Sha256": "7d6d397ac6c67dae211b7c9c2255613ad26fe2a1d729f3b8d5ed1c93a1402399",
+          "exactlyMatches": true
+        },
+        "changedPathCount": 4,
+        "addedSinceClient": [
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java"
+        ],
+        "removedSinceClient": [],
+        "changedPaths": [
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "5a58c8b3555c8882f35388ec24ee68791e17e6f601e87067a969b40f0a0b7cca",
+            "classification": {
+              "kind": "production pure Urn color helper",
+              "runtimeScope": "No static side effects. Clamps source/255*brightness to0..1 then truncates to unsigned-byte RGB. Only production call is inside WaterStreams.render active Urn stream vertex emission. Accepted four profiles have no active EverfullUrn fixtures; helper is unselected in those scoped captures.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "ecdd4e3e669b5078fec741fafabed921db4419aedc93b17a33542b0ee2a4cfdb",
+            "classification": {
+              "kind": "server GameTest fixture",
+              "runtimeScope": "Two new GameTestHolder arithmetic regressions: blue clamp instead of unsigned-byte wrap; preserve in-range values. Not invoked by the four accepted smoke drivers.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/LateDevicesClientSmokeTest.java",
+            "acceptedClientSha256": "3115d60065430973054d1f602ad5208bafd8b14088b7868184295b18284b9c8b",
+            "frozenServer4Sha256": "f5b8f24daf5334fba30891914bf9d9b9096974df2eb554e1977b9734c228df11",
+            "classification": {
+              "kind": "opt-in QA driver",
+              "selectedProperty": "thaumcraft.lateDevicesSmokeTest",
+              "runtimeScope": "Only enabled late-device owned-world fixture/camera/read-only readiness observers; all changed-driver event handlers return when that property is false. Accepted four JVM captures each enable only their own smoke property.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/WaterStreams.java",
+            "acceptedClientSha256": "0be5b5fba2cffe65c60574ee6a22ab6fa1aeea614bfae85c02fc0d822ad35145",
+            "frozenServer4Sha256": "8dd90136f5fd3e1066b2d9887abe6ad32ac10c1cb5b09a7a5dd08dcbd2f582af",
+            "classification": {
+              "kind": "production client Urn stream renderer",
+              "runtimeScope": "WaterStreams.add has one production call chain: EverfullUrnBlockEntity client visualTicks -> LateDeviceEffects.waterTrail -> WaterStreams.add. The renderer returns before vertex work when ACTIVE is empty. None of Warp5/Mobs4/LateAccessories5/Eldritch1 declared fixtures places/activates an Everfull Urn; this is unselected feature scope, not a universal guarantee for arbitrary worlds.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          }
+        ],
+        "resourceDrift": [],
+        "buildOrLauncherDrift": [],
+        "capturedSmokeProperties": [
+          "-Dthaumcraft.mobsSmokeTest=true"
+        ],
+        "captureFileSha256": "872ef417d1b70c57a2791a568b5a4c0b6249b0ffeb3a5c57230c847fb3e45d2d",
+        "nativeReceipt": {
+          "file": "mobs-client-mobs-042-client4-run.json",
+          "fileSha256": "278f0aaf0ec26ecbcdf285d7b0d43231ab7c17843dc84227501e601a36e98af7",
+          "jvmPid": 8788,
+          "jvmExitCode": 0,
+          "captureCount": 24,
+          "maxOwnedHiddenWindows": 16,
+          "inputDesktopBefore": "Default",
+          "inputDesktopAfter": "Default"
+        },
+        "existingVisualReviewRecords": [
+          {
+            "file": "mobs-042-client4-independent-visual-review.json",
+            "fileSha256": "e4476c2f53c80764a2d16a7fec5dc9c8bc3446edf79f14663e2553db0314c9c4",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 24
+          },
+          {
+            "file": "mobs-042-client4-root-visual-review.json",
+            "fileSha256": "84e9ba9079f529c80fb3acb1741e367de5e6c1be9b82c339f2aedd5a9b8efb32",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 24
+          }
+        ],
+        "scopedSourceEvidenceRetentionSupported": true,
+        "sourceDecision": "Retain this selected client evidence under the listed exact SHA/path exceptions; changed production features and QA methods were inactive in this declared profile. Do not describe all4817 as identical."
+      },
+      "LateAccessories5": {
+        "clientRun": "late-accessories-042-client5",
+        "clientSourceSnapshot": "late-accessories-042-client5-sources.json",
+        "clientSourceSnapshotFileSha256": "ec3a9850f989f0f68b301ee00569114ed2eb5255bca61b855ab4c4daff64108e",
+        "clientFingerprintCount": 4815,
+        "server4FingerprintCount": 4817,
+        "allFingerprintsExactlyMatch": false,
+        "selectedDriver": {
+          "path": "src/main/java/thaumcraft/equipment/accessories/client/LateAccessoriesClientSmokeTest.java",
+          "clientSha256": "470cbc95ee7d6e6b09ab821d1b1adcdf37ae33a3335596ff03e78e7c20b97cf0",
+          "server4Sha256": "470cbc95ee7d6e6b09ab821d1b1adcdf37ae33a3335596ff03e78e7c20b97cf0",
+          "exactlyMatches": true
+        },
+        "changedPathCount": 4,
+        "addedSinceClient": [
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java"
+        ],
+        "removedSinceClient": [],
+        "changedPaths": [
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "5a58c8b3555c8882f35388ec24ee68791e17e6f601e87067a969b40f0a0b7cca",
+            "classification": {
+              "kind": "production pure Urn color helper",
+              "runtimeScope": "No static side effects. Clamps source/255*brightness to0..1 then truncates to unsigned-byte RGB. Only production call is inside WaterStreams.render active Urn stream vertex emission. Accepted four profiles have no active EverfullUrn fixtures; helper is unselected in those scoped captures.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "ecdd4e3e669b5078fec741fafabed921db4419aedc93b17a33542b0ee2a4cfdb",
+            "classification": {
+              "kind": "server GameTest fixture",
+              "runtimeScope": "Two new GameTestHolder arithmetic regressions: blue clamp instead of unsigned-byte wrap; preserve in-range values. Not invoked by the four accepted smoke drivers.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/LateDevicesClientSmokeTest.java",
+            "acceptedClientSha256": "3115d60065430973054d1f602ad5208bafd8b14088b7868184295b18284b9c8b",
+            "frozenServer4Sha256": "f5b8f24daf5334fba30891914bf9d9b9096974df2eb554e1977b9734c228df11",
+            "classification": {
+              "kind": "opt-in QA driver",
+              "selectedProperty": "thaumcraft.lateDevicesSmokeTest",
+              "runtimeScope": "Only enabled late-device owned-world fixture/camera/read-only readiness observers; all changed-driver event handlers return when that property is false. Accepted four JVM captures each enable only their own smoke property.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/WaterStreams.java",
+            "acceptedClientSha256": "0be5b5fba2cffe65c60574ee6a22ab6fa1aeea614bfae85c02fc0d822ad35145",
+            "frozenServer4Sha256": "8dd90136f5fd3e1066b2d9887abe6ad32ac10c1cb5b09a7a5dd08dcbd2f582af",
+            "classification": {
+              "kind": "production client Urn stream renderer",
+              "runtimeScope": "WaterStreams.add has one production call chain: EverfullUrnBlockEntity client visualTicks -> LateDeviceEffects.waterTrail -> WaterStreams.add. The renderer returns before vertex work when ACTIVE is empty. None of Warp5/Mobs4/LateAccessories5/Eldritch1 declared fixtures places/activates an Everfull Urn; this is unselected feature scope, not a universal guarantee for arbitrary worlds.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          }
+        ],
+        "resourceDrift": [],
+        "buildOrLauncherDrift": [],
+        "capturedSmokeProperties": [
+          "-Dthaumcraft.lateAccessoriesSmokeTest=true"
+        ],
+        "captureFileSha256": "f97404485b2cc1193df834aa4a700a1a2c7d7b14407f55810cce0e2fb6315497",
+        "nativeReceipt": {
+          "file": "late-accessories-client-late-accessories-042-client5-run.json",
+          "fileSha256": "15ea8f6fc2c1f594fec998dded0b6eef6415ae265db59115f0878f77780845ee",
+          "jvmPid": 16292,
+          "jvmExitCode": 0,
+          "captureCount": 14,
+          "maxOwnedHiddenWindows": 16,
+          "inputDesktopBefore": "Default",
+          "inputDesktopAfter": "Default"
+        },
+        "existingVisualReviewRecords": [
+          {
+            "file": "late-accessories-042-client5-independent-visual-review.json",
+            "fileSha256": "d7098e26f0ac887292c25d0262e34db82d618da21f0a324f4db8946a4f875d27",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 14
+          },
+          {
+            "file": "late-accessories-042-client5-root-visual-review.json",
+            "fileSha256": "0b8a12af39d185137c7922ccb403c67f14d094abfe3828f1e62785019cd1f4d7",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 14
+          }
+        ],
+        "scopedSourceEvidenceRetentionSupported": true,
+        "sourceDecision": "Retain this selected client evidence under the listed exact SHA/path exceptions; changed production features and QA methods were inactive in this declared profile. Do not describe all4817 as identical."
+      },
+      "Eldritch1": {
+        "clientRun": "eldritch-042-client1",
+        "clientSourceSnapshot": "eldritch-042-client1-sources.json",
+        "clientSourceSnapshotFileSha256": "1e85f36ddda9e31ce794c6d1f9ad73962611ab7d5da444a641d24fc8281d917c",
+        "clientFingerprintCount": 4815,
+        "server4FingerprintCount": 4817,
+        "allFingerprintsExactlyMatch": false,
+        "selectedDriver": {
+          "path": "src/main/java/thaumcraft/world/eldritch/client/EldritchClientSmokeTest.java",
+          "clientSha256": "7608a2786bae6eb3f92dbd0739d51e28d59442b095d67dc8a1c326a616a89e9c",
+          "server4Sha256": "7608a2786bae6eb3f92dbd0739d51e28d59442b095d67dc8a1c326a616a89e9c",
+          "exactlyMatches": true
+        },
+        "changedPathCount": 4,
+        "addedSinceClient": [
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+          "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java"
+        ],
+        "removedSinceClient": [],
+        "changedPaths": [
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColor.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "5a58c8b3555c8882f35388ec24ee68791e17e6f601e87067a969b40f0a0b7cca",
+            "classification": {
+              "kind": "production pure Urn color helper",
+              "runtimeScope": "No static side effects. Clamps source/255*brightness to0..1 then truncates to unsigned-byte RGB. Only production call is inside WaterStreams.render active Urn stream vertex emission. Accepted four profiles have no active EverfullUrn fixtures; helper is unselected in those scoped captures.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/WaterStreamColorGameTests.java",
+            "acceptedClientSha256": null,
+            "frozenServer4Sha256": "ecdd4e3e669b5078fec741fafabed921db4419aedc93b17a33542b0ee2a4cfdb",
+            "classification": {
+              "kind": "server GameTest fixture",
+              "runtimeScope": "Two new GameTestHolder arithmetic regressions: blue clamp instead of unsigned-byte wrap; preserve in-range values. Not invoked by the four accepted smoke drivers.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/LateDevicesClientSmokeTest.java",
+            "acceptedClientSha256": "db6d4f048dd8c8bd8529dae69d32269c0b77aedba0871413c08711c248e7169f",
+            "frozenServer4Sha256": "f5b8f24daf5334fba30891914bf9d9b9096974df2eb554e1977b9734c228df11",
+            "classification": {
+              "kind": "opt-in QA driver",
+              "selectedProperty": "thaumcraft.lateDevicesSmokeTest",
+              "runtimeScope": "Only enabled late-device owned-world fixture/camera/read-only readiness observers; all changed-driver event handlers return when that property is false. Accepted four JVM captures each enable only their own smoke property.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false
+            }
+          },
+          {
+            "path": "src/main/java/thaumcraft/artifice/late/client/WaterStreams.java",
+            "acceptedClientSha256": "0be5b5fba2cffe65c60574ee6a22ab6fa1aeea614bfae85c02fc0d822ad35145",
+            "frozenServer4Sha256": "8dd90136f5fd3e1066b2d9887abe6ad32ac10c1cb5b09a7a5dd08dcbd2f582af",
+            "classification": {
+              "kind": "production client Urn stream renderer",
+              "runtimeScope": "WaterStreams.add has one production call chain: EverfullUrnBlockEntity client visualTicks -> LateDeviceEffects.waterTrail -> WaterStreams.add. The renderer returns before vertex work when ACTIVE is empty. None of Warp5/Mobs4/LateAccessories5/Eldritch1 declared fixtures places/activates an Everfull Urn; this is unselected feature scope, not a universal guarantee for arbitrary worlds.",
+              "selectedAcceptedRoutesAffected": false,
+              "selectedRuntimeAffectedInThisDeclaredProfile": false,
+              "finalVerificationScope": "This active-Urn production path is selected by LateDevices4, whose4817 fingerprints exactly match Server4 freeze and native17capture run completed0; actual image review and final server/package acceptance are separate."
+            }
+          }
+        ],
+        "resourceDrift": [],
+        "buildOrLauncherDrift": [],
+        "capturedSmokeProperties": [
+          "-Dthaumcraft.eldritchSmokeTest=true"
+        ],
+        "captureFileSha256": "f68ca5b7ef4823511b9cdbab62591f17a1050d089ea3d969e1af05b109676749",
+        "nativeReceipt": {
+          "file": "eldritch-client-eldritch-042-client1-run.json",
+          "fileSha256": "caa2e24025cba375bc45f9f02d0fdec3208d3364a80da8e53f236c4b0cf4dd65",
+          "jvmPid": 44080,
+          "jvmExitCode": 0,
+          "captureCount": 17,
+          "maxOwnedHiddenWindows": 16,
+          "inputDesktopBefore": "Default",
+          "inputDesktopAfter": "Default"
+        },
+        "existingVisualReviewRecords": [
+          {
+            "file": "eldritch-042-client1-independent-visual-review.json",
+            "fileSha256": "4b30bc9fde4305b58a66d6aa430268399b74c409d140ceb2c3cc8a6b73c6a949",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 17
+          },
+          {
+            "file": "eldritch-042-client1-root-visual-review.json",
+            "fileSha256": "cf7592722e1ba950a2a7041eccc10a456f46f2a39a19491fa5870e29ed958ee1",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 17
+          }
+        ],
+        "scopedSourceEvidenceRetentionSupported": true,
+        "sourceDecision": "Retain this selected client evidence under the listed exact SHA/path exceptions; changed production features and QA methods were inactive in this declared profile. Do not describe all4817 as identical."
+      },
+      "LateDevices4": {
+        "clientRun": "late-devices-042-client4",
+        "clientSourceSnapshot": "late-devices-042-client4-sources.json",
+        "clientSourceSnapshotFileSha256": "c28cee7d31019418203a83bb779173eed5a3436702bd4213067530e3f7a9f34f",
+        "clientFingerprintCount": 4817,
+        "server4FingerprintCount": 4817,
+        "allFingerprintsExactlyMatch": true,
+        "selectedDriver": {
+          "path": "src/main/java/thaumcraft/artifice/late/client/LateDevicesClientSmokeTest.java",
+          "clientSha256": "f5b8f24daf5334fba30891914bf9d9b9096974df2eb554e1977b9734c228df11",
+          "server4Sha256": "f5b8f24daf5334fba30891914bf9d9b9096974df2eb554e1977b9734c228df11",
+          "exactlyMatches": true
+        },
+        "changedPathCount": 0,
+        "addedSinceClient": [],
+        "removedSinceClient": [],
+        "changedPaths": [],
+        "resourceDrift": [],
+        "buildOrLauncherDrift": [],
+        "capturedSmokeProperties": [
+          "-Dthaumcraft.lateDevicesSmokeTest=true"
+        ],
+        "captureFileSha256": "b7375a67f7030d940ab42cef290e61dff9b099a1f921705d62eee4fd55b6f08e",
+        "nativeReceipt": {
+          "file": "late-devices-client-late-devices-042-client4-run.json",
+          "fileSha256": "4028fb2a79766265a609e95a7fc980a7d4b45641e75dbe6faaff7ef668e641c0",
+          "jvmPid": 47772,
+          "jvmExitCode": 0,
+          "captureCount": 17,
+          "maxOwnedHiddenWindows": 16,
+          "inputDesktopBefore": "Default",
+          "inputDesktopAfter": "Default"
+        },
+        "existingVisualReviewRecords": [
+          {
+            "file": "late-devices-042-client4-independent-visual-review.json",
+            "fileSha256": "0c79d27c4f4e4b1b34b343fd532eb884564c28ba5cbe3eddb273abac8802b102",
+            "capturedRouteAccepted": true,
+            "actualFullFramesViewed": 17
+          }
+        ],
+        "scopedSourceEvidenceRetentionSupported": true,
+        "sourceDecision": "Exact all4817 equality with Server4 freeze."
+      }
+    },
+    "retentionReasoning": {
+      "exclusiveDriverProperties": "Each captured JVM enables exactly its own selected smoke profile. Historical changes in other opt-in drivers are inactive, not silently assumed identical.",
+      "serverOnlyQa": "Changed/added GameTestHolder methods do not execute in the selected smoke profiles; finalServer4 must independently establish their result.",
+      "cloudWarpException": "CloudRingSupport changed after Warp5, but Warp5 uses a fresh owned color/depth/effect world with held melon and no equipped Cloud ring or jump request. tryJump requires the physical worn ring; empty unselected flight-state bookkeeping does not affect that declared route. Accepted LateAccessories5 already includes the corrected logical-side maps.",
+      "urnExceptions": "The changed pure helper and WaterStreams RGB packing execute only for active EverfullUrn streams. Only production add callchain is Urn clientvisualTicks -> LateDeviceEffects.waterTrail. Other four accepted fresh-world fixtures place no Urn; empty ACTIVE renderer returns. Actual corrected Urn rendering is covered by the new source-identical LateDevices4 run, not inferred from old captures or arithmetic tests.",
+      "unchangedSharedSurface": "No resource/build/launcher drift or shared FxEngine/FxEffects/FxRenderTypes/model-registration drift appears in these exact comparisons. Selected five driver fingerprints each match final freeze."
+    },
+    "verificationStillRequired": [
+      "Wait for actual finalServer4 completion, independently derive native exit/required failures/completed count, and preserve logs/receipt. Expected1786 is a source-derived expectation only.",
+      "Complete and bind actual screenshot reviews for selected profiles separately; source equality does not prove pixels or audio.",
+      "Before final build/package assert source still matches the supplied4817 freeze and exact exceptions; inspect any new source changes for selected-scope impact.",
+      "Validate final built and packaged resources/artifacts independently; this report does not mark release complete."
+    ],
+    "priorPreflight": {
+      "file": "source-drift-042-preflight.json",
+      "fileSha256": "c7f179b4dad56491741ba2d3cc8b72e750aa996aa92e6b9820344fefb5652f88"
+    },
+    "finalSourceDecision": "LateDevices4 equals all4817 Server4 fingerprints exactly. Existing Warp5/Mobs4/LateAccessories5/Eldritch1 selected evidence can be retained with exact classified exceptions and no broad client reruns solely for these inactive scopes. Server4 and final packaged release acceptance remain pending."
+  },
+  "serverRun": {
+    "failedRequiredTests": 0,
+    "gradleExitCode": 0,
+    "requiredTestCount": 1786,
+    "nativeExitEvidence": "Successful JavaExec completion plus exactly one native all-required-tests-passed marker; explicit failed JavaExec exit retained, absent native exit remains -1/unknown; completed test count independently extracted",
+    "run": "completion-042-server4",
+    "previousWorldArchive": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server\\world-before-completion-042-server4",
+    "checkedQaRoot": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\gametest-server",
+    "completedTestCount": 1786,
+    "nativeExitCode": 0
+  },
+  "serverLog": {
+    "file": "completion-042-server4.log",
+    "bytes": 907782,
+    "sha256": "b17f879c7b123a929dbc2ddc6c6f9d1dd20f4efc93417ba9408725c0966089a9"
+  },
+  "buildLog": {
+    "file": "build-0.42-final.log",
+    "bytes": 1212,
+    "sha256": "7ab56d5d8be7599433d596857a12391a28b3efe7a99de7eb148558bc874f7fe6"
+  },
+  "packagedResourceByteChecks": 3894,
+  "originalMediaCounts": {
+    ".ogg": 111,
+    ".png": 710,
+    ".jpg": 7
+  },
+  "originalMediaMismatches": [],
+  "clients": [
+    {
+      "profile": "Warp",
+      "run": {
+        "runTag": "warp-042-client5",
+        "smokeTest": "Warp",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\warp-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\warp-client-warp-042-client5-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\warp-client-warp-042-client5-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\warp-client-warp-042-client5.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\warp-client-warp-042-client5-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\warp-client-warp-042-client5-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\warp-client-warp-042-client5-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_a99a1daed4f84623b5995a35d0e71435",
+        "jvmPid": 31964,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "smokeScenes": 15
+      },
+      "frames": [
+        {
+          "file": "tc6-warp-blur-active.png",
+          "bytes": 783792,
+          "sha256": "a72536b67d6420e8f1c2cc3908a5217a5a7ad2f9f441630657841573be695234"
+        },
+        {
+          "file": "tc6-warp-blur-after.png",
+          "bytes": 485206,
+          "sha256": "d66cf0b34475f46a21411cc7d91c94bfb079db7fd4f9efe03bf487c0919175af"
+        },
+        {
+          "file": "tc6-warp-blur-before.png",
+          "bytes": 513167,
+          "sha256": "71750b53b019043fb16f05a22e94c81fdf1c2c04ca70f4b3e31dc0e6ba24c423"
+        },
+        {
+          "file": "tc6-warp-gaze-active.png",
+          "bytes": 511112,
+          "sha256": "e872320375bc95416bf4c5a1ce6ed76e6f9763e11cc9c410809b06b7e9bc37f7"
+        },
+        {
+          "file": "tc6-warp-gaze-after.png",
+          "bytes": 516448,
+          "sha256": "a484238ea22bbb5489ccf61034c78fd65d28a7385199d18ad8475af4627a581d"
+        },
+        {
+          "file": "tc6-warp-gaze-before.png",
+          "bytes": 536711,
+          "sha256": "24c3a884fbde98bd6a7928bf9c46a3712360ac19dc25ad6488791ee433571448"
+        },
+        {
+          "file": "tc6-warp-hunger-active.png",
+          "bytes": 496755,
+          "sha256": "349c53d1739dbafe2c68fa9121cb22c712f48a9e5d21ce01debf2738b1038460"
+        },
+        {
+          "file": "tc6-warp-hunger-after.png",
+          "bytes": 505364,
+          "sha256": "1c8d61c9e12b137efd14fec37d75e375ce0520a1148e4a5a24383c8dabfd8e8f"
+        },
+        {
+          "file": "tc6-warp-hunger-before.png",
+          "bytes": 498618,
+          "sha256": "9f30ec897c92c3060dc8c5382e54139932b1e914c0cb7ca34918fb9e24b1dac2"
+        },
+        {
+          "file": "tc6-warp-mist-active.png",
+          "bytes": 537742,
+          "sha256": "c94eed418363ce460e322ceb43d8d76d798018714ef46e4003845559fa9b934e"
+        },
+        {
+          "file": "tc6-warp-mist-after.png",
+          "bytes": 497278,
+          "sha256": "58db25cf2b838ed5e775eca372535219d7b4043d049a15379d701f971b820607"
+        },
+        {
+          "file": "tc6-warp-mist-before.png",
+          "bytes": 495701,
+          "sha256": "161440969db58f99acdb0be959db93fb48702ddb9d61bbd2f9896e3f1d256a33"
+        },
+        {
+          "file": "tc6-warp-sun-active.png",
+          "bytes": 441389,
+          "sha256": "436a41414449a9b1b3d2045e8591210747573521213ffebe3f571191e02f8ddd"
+        },
+        {
+          "file": "tc6-warp-sun-after.png",
+          "bytes": 495687,
+          "sha256": "ea9608ea913cd548b7b99d2a75ca2ef83add64797951b1416b541f67819cb7aa"
+        },
+        {
+          "file": "tc6-warp-sun-before.png",
+          "bytes": 496688,
+          "sha256": "6c88ffefc317fe7c7d5247f17e3ff4ca9d7c2bd75d4d3566e5ab110924527631"
+        }
+      ],
+      "rootReview": {
+        "file": "warp-042-client5-root-visual-review.json",
+        "bytes": 2486,
+        "sha256": "d0cb12699d9ddbb0be06107de8b59c171e06797fed520d709da84e2e7d7edbf7"
+      },
+      "independentReview": {
+        "file": "warp-042-client5-independent-visual-review.json",
+        "bytes": 13488,
+        "sha256": "36ca48276a3aff1c552787a9f35aa8e1a52bd072ba8df01fa6d0c9fda9d393e6"
+      },
+      "sheet": {
+        "file": "warp-042-client5-review-sheet.png",
+        "bytes": 2169521,
+        "sha256": "0fa2e824e1c3f07cb1db8334a94745602d1e3b7fb7268cd250ba2de99529452e"
+      },
+      "log": {
+        "file": "warp-client-warp-042-client5-client.log",
+        "bytes": 35106,
+        "sha256": "fc757ba272d431ea855351178c35b4df4bee2cb304d394b7b78ae9f5f80bbe1b"
+      }
+    },
+    {
+      "profile": "Mobs",
+      "run": {
+        "runTag": "mobs-042-client4",
+        "smokeTest": "Mobs",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\mobs-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mobs-client-mobs-042-client4-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mobs-client-mobs-042-client4-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mobs-client-mobs-042-client4.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mobs-client-mobs-042-client4-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mobs-client-mobs-042-client4-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\mobs-client-mobs-042-client4-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_5d5a746387d64516b29c180d072b7ee7",
+        "jvmPid": 8788,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "smokeScenes": 24
+      },
+      "frames": [
+        {
+          "file": "tc6-mobs-bottle-native-flight.png",
+          "bytes": 484966,
+          "sha256": "9f1f7caeab6cb982cf2a9ee7affa83fca1deefb6fe0588baf8aeb79d56a621ab"
+        },
+        {
+          "file": "tc6-mobs-bottle-native-impact.png",
+          "bytes": 502814,
+          "sha256": "feebd7378282c0d44f351beacc1b9d1545fa89341ef901f202684a9be7ae5782"
+        },
+        {
+          "file": "tc6-mobs-brainy-native.png",
+          "bytes": 293665,
+          "sha256": "0fd68deed9b938a2f4736997c96988e2f173b41541e8a5bee3cbced969edb7ea"
+        },
+        {
+          "file": "tc6-mobs-contained-finite-goo-heights.png",
+          "bytes": 272030,
+          "sha256": "ef71ca87a661f8f74446ab378f8b95e57f30e63f9f8c246bb18f98bd99f01594"
+        },
+        {
+          "file": "tc6-mobs-cultist-cleric-native-projectiles.png",
+          "bytes": 525854,
+          "sha256": "5180cf6e844048bf6f20c2d7976d06e4f9ab6d4480caa3801b3d97cfe30bdd3c"
+        },
+        {
+          "file": "tc6-mobs-cultist-knight-native-melee.png",
+          "bytes": 279833,
+          "sha256": "8c497b76d643c9571c1a90d79476a20d46b1c9a0ad18e7b9d866bac73180efe0"
+        },
+        {
+          "file": "tc6-mobs-firebat-hanging.png",
+          "bytes": 314230,
+          "sha256": "d7d74eece1180c4e5449048f2435363577318b5d26df76a28bdbee52044b9efa"
+        },
+        {
+          "file": "tc6-mobs-firebat-native-flight.png",
+          "bytes": 313115,
+          "sha256": "5aaf06213fce144cdd76b84af4101472a0b199ac22413b449d93b95589fee261"
+        },
+        {
+          "file": "tc6-mobs-giant-brainy-native-anger.png",
+          "bytes": 313982,
+          "sha256": "f427519fad508d78c8a3b8d8f9f13a491e6b10fb5781df1e82abb6bec57555b0"
+        },
+        {
+          "file": "tc6-mobs-giant-brainy-neutral.png",
+          "bytes": 293855,
+          "sha256": "069479f319e39add89e9a7c32f883758fa2d72536d02bd54a59229c25cd965cd"
+        },
+        {
+          "file": "tc6-mobs-lesser-portal-inactive.png",
+          "bytes": 197103,
+          "sha256": "f5994637e928b22ce5dbef3a345e048cfcd03fd348f34592df234b20eb35ce41"
+        },
+        {
+          "file": "tc6-mobs-lesser-portal-native-activation.png",
+          "bytes": 317377,
+          "sha256": "fa02a8f24ecbaffcb7618cd86751d1fac3ff11552e665b261dcadafa557320b0"
+        },
+        {
+          "file": "tc6-mobs-lesser-portal-native-minions.png",
+          "bytes": 317186,
+          "sha256": "86cb6a38c9d3b1b886d822fd3e0a68c6ab47698ce5b510f74e1a91b68aad6991"
+        },
+        {
+          "file": "tc6-mobs-pech-native-arrow.png",
+          "bytes": 522743,
+          "sha256": "edb526eb2bc695bb8e14adef602ad36f390873e8dcb203c6a3d3fe745aaca521"
+        },
+        {
+          "file": "tc6-mobs-pech-native-focus.png",
+          "bytes": 529998,
+          "sha256": "1468191c83209b42c0e1f711e24e26e060df96b73c8bb96a8a900ab95944e668"
+        },
+        {
+          "file": "tc6-mobs-pech-native-tamed-pack.png",
+          "bytes": 256901,
+          "sha256": "a4c3694380ebcb53a86efeac9e95cf9cce64dcec67cd1efb45e838989f2edfab"
+        },
+        {
+          "file": "tc6-mobs-pech-native-trade-outcome.png",
+          "bytes": 310632,
+          "sha256": "97fdab5c8af4e66f1b9057b9aebcfa4f33951a3d704c88246f9d45f30eabe810"
+        },
+        {
+          "file": "tc6-mobs-pech-trade-offer.png",
+          "bytes": 314901,
+          "sha256": "cc3749e3b426f33cba25e4287abd099560e49bf165865ab46469a8f5a16609d2"
+        },
+        {
+          "file": "tc6-mobs-pech-wild.png",
+          "bytes": 253481,
+          "sha256": "9824bf2f0973f5857537c64295a700a2cd7ad12e4be8cb87159fc5640d7429f1"
+        },
+        {
+          "file": "tc6-mobs-taint-crawler.png",
+          "bytes": 280312,
+          "sha256": "85a57fb24f33215325a275d81ccd2710ed5e604bd3130a8729a5db84b8acdb51"
+        },
+        {
+          "file": "tc6-mobs-taint-swarm.png",
+          "bytes": 351346,
+          "sha256": "8d06874fb2db1fcb7c3f11d4f6d5c0be38be9fb5246151392935e84a0a48a5e8"
+        },
+        {
+          "file": "tc6-mobs-taintacle-giant.png",
+          "bytes": 394273,
+          "sha256": "5f87d305e811df5ef53fcad57e95b4f7854772eec934e670bc7875e9cbeac9b3"
+        },
+        {
+          "file": "tc6-mobs-taintacle.png",
+          "bytes": 287069,
+          "sha256": "2a795607042e99bb9af94b416b06094659b0556c41b45d1b1c29e30d2d51b9af"
+        },
+        {
+          "file": "tc6-mobs-thaumic-slime.png",
+          "bytes": 276699,
+          "sha256": "227eb8b81a8952030b5272cc04b6b94a70c55ea0dd6fafb3b007a1af6b5048fb"
+        }
+      ],
+      "rootReview": {
+        "file": "mobs-042-client4-root-visual-review.json",
+        "bytes": 3684,
+        "sha256": "84e9ba9079f529c80fb3acb1741e367de5e6c1be9b82c339f2aedd5a9b8efb32"
+      },
+      "independentReview": {
+        "file": "mobs-042-client4-independent-visual-review.json",
+        "bytes": 8387,
+        "sha256": "e4476c2f53c80764a2d16a7fec5dc9c8bc3446edf79f14663e2553db0314c9c4"
+      },
+      "sheet": {
+        "file": "mobs-042-client4-review-sheet.png",
+        "bytes": 4898641,
+        "sha256": "2895e103864897666ef86ab6342d47421f43fc28196cec04a162da569c06cf50"
+      },
+      "log": {
+        "file": "mobs-client-mobs-042-client4-client.log",
+        "bytes": 43109,
+        "sha256": "d4a87dac0b140c954b83d549a87110a65d0cab4bb8410f7f5ffe3ff656b55aac"
+      }
+    },
+    {
+      "profile": "LateAccessories",
+      "run": {
+        "runTag": "late-accessories-042-client5",
+        "smokeTest": "LateAccessories",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\late-accessories-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-accessories-client-late-accessories-042-client5-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-accessories-client-late-accessories-042-client5-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-accessories-client-late-accessories-042-client5.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-accessories-client-late-accessories-042-client5-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-accessories-client-late-accessories-042-client5-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-accessories-client-late-accessories-042-client5-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_e548a05705bd4c2291540619e9a4a9ff",
+        "jvmPid": 16292,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "smokeScenes": 14
+      },
+      "frames": [
+        {
+          "file": "tc6-late-accessories-native-cloud-double-jump.png",
+          "bytes": 266539,
+          "sha256": "ba0584735be96634c04931dd6565e8bbb98f05564f1c56d23a94807f72856b00"
+        },
+        {
+          "file": "tc6-late-accessories-native-cloud-landing.png",
+          "bytes": 545133,
+          "sha256": "a623e8a6d52f7ff03d57408ede18832784d501f3ed92bd60af9e4a9cb3678c4a"
+        },
+        {
+          "file": "tc6-late-accessories-native-curiosity-xp-contact.png",
+          "bytes": 216465,
+          "sha256": "8c9643ff8521b93db157c1177e468ce28d503e6b29b143426f48e5d8be0fcd21"
+        },
+        {
+          "file": "tc6-late-accessories-native-damage-undying-rescue.png",
+          "bytes": 348694,
+          "sha256": "427dfc1961cf4b4a84107cc33c3d3418e1267def56120547a8d6ea2424669929"
+        },
+        {
+          "file": "tc6-late-accessories-native-equipped-cloud-ring.png",
+          "bytes": 179348,
+          "sha256": "ea31c1adbef52fc8038716d6f2a7b847f70d33e02b617178dc04e463d45a933e"
+        },
+        {
+          "file": "tc6-late-accessories-native-equipped-undying-charm.png",
+          "bytes": 171728,
+          "sha256": "43b40fbda05a66bd4eb584313f40d519e8a6e016d3d19ceecd25df0ea9828c05"
+        },
+        {
+          "file": "tc6-late-accessories-native-life-heart-healing.png",
+          "bytes": 158836,
+          "sha256": "fed0ef991ff828709cc58bd5da645d6ca8721980f1cc0e467ce3bc957dce5a40"
+        },
+        {
+          "file": "tc6-late-accessories-native-sustenance-air-food.png",
+          "bytes": 179767,
+          "sha256": "dfa7cb781bf31ffb41840276d7f7adb12481f3f1124f60902a535c0ef7d7ea75"
+        },
+        {
+          "file": "tc6-late-accessories-native-third-jump-rejected.png",
+          "bytes": 309997,
+          "sha256": "ac24deafa751b0bccfcaf4ca4b12b5c2e564bb8a4308015add8632b986cbfbfa"
+        },
+        {
+          "file": "tc6-late-accessories-native-three-cures-paid.png",
+          "bytes": 167961,
+          "sha256": "eef058477ec1cae19a337e17f77c2c155707831ec12ab24e13ee9b7d7b5bf856"
+        },
+        {
+          "file": "tc6-late-accessories-native-verdant-cure-inputs.png",
+          "bytes": 214740,
+          "sha256": "544c605b268444638eedef6c745ae0657b0f8d7f85cf6a0126b2e42f7c8e707a"
+        },
+        {
+          "file": "tc6-late-accessories-native-wither-priority.png",
+          "bytes": 195516,
+          "sha256": "15c0936cfa25b79cd4be70d114a4604280d5e30419f99b660f5ddecda239f3b1"
+        },
+        {
+          "file": "tc6-late-accessories-original-three-verdant-forms.png",
+          "bytes": 165824,
+          "sha256": "925d678bd2da87b3b57058d41a59fcfde63109c28452422aeedfb225eafa99f3"
+        },
+        {
+          "file": "tc6-late-accessories-original-worn-curiosity-band.png",
+          "bytes": 217293,
+          "sha256": "5ca622e4f9556bab03014a5ae33da5bf4ad2495dba73af41f20a58c2f96ad935"
+        }
+      ],
+      "rootReview": {
+        "file": "late-accessories-042-client5-root-visual-review.json",
+        "bytes": 2843,
+        "sha256": "0b8a12af39d185137c7922ccb403c67f14d094abfe3828f1e62785019cd1f4d7"
+      },
+      "independentReview": {
+        "file": "late-accessories-042-client5-independent-visual-review.json",
+        "bytes": 5170,
+        "sha256": "d7098e26f0ac887292c25d0262e34db82d618da21f0a324f4db8946a4f875d27"
+      },
+      "sheet": {
+        "file": "late-accessories-042-client5-independent-sheet.png",
+        "bytes": 1342249,
+        "sha256": "c3151aff77a7cce0d258419207bf829ca5e0a798288574ac077fc436e5abb795"
+      },
+      "log": {
+        "file": "late-accessories-client-late-accessories-042-client5-client.log",
+        "bytes": 57189,
+        "sha256": "970b35fa5cf1a8e36bef5a423211b447185f92a9890c7985e4c83887d99fa2d4"
+      }
+    },
+    {
+      "profile": "Eldritch",
+      "run": {
+        "runTag": "eldritch-042-client1",
+        "smokeTest": "Eldritch",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\eldritch-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\eldritch-client-eldritch-042-client1-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\eldritch-client-eldritch-042-client1-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\eldritch-client-eldritch-042-client1.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\eldritch-client-eldritch-042-client1-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\eldritch-client-eldritch-042-client1-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\eldritch-client-eldritch-042-client1-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_aad2002387714ff7bceb9d17b9563440",
+        "jvmPid": 44080,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "smokeScenes": 17
+      },
+      "frames": [
+        {
+          "file": "tc6-eldritch-crab-helmet.png",
+          "bytes": 348772,
+          "sha256": "6e4c9a73c354a5944cba7a1a50f6606d771719d44c319bb645df2954503c689a"
+        },
+        {
+          "file": "tc6-eldritch-crab-native-helmet-break.png",
+          "bytes": 333192,
+          "sha256": "5dc54adb61b709e275970209595f15cd7e1073fbbc21c32bd54a431f966fdbcc"
+        },
+        {
+          "file": "tc6-eldritch-golem-first-phase.png",
+          "bytes": 373955,
+          "sha256": "666c301113d3be22cfaeb665129270ef96d9964b9b067c7ecd4a5a3e4f19435b"
+        },
+        {
+          "file": "tc6-eldritch-golem-native-headless-transition.png",
+          "bytes": 372787,
+          "sha256": "b08d141339c7422dae1de7cc943251ea679ee2df2b424d341586583a30faa450"
+        },
+        {
+          "file": "tc6-eldritch-golem-native-seeking-orb.png",
+          "bytes": 376913,
+          "sha256": "385d2ddefe203f2792485722bce3f6bd32b7f16dcfe98889e9534a721de1ad4e"
+        },
+        {
+          "file": "tc6-eldritch-greater-portal-intro.png",
+          "bytes": 290846,
+          "sha256": "485548590cf0495beb6ad1e22c416c67c18ff04bf8b5975d75294b76e1e63620"
+        },
+        {
+          "file": "tc6-eldritch-greater-portal-native-banner-arcs.png",
+          "bytes": 297421,
+          "sha256": "36555445a628b0146a2c9bc2b05a70edb5a2fea84e04a48a38b54c443298b86a"
+        },
+        {
+          "file": "tc6-eldritch-greater-portal-native-praetor.png",
+          "bytes": 336038,
+          "sha256": "b203c6d4642421b08682971cea79b503cc9c07e32f65a025ee13a4380da0890b"
+        },
+        {
+          "file": "tc6-eldritch-greater-portal-native-waves.png",
+          "bytes": 298117,
+          "sha256": "69326079615175ae3979d0f8b8ca97be4ae418d12f055e034a1e77c9a7dfb315"
+        },
+        {
+          "file": "tc6-eldritch-inhabited-native-crab-emergence.png",
+          "bytes": 329254,
+          "sha256": "2563c730ef4b1f987ea9b4684132c815a9c5939481d2e55ea7b4285103beaa0f"
+        },
+        {
+          "file": "tc6-eldritch-inhabited-zombie.png",
+          "bytes": 337932,
+          "sha256": "bc69c19068231d25d838129f7f51e0cbc87565aaf87fb39768b91b11f94cf940"
+        },
+        {
+          "file": "tc6-eldritch-praetor-native-cultist-support.png",
+          "bytes": 313128,
+          "sha256": "5a755863f76c1019f841cfeb68391ad2e0401423c09d7fbf699a3a47143e1e8a"
+        },
+        {
+          "file": "tc6-eldritch-praetor-native-red-orb.png",
+          "bytes": 344787,
+          "sha256": "b4b76190a3a9ac10592b5579947caf4c8d71d1f2f0e5ed28c7ec670d31e80bb2"
+        },
+        {
+          "file": "tc6-eldritch-warden-native-emergence.png",
+          "bytes": 434714,
+          "sha256": "ba4aade055184d3efddd302a00b74fcdd3d150df6dbd95256694de32e22384ee"
+        },
+        {
+          "file": "tc6-eldritch-warden-native-field-frenzy.png",
+          "bytes": 213722,
+          "sha256": "cbe486d3e4f8501cfcaee5fc23b11761b5cd73c8a8ec8f58ed66e298338c3e8a"
+        },
+        {
+          "file": "tc6-eldritch-warden-native-field.png",
+          "bytes": 515659,
+          "sha256": "9076310aabd1c00d3fbe83b12c31d1fa43f23ff7542aad7aee85a949a2124730"
+        },
+        {
+          "file": "tc6-eldritch-warden-native-orb.png",
+          "bytes": 404582,
+          "sha256": "fd478d2fea07df84786a4fd0885564c6078bffaf037a7f4678d2fb12e1ebdde9"
+        }
+      ],
+      "rootReview": {
+        "file": "eldritch-042-client1-root-visual-review.json",
+        "bytes": 3117,
+        "sha256": "cf7592722e1ba950a2a7041eccc10a456f46f2a39a19491fa5870e29ed958ee1"
+      },
+      "independentReview": {
+        "file": "eldritch-042-client1-independent-visual-review.json",
+        "bytes": 8487,
+        "sha256": "4b30bc9fde4305b58a66d6aa430268399b74c409d140ceb2c3cc8a6b73c6a949"
+      },
+      "sheet": {
+        "file": "eldritch-042-client1-review-sheet.png",
+        "bytes": 3381352,
+        "sha256": "f28e649da778eb6d029c5f6a38b10a099446677702c4191322ece40579aee07b"
+      },
+      "log": {
+        "file": "eldritch-client-eldritch-042-client1-client.log",
+        "bytes": 64572,
+        "sha256": "b632948b5d9a3e1e902773cf82297a623046eba15ecfd45d64bd5c49714d6d1a"
+      }
+    },
+    {
+      "profile": "LateDevices",
+      "run": {
+        "runTag": "late-devices-042-client4",
+        "smokeTest": "LateDevices",
+        "state": "exited",
+        "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+        "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\late-devices-smoke",
+        "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-devices-client-late-devices-042-client4-prepare.log",
+        "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-devices-client-late-devices-042-client4-capture.json",
+        "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-devices-client-late-devices-042-client4.args",
+        "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-devices-client-late-devices-042-client4-environment.json",
+        "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-devices-client-late-devices-042-client4-client.log",
+        "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\late-devices-client-late-devices-042-client4-desktop.json",
+        "argumentCount": 51,
+        "environmentOverrideNames": [
+          "MCP_MAPPINGS",
+          "MOD_CLASSES"
+        ],
+        "desktop": "WinSta0\\ThaumcraftQA_aa4f569f62e740bb8030efccf5e65d61",
+        "jvmPid": 47772,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "smokeScenes": 17
+      },
+      "frames": [
+        {
+          "file": "tc6-late-devices-barrier-native-mob-runes.png",
+          "bytes": 273032,
+          "sha256": "22285f05d9138f4a52a86f5c4d80007ffc8c80ed188fef477d02697c96ca7ce5"
+        },
+        {
+          "file": "tc6-late-devices-barrier-native-player-passage.png",
+          "bytes": 335974,
+          "sha256": "1299d39647b35a5bc5b9eee609e781b6d8e7892fd8a242a38d746c7b0e7223d5"
+        },
+        {
+          "file": "tc6-late-devices-barrier-native-powered-runes.png",
+          "bytes": 276970,
+          "sha256": "63d0cf149c94a94632aa56f7a46cf6a1a78670b4cef4229f29331b61c76fad18"
+        },
+        {
+          "file": "tc6-late-devices-charger-delegated-bench-preview.png",
+          "bytes": 220320,
+          "sha256": "33480fd91b4e6caf7c53ce0695556f340665809d844ead6b7d40a2ff0a29104d"
+        },
+        {
+          "file": "tc6-late-devices-charger-native-nine-chunks.png",
+          "bytes": 298662,
+          "sha256": "1b0b909bc1374aae5d9bcb24d446669575c9168a89d77c029f7b5cbce04ec85d"
+        },
+        {
+          "file": "tc6-late-devices-charger-paid-spa-result.png",
+          "bytes": 206148,
+          "sha256": "c84c6ce24b3ac3038cb60edd3065fa03e6d71effe9b07397587baacf8b26e987"
+        },
+        {
+          "file": "tc6-late-devices-spa-native-mix-button.png",
+          "bytes": 207119,
+          "sha256": "90d1fa6457202f7e0e4cd13f4b4dea069f8a7afb2a754d9175e164726234bfd6"
+        },
+        {
+          "file": "tc6-late-devices-spa-native-paid-bath.png",
+          "bytes": 495669,
+          "sha256": "68648613108e57a00388e27f45e84f0e6b9077a54562b080e7acf4fbf6a663ab"
+        },
+        {
+          "file": "tc6-late-devices-spa-original-water-salt-gui.png",
+          "bytes": 212071,
+          "sha256": "7ad71ab86ddf6ef4b05454d2586effbeef63a3e18287ec29d458858ad94a090f"
+        },
+        {
+          "file": "tc6-late-devices-sprayer-native-essentia-progress.png",
+          "bytes": 204597,
+          "sha256": "91d51b391ced65795388551e789bd6dc15552701b51a61c174c7f6b722a37710"
+        },
+        {
+          "file": "tc6-late-devices-sprayer-native-held-power.png",
+          "bytes": 461833,
+          "sha256": "2d43f04b01fe04e2408d743748cf4d4fc5eca2962972303138f9bd65b8bfbd12"
+        },
+        {
+          "file": "tc6-late-devices-sprayer-native-one-charge-gui.png",
+          "bytes": 204613,
+          "sha256": "0e740e1a96207864126df76e7be4e0886e7f525d0fda313c3113fe433a3e0470"
+        },
+        {
+          "file": "tc6-late-devices-sprayer-native-rising-edge-vent2.png",
+          "bytes": 465221,
+          "sha256": "5e7b0137db34ebc85c2370bdecaedf372f5f9ddb4dfb6f1e38b927f1f87f2ef8"
+        },
+        {
+          "file": "tc6-late-devices-sprayer-original-potion-gui.png",
+          "bytes": 201865,
+          "sha256": "4f039e6f78f2e211ef089c1ca4f171ddbce20207141483396cf9f740a00b74f6"
+        },
+        {
+          "file": "tc6-late-devices-travel-native-speed-jump.png",
+          "bytes": 227773,
+          "sha256": "98ee8b306018c7022139937c975598a43fec47d9f09083fd5c213fd284832b80"
+        },
+        {
+          "file": "tc6-late-devices-urn-native-aura-refill.png",
+          "bytes": 248808,
+          "sha256": "058c3b1cd93e469ca28a795a9f8377aac939b0c46ca1e251cac8ff9e1d3454c6"
+        },
+        {
+          "file": "tc6-late-devices-urn-native-capability-water-stream.png",
+          "bytes": 347279,
+          "sha256": "96fff82c1b9cb42abb18d665da506d37df70b2fb16bca6b8ca9dd6d4e85adb4e"
+        }
+      ],
+      "rootReview": {
+        "file": "late-devices-042-client4-root-visual-review.json",
+        "bytes": 3316,
+        "sha256": "2e31be93a0d26e2dc9de9762e8f23603e46a0ea01a96d8b22270ac45747d8f43"
+      },
+      "independentReview": {
+        "file": "late-devices-042-client4-independent-visual-review.json",
+        "bytes": 5267,
+        "sha256": "b87f3d99bbbd14b692a8b1c3c1ba86e1556da6f25d0caa030b7f8fbd9e4710cd"
+      },
+      "sheet": {
+        "file": "late-devices-042-client4-independent-sheet.png",
+        "bytes": 1907306,
+        "sha256": "35be61c7b22b992696c06a4352132da6508d35620751193d6a883d232ed810b4"
+      },
+      "log": {
+        "file": "late-devices-client-late-devices-042-client4-client.log",
+        "bytes": 70361,
+        "sha256": "1297dfc7bed0063b0879e3b26739b4c5b8bc3094ad0e5074074a3d06ee24ead4"
+      }
+    }
+  ],
+  "preview": {
+    "file": "thaumcraft-1.20.1-0.42.0-preview.png",
+    "bytes": 1259038,
+    "sha256": "61203657ae1b8baddb6988a7e2a6cf2b99929dfbf2ff813e48deadeb3ae36a9e"
+  },
+  "deliveredJar": {
+    "file": "thaumcraft-1.20.1-0.42.0.jar",
+    "bytes": 14253200,
+    "sha256": "312fc527b6b5b8dcadaad4260a60c35866b21fd504be8b329ed9454b01369aae"
+  },
+  "modsZip": {
+    "file": "thaumcraft-1.20.1-0.42.0-mods.zip",
+    "bytes": 13619019,
+    "sha256": "73c21f947c1284b97eeb3eacf588523a6648aa0346a7cd7c1147bf8a15fdef37"
+  },
+  "screenshotsZip": {
+    "file": "thaumcraft-1.20.1-0.42.0-screenshots.zip",
+    "bytes": 45118723,
+    "sha256": "9619960e73d00b4e4e2ee2526e34e05de4a2dad06a542df11482191929ca1250"
+  },
+  "packager": {
+    "file": "finalize-completion-042.py",
+    "bytes": 11351,
+    "sha256": "7abc2a244ab45021d6ad18eca6cfa29057804582475203a0758623e88eb64a1a"
+  },
+  "gitBaseCommit": "8a821fa7fa56e72b71a9aca647ccdd9f3c1400ce",
+  "limits": [
+    "Canonical implementation counts do not prove full survival acquisition.",
+    "BETA26 dormant Outer Lands chain remains dormant; no TC4 dungeon/dimension is invented.",
+    "Controlled actors/gear/damage/knowledge/material/aura/XP inputs are fixtures.",
+    "Mobs random trade paid offer is observed; exact five output-slot sync was not captured, and original random skip allows an empty reward.",
+    "Some actors/effects are small, faint or partially occluded; per-profile review limits are preserved.",
+    "Four selected clients have exact inactive-feature/test/driver source exceptions; LateDevices4 and final server/build share all4817 fingerprints.",
+    "No exhaustive survival, multiplayer, audio, third-party-mod/shader or all-angle acceptance."
+  ]
+}

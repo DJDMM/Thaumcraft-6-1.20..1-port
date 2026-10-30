@@ -1,0 +1,14 @@
+{
+  "research": "METALPURIFICATION",
+  "catalyst": {
+    "tag": "forge:ores/silver"
+  },
+  "result": {
+    "item": "thaumcraft:cluster_silver"
+  },
+  "aspects": {
+    "metallum": 5,
+    "ordo": 5
+  },
+  "requires_tag": "forge:ingots/silver"
+}

@@ -30,7 +30,7 @@ public final class InfusionAltarFormation {
             boolean valid = true;
             for (int x : new int[]{-1, 1}) for (int z : new int[]{-1, 1}) for (int y : new int[]{-1, -2}) {
                 BlockPos pos = matrix.offset(x, y, z);
-                if (!level.hasChunkAt(pos) || !level.getBlockState(pos).is(CatalogBlocks.block("stone_" + type))) valid = false;
+                if (!level.hasChunkAt(pos) || !level.getBlockState(pos).is(CatalogBlocks.block(stone(type)))) valid = false;
             }
             if (valid) { material = type; break; }
         }
@@ -75,7 +75,7 @@ public final class InfusionAltarFormation {
         if(block instanceof InfusionPedestalBlock) {
             BlockPos pos=clicked.above(2);return level.hasChunkAt(pos)&&level.getBlockState(pos).getBlock() instanceof InfusionMatrixBlock?pos:null;
         }
-        if(List.of("arcane","ancient","eldritch").stream().noneMatch(type->block==CatalogBlocks.block("stone_"+type)))return null;
+        if(List.of("arcane","ancient","eldritch").stream().noneMatch(type->block==CatalogBlocks.block(stone(type))))return null;
         // The original trigger can be used on any of the eight stones, not just its anchor.
         for(int x:new int[]{-1,1})for(int z:new int[]{-1,1})for(int y:new int[]{1,2}) {
             BlockPos pos=clicked.offset(x,y,z);
@@ -83,6 +83,7 @@ public final class InfusionAltarFormation {
         }
         return null;
     }
+    private static String stone(String type){return type.equals("eldritch")?"stone_eldritch_tile":"stone_"+type;}
     @SuppressWarnings({"unchecked", "rawtypes"}) private static BlockState withValue(BlockState state, net.minecraft.world.level.block.state.properties.Property property, String value) {
         return property == null ? state : (BlockState)property.getValue(value).map(found -> state.setValue(property, (Comparable)found)).orElse(state);
     }

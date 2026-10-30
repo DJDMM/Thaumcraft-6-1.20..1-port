@@ -44,18 +44,36 @@ public abstract class LegacyVisualModel extends EntityModel<VisualMobEntity> {
         float yr = yaw * Mth.DEG_TO_RAD, pr = pitch * Mth.DEG_TO_RAD;
         if (this instanceof LegacyPechModel) {
             rotation("bipedHead", pr, yr, 0);
-            rotation("Jowls", pr + .2617994f + Mth.cos(swing * .6662f) * amount * .25f, yr, 0);
+            float mumble=entity instanceof thaumcraft.world.mobs.PechEntity pech?pech.mumble:0;
+            rotation("Jowls", pr + .2617994f + Mth.cos(swing * .6662f) * amount * .25f+.34906587F*Math.abs(Mth.sin(mumble/8)), yr, 0);
             rotation("bipedRightLeg", Mth.cos(swing * .6662f) * 1.4f * amount, 0, 0);
             rotation("bipedLeftLeg", Mth.cos(swing * .6662f + Mth.PI) * 1.4f * amount, 0, 0);
             rotation("bipedRightArm", Mth.cos(swing * .6662f + Mth.PI) * amount + Mth.sin(age * .067f) * .05f, 0, Mth.cos(age * .09f) * .05f + .05f);
             rotation("bipedLeftArm", Mth.cos(swing * .6662f) * amount - Mth.sin(age * .067f) * .05f, 0, -Mth.cos(age * .09f) * .05f - .05f);
             rotation("LowerPack", .3013602f, Mth.cos(swing * .6662f) * amount * .25f, Mth.cos(swing * .6662f) * amount * .25f);
+            var pech=(LegacyPechModel)this;
+            if(riding){pech.bipedRightArm.rotateAngleX-=.62831855F;pech.bipedLeftArm.rotateAngleX-=.62831855F;
+                rotation("bipedRightLeg",-1.2566371F,.31415927F,0);rotation("bipedLeftLeg",-1.2566371F,-.31415927F,0);}
+            float forward=1-attackTime;forward*=forward;forward*=forward;forward=1-forward;
+            float swipe=Mth.sin(forward*Mth.PI),headSwing=Mth.sin(attackTime*Mth.PI)*-(pr-.7F)*.75F;
+            pech.bipedRightArm.rotateAngleX-=(float)(swipe*1.2+headSwing);
+            pech.bipedRightArm.rotateAngleZ+=Mth.sin(attackTime*Mth.PI)*-.4F;
+            if(entity.isCrouching()){pech.bipedRightArm.rotateAngleX+=.4F;pech.bipedLeftArm.rotateAngleX+=.4F;}
         } else if (this instanceof LegacyFireBatModel) {
-            rotation("batHead", pr, yr, 0);
-            rotation("batBody", .7853982f + Mth.cos(age * .1f) * .15f, 0, 0);
-            float flap = Mth.cos(age * 1.3f) * Mth.PI * .25f;
-            rotation("batRightWing", 0, flap, 0); rotation("batLeftWing", 0, -flap, 0);
-            rotation("batOuterRightWing", 0, flap * .5f, 0); rotation("batOuterLeftWing", 0, -flap * .5f, 0);
+            if(entity instanceof thaumcraft.world.mobs.FirebatEntity firebat&&firebat.hanging()) {
+                rotation("batHead",pr,Mth.PI-yr,Mth.PI);pivot("batHead",0,-2,0);
+                pivot("batRightWing",-3,0,3);pivot("batLeftWing",3,0,3);
+                rotation("batBody",Mth.PI,0,0);rotation("batRightWing",-.15707964F,-1.2566371F,0);
+                rotation("batLeftWing",-.15707964F,1.2566371F,0);
+                rotation("batOuterRightWing",0,-1.7278761F,0);rotation("batOuterLeftWing",0,1.7278761F,0);
+            } else {
+                rotation("batHead", pr, yr, 0);pivot("batHead",0,0,0);
+                pivot("batRightWing",0,0,0);pivot("batLeftWing",0,0,0);
+                rotation("batBody", .7853982f + Mth.cos(age * .1f) * .15f, 0, 0);
+                float flap = Mth.cos(age * 1.3f) * Mth.PI * .25f;
+                rotation("batRightWing", 0, flap, 0); rotation("batLeftWing", 0, -flap, 0);
+                rotation("batOuterRightWing", 0, flap * .5f, 0); rotation("batOuterLeftWing", 0, -flap * .5f, 0);
+            }
         } else if (this instanceof LegacyCrossbowModel) {
             rotation("crossbow", pr, yr, 0);
         } else if (this instanceof LegacyArcaneBoreModel) {
@@ -78,13 +96,35 @@ public abstract class LegacyVisualModel extends EntityModel<VisualMobEntity> {
             rotation("LegL", Mth.cos(swing * .4662f + Mth.PI) * 1.4f * amount, 0, 0);
             rotation("ArmR", Mth.cos(swing * .4f + Mth.PI) * amount, 0, .1047198f);
             rotation("ArmL", Mth.cos(swing * .4f) * amount, 0, -.1047198f);
+            float cloth=Math.min(Mth.cos(swing*.44F)*1.4F*amount,Mth.cos(swing*.44F+Mth.PI)*1.4F*amount);
+            rotation("Frontcloth1",cloth-.1047198F,0,0);rotation("Frontcloth2",cloth-.3316126F,0,0);
+            rotation("Cloak1",-cloth/3+.1396263F,0,0);rotation("Cloak2",-cloth/3+.3069452F,0,0);rotation("Cloak3",-cloth/3+.4465716F,0,0);
+            if(entity instanceof thaumcraft.world.eldritch.EldritchGolemEntity golem){
+                if(golem.spawnTimer()>0)rotation("Head",(golem.spawnTimer()/2)/57.295776F,0,0);
+                if(golem.attackTimer()>0){float time=golem.attackTimer()-(age-entity.tickCount);float triangle=(Math.abs(time%10-5)-2.5F)/2.5F;
+                    rotation("ArmR",-2+1.5F*triangle,0,.1047198F);rotation("ArmL",-2+1.5F*triangle,0,-.1047198F);}
+            }
         } else if (this instanceof LegacyEldritchGuardianModel) {
-            rotation("Head", pr, yr, 0);
-            // Model fields are the original uppercase parts, not vanilla humanoid placeholders.
-            rotation("ArmL", Mth.sin(age / 10) * .05f, 0, 0);
-            rotation("ArmR", -Mth.sin(age / 10) * .05f, 0, 0);
+            rotation("Hood1", pr, yr, 0);rotation("HoodEye", pr, yr, 0);
+            float left=entity instanceof thaumcraft.world.warp.EldritchGuardianEntity guardian?guardian.armLiftL:entity instanceof thaumcraft.world.eldritch.EldritchWardenEntity warden?warden.armLiftL:0;
+            float right=entity instanceof thaumcraft.world.warp.EldritchGuardianEntity guardian?guardian.armLiftR:entity instanceof thaumcraft.world.eldritch.EldritchWardenEntity warden?warden.armLiftR:0;
+            rotation("ArmL1",-1-left+Mth.sin((age+20)/10)*.08F,0,0);
+            rotation("ArmR1",-1-right+Mth.sin(age/10)*.08F,0,0);
+            rotation("LegpanelC1",-.15F+Mth.sin(age/8)*.12F,0,0);
+            rotation("LegpanelC2",Mth.sin((age-5)/8)*.13F,0,0);
+            rotation("LegpanelC3",Mth.sin((age-10)/8)*.14F,0,0);
+            rotation("Cloak1",.2F+Mth.sin(age/7)*.08F,0,0);
+            rotation("Cloak2",Mth.sin((age-5)/7)*.1F,0,0);
+            rotation("Cloak3",Mth.sin((age-10)/7)*.12F,0,0);
+            rotation("SidepanelL2",0,0,-.2F+Mth.sin((age+10)/8)*.12F);
+            rotation("SidepanelL3",0,0,Mth.sin((age+5)/8)*.13F);
+            rotation("SidepanelL4",0,0,Mth.sin(age/8)*.14F);
+            rotation("SidepanelR2",0,0,.2F+Mth.sin((age-5)/8)*.12F);
+            rotation("SidepanelR3",0,0,Mth.sin((age-10)/8)*.13F);
+            rotation("SidepanelR4",0,0,Mth.sin((age-15)/8)*.14F);
         } else if (this instanceof LegacyTaintacleModel taintacle) {
-            float flail=entity instanceof thaumcraft.world.taint.TaintacleSmallEntity active ? active.flailIntensity : 1;
+            float flail=entity instanceof thaumcraft.world.taint.TaintacleSmallEntity active ? active.flailIntensity
+                :entity instanceof thaumcraft.world.taint.TaintacleEntity active?active.flailIntensity:1;
             float fi=flail+(entity.hurtTime>0 ? .0125F : -.0125F);
             float frequency=flail>1 ? 3 : 1-.0125F;
             for (int k = 0; k < taintacle.tents.length - 1; k++) {
@@ -163,4 +203,7 @@ public abstract class LegacyVisualModel extends EntityModel<VisualMobEntity> {
         for(String name:names) {var part=named.get(name);if(part!=null)part.part.render(pose,vertices,light,overlay,((rgb>>16)&255)/255f,((rgb>>8)&255)/255f,(rgb&255)/255f,1);}
     }
     public int cuboidCount() { return nodes.stream().mapToInt(node -> node.cubes.size()).sum(); }
+    private void pivot(String name,float x,float y,float z) {
+        var part=named.get(name);if(part!=null)part.setRotationPoint(x,y,z);
+    }
 }

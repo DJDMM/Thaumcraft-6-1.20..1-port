@@ -34,7 +34,7 @@ public final class EssentiaTransfuserProgressionGameTests {
     public static void transportResearchPaysBothCategoriesOnceAndPreservesLateGates(GameTestHelper h) {
         var p=player(h);var k=KnowledgeStore.get(p);var e=ResearchCatalog.get("ESSENTIATRANSPORT");
         h.assertTrue(e.parents().equals(List.of("THAUMATORIUM","INFUSION"))&&e.stages().size()==2
-                &&ResearchCatalog.entries().stream().filter(entry->ResearchProgression.isImplemented(entry.key())).count()==108,"Original parents/stages or canonical census changed");
+                &&ResearchCatalog.entries().stream().filter(entry->ResearchProgression.isImplemented(entry.key())).count()==148,"Original parents/stages or canonical census changed");
         result(h,ResearchNetwork.processAdvance(p,"ESSENTIATRANSPORT",0),ResearchProgression.Result.LOCKED);
         complete(k,"THAUMATORIUM");k.setResearchStage("INFUSION",ResearchCatalog.get("INFUSION").stages().size());
         result(h,ResearchNetwork.processAdvance(p,"ESSENTIATRANSPORT",0),ResearchProgression.Result.LOCKED);
@@ -52,7 +52,7 @@ public final class EssentiaTransfuserProgressionGameTests {
                 &&k.rawKnowledge(KnowledgeType.OBSERVATION,"ARTIFICE")==3&&p.totalExperience==xp+5&&k.permanentWarp()==0&&k.normalWarp()==0,"Original two-stage debit/XP/warp changed");
         before=k.save();result(h,ResearchNetwork.processAdvance(p,"ESSENTIATRANSPORT",1),ResearchProgression.Result.STALE);
         h.assertTrue(before.equals(k.save())&&p.totalExperience==xp+5&&PlayerKnowledge.load(before).isResearchCompleteStrict("ESSENTIATRANSPORT"),"Replay or reload changed payment/completion");
-        for(String key:List.of("BASEELDRITCH","MATSTUDVOID"))h.assertTrue(!ResearchProgression.supportsProgression(key),"Transport unlocked unrelated late research "+key);
+        for(String key:List.of("BASEELDRITCH","MATSTUDVOID"))h.assertTrue(ResearchProgression.supportsProgression(key)&&k.researchStage(key)==0,"Transport unlocked unrelated late research "+key);
         h.succeed();
     }
     @GameTest(template="essentia_network")

@@ -19,6 +19,7 @@ public final class FocusMediaRenderers {
     private FocusMediaRenderers(){}
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event){
         event.registerEntityRenderer(FocusMediaModule.CLOUD.get(),Cloud::new);event.registerEntityRenderer(FocusMediaModule.MINE.get(),Mine::new);event.registerEntityRenderer(FocusMediaModule.SPELL_BAT.get(),Bat::new);
+        event.registerEntityRenderer(FocusMediaModule.ORIGINAL_SPELL_BAT.get(),Bat::new);
     }
     private static ResourceLocation texture(String file){return ResourceLocation.fromNamespaceAndPath("thaumcraft",file);}
     private static final class Cloud extends EntityRenderer<FocusCloudEntity>{

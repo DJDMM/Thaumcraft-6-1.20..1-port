@@ -78,7 +78,7 @@ public final class CatalogGameTests {
         }
         helper.succeed();
     }
-    @GameTest(template="empty") public static void allOriginalEntitiesExistAndCatalogueMobsKeepVisualOnlyPolicy(GameTestHelper helper) {
+    @GameTest(template="empty") public static void allOriginalEntitiesExistAndLivingFactoriesUseNativeGameplay(GameTestHelper helper) {
         helper.assertTrue(VisualEntitySpec.ALL.size()==43,"ConfigEntities coverage changed");
         for(var spec:VisualEntitySpec.ALL) {
             helper.assertTrue(ForgeRegistries.ENTITY_TYPES.containsKey(id(spec.id())),"Missing original entity "+spec.id());
@@ -96,8 +96,15 @@ public final class CatalogGameTests {
                     && !seed.removeWhenFarAway(1000000) && seed.getMaxHealth()==(spec.id().equals("taint_seed_prime")?150:75),"Operational seed lost native AI/stats/persistence policy");
             else if(entity instanceof thaumcraft.world.taint.TaintacleSmallEntity tiny) helper.assertTrue(!tiny.isNoAi()
                     && !tiny.isPersistenceRequired() && tiny.getMaxHealth()==5 && tiny.remainingLifetime()==200,"Operational small tentacle lost native AI/stats/lifetime policy");
-            else if(entity instanceof VisualMobEntity mob) helper.assertTrue(mob.isNoAi() && mob.isPersistenceRequired(),"Catalogue NPC unexpectedly has AI or despawning");
-            helper.assertTrue(Math.abs(entity.getBbWidth()-spec.width())<.0001 && Math.abs(entity.getBbHeight()-spec.height())<.0001,"Incorrect original neutral dimensions "+spec.id());
+            else if(entity instanceof net.minecraft.world.entity.Mob mob) helper.assertTrue(mob.getClass()!=VisualMobEntity.class && !mob.isNoAi(),"Original living registration still constructs an inactive catalogue shell: "+spec.id());
+            if(entity instanceof thaumcraft.world.taint.ThaumicSlimeEntity slime) {
+                // Released constructor chooses 1 << (1 + nextInt(3)); the catalogue
+                // preview's size-four dimensions are not a fixed gameplay size.
+                int size=slime.slimeSize();
+                helper.assertTrue(size==2||size==4||size==8,"Incorrect original constructor slime size: "+size);
+                float dimension=.51000005F*size;
+                helper.assertTrue(Math.abs(entity.getBbWidth()-dimension)<.0001 && Math.abs(entity.getBbHeight()-dimension)<.0001,"Incorrect original size-dependent slime dimensions: size="+size);
+            } else helper.assertTrue(Math.abs(entity.getBbWidth()-spec.width())<.0001 && Math.abs(entity.getBbHeight()-spec.height())<.0001,"Incorrect original neutral dimensions "+spec.id());
         }
         helper.succeed();
     }

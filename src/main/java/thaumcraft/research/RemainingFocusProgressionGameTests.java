@@ -50,10 +50,10 @@ public final class RemainingFocusProgressionGameTests {
             result(h, ResearchNetwork.processAdvance(p, entry.getKey(), 0), ResearchProgression.Result.LOCKED);
             h.assertTrue(state.researchStage(entry.getKey()) == 0, "Missing parent opened " + entry.getKey());
         }
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==108,
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==148,
                 "Canonical inventory must include completed clockwork mind progression");
         for (String key : List.of("INFUSIONANCIENT", "INFUSIONELDRITCH"))
-            result(h, ResearchNetwork.processAdvance(p, key, 0), ResearchProgression.Result.UNSUPPORTED);
+            result(h, ResearchNetwork.processAdvance(p, key, 0), ResearchProgression.Result.LOCKED);
         h.succeed();
     }
 
@@ -129,7 +129,7 @@ public final class RemainingFocusProgressionGameTests {
         h.assertTrue(!state.knowsResearch("!Firebat"), "Out-of-range specimen bypassed server scanner geometry"); far.discard();
         h.assertTrue(!AuromancyProgressionEvents.recordScannedFact(p, far), "Removed specimen granted a scan proof");
         var pech = VisualEntitiesModule.LIVING.get("pech").get().create(h.getLevel());
-        h.assertTrue(AuromancyProgressionEvents.scanFacts(pech).isEmpty(), "Pech body substituted for its wand or FireBat");
+        h.assertTrue(AuromancyProgressionEvents.scanFacts(pech).equals(List.of("!Pech")), "Pech body substituted for its wand or FireBat instead of its own native scan");
         var spectator = new ServerPlayer(h.getLevel().getServer(),h.getLevel(),new GameProfile(UUID.randomUUID(),"spectator_focus")) {
             @Override public boolean isSpectator() { return true; }
         };

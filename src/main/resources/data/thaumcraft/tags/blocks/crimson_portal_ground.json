@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:base_stone_overworld",
+    "#minecraft:dirt",
+    "#minecraft:sand",
+    "#minecraft:snow",
+    "#minecraft:terracotta",
+    "#minecraft:stone_bricks",
+    "#forge:ores",
+    "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone",
+    "minecraft:gravel",
+    "minecraft:sandstone",
+    "minecraft:red_sandstone",
+    "minecraft:netherrack",
+    "minecraft:end_stone"
+  ]
+}

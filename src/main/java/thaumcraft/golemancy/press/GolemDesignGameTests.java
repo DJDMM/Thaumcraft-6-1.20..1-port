@@ -206,9 +206,12 @@ public final class GolemDesignGameTests {
         helper.assertTrue(GolemDesign.create(1, 0, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
                         && GolemDesign.create(0, 1, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
                         && GolemDesign.create(0, 0, 2, 0, 0).orElseThrow().canManufacture(forgedLate)
-                        && !GolemDesign.create(5, 0, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
+                        && GolemDesign.create(5, 0, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
                         && GolemDesign.create(0, 0, 0, 3, 0).orElseThrow().canManufacture(forgedLate),
-                "Completed supported parts/Flyer or the separate Void support gate changed");
+                "Completed original parts/Flyer/Void material gates changed");
+        var partialVoid=forged.copy();partialVoid.getCompound("ResearchStages").putInt("MATSTUDVOID",1);
+        helper.assertTrue(!GolemDesign.create(5,0,0,0,0).orElseThrow().canManufacture(PlayerKnowledge.load(partialVoid)),
+                "Started Void material research bypassed its original strict completion gate");
         CompoundTag aliases = new CompoundTag();
         aliases.putInt("Version", 2);
         ListTag research = new ListTag();

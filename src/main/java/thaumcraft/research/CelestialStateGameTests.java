@@ -70,6 +70,9 @@ public final class CelestialStateGameTests {
         helper.assertTrue(state.temporaryWarp() == 500 && state.warpCounter() == 500, "Warp overflowed its cap");
         PlayerKnowledge restored = PlayerKnowledge.load(state.save());
         helper.assertTrue(restored.temporaryWarp() == 500 && restored.warpCounter() == 500, "Warp was lost on reload");
+        // Initial inactivity fixture isolates periodic decay from the newly native
+        // random Warp event scheduler; WarpGameTests covers its separate activity debit.
+        KnowledgeStore.setWarpCounter(player,0);
         player.tickCount = 1999;
         MinecraftForge.EVENT_BUS.post(new TickEvent.PlayerTickEvent(TickEvent.Phase.END, player));
         helper.assertTrue(state.temporaryWarp() == 500, "Warp decayed before its tick boundary");
@@ -77,7 +80,7 @@ public final class CelestialStateGameTests {
         MinecraftForge.EVENT_BUS.post(new TickEvent.PlayerTickEvent(TickEvent.Phase.START, player));
         helper.assertTrue(state.temporaryWarp() == 500, "Warp decayed in START phase");
         MinecraftForge.EVENT_BUS.post(new TickEvent.PlayerTickEvent(TickEvent.Phase.END, player));
-        helper.assertTrue(state.temporaryWarp() == 499 && state.warpCounter() == 500, "Temporary decay changed the activity counter");
+        helper.assertTrue(state.temporaryWarp() == 499 && state.warpCounter() == 0, "Temporary decay changed an inactive activity counter");
         KnowledgeStore.addTemporaryWarp(player, Integer.MIN_VALUE);
         helper.assertTrue(state.temporaryWarp() == 0 && !ResearchEvents.decayTemporaryWarp(player), "Warp underflowed zero");
         CompoundTag invalid = new CompoundTag();

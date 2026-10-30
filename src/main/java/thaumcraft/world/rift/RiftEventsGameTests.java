@@ -38,6 +38,7 @@ import java.util.UUID;
 /** Native weighted-event adapters, infection cascade and live Wisp combat/loot. */
 @GameTestHolder("thaumcraft") @PrefixGameTestTemplate(false)
 public final class RiftEventsGameTests {
+    private static final net.minecraft.server.level.TicketType<BlockPos> PRIME_TICKS = net.minecraft.server.level.TicketType.create("thaumcraft_prime_event_qa",java.util.Comparator.comparingLong(BlockPos::asLong),400);
     private RiftEventsGameTests() {}
     private static Vec3 center(GameTestHelper h) { return Vec3.atCenterOf(h.absolutePos(new BlockPos(3,45,3))); }
     private static FluxRiftEntity rift(GameTestHelper h) {
@@ -71,22 +72,41 @@ public final class RiftEventsGameTests {
         for (int sample : new int[]{5,10,20,30}) h.assertTrue(RiftEvents.cloudDurationSetting(sample)==sample,"Valid original cloud duration was changed");
         h.succeed();
     }
-    @GameTest(template="empty") public static void primeSeedEventReplacesRiftAndPaysIntegerHalfPollution(GameTestHelper h) {
-        var rift=rift(h); rift.setRiftSize(21); rift.getRandom().setSeed(92173);
+    @GameTest(template="empty",timeoutTicks=240) public static void primeSeedEventReplacesRiftAndPaysIntegerHalfPollution(GameTestHelper h) {
+        // Gaussian placement is outside the3x3 template. Own an upper vertical band
+        // and await real visibility for every chunk in the original seed-spacing cube.
+        Vec3 at=center(h),riftPosition=new Vec3(at.x,280,at.z);
         var random=net.minecraft.util.RandomSource.create(92173);
-        Vec3 expected=new Vec3((int)(rift.getX()+random.nextGaussian()*5)+.5,
-                (int)(rift.getY()+random.nextGaussian()*5),(int)(rift.getZ()+random.nextGaussian()*5)+.5);
-        float flux=AuraManager.getFlux(h.getLevel(),rift.blockPosition());
-        thaumcraft.world.taint.TaintSeedEntity seed=null;
-        try {
-            h.assertTrue(RiftEvents.execute(rift,1)==RiftEvents.Outcome.APPLIED && rift.isRemoved(),"Successful Prime event retained its rift");
-            var seeds=h.getLevel().getEntitiesOfClass(thaumcraft.world.taint.TaintSeedEntity.class,new AABB(expected,expected).inflate(2));
-            h.assertTrue(seeds.size()==1,"Prime event did not produce one native seed");seed=seeds.get(0);
-            h.assertTrue(seed.position().equals(expected) && !seed.isNoAi() && seed.getMaxHealth()==150 && seed.getBoost()==21,
-                    "Prime placement, boost, native AI or original health differs");
-            h.assertTrue(AuraManager.getFlux(h.getLevel(),rift.blockPosition())==flux+10 && rift.getRiftStability()==-20,
-                    "Prime event pollution must be integer(size/2), with zero stability cost");
-        } finally { if(seed!=null)seed.discard();rift.discard(); } h.succeed();
+        Vec3 expected=new Vec3((int)(riftPosition.x+random.nextGaussian()*5)+.5,
+                (int)(riftPosition.y+random.nextGaussian()*5),(int)(riftPosition.z+random.nextGaussian()*5)+.5);
+        var probe=(thaumcraft.world.taint.TaintSeedEntity)VisualEntitiesModule.LIVING.get("taint_seed_prime").get().create(h.getLevel());probe.setPos(expected);
+        AABB bounds=probe.getBoundingBox().inflate(thaumcraft.world.taint.TaintModule.spreadArea());
+        int x0=net.minecraft.util.Mth.floor(bounds.minX)>>4,x1=net.minecraft.util.Mth.floor(bounds.maxX)>>4,
+                z0=net.minecraft.util.Mth.floor(bounds.minZ)>>4,z1=net.minecraft.util.Mth.floor(bounds.maxZ)>>4;
+        BlockPos ticketPos=BlockPos.containing(expected);var ticketChunk=new net.minecraft.world.level.ChunkPos(ticketPos);
+        int radius=3+(int)Math.ceil(thaumcraft.world.taint.TaintModule.spreadArea()/16D);
+        h.getLevel().getChunkSource().addRegionTicket(PRIME_TICKS,ticketChunk,radius,ticketPos);
+        for(int x=x0;x<=x1;x++)for(int z=z0;z<=z1;z++)h.getLevel().getChunk(x,z);
+        boolean[] closed={false};Runnable close=()->{probe.discard();h.getLevel().getChunkSource().removeRegionTicket(PRIME_TICKS,ticketChunk,radius,ticketPos);};
+        h.onEachTick(()->{
+            if(closed[0])return;
+            for(int x=x0;x<=x1;x++)for(int z=z0;z<=z1;z++)if(!h.getLevel().areEntitiesLoaded(net.minecraft.world.level.ChunkPos.asLong(x,z))||!h.getLevel().getChunkSource().isPositionTicking(net.minecraft.world.level.ChunkPos.asLong(x,z)))return;
+            closed[0]=true;FluxRiftEntity rift=null;thaumcraft.world.taint.TaintSeedEntity seed=null;
+            try {
+                h.assertTrue(!h.getLevel().containsAnyLiquid(probe.getBoundingBox())&&h.getLevel().isUnobstructed(probe)&&probe.canSpawnFromRift(),"Prepared Prime body failed original liquid/entity/spacing gates at "+expected);
+                rift=rift(h);rift.setPos(riftPosition);rift.setRiftSize(21);rift.getRandom().setSeed(92173);
+                h.assertTrue(!thaumcraft.world.taint.TaintHelper.isNearTaintSeed(h.getLevel(),rift.blockPosition()),"Prepared Prime event is within another live seed's original exclusion area");
+                float flux=AuraManager.getFlux(h.getLevel(),rift.blockPosition());var outcome=RiftEvents.execute(rift,1);
+                h.assertTrue(outcome==RiftEvents.Outcome.APPLIED,"Eligible Prime event was rejected: "+outcome+", position="+expected);
+                h.assertTrue(rift.isRemoved(),"Applied Prime event retained its rift");
+                var seeds=h.getLevel().getEntitiesOfClass(thaumcraft.world.taint.TaintSeedEntity.class,new AABB(expected,expected).inflate(2));
+                h.assertTrue(seeds.size()==1,"Prime event did not produce one visible native seed: "+seeds.size());seed=seeds.get(0);
+                h.assertTrue(seed.position().equals(expected)&&!seed.isNoAi()&&seed.getMaxHealth()==150&&seed.getBoost()==21,"Prime placement, boost, native AI or original health differs");
+                h.assertTrue(AuraManager.getFlux(h.getLevel(),rift.blockPosition())==flux+10&&rift.getRiftStability()==-20,"Prime event pollution must be integer(size/2), with zero stability cost");
+                h.succeed();
+            } finally {if(seed!=null)seed.discard();if(rift!=null)rift.discard();close.run();}
+        });
+        h.runAfterDelay(180,()->{if(!closed[0]){closed[0]=true;close.run();h.fail("Prime event fixture did not reach native entity visibility/ticking");}});
     }
     @GameTest(template="empty") public static void primeSeedEventNearExistingSeedHasNoSideEffects(GameTestHelper h) {
         var rift=rift(h);

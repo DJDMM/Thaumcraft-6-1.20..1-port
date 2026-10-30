@@ -61,7 +61,7 @@ public final class CondenserProgressionGameTests {
     public static void originalCleanupAddsOneCanonicalStudyAndNoInfusionPath(GameTestHelper h) {
         var entry=ResearchCatalog.get(KEY);
         h.assertTrue(ResearchProgression.isImplemented(KEY)
-                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==108
+                &&ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==148
                 &&entry.parents().equals(List.of("FLUX","f_toomuchflux","VISBATTERY"))
                 &&entry.category().equals("BASICS")&&entry.stages().size()==2,
                 "Released FLUXCLEANUP graph or canonical103 study census differs");
@@ -71,7 +71,7 @@ public final class CondenserProgressionGameTests {
                     &&display.get(0).research().equals(KEY),"Released recipe became infusion or lost bare gate");
         }
         for(String later:List.of("BASEELDRITCH"))
-            result(h,player(h),0,later,ResearchProgression.Result.UNSUPPORTED);
+            result(h,player(h),0,later,ResearchProgression.Result.LOCKED);
         h.succeed();
     }
 
